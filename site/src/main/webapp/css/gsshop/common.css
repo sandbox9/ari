@@ -1,0 +1,973 @@
+@charset "utf-8";
+/*
+ * 파일명	 : common.css
+ * 작성자	 : 한미선
+ * 작성일	 : 2014-07-02
+ * 이메일	 : cutie415@gsshop.com
+ * 설명		 : m.gsshop mobile css
+ */
+/* Reset Start */
+body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select,blockquote{margin:0;padding:0}
+body,input,select,textarea,button,table{font:14px/1.25em Malgun Gothic,arial,tahoma,sans-serif,Helvetica;color:#222;letter-spacing:-0.5px;}
+body{background:#fff;-webkit-text-size-adjust:none}fieldset,img,iframe,frame{border:0}
+legend,caption{overflow:hidden;position:absolute;font-size:0;line-height:0;visibility:hidden}
+h1,h2,h3,h4,h5,h6{font-size:1em}
+img{vertical-align:middle}
+img,input,textarea,fieldset{border:0 none;outline:none;} /* 2014-02-04 오렌지보더 해제 */
+ul,ol{list-style:none}
+em,address{font-style:normal}
+a{color:#222;text-decoration:none;}
+a:link,a:visited,a:hover,a:active{text-decoration:none;outline:none;} /* 2014-02-04 오렌지보더 해제 */
+strong{font-weight:bold}
+legend,hr,caption{display:none}
+table{border-spacing:0}
+input,select,textarea,button{vertical-align:middle;}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}
+u{text-decoration:none;}
+figure{margin:0;padding:0;}/* figure reset선언 */
+input[type='text'], input[type='password'], input[type='search'], input[type='number']{-webkit-appearance:none;-webkit-border-radius:0}
+input:checked[type='checkbox']{border:2px solid #ccc;background:#fff;-webkit-appearance:checkbox;}
+button,input[type='submit'],input[type='button']{cursor:pointer;}
+pre{margin:0;padding:0;}
+::-webkit-input-placeholder{color:#cacaca;}
+input,textarea,fieldset{-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-tap-highlight-color:transparent;}
+input[type='text'], input[type='tel']{height:25px;text-indent:1px;color:#222;border-bottom:1px solid #e4e4e4;}
+input[type='text']:focus, input[type='tel']:focus{color:#222;border-bottom:1px solid #a4dd00;}
+input[type='password']{height:25px;text-indent:1px;color:#222;}
+input[type='password']:focus{color:#222;}
+input[type='search']::-webkit-search-cancel-button{display:none;}
+input[type='button']{-webkit-appearance:none;border-radius:0px;-webkit-border-radius:0;}
+select{-webkit-appearance:none;border-radius:0px;-webkit-border-radius:0;outline:none;}
+textarea{resize:none;overflow:auto;}
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {-webkit-appearance:none;}
+/* iframe{overflow:hidden;} */
+
+/* Global Class */
+.ko{ime-mode:active}
+.en{ime-mode:inactive}
+.vtop{vertical-align:top}
+.vmid{vertical-align:middle}
+.vbtm{vertical-align:bottom}
+.left{text-align:left}
+.right{text-align:right}
+.center{text-align:center}
+.relative{position:relative}
+.absolute{position:absolute}
+.hide{position:absolute;overflow:hidden;width:0;height:0;font-size:0;line-height:0;text-indent:-9999px;}
+
+/* Blank Class */
+.mgl2{margin-left:2px}.mgl4{margin-left:4px}.mgl6{margin-left:6px}.mgl8{margin-left:8px}.mgl10{margin-left:10px}.mgl15{margin-left:15px}.mgl20{margin-left:20px}.mgl25{margin-left:25px}.mgl30{margin-left:30px}
+.mgr2{margin-right:2px}.mgr4{margin-right:4px}.mgr6{margin-right:6px}.mgr8{margin-right:8px}.mgr10{margin-right:10px}.mgr15{margin-right:15px}.mgr20{margin-right:20px}.mgr25{margin-right:25px}.mgr30{margin-right:30px}
+.mgt5{margin-top:5px}.mgt10{margin-top:10px}.mgt15{margin-top:15px}.mgt20{margin-top:20px}.mgt25{margin-top:25px}.mgt30{margin-top:30px}.mgt35{margin-top:35px}.mgt40{margin-top:40px}.mgt45{margin-top:45px}.mgt50{margin-top:50px}
+.mgb5{margin-bottom:5px}.mgb10{margin-bottom:10px}.mgb15{margin-bottom:15px}.mgb20{margin-bottom:20px}.mgb25{margin-bottom:25px}.mgb30{margin-bottom:30px}.mgb35{margin-bottom:35px}.mgb40{margin-bottom:40px}.mgb45{margin-bottom:45px}.mgb50{margin-bottom:50px}
+.pdl2{padding-left:2px}.pdl4{padding-left:4px}.pdl6{padding-left:6px}.pdl8{padding-left:8px}.pdl10{padding-left:10px}.pdl15{padding-left:15px}.pdl20{padding-left:20px}.pdl25{padding-left:25px}.pdl30{padding-left:30px}
+.pdr2{padding-right:2px}.pdr4{padding-right:4px}.pdr6{padding-right:6px}.pdr8{padding-right:8px}.pdr10{padding-right:10px}.pdr15{padding-right:15px}.pdr20{padding-right:20px}.pdr25{padding-right:25px}.pdr30{padding-right:30px}
+.pdt5{padding-top:5px}.pdt10{padding-top:10px}.pdt15{padding-top:15px}.pdt20{padding-top:20px}.pdt25{padding-top:25px}.pdt30{padding-top:30px}.pdt35{padding-top:35px}.pdt40{padding-top:40px}.pdt45{padding-top:45px}.pdt50{padding-top:50px}
+.pdb5{padding-bottom:5px}.pdb10{padding-bottom:10px}.pdb15{padding-bottom:15px}.pdb20{padding-bottom:20px}.pdb25{padding-bottom:25px}.pdb30{padding-bottom:30px}.pdb35{padding-bottom:35px}.pdb40{padding-bottom:40px}.pdb45{padding-bottom:45px}.pdb50{padding-bottom:50px}
+
+/* Layout Start */
+html, body{height:100%;margin:0;padding:0;}
+body.smart_cart{position:relative;}
+
+/* Common Head Line */
+#head #headline{position:relative;border-bottom:1px solid #ccc}
+#head div.title_area{position:relative;width:100%;height:44px;padding:0;}
+#head div.title_area a.btn_back{display:block;position:absolute;top:5px;left:0;width:30px;height:30px;}
+#head div.title_area a.btn_back span{display:inline-block;width:30px;height:30px;}
+#head div.title_area a.btn_back img{display:inline-block;width:30px;height:30px;}
+#head div.title_area h2{font-size:17px;line-height:44px;font-weight:bold;color:#111;}
+#head div.title_area h2 span{display:block;padding:0;font-size:17px;line-height:44px;color:#111;font-weight:bold;text-align:center;}
+#head a.search_btn{position:absolute;top:5px;right:5px;width:42px;height:30px;border:solid 1px #cfcfcf;background:#fff;}
+#head a.close3{position:absolute;top:6px;right:5px;}
+#head a.search_btn span{display:inline-block;width:100%;height:30px;border-radius:2px;-webkit-border-radius:2px;box-shadow:inset 1px 1px #fff;-webkit-box-shadow:inset 1px 1px #fff;}
+#head a.search_btn img{position:relative;top:5px;left:11px;height:17px;}
+#head a.prd_info{display:block;position:absolute;top:6px;right:5px;height:28px;padding:0 7px;line-height:28px;text-align:center;border:1px solid #c1c1c1;background:#fff;}
+#head a.prd_info span{display:inline-block;width:100%;line-height:28px;font-size:13px;color:#7c8181;}
+#head a.head_btn{position:absolute;top:5px;right:5px;line-height:28px;padding:0 8px;}
+a.btn_tvshopping{display:block;width:35px;height:28px;line-height:28px;background:#fff;}
+a.btn_tvshopping em{display:inline-block;width:20px;height:20px;overflow:hidden;line-height:28px;font-size:0;text-indent:-9999px;background:url('http://image.gsshop.com/mobile/mc/images/srch/icon_cal.png') no-repeat 50% 50%;background-size:20px auto;-webkit-background-size:20px auto;vertical-align:middle;}
+a.btn_tvshopping span{display:inline-block;font-size:13px;line-height:28px;letter-spacing:-1px;}
+#head div.title_area a.prd_info.zzim{width:auto;padding:0 8px;}
+#head div.title_area a.prd_info.zzim span{width:auto;}
+#head div.title_area a.prd_info.zzim em{display:inline-block;width:24px;height:22px;margin-right:2px;background:url('http://image.gsshop.com/mobile/mc/images/common/icon_zzim_top.png') no-repeat 0 0;background-size:48px auto;-webkit-background-size:48px auto;vertical-align:middle;}
+#head div.title_area a.prd_info.zzim.on em{background-position:-24px 0;}
+/* Contents Type */
+#cont_wrap.category_list, #cont_wrap.cont_shadow, #cont_wrap.cont_shadow02, #cont_wrap.cont_shadow03{background:#fff;}
+#cont_content .cont_btn{padding:15px 0;text-align:center;border-top:1px solid #e2e2e2;background:#f7f7f7;}
+.cont_gateway{margin:0 0 3px;background:#fff;}
+.cont_gateway form{height:0;padding:0;margin:0;}
+.cont_gateway div{margin:0 auto;border-bottom:1px solid #bcbcbc;text-align:center;}
+.cont_gateway div iframe{margin:0 auto;}
+.cont_gateway #jumun_mobilians iframe, .cont_gateway #jumun_poloaris iframe, .cont_gateway #jumun_ilk iframe, .cont_gateway #jumun_nomember iframe{margin:45px auto 0;}
+.cont_gateway #CPN_QTY_IFRAME{margin:45px auto 0;}
+/* loading */
+#cont_more{clear:both;padding:0;}
+#cont_more ul{overflow:hidden;margin:8px;padding:0;border:1px solid #e5e5e5;}
+#cont_more ul:after{display:block;clear:both;content:''}
+#cont_more li{float:left;width:33.3%;height:37px;}
+#cont_more li:nth-child(3){width:33%;float:right;}
+#cont_more li div{padding:0 10px;line-height:37px;}
+#cont_more li div a{display:inline-block;padding:0;font-size:13px;color:#7c7c7c;letter-spacing:-1px;}
+#cont_more li:nth-child(1) div a img{position:relative;top:-2px;width:8px;vertical-align:middle;}
+#cont_more li:nth-child(2) div span{display:block;padding:0;text-align:center;font-size:13px;color:#7c7c7c;letter-spacing:-1px;}
+#cont_more li:nth-child(3) div{text-align:right;}
+#cont_more li:nth-child(3) div a img{display:inline-block;width:8px;vertical-align:1px;}
+#cont_more #moreDiv{padding:0;font-size:13px;color:#7c7c7c;letter-spacing:-1px;text-align:center;}
+#cont_more .loading30{display:block;height:37px;margin:0 auto;padding:0;line-height:37px;background-position:50% 50%;}
+#cont_more .loading15{padding:5px 0 0;background-position:50% bottom;}
+/* Common Components Start */
+.section{margin:0 10px;}
+.pro_box{margin:0;padding:0;border:1px solid #cbcbcb;background:#fff;}
+.box_shadow01{margin:0 10px;padding:0;border:1px solid #cecece;background:#fff;}
+.box_shadow02{margin:3px 0;padding:0;border-top:1px solid #fff;border-bottom:1px solid #bcbcbc;background:#f7f7f7;}
+/* Tab in Box */
+.box_wtab .pro_box{margin:-32px 0 0;padding:32px 0 0;background:#fff;}
+.box_wtab .pro_box h5{display:none;}
+/* Text Btn */
+.btn_txt01{display:inline-block;text-align:center;border:1px solid #cbcbcb;background:#f8f8f8;}
+.btn_txt01.t01{height:27px;padding:0 8px;color:#373e40;font-size:13px;line-height:27px;}
+.btn_txt01.t02{height:25px;padding:0 5px;color:#373e40;font-size:12px;line-height:25px;}
+.btn_txt01.t02.on{color:#adb0b0;}
+.btn_txt02{display:inline-block;text-align:center;border:1px solid #cbcbcb;background:#f8f8f8;}
+.btn_txt02.t01{width:75px;padding:0;color:#4d5454;font-size:13px;font-weight:bold;}
+.btn_txt02.t02{width:85px;padding:10px 0;color:#4d5454;font-size:13px;font-weight:bold;}
+.btn_txt02.t03{width:120px;height:35px;padding:0;color:#4d5454;font-size:13px;font-weight:bold;line-height:35px;}
+.btn_txt02.t04{width:100px;padding:10px 0;color:#4d5454;font-size:13px;font-weight:bold;}
+.btn_txt03{display:inline-block;text-align:center;border:1px solid #91ad42;background:#a9cf3b;}
+.btn_txt03.t01{padding:5px 15px;color:#fff;font-size:14px;font-weight:bold;text-shadow:0 -1px 1px #82a02d;}
+.btn_txt04{display:inline-block;text-align:center;border:1px solid #cbcbcb;background:#f8f8f8;}
+.btn_txt04.t01{width:95px;height:35px;padding:0;color:#4d5454;font-size:12px;font-weight:bold;line-height:35px;}
+.btn_txt05{display:block;position:relative;float:left;height:20px;line-height:20px;padding:0 6px;}
+.btn_txt05 u{display:inline-block;padding-top:1px;font-size:12px;color:#86cf00;font-weight:bold;}
+.btn_txt05 em{position:absolute;top:7px;right:20px;width:12px;height:7px;margin-left:5px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_detail.png') no-repeat;background-size:151px auto;-webkit-background-size:151px auto;}
+.btn_txt05.open em{background-position:-57px -127px;}
+.btn_txt05.close em{background-position:-57px -117px;}
+.btn_txt06{display:inline-block;position:relative;height:25px;padding:0 6px;line-height:25px;border:solid 1px #cbcbcb;background:#f8f8f8;}
+.btn_txt06 u{display:block;height:25px;font-size:12px;color:#4d5454;line-height:25px;text-shadow:0 1px 2px #fff;}
+.btn_txt06 em{display:block;position:absolute;top:9px;right:5px;width:8px;height:6px;margin-left:5px;vertical-align:1px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_cart.png') no-repeat;background-size:75px auto;-webkit-background-size:75px auto;}
+.btn_txt06.t01{width:75px;padding:9px 0;color:#4d5454;font-size:12px;font-weight:bold;}
+.btn_txt06.t02{width:85px;padding:10px 0;color:#4d5454;font-size:13px;font-weight:bold;}
+.btn_txt06.t03{width:120px;padding:10px 0;color:#4d5454;font-size:13px;font-weight:bold;}
+.btn_txt06.t04{width:95px;padding:10px 0;color:#4d5454;font-size:13px;font-weight:bold;}
+.btn_txt06.open em{background-position:-68px -17px;}
+.btn_txt06.close em{background-position:-68px -2px;}
+.btn_txt06.disabled u{color:#c3c3c3;}
+.btn_txt07{display:inline-block;position:relative;height:20px;line-height:18px;padding:0;border:solid 1px #d7d7d7;background:#f9f9f9;}
+.btn_txt07 u{display:inline-block;margin:0 0 0 6px;font-size:12px;color:#4d5454;text-shadow:0 1px 2px #fff;}
+.btn_txt07 em{display:inline-block;position:absolute;top:8px;right:5px;width:8px;height:6px;margin-left:5px;vertical-align:1px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_cart.png') no-repeat -68px -19px;background-size:75px auto;-webkit-background-size:75px auto;}
+.btn_txt07.open em{background-position:-68px -19px;}
+.btn_txt07.close em{background-position:-68px -4px;}
+.btn_txt07.t01{width:95px;padding:7px 0;color:#4d5454;font-size:12px;font-weight:bold;}
+.btn_txt08{display:inline-block;height:25px;line-height:25px;padding:0 6px;border:solid 1px #d7d7d7;background:#e8e8e8;}
+.btn_txt08 u{display:inline-block;font-size:12px;font-weight:bold;color:#7c7c7c;text-shadow:0 1px 2px #fff;-webkit-text-shadow:0 1px 2px #fff;}
+.btn_txt08 em{display:inline-block;width:8px;height:6px;margin-left:5px;vertical-align:1px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_cart.png') no-repeat;background-size:75px auto;-webkit-background-size:75px auto;}
+.btn_txt08.open em{background-position:-68px -19px;}
+.btn_txt08.close em{background-position:-68px -4px;}
+.btn_txt09{display:inline-block;text-align:center;font-size:13px;color:#4d5454;font-weight:bold;text-shadow:0 1px 0 #fff;border:1px solid #cbcbcb;background:#f8f8f8;}
+.btn_txt10{display:inline-block;line-height:38px;text-align:center;font-size:13px;color:#fff;font-weight:bold;text-shadow:0 -1px 0 #6b6b6b;border:solid 1px #676767;background:#8c8c8c;}
+.btn_txt10 span{display:inline-block;width:100%;box-shadow:inset 1px 1px 3px #787878;-webkit-box-shadow:inset 1px 1px 3px #787878;}
+.btn_txt11{display:inline-block;line-height:38px;text-align:center;font-size:13px;color:#777;font-weight:bold;text-shadow:0 1px 0 #f6f6f6;border:solid 1px #bbb;background:#f7f7f7;}
+.btn_txt11 span{display:inline-block;width:100%;box-shadow:inset 1px 1px 3px #d3d3d3;-webkit-box-shadow:inset 1px 1px 3px #d3d3d3;}
+.btn_txt12{display:inline-block;height:25px;line-height:25px;text-align:center;font-size:12px;color:#7c7c7c;font-weight:normal;text-shadow:0 1px 0 #efefef;background:#e8e8e8;border:solid 1px #c9c9c9;}
+.btn_txt13{height:31px;padding:0 10px;line-height:31px;font-size:13px;color:#fff;text-shadow:0 -1px 0 #c02849;border:solid 1px #e62763;background:#f4446a;}
+.btn_all{display:inline-block;height:20px;padding:0 5px;font-size:12px;line-height:20px;letter-spacing:-1px;color:#7c7c7c;text-shadow:0 1px 1px #fff;border:1px solid #c9c9c9;background:#e8e8e8;}
+.btn_add_frame{display:inline-block;width:40px;height:25px;line-height:25px;text-align:center;border:1px solid #cbcbcb;background:#fafafa;}
+.btn_add_frame u{line-height:25px;color:#4d5454;font-size:13px;text-shadow:0 1px 1px #fff;text-align:center;}
+/* 그린버튼 */
+a.btn_green1, a.btn_green2{display:inline-block;height:26px;line-height:26px;text-align:center;font-weight:bold;font-size:13px;color:#fff;background:#86cf00;}
+a.btn_green1 span{display:inline-block;width:10px;height:8px;margin-left:5px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_detail.png') no-repeat -18px -38px;background-size:151px auto;-webkit-background-size:151px auto;}
+a.btn_green1.close span{background-position:-18px -24px;}
+/* Image Btn */
+a.btn_close_calendar{display:block;width:40px;height:40px;}
+a.btn_close_calendar span{display:block;width:30px;height:30px;padding:5px;color:transparent;background:url('http://image.gsshop.com/mobile/mc/images/common/icon_tvshopping03.png') no-repeat 50% 50%;background-size:20px auto;-webkit-background-size:20px auto;}
+/* 버튼 */
+a.order{border:solid 1px #e62763;background:#f22867 -webkit-gradient(linear, center top, center bottom, from(#f22867), to(#f22867));}
+a.order span{display:inline-block;width:20px;height:19px;margin:8px 2px 0 0;vertical-align:middle;background:url('http://image.gsshop.com/mobile/mc/images/goods/img_mgoods.png') no-repeat 0 -120px;background-size:150px auto;-webkit-background-size:150px auto;}
+a.order p{display:inline-block;margin-top:8px;vertical-align:middle;font-weight:bold;color:#fff;text-shadow:0 -1px 1px #de255f;}
+a.cart{border:solid 1px #10939f;background:#00a4b3 -webkit-gradient(linear, center top, center bottom, from(#00a4b3), to(#00a4b3));}
+a.cart span{display:inline-block;width:20px;height:19px;margin:8px 2px 0 0;vertical-align:middle;background:url('http://image.gsshop.com/mobile/mc/images/goods/img_mgoods.png') no-repeat -21px -120px;background-size:150px auto;-webkit-background-size:150px auto;}
+a.cart p{display:inline-block;margin-top:8px;vertical-align:middle;font-weight:bold;color:#fff;text-shadow:0 -1px 1px #008a8c;}
+a.cart.disabled{border:solid 1px #adadad;border-radius:3px;-webkit-border-radius:3px;background:#bdc2c3 -webkit-gradient(linear, center top, center bottom, from(#bdc2c3), to(#bdc2c3));}
+a.cart.disabled span{display:inline-block;width:20px;height:19px;margin:8px 2px 0 0;vertical-align:middle;background:url('http://image.gsshop.com/mobile/mc/images/goods/img_mgoods.png') no-repeat -84px -120px;background-size:150px auto;-webkit-background-size:150px auto;}
+a.cart.disabled p{display:inline-block;margin-top:8px;vertical-align:middle;font-weight:bold;color:#ddd;text-shadow:0 -1px 1px #aeb2b3;}
+a.cart.non{border:solid 1px #adadad;background:#bdc2c3 -webkit-gradient(linear, center top, center bottom, from(#bdc2c3), to(#bdc2c3));}
+a.cart.non span{display:inline-block;width:20px;height:19px;margin:8px 2px 0 0;vertical-align:middle;background:url('http://image.gsshop.com/mobile/mc/images/goods/img_mgoods.png') no-repeat -84px -120px;background-size:150px auto;-webkit-background-size:150px auto;}
+a.cart.non p{display:inline-block;margin-top:8px;vertical-align:middle;font-weight:bold;color:#ddd;text-shadow:0 -1px 1px #aeb2b3;}
+a.wish{border:solid 1px #838383;border-radius:0;-webkit-border-radius:0;background:#8c8c8c -webkit-gradient(linear, center top, center bottom, from(#8c8c8c), to(#8c8c8c));}
+a.wish span{display:inline-block;width:17px;height:19px;vertical-align:middle;margin:8px 2px 0 0;background:url('http://image.gsshop.com/mobile/mc/images/goods/img_mgoods.png') no-repeat -42px -120px;background-size:150px auto;-webkit-background-size:150px auto;}
+a.wish p{display:none;height:0;font-size:0;vertical-align:middle;font-weight:bold;color:#fff;text-shadow:0 -1px 1px #828282;}
+a.call{border:solid 1px #838383;border-radius:0;-webkit-border-radius:0;background:#8c8c8c -webkit-gradient(linear, center top, center bottom, from(#8c8c8c), to(#8c8c8c));}
+a.call span{display:inline-block;width:20px;height:19px;vertical-align:middle;margin-top:7px;background:url('http://image.gsshop.com/mobile/mc/images/goods/img_mgoods.png') no-repeat -63px -120px;background-size:150px auto;-webkit-background-size:150px auto;}
+a.call p{display:inline-block;margin-top:5px;vertical-align:middle;font-weight:bold;color:#fff;text-shadow:0 -1px 1px #828282;}
+a.rental_call{border:solid 1px #e62763;border-radius:0;-webkit-border-radius:0;background:#f22867 -webkit-gradient(linear, center top, center bottom, from(#f22867), to(#f22867));}
+a.rental_call span{display:inline-block;width:20px;height:19px;margin:8px 2px 0 0;vertical-align:middle;background:url('http://image.gsshop.com/mobile/mc/images/goods/img_mgoods.png') no-repeat 0 -120px;background-size:150px auto;-webkit-background-size:150px auto;}
+a.rental_call p{display:inline-block;margin-top:8px;vertical-align:middle;font-weight:bold;color:#fff;text-shadow:0 -1px 1px #828282;}
+a.cs_call{border:solid 1px #10939f;border-radius:3px;-webkit-border-radius:3px;background:#00a4b3 -webkit-gradient(linear, center top, center bottom, from(#00a4b3), to(#00a4b3));}
+a.cs_call p{display:inline-block;margin-top:8px;vertical-align:middle;font-weight:bold;color:#fff;text-shadow:0 -1px 1px #828282;}
+a.cs_call span{display:inline-block;width:20px;height:19px;vertical-align:middle;margin-top:7px;background:url('http://image.gsshop.com/mobile/mc/images/goods/img_mgoods.png') no-repeat -63px -120px;background-size:150px auto;-webkit-background-size:150px auto;}
+a.selected_order{margin-left:0;border:solid 1px #838383;border-radius:0;-webkit-border-radius:0;background:#8c8c8c -webkit-gradient(linear, center top, center bottom, from(#8c8c8c), to(#8c8c8c));}
+a.selected_order span{display:inline-block;width:24px;height:17px;vertical-align:middle;margin-top:8px;background:url('http://image.gsshop.com/mobile/mc/images/common/ico_common_btn.png') no-repeat -74px 0;background-size:100px auto;-webkit-background-size:100px auto;}
+a.selected_order p{display:inline-block;margin-top:8px;vertical-align:middle;font-weight:bold;color:#fff;text-shadow:0 -1px 1px #828282;}
+a.favorite_folder{border:solid 1px #838383;border-radius:0;-webkit-border-radius:0;background:#8c8c8c -webkit-gradient(linear, center top, center bottom, from(#8c8c8c), to(#8c8c8c));}
+a.favorite_folder span{display:inline-block;width:17px;height:19px;vertical-align:middle;margin:8px 2px 0 0;background:url('http://image.gsshop.com/mobile/mc/images/goods/img_mgoods.png') no-repeat -42px -120px;background-size:150px auto;-webkit-background-size:150px auto;}
+a.favorite_folder p{display:inline-block;margin-top:8px;vertical-align:middle;font-weight:bold;color:#fff;text-shadow:0 -1px 1px #828282;}
+/* Product Info */
+.pro_tit{overflow:hidden;line-height:16px;}
+.pro_won{display:inline !important;color:#777;}
+.pro_won02{color:#acacac;}
+.pro_won2{color:#acacac;}
+.blt_proinfo{display:inline-block;color:transparent;text-shadow:none;background:url('http://image.gsshop.com/mobile/mc/images/common/icon_prd.png') no-repeat 0 0;background-size:90px auto;-webkit-background-size:90px auto;}
+.mu{overflow:hidden;width:16px;height:16px;background-position:0 0;vertical-align:bottom;}
+.save{overflow:hidden;width:16px;height:16px;background-position:-16px 0;vertical-align:bottom;}
+.coupon{overflow:hidden;width:16px;height:16px;background-position:-33px 0;vertical-align:bottom;}
+.zzim{width:30px;height:27px;border-left:1px solid #e5e5e5;border-top:1px solid #e5e5e5;background:url('http://image.gsshop.com/mobile/mc/images/srch/icon_heart_off.png') no-repeat 0 0;-webkit-background-size:30px;background-size:30px;}
+.zzim.on{background:url('http://image.gsshop.com/mobile/mc/images/srch/icon_heart_on.png') no-repeat 0 -1px;-webkit-background-size:30px;background-size:30px;}
+.ditto{display:block;width:27px;height:27px;color:transparent;font-size:0;background:url('http://image.gsshop.com/mobile/mc/images/common/icon_prd.png') no-repeat -63px -68px;background-size:90px auto;-webkit-background-size:90px auto;}
+.vod{display:block;width:78px;height:78px;color:transparent;background:url('http://image.gsshop.com/mobile/mc/images/common/btn_vod.png') no-repeat 0 0;background-size:78px auto;-webkit-background-size:78px auto;}
+.mov{display:block;width:25px;height:25px;font-size:0;background:url('http://image.gsshop.com/mobile/mc/images/common/icon_prd.png') no-repeat -65px -42px;background-size:90px auto;-webkit-background-size:90px auto;}
+.blt_onair{width:13px;height:13px;background-position:0 1px;vertical-align:middle;}
+.blt_schedule{width:19px;height:16px;margin:0 3px 0 0;background-position:-17px -77px;vertical-align:middle;}
+.blt_quick_order{width:19px;height:14px;margin:0 3px 0 0;background-position:-35px -76px;vertical-align:middle;}
+.blt_cart{width:18px;height:16px;margin:0 3px 0 0;background-position:-35px -44px;vertical-align:middle;}
+.blt_cart.on{background-position:-35px -61px;}
+.blt_sns{width:18px;height:16px;margin:0 3px 0 0;background-position:0px -77px;vertical-align:middle;}
+.blt_wish{width:18px;height:16px;margin:0 3px 0 0;background-position:0px -44px;vertical-align:middle;}
+.blt_wish.on{background-position:0px -60px;}
+.blt_gongam{width:18px;height:16px;margin:0 3px 0 0;background-position:-17px -45px;vertical-align:middle;}
+.blt_gongam.on{width:0px;height:0px;margin:0;background-position:-17px -45px;vertical-align:middle;}
+.btn_search{width:16px;height:16px;background-position:0 -16px;}
+/* 탭메뉴 */
+.t_tab01{position:relative;margin:0;padding:0;z-index:10;border:1px solid #bcbcbc;border-bottom:1px solid #e4e4e4;border-radius:4px 4px 0 0;-webkit-border-radius:4px 4px 0 0;background:#fcfcfc -webkit-gradient(linear, left top, left bottom, from(#fcfcfc), to(#f7f7f7)) no-repeat;}
+.t_tab01 ul:after{display:block;overflow:hidden;clear:both;content:''}
+.t_tab01 li{position:relative;float:left;width:25%;text-align:center;}
+.t_tab01 li.on:after{display:block;overflow:hidden;clear:both;content:'';position:absolute;bottom:-11px;left:50%;width:14px;height:11px;margin:0 0 0 -8px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_main_boxarrow.png') no-repeat 0 0;background-size:auto 7px;-webkit-background-size:auto 7px;}
+.t_tab01 li a{display:block;height:30px;color:#adb0b0;font-size:14px;font-weight:bold;line-height:30px;}
+.t_tab01 li.on a{color:#373e40;}
+div.tab_wrapper{height:36px;padding-top:8px;border-bottom:solid 1px #252d3b;background:#323d53;}
+.tab2{overflow:hidden;margin:0 10px 8px;border:solid 1px #252d3b;background:#323d53;}
+.tab2 li{float:left;width:50%;line-height:27px;text-align:center;background:#323d53;}
+.tab2 li a{display:block;font-size:12px;color:#c8cbd1;text-shadow:0 -1px 0 #000;border-right:solid 1px #252d3b;}
+.tab2 li.selected{background:#3d4960;}
+.tab2 li.selected a{color:#86cf00;font-weight:bold;}
+.tab2 li:last-child a{border-right:none;}
+.tab2 li a span{color:#9ea1a6;}
+.tab3{overflow:hidden;margin:0 10px 8px;border:solid 1px #252d3b;}
+.tab3 li{float:left;width:33.3%;line-height:27px;text-align:center;background:#323d53;}
+.tab3 li.selected{background:#3d4960;}
+.tab3 li a{display:block;font-size:12px;color:#c8cbd1;text-shadow:0 -1px 0 #000;border-right:solid 1px #202322;}
+.tab3 li.selected a{color:#86cf00;font-weight:bold;}
+.tab3 li:last-child a{border-right:none;border-left:solid 1px #404433;}
+.tab_tp02{overflow:hidden;margin:0 0 12px;padding:5px 0;border-bottom:1px solid #c5c5c5;box-shadow:0 2px 2px #dbdbdb;-webkit-box-shadow:0 2px 2px #dbdbdb;background:#f8f8f8 -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f7f7f7)) no-repeat;}
+.tab_tp02:after{display:block;overflow:hidden;clear:both;content:''}
+.tab_tp02 ul{overflow:hidden;}
+.tab_tp02 li{float:left;width:25%;margin:5px 0;}
+.tab_tp02 li a{display:block;padding:0;}
+.tab_tp02 li a div{position:relative;height:13px;border-right:1px solid #d9dada;line-height:13px;text-align:center;vertical-align:middle;}
+.tab_tp02 li a span{display:block;position:absolute;top:-2px;width:100%;text-align:center;color:#adb0b0;font-size:12px;font-weight:bold;line-height:16px;letter-spacing:-1px;text-shadow:0 1px 1px #fff;}
+.tab_tp02 li:nth-child(4n) a div{border-right:none;}
+.tab_tp02 li:nth-child(4n+1){clear:both;}
+.tab_tp02 li.on a span{color:#373e40;}
+#cont_head ul.tabmenu{width:100%;overflow:hidden;border-bottom:1px solid #2e384c;background:#323d53;}
+#cont_head ul.tabmenu:after{display:block;clear:both;overflow:hidden;}
+#cont_head ul.tabmenu li{float:left;overflow:hidden;width:25%;height:56px;text-align:center;}
+#cont_head ul.tabmenu li a{display:block;height:56px;}
+#cont_head ul.tabmenu li a div{height:56px;width:100%;margin-right:-1px;border-left:1px solid #2b3447;border-right:1px solid #2b3447;}
+#cont_head ul.tabmenu li:nth-child(1) div{border-left:none;}
+#cont_head ul.tabmenu li a em{display:inline-block;padding:8px 0 2px;font-size:12px;color:#c8cbd1;}
+#cont_head ul.tabmenu li a span{font-weight:bold;font-size:20px;font-family:arial;color:#c8cbd1;}
+#cont_head ul.tabmenu li a span.recomm_icon{position:relative;top:-5px;left:-2px;display:inline-block;width:25px;height:25px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_cart.png') no-repeat 0px 0px;background-size:75px auto;background-position:-28px 0;}
+#cont_head ul.tabmenu li.selected a span.recomm_icon {background-position:0 0;}
+#cont_head ul.tabmenu li.selected{background:#3d4960;}
+#cont_head ul.tabmenu li.selected a em{color:#86cf00;font-size:12px;font-weight:bold;}
+#cont_head ul.tabmenu li.selected a span{color:#86cf00;}
+#cont_head ul.tabmenu.w04 li{width:25%;height:47px;}
+#cont_head ul.tabmenu.w04 li a, #cont_head ul.tabmenu.w04 li div{height:47px;}
+#cont_head ul.tabmenu.w04 li em{line-height:15px;}
+#cont_head ul.tabmenu.w04 li:nth-child(3) div{border-right:1px solid #3d403f;}
+#cont_head ul.tabmenu.w04 li:nth-child(4) div{border-right:none;}
+#cont_head ul.tabmenu.w05 li{width:20%;height:47px;}
+#cont_head ul.tabmenu.w05 li a, #cont_head ul.tabmenu.w05 li div{height:47px;}
+#cont_head ul.tabmenu.w05 li em{line-height:15px;}
+#cont_head ul.tabmenu.w05 li:nth-child(4) div{border-right:1px solid #3d403f;}
+#cont_head ul.tabmenu.w05 li:nth-child(5) div{border-right:none;}
+/* selectbox */
+div.selectbox1{width:95%;height:38px;margin:0 auto;border:solid 1px #c2c2c2;border-radius:2px;box-shadow:inset 0 -1px 1px #fff;background:#f8f8f8 -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#efefef)) no-repeat;}
+div.selectbox1 a{display:block;height:38px;}
+div.selectbox1 a p{float:left;height:38px;}
+div.selectbox1 a p:first-child{width:80%;border-right:solid 1px #e1e1e1;}
+div.selectbox1 a p:first-child span{position:relative;top:8px;left:10px;color:#010a0c;font-size:12px;}
+div.selectbox1 a p:last-child{position:relative;width:19%;border-left:solid 1px #fcfcfc;}
+div.selectbox1 a p:last-child span{display:block;position:absolute;top:16px;left:25px;width:12px;height:9px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_detail.png') no-repeat -35px -31px;background-size:151px auto;-webkit-background-size:151px auto;}
+div.selectbox2{width:59px;height:27px;border:solid 1px #d0d0d0;background:#fff;border-radius:2px;}
+div.selectbox2 a{display:block;height:27px;}
+div.selectbox2 a p{display:inline-block;width:34px;height:27px;padding-left:8px;line-height:27px;}
+div.selectbox2 a span{display:inline-block;width:8px;height:7px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_detail.png') no-repeat -28px -25px;background-size:120px auto;-webkit-background-size:120px auto;}
+/* banner */
+section.bannerbox{padding:15px 0 10px;}
+section.bannerbox header{position:relative;height:25px;margin:0 10px;}
+section.bannerbox header h4{display:table-cell;height:22px;padding-right:5px;font-size:17px;line-height:20px;font-weight:bold;color:#444646;text-shadow:0 1px 1px #fff;}
+section.bannerbox header .h_right{position:absolute;top:0;right:1px;}
+section.bannerbox div.prod_box{padding:0;border:1px solid #d4d4d4;background-color:#fff;}
+section.bannerbox div.prod_box ul{overflow:hidden;margin:10px 8px;}
+section.bannerbox div.prod_box ul li{float:left;width:30%;margin-right:5%;}
+section.bannerbox div.prod_box ul li:last-child{margin-right:0;}
+section.bannerbox div.prod_box ul li a{display:block;margin:0 auto;text-align:center;}
+section.bannerbox div.prod_box ul li a span.pro_thumb{display:inline-block;position:relative;width:84px;}
+section.bannerbox div.prod_box ul li a span.pro_thumb img{width:100%;}
+section.bannerbox div.prod_box ul li a span.pro_price{display:block;color:#619900;font-size:15px;}
+section.bannerbox.type2 header .h_right{display:none;}
+section.bannerbox.type3 header .h_right{display:none;}
+section.bannerbox.type3 div.prod_box ul{margin:0;}
+section.bannerbox.type3 div.prod_box ul li{float:none;width:100%;border-bottom: 1px solid #efefef;}
+section.bannerbox.type3 div.prod_box ul li:last-child{border-bottom:none;}
+section.bannerbox.type3 div.prod_box ul li dl{clear:both;overflow:hidden;padding:5px 0;}
+section.bannerbox.type3 div.prod_box ul li dt{display:none;float:left;width: 88px;}
+section.bannerbox.type3 div.prod_box ul li dt a span{display: block;}
+section.bannerbox.type3 div.prod_box ul li dt a span img{width: 100%;vertical-align: top;}
+section.bannerbox.type3 div.prod_box ul li:first-child dt a span img{border-top-left-radius:2px;-webkit-border-top-left-radius:2px;}
+section.bannerbox.type3 div.prod_box ul li:last-child dt a span img{border-bottom-left-radius:3px;-webkit-border-bottom-left-radius:2px;}
+section.bannerbox.type3 div.prod_box ul li dd{float:left;margin: 0;padding: 0 0 0 15px;vertical-align: middle;}
+section.bannerbox.type3 div.prod_box ul li dd a{display: block;text-align:left;}
+section.bannerbox.type3 div.prod_box ul li dd a span.event_tit{margin:0 0 2px;font-size:14px;color: #222;word-wrap:break-word;}
+section.bannerbox.type3 div.prod_box ul li dd a span{display:block;}
+section.bannerbox.type3 div.prod_box ul li dd a span.event_stit{margin:0 0 3px;color: #777;font-size:12px;}
+section.bannerbox.type3 div.prod_box ul li dd a span.event_info{font-size:11px;font-weight:bold;color:#86906e;}
+/* 새페이지로 이동 */
+ span.new_page_jump{display:block;width:11px;height:16px;margin:13px 15px 0;background:url('http://image.gsshop.com/mobile/mc/images/common/btn_arrow10.png') no-repeat right 50%;background-size:9px auto;-webkit-background-size:9px auto;}
+/* 스타일 Select Option */
+.select_option_typ01{display:inline-block;}
+.select_option_typ01 select{-webkit-appearance:none;cursor:default;}
+.select_option_typ01 select.select_style{display:inline-block;height:28px;margin:0;padding:0 50px 0 5px;color:#444;line-height:28px;font-size:13px;border:1px solid #c9c9c9;background:#fff url('http://image.gsshop.com/mobile/mc/images/srch/icon_select.png') no-repeat 98% 50%;-webkit-background-size:28px auto;background-size:28px auto;}
+.select_option_typ01 select.select_style:disabled{color:#acacac;background:#fff;border:1px solid #c9c9c9;}
+.select_option_typ02{display:inline-block;}
+.select_option_typ02 select{-webkit-appearance:none;font-size:12px;cursor:default;}
+.select_option_typ02 select.select_style{display:inline-block;margin:0;padding:0 17px 0 0;border:none;background:transparent url('http://image.gsshop.com/mobile/mc/images/common/img_select_option.png') no-repeat 100% -62px;background-size:50px auto;-webkit-background-size:50px auto;}
+.select_option_typ03{display:inline-block;}
+.select_option_typ03 select{-webkit-appearance:none;font-size:12px;cursor:default;}
+.select_option_typ03 select.select_style{display:inline-block;height:30px;margin:0;padding:5px 15px 5px 5px;color:#373e40;border:1px solid #c9c9c9;border-radius:2px;-webkit-border-radius:2px;background:#fff url('http://image.gsshop.com/mobile/mc/images/common/img_select_option.png') no-repeat 98% -55px;background-size:50px auto;-webkit-background-size:50px auto;}
+.select_option_typ04{display:inline-block;}
+.select_option_typ04 select{-webkit-appearance:none;font-size:12px;cursor:default;}
+.select_option_typ04 select.select_style{display:inline-block;height:30px;margin:0;padding:5px 15px 5px 5px;color:#373e40;border:1px solid #c9c9c9;border-radius:2px;-webkit-border-radius:2px;background:#fff url('http://image.gsshop.com/mobile/mc/images/common/img_select_option.png') no-repeat 98% -55px;background-size:50px auto;-webkit-background-size:50px auto;}
+.select_option_typ05{display:inline-block;}
+.select_option_typ05 select{-webkit-appearance:none;cursor:default;}
+.select_option_typ05 select.select_style{display:inline-block;margin:0;padding:9px 30px 9px 5px;color:#373e40;border:1px solid #c9c9c9;background:#f7f7f7 url('http://image.gsshop.com/mobile/mc/images/goods/img_select_option02.png') no-repeat right 0;background-size:50px auto;-webkit-background-size:50px auto;}
+.select_option_typ05 select.select_style:disabled{color:#a4a4a4;background:#f7f7f7;border:1px solid #cacaca;}
+/* 모달 레이어 type1 */
+.modal_bg{position:absolute;top:0;left:0;min-height:100%;width:100%;height:100%;background:url('http://image.gsshop.com/mobile/mc/images/popup/bg_trans50.png') repeat;background-size:5px auto;-webkit-background-size:5px auto;z-index:100;}
+.modal{position:absolute;top:40px;width:100%;height:100%;min-height:100%;z-index:10001;}
+.modal div.modal_frame{position:relative;width:95%;margin:0 auto;background:#fff;z-index:10001;}
+.modal header{width:100%;height:40px;border-bottom:solid 1px #f6f6f6;}
+.modal header h4{position:relative;width:100%;height:40px;text-align:center;font-size:16px;line-height:40px;font-weight:bold;color:#222;border-bottom:1px solid #00aebd;}
+.modal header h4 span{display:block;height:40px;line-height:40px;}
+.modal header a.btn_close_calendar{position:absolute;top:0;right:5px;}
+.modal div.layer_note{padding:10px 15px;font-size:12px;}
+.modal div.layer_note ul li{font-size:12px;color:#777;text-indent:20px;}
+.modal div.layer_note ul li span{display:inline-block;width:3px;height:6px;margin:0 3px 0 -25px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_detail_new.png') no-repeat -45px 0px;background-size:115px auto;-webkit-background-size:115px auto;}
+.modal div.layer_btn{overflow:hidden;clear:both;padding:0;text-align:center;border-top:1px solid #cfcfcf;}
+.modal div.layer_btn .btn_txt03{display:block;float:left;width:50%;height:41px;padding:0;font-size:14px;font-weight:bold;color:#717171;line-height:41px;border:none;text-shadow:none;background:none;}
+.modal div.layer_btn .btn_txt03.green01{width:100%;}
+.modal div.layer_btn .btn_txt03.green01, .modal div.layer_btn .btn_txt03.green02{color:#00aebd;}
+.modal div.layer_btn .btn_txt03.gray{color:#717171;}
+.modal div.layer_btn .btn_txt03:first-child{box-shadow:none;}
+.modal div.layer_btn .btn_txt03:last-child{box-shadow:-1px 0 0 0 #cfcfcf;}
+.modal div.layer_box_shadow{margin:0 10px;border:1px solid #cecece;border-radius:2px;-webkit-border-radius:2px;box-shadow:inset 0px 1px 3px #cfcfcf;-webkit-box-shadow:inset 0px 1px 3px #cfcfcf;}
+.modal .layer_select_option{display:inline;}
+.modal .layer_select_option label{position:relative;}
+.modal .layer_select_option label:after{content:'';position:absolute;top:-3px;right:2px;width:24px;height:24px;background:#fff url('http://image.gsshop.com/mobile/mc/images/common/btn_arrow_select.png') no-repeat 0 8px;background-size:11px auto;-webkit-background-size:11px auto;}
+.modal .layer_select_option select.select_style{-webkit-appearance:none;display:inline-block;margin:-5px 0 0;padding:0 32px 0 0;border:none;outline:none;background:transparent;}
+.modal .select_option_typ04 select.select_style{display:inline-block;width:100%;height:auto;margin:0;padding:9px 30px 9px 5px;color:#373e40;border:1px solid #e1e1e1;border-radius:0;-webkit-border-radius:0;box-shadow:none;-webkit-box-shadow:none;background:url('http://image.gsshop.com/mobile/mc/images/goods/img_select_option02.png') no-repeat right 0;background-size: 50px auto;-webkit-background-size:50px auto;}
+.modal footer p.guide_txt{margin-top:6px;padding-left:8px;line-height:16px;text-indent:-8px;font-size:12px; color:#777;}
+.modal footer p.guide_txt span{color:#222;}
+/* 공통박스 */
+div.prod_box{margin:0 10px;padding:0;border:1px solid #d4d4d4;background-color:#fff;}
+/* 택스트입력 */
+textarea.type1{overflow:auto;margin:0 auto;font-size:13px;color:#777;}
+textarea.type1:focus{color:#222;}
+/* checkbox */
+p.checkbox input[type='checkbox']{display:none;}
+p.checkbox input[type='checkbox'] + label span{overflow:hidden;display:inline-block;width:19px;height:19px;vertical-align:-7px;background:#fff;border:solid 1px #bbb;}
+p.checkbox input[type='checkbox']:checked + label span{border:solid 1px #bbb;background:#fff url('http://image.gsshop.com/mobile/mc/images/srch/icon_chcked.jpg') no-repeat 50% 3px;background-size:12px auto;-webkit-background-size:12px auto;}
+p.checkbox input[type='checkbox']:disabled + label span{border:solid 1px #bbb;background:#e3e3e3;}
+/* radio */
+p.radio{display:inline-block;}
+p.radio input[type=radio]{display:none;}
+p.radio label{font-size:13px;}
+p.radio label span{display:inline-block;width:19px;height:19px;margin-right:2px;vertical-align:-5px;background:url('http://image.gsshop.com/mobile/mc/images/common/ico_common_form02.png') no-repeat 0 -19px;background-size:38px auto;-webkit-background-size:38px auto;}
+p.radio input[type=radio]:checked + label span{background-position:0 0;}
+p.radio input[type=radio]:disabled + label span{background-position:-19px 0;}
+p.radio input[type=radio]:disabled + label{color:#acacac;}
+/* paging */
+.prolist li p.paging{height:18px;text-align:center;line-height:9px;}
+.prolist li p.paging a{display:inline-block;width:7px;height:7px;margin-right:6px;}
+.prolist li p.paging a span{display:inline-block;width:100%;height:100%;vertical-align:top;background:url('http://image.gsshop.com/mobile/mc/images/common/img_cart.png') no-repeat -68px -46px;background-size:75px auto;-webkit-background-size:75px auto;}
+.prolist li p.paging a span.on{background-position:-68px -38px;}
+.indicator span{display:inline-block;overflow:hidden;width:6px;height:6px;margin:0 2px;font-size:0;text-indent:-9999px;border:1px solid #c2c2c2;border-radius:5px;-webkit-border-radius:5px;background:#c2c2c2;border-top-left-radius:5px;border-top-right-radius:5px;border-bottom-left-radius:5px;border-bottom-right-radius:5px;}
+.indicator span.active{border:1px solid #8eb41d;background:#ace801 -webkit-gradient(linear, left top, left bottom, from(#ace801), to(#97cb01)) no-repeat;}
+.indicator button{width:20px;height:20px;text-align:center;text-shadow:0 1px 1px #f8f8f8;border:1px solid #c0c0c0;border-radius:2px;-webkit-border-radius:2px;background:#f0f0f0;}
+.indicator button em{display:inline-block;width:6px;color:transparent;font-size:0;text-indent:-999%;background:url('http://image.gsshop.com/mobile/mc/images/common/btn_arrow6.png') no-repeat 0 0;background-size:25px auto;-webkit-background-size:25px auto;vertical-align:middle;}
+.indicator button.btn_prev em{background-position:-8px 2px;}
+.indicator button.btn_next em{background-position:-17px 2px;}
+/* 로고 */
+.gs_logo{display:inline-block;width:111px;height:23px;margin:0 auto;background:url('http://image.gsshop.com/mobile/mc/images/common/gs_logo.png') no-repeat 0 0;background-size:111px auto;-webkit-background-size:111px auto;}
+/* arrow */
+.arrow{display:inline-block;width:8px;height:13px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_member.png') no-repeat 0 0;background-size:25px auto;-webkit-background-size:25px auto;}
+.arrow2{display:inline-block;width:9px;height:6px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_quick_order.png') no-repeat 0 -34px;background-size:15px auto;-webkit-background-size:15px auto;}
+.arrow3{display:inline-block;width:9px;height:6px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_quick_order.png') no-repeat 0 -43px;background-size:15px auto;-webkit-background-size:15px auto;}
+.arrow4{display:inline-block;width:4px;height:6px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_quick_order.png') no-repeat 0 -57px;background-size:15px auto;-webkit-background-size:15px auto;}
+.arrow5{display:inline-block;width:12px;height:8px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_cart.png') no-repeat -32px -60px;background-size:75px auto;-webkit-background-size:75px atuo;}
+/* close icon,button */
+.close_btn{display:inline-block;width:12px;height:12px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_member.png') no-repeat 0 -17px;background-size:25px auto;-webkit-background-size:25px auto;}
+.close_btn2{display:inline-block;width:42px;height:29px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_detail.png') no-repeat -108px -264px;background-size:151px auto;-webkit-background-size:151px auto;border-radius:2px;-webkit-border-radius:2px;}
+.close1{display:inline-block;width:11px;height:12px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_quick_order.png') no-repeat 0 0;background-size:15px auto;-webkit-background-size:15px auto;}
+.close2{display:inline-block;width:11px;height:12px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_quick_order.png') no-repeat 0 -17px;background-size:15px auto;-webkit-background-size:15px auto;}
+.close3{display:block;width:11px;padding:8px 14px;border:1px solid #cecece;}
+.close3 span{display:block;overflow:hidden;width:11px;height:12px;color:transparent;background:url('http://image.gsshop.com/mobile/mc/images/common/icon_tvshopping.png') no-repeat -93px 0;background-size:150px auto;-webkit-background-size:150px auto;}
+/* write button */
+.write_btn{display:block; width:36px;height:35px;line-height:35px;text-align:center;border:solid 1px #cbcbcb;-webkit-border-radius:2px;border-radius:2px;background:#f8f8f8;}
+.write_btn span{display:inline-block;width:15px;height:19px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_myshopping.png') no-repeat -1px -195px;background-size:100px auto;-webkit-background-size:100px auto;vertical-align:middle;}
+/* 쿠폰 */
+.coupone{display:inline-block;height:25px;margin:0 10px 0 0;padding:0 10px;text-align:center;border:solid 1px #ebebeb;background:#fcfcfc;}
+.coupone a{display:inline-block;padding:0 10px;}
+.coupone em{display:inline-block;min-width:88px;height:25px;line-height:25px;font-size:12px;font-weight:bold;color:#4d5454;}
+.coupone span{display:inline-block;position:relative;width:6px;height:15px;vertical-align:middle;}
+.coupone span:first-child{right:5px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_detail_new.png') no-repeat -73px -60px;background-size:115px auto;-webkit-background-size:115px auto;}
+.coupone span:last-child{left:5px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_detail_new.png') no-repeat -84px -60px;background-size:115px auto;-webkit-background-size:115px auto;}
+.coupone2{display:inline-block;position:relative;width:90%;height:48px;line-height:48px;text-align:center;border:solid 1px #e4e4e4;background:#fcfcfc;}
+.coupone2 a{display:inline-block;padding:0 10px;}
+.coupone2 em{display:inline-block;min-width:92px;vertical-align:middle;font-size:19px;font-weight:bold;color:#4d5454;}
+.coupone2 em.num{font-family:arial;}
+.coupone2 span{display:inline-block;position:absolute;width:9px;height:23px;top:13px;}
+.coupone2 span:first-child{left:7px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_myshopping.png') no-repeat 0 0;background-size:100px auto;-webkit-background-size:100px auto;}
+.coupone2 em + span{right:7px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_myshopping.png') no-repeat -12px 0;background-size:100px auto;-webkit-background-size:100px auto;}
+.coupone2 u.double{position:absolute;top:-14px;left:0;width:100%;font-size:11px;font-weight:bold;color:#86cf00;}
+.coupone2 u.lotte{position:absolute;top:4px;left:50%;width:65px;height:11px;margin-left:-32px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_myshopping.png') no-repeat 0 -69px;background-size:100px auto;-webkit-background-size:100px auto;}
+.coupone2 u.sinsegae{position:absolute;top:4px;left:50%;width:65px;height:11px;margin-left:-32px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_myshopping.png') no-repeat 0 -81px;background-size:100px auto;-webkit-background-size:100px auto;}
+.coupone3{display:inline-block;position:relative;overflow:hidden;width:90%;height:48px;line-height:48px;text-align:center;border:solid 1px #e4e4e4;background:#fcfcfc;}
+.coupone3 a{display:inline-block;padding:0 20px;}
+.coupone3 em{display:inline-block;min-width:92px;vertical-align:middle;font-size:19px;font-weight:bold;font-family:arial;color:#4d5454;}
+.coupone3 span{display:inline-block;position:absolute;top:13px;width:9px;height:23px;vertical-align:middle;}
+.coupone3 span:first-child{left:7px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_myshopping.png') no-repeat 0 -33px;background-size:100px auto;-webkit-background-size:100px auto;}
+.coupone3 em + span{right:7px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_myshopping.png') no-repeat -12px -33px;background-size:100px auto;-webkit-background-size:100px auto;}
+.coupone4{display:block;position:relative;width:77px;height:48px;line-height:48px;text-align:center;border:solid 1px #e4e4e4;background:#fff;}
+.coupone4 a{display:block;}
+.coupone4 a p:first-child{height:32px;line-height:32px;}
+.coupone4 a p:first-child em{display:inline-block;overflow:hidden;position:relative;top:1px;height:21px;padding:0 5px;font-size:12px;font-weight:bold;font-family:arial;color:#4d5454;}
+.coupone4 a p:first-child span{display:inline-block;position:absolute;top:11px;width:6px;height:14px;}
+.coupone4 a p:first-child span:first-child{left:4px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_myshopping.png') no-repeat 0 -153px;background-size:100px auto;-webkit-background-size:100px auto;}
+.coupone4 a p:first-child em + span{right:4px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_myshopping.png') no-repeat -12px -153px;background-size:100px auto;-webkit-background-size:100px auto;}
+.coupone4 a p:last-child{width:100%;padding-top:1px;line-height:14px;font-size:10px;color:#373e40;background:#fdfdfd;border-top:solid 1px #f8f8f8;}
+.coupone4 u.double{position:absolute;top:-10px;left:20px;font-size:10px;font-weight:bold;color:#a8c01e;}
+.coupone4 u.lotte{position:absolute;top:4px;left:41px;width:165px;height:11px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_myshopping.png') no-repeat 0 -69px;background-size:100px auto;-webkit-background-size:100px auto;}
+.coupone5{display:block;height:90px;line-height:90px;text-align:center;background-image:url('http://image.gsshop.com/mobile/mc/images/common/bg_coupone_01.png'),url('http://image.gsshop.com/mobile/mc/images/common/bg_coupone_03.png'),url('http://image.gsshop.com/mobile/mc/images/common/bg_coupone_02.png');background-repeat:no-repeat,no-repeat,repeat-x;background-position:left top,right top,left top;background-size:90px auto,59px auto,128px auto;}
+.coupone5 a{display:block;height:100%;}
+.coupone5 a div.coupone_cont{ height:100%;margin-right:59px; }
+.coupone5 a div.coupone_cont p{ position:relative; height:100%; }
+.coupone5 a div.coupone_cont p em{display:inline-block;overflow:hidden;min-width:92px;height:90px;padding:0 28px;vertical-align:middle;font-size:19px;font-weight:bold;color:#fefefe;text-shadow:0 -1px 1px #756049;}
+.coupone5 a div.coupone_cont p em.num{font-family:arial;}
+.coupone5 a div.coupone_cont p span{display:inline-block;position:absolute;width:9px;height:26px;top:34px;}
+.coupone5 a div.coupone_cont p span:first-child{left:14px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_myshopping.png') no-repeat -60px 0;background-size:100px auto;-webkit-background-size:100px auto;}
+.coupone5 a div.coupone_cont p em + span{right:14px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_myshopping.png') no-repeat -78px 0;background-size:100px auto;-webkit-background-size:100px auto;}
+.coupone5 a div.coupone_cont p u.double{position:absolute;top:-14px;left:0;width:100%;font-size:11px;font-weight:bold;color:#f9f9f9;text-shadow:0 -1px 1px #756049;}
+.coupone5 a div.coupone_cont p u.lotte{position:absolute;top:4px;left:50%;width:65px;height:11px;margin-left:-32px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_myshopping.png') no-repeat 0 -69px;background-size:100px auto;-webkit-background-size:100px auto;}
+.coupone5 a div.coupone_cont p u.sinsegae{position:absolute;top:4px;left:50%;width:65px;height:11px;margin-left:-32px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_myshopping.png') no-repeat 0 -81px;background-size:100px auto;-webkit-background-size:100px auto;}
+/* 아이콘 */
+.new{display:inline-block;width:15px;height:17px;vertical-align:middle;background:url('http://image.gsshop.com/mobile/mc/images/common/img_myshopping.png') no-repeat 0 -173px;background-size:100px auto;-webkit-background-size:100px auto;}
+.stars_all{display:inline-block;position:relative;width:68px;height:15px;margin:0;background:url('http://image.gsshop.com/mobile/mc/images/goods/img_s_star.png') no-repeat 0 -30px;background-size:68px auto;-webkit-background-size:68px auto;vertical-align:middle;}
+.stars_small{display:inline-block;position:relative;width:68px;height:15px;margin:0;background:url('http://image.gsshop.com/mobile/mc/images/goods/img_s_star.png') no-repeat 0 -15px;background-size:68px auto;-webkit-background-size:68px auto;vertical-align:middle;}
+.stars_all em, .stars_small em{display:inline-block;position:absolute;left:0;top:0;width:100%;height:15px;margin:0;background:url('http://image.gsshop.com/mobile/mc/images/goods/img_s_star.png') no-repeat 0 0;background-size:68px auto;-webkit-background-size:68px auto;}
+.stars_large {padding:10px 0 0;}
+.stars_large span{display:inline-block;width:21px;height:20px;margin:0 10px 0 0;background:url('http://image.gsshop.com/mobile/mc/images/goods/img_l_star.png') no-repeat 0 0;background-size:21px auto;-webkit-background-size:21px auto;}
+.stars_large span.on{background-position:0 -20px;}
+.photo{display: inline-block;width:17px;height:14px;background: url('http://image.gsshop.com/mobile/mc/images/common/img_detail.png') no-repeat -16px -139px;background-size:151px auto;-webkit-background-size:151px auto;}
+.icon_photo2{display: inline-block;width:22px;height:19px;background: url('http://image.gsshop.com/mobile/mc/images/common/img_myshopping.png') no-repeat -29px -150px;background-size:100px auto;-webkit-background-size:100px auto;}
+.apple{display:inline-block;width:14px;height:16px;vertical-align:middle;background:url('http://image.gsshop.com/mobile/mc/images/common/img_myshopping.png') no-repeat 0 -234px;background-size:100px auto;-webkit-background-size:100px auto;}
+.android{display:inline-block;width:14px;height:16px;vertical-align:middle;background:url('http://image.gsshop.com/mobile/mc/images/common/img_myshopping.png') no-repeat 0 -216px;background-size:100px auto;-webkit-background-size:100px auto;}
+.icon_call{display:inline-block;width:14px;height:14px;vertical-align:middle;background:url('http://image.gsshop.com/mobile/mc/images/common/img_myshopping.png') no-repeat -24px -197px;background-size:100px auto;-webkit-background-size:100px auto;}
+.question{display:inline-block;width:25px;height:22px;vertical-align:middle;background:url('http://image.gsshop.com/mobile/mc/images/common/img_myshopping.png') no-repeat -28px -32px;background-size:100px auto;-webkit-background-size:100px auto;}
+.answer{display:inline-block;width:27px;height:23px;vertical-align:middle;background:url('http://image.gsshop.com/mobile/mc/images/common/img_myshopping.png') no-repeat -28px 0;background-size:100px auto;-webkit-background-size:100px auto;}
+.waiting{display:inline-block;width:27px;height:23px;vertical-align:middle;background:url('http://image.gsshop.com/mobile/mc/images/common/img_myshopping.png') no-repeat right -208px;background-size:100px auto;-webkit-background-size:100px auto;}
+.icon_fail{display:inline-block;width:73px;height:54px;vertical-align:middle;background:url('http://image.gsshop.com/mobile/mc/images/common/bg_fail.png') no-repeat 0 0;background-size:73px auto;-webkit-background-size:73px auto;}
+.sucess{display:inline-block;width:66px;height:47px;vertical-align:middle;background:url('http://image.gsshop.com/mobile/mc/images/common/bg_payby_cash.png') no-repeat 0 0;background-size:66px auto;-webkit-background-size:66px auto;}
+.plus_icon{display:inline-block;float:left;margin-right:4px;padding-left:10px;}
+.plus_icon span{display:inline-block;width:20px;height:20px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_cart.png') no-repeat 8px -58px;background-size:75px auto;-webkit-background-size:75px auto;}
+.plus_icon em{display:inline-block;height:19px;padding:0 7px;line-height:19px;font-size:13px; color:#fff;text-shadow:0 -1px 0 #a28568;border:solid 1px #a28568;border-radius:2px;-webkit-border-radius:2px;box-shadow:0 1px 3px #c5c5c5;background:#b3987a -webkit-gradient(linear, left top, left bottom, from(#b3987a), to(#9f8265)) no-repeat;}
+.loading15, .loading30_trans, .loading40, .loading100,
+.loading30{display:inline-block;width:30px;height:30px;background:url('http://image.gsshop.com/mobile/mc/images/loading/line_30.gif') no-repeat 0 0;background-size:30px auto;-webkit-background-size:30px auto;}
+.loading100.img_inline{background:none;}
+.loading100.img_inline img{width:100%;}
+.twitter_logo{width:106px;height:24px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_detail.png') no-repeat 0 -307px;background-size:151px auto;-webkit-background-size:151px auto;}
+.facebook_logo{width:103px;height:38px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_detail.png') no-repeat 0 -335px;background-size:151px auto;-webkit-background-size:151px auto;}
+/* 타이틀바 배경 그라데이션 */
+.title_bg1{background:#f8f8f8 -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f7f7f7)) no-repeat;}
+/* 회원등급레벨 */
+.icon_mylevel{display:block;width:71px;height:77px;margin:0 auto;background:url('http://image.gsshop.com/mobile/mc/images/common/ico_level.png') no-repeat 0 0;background-size:497px auto;-webkit-background-size:497px auto;}
+.icon_mylevel.level1{background-position:0 0;}
+.icon_mylevel.level2{background-position:-71px 0;}
+.icon_mylevel.level3{background-position:-142px 0;}
+.icon_mylevel.level4{background-position:-213px 0;}
+.icon_mylevel.level5{background-position:-284px 0;}
+.icon_mylevel.level6{background-position:-355px 0;}
+.icon_mylevel.level7{background-position:-426px 0;}
+.icon_mylevel.membership{display:block;width:38px;height:40px;margin:0 auto;background:url('http://image.gsshop.com/mobile/mc/images/common/ico_level_membership.png') no-repeat 0 0;background-size:266px auto;-webkit-background-size:266px auto;}
+.icon_mylevel.membership.level1{background-position:0 0;}
+.icon_mylevel.membership.level2{background-position:-38px 0;}
+.icon_mylevel.membership.level3{background-position:-76px 0;}
+.icon_mylevel.membership.level4{background-position:-114px 0;}
+.icon_mylevel.membership.level5{background-position:-152px 0;}
+.icon_mylevel.membership.level6{background-position:-190px 0;}
+.icon_mylevel.membership.level7{background-position:-228px 0;}
+/* 로딩 */
+#loading_page p{text-align:center;}
+#loading_page p.guide_txt1{height:42px;padding-top:117px;font-size:18px;font-weight:bold;color:#444646;text-shadow:0 1px 0 #f2f2f2;}
+#loading_page p.guide_txt2{padding-top:20px;font-size:12px;color:#999;text-shadow:0 1px 0 #eee;}
+#loading_page p.btns{height:70px;padding-top:25px;}
+#loading_page p.btns a{height:35px;padding:0 22px;line-height:35px;}
+#loading_page p.loading_txt{text-align:left;font-size:12px;color:#666;text-shadow:0 1px 0 #eee;}
+#loading_page p.loading_txt span{vertical-align:middle;}
+/* 디폴트 */
+div.default_msg{padding:60px 0;text-align:center;}
+div.default_msg p.txt{padding-top:20px;font-weight:bold;color:#636363;text-shadow:0 1px 0 #f2f2f2;}
+div.default_msg2{position:relative;padding:60px 0;}
+div.default_msg2 div.wrapper{position:absolute;top:50%;width:100%;height:140px;margin-top:-70px;text-align:center;}
+div.default_msg2 p.txt{padding-top:20px;font-weight:bold;color:#636363;text-shadow:0 1px 0 #f2f2f2;}
+/* 에러페이지 */
+#error .complete article.guide{padding-top:142px;background:#fff url('http://image.gsshop.com/mobile/mc/images/common/bg_pwd_fail.png') no-repeat center 76px;background-size:51px auto;-webkit-background-size:51px auto;}
+#error .complete article.guide p{text-align:center;text-shadow:0 1px 1px #f2f2f2;}
+#error .complete article.guide p.txt1{line-height:16px;color:#636363;font-size:14px;font-weight:bold;}
+#error .complete article.guide p.txt2{padding:15px 0 0;line-height:17px;color:#959899;font-size:13px;letter-spacing:-1px;}
+#error .complete article.guide p.txt2 span{color:#777;}
+#error .complete article.fail{padding:86px 0 0;background:url('http://image.gsshop.com/mobile/mc/images/common/bg_fail.png') no-repeat center 20px;background-size:66px auto;-webkit-background-size:66px auto;}
+#error .complete article.fail p{width:270px;margin:0 auto 10px;text-align:left;line-height:16px;font-size:13px;color:#777;text-shadow:0 1px 1px #fff;}
+#error .complete article.fail p u{font-weight:bold;font-size:13px;color:#535353;}
+#error .complete article.fail p.txt2{width:320px;text-align:center;font-weight:bold;font-size:14px;color:#636363;}
+#error .complete article.fail .img{width:320px;margin:0 auto;text-align:center;}
+#error .complete article.fail .img img{width:174px;}
+#error footer{padding:20px 0;text-align:center;}
+#error footer a{width:175px;margin:0 0 5px;color:#636363;text-shadow:none;font-weight:normal;line-height:16px;padding-left:14px;padding-right:14px;}
+#error footer a.cs{width:265px;height:30px;color:#636363;line-height:30px;border:1px solid #c9c9c9;background:#ebebeb;}
+#error footer a.cs em{display:inline-block;width:8px;height:13px;vertical-align:middle;background: url('http://image.gsshop.com/mobile/mc/images/common/img_member.png') no-repeat 0 0;background-size:25px auto;-webkit-background-size:25px auto;}
+/* 이벤트,기획전 템플릿 */
+#container.event .center{width:320px;margin:0 auto;}
+#ev_content{width:320px;margin:0 auto;background:#fff}
+#ev_content img{width:100%}
+@media (min-width:480px){ #ev_content{width:480px} }
+/* 공지사항 */
+.cont_app_notice{text-align:center;}
+.cont_app_notice img{width:100%;margin:0 auto;}
+.nodata{clear:both;padding:30px 0;text-align:center;color:#5a5b5d;}
+/* 이용안내 */
+#guide article{padding:20px 0 0;}
+#guide article p{width:300px;margin:0 auto 10px;text-align:left;color:#444646;font-size:13px;line-height:16px;text-shadow:0 1px 1px #f2f2f2;letter-spacing:-1px;}
+#guide article p.txt1{font-weight:bold;}
+#guide article p.txt2{color:#777;}
+#guide article p u{font-weight:bold;font-size:13px;color:#535353;}
+#guide footer{margin:10px 0 20px;text-align:center;}
+#guide footer a{width:250px;height:35px;line-height:35px;}
+/* 인증안내 */
+.ex_guide{margin:0 0 0 10px;padding:20px 0 10px;text-align:center;}
+.ex_guide h4{overflow:hidden;margin:0 0 8px;padding:0;font-size:13px;line-height:13px;font-weight:normal;color:#818184;}
+.ex_guide h4 em{display:inline-block;width:13px;height:13px;margin:0 5px 0 0;background:url('http://image.gsshop.com/mobile/mc/images/common/icon_ex01.png') no-repeat 50% 50%;background-size:13px auto;-webkit-background-size:13px auto;vertical-align:top;}
+.ex_guide a.btn_txt01.t02{font-weight:bold;padding:0 10px;}
+.ex_guide article.loan{text-align:center;}
+.ex_guide article.loan img{width:300px;margin:0 auto;}
+.ex_guide p{margin:0 8px 10px;text-align:left;color:#777;font-size:12px;line-height:15px;}
+.ex_guide_head{border-bottom:solid 1px #c5c5c5;box-shadow:0 1px 5px #dbdbdb;}
+.ex_guide_head p{padding:10px;font-weight:normal;color:#777;font-size:12px;line-height:15px;}
+@media (min-width:480px){ .ex_guide article.loan img{width:460px;margin:0 auto;} }
+/* 일시품절 */
+p.icon_stock_out{width:92px;height:92px;background:url('http://image.gsshop.com/mobile/mc/images/common/stock_out.png') no-repeat 50% 50%;background-size:92px auto;-webkit-background-size:92px auto;}
+p.icon_stock_out img{width:100%;}
+/* e코인 */
+.ecoin_p{display:inline-block;position:relative;width:90%;height:48px;line-height:48px;text-align:center;border:1px solid #e4e4e4;background:#fcfcfc;}
+.ecoin_p em{display:inline-block;vertical-align:middle;font-size:19px;font-weight:bold;font-family:arial;color:#4d5454;}
+.ecoin_p span{display:inline-block;width:28px;height:28px;margin-right:5px;vertical-align:middle;background:url('http://image.gsshop.com/mobile/mc/images/common/ico_common_myshop.png') no-repeat 0 0;background-size:100px auto;-webkit-background-size:100px auto;}
+/* 테이블 */
+.table_type01{width:100%;margin:0 0 15px;border-spacing:1px;background:#e1e1e1;}
+.table_type01 th{height:27px;padding:3px 5px;font-weight:bold;font-size:12px;color:#373e40;text-align:center;background:#f9f9f9;}
+.table_type01 td{padding:5px;font-size:12px;color:#888;background:#fff;}
+.table_type01 td ol{}
+.table_type01 td ol > li{padding-left:13px;text-indent:-10px;}
+/* 약관하단 가이드문구 */
+.prom .detail footer{margin:0 10px 20px;padding:0 12px;height:auto;line-height:15px !important;border-top:none !important;}
+.prom .detail footer ul li{overflow:hidden;margin:0 0 5px;font-size:12px;color:#999;text-align:left;}
+.prom .detail footer ul li span{display:block;float:left;margin:6px 0 0;}
+.prom .detail footer ul li div{margin:0 0 0 6px;line-height:15px;word-wrap:break-word;}
+.prom .detail footer ul li strong{color:#222;font-weight:normal;}
+/*모바일웹 상단팝업*/
+.pop_top{border-bottom:1px solid #bcbcbc;background:#e5e5e5 -webkit-gradient(linear, left top, left bottom, from(#e5e5e5), to(#dadada)) no-repeat;}
+.pop_top .pop_top_wrapper{width:320px;margin:0 auto;}
+.pop_top h2{margin:0 auto;padding:0;text-align:center;}
+.pop_top h2 img{width:320px;}
+.pop_top a{display:block;}
+.pop_top .btn_close{display:none;}
+/* 연간할인권 안내문구 공통 */
+.note_point_wrap{clear:both;margin:15px 0 0;padding:0;border-top:1px solid #d0d0d0;background:#ececec;}
+.note_point_wrap .note_ttl{height:43px;font-size:13px;text-shadow:0 1px 1px #fff;line-height:43px;text-align:center;letter-spacing:-1px;}
+.note_point_wrap .note_ttl p{display:inline-block;color:#777;}
+.note_point_wrap .note_ttl a{display:inline-block;width:45px;height:20px;color:#7c7c7c;font-size:12px;line-height:20px;text-align:center;border:1px solid #c9c9c9;background:#e7e7e7;}
+.note_point_wrap .note_cont{padding:15px;border-top:1px solid #d0d0d0;background:#fff;}
+.note_point_wrap .note_cont.open{display:block;}
+.note_point_wrap .note_cont .note_txt ul{overflow:hidden;clear:both;}
+.note_point_wrap .note_cont .note_txt ul:after{display:block;clear:both;overflow:hidden;content:'';}
+.note_point_wrap .note_cont .note_txt ul li{float:left;width:30%;}
+.note_point_wrap .note_cont .note_txt ul li.plus{width:5%;padding:35px 0 0;text-align:center;}
+.note_point_wrap .note_cont .note_txt dl{border:1px solid #efeeee;}
+.note_point_wrap .note_cont .note_txt dt{display:block;padding:8px;color:#9d9e9e;line-height:14px;}
+.note_point_wrap .note_cont .note_txt dd{display:block;padding:10px 8px;color:#4d5454;font-size:11px;line-height:14px;background:#fcfcfc;}
+.note_point_wrap .note_cont .note_txt dd strong{display:block;color:#4d5454;font-size:18px;text-align:right;}
+.note_point_wrap .note_cont .note_txt p{padding:15px 0 5px;color:#9e9e9e;letter-spacing:-1px;}
+.note_point_wrap .note_cont .note_txt p strong{font-weight:normal;}
+/* 제휴팝업 */
+.modal .modal_bg30,
+.modal .modal_bg70,
+.modal .modal_bg80{position:absolute;top:0;left:0;min-height:100%;width:100%;height:100%;height:auto !important;background:url('http://image.gsshop.com/mobile/mc/images/popup/bg_trans50.png') repeat;background-size:5px auto;-webkit-background-size:5px auto;z-index:1000;}
+.modal.savemoney{overflow:hidden;position:absolute;top:0;left:50%;width:208px;margin:0 0 0 -104px;z-index:1000;}
+.modal .modal_frame02{margin:0 auto;z-index:1000;}
+.modal .modal_frame02 header{display:none;height:0;font-size:0;color:transparent;}
+.modal .modal_frame02 .modal_cont{position:relative;margin:88px auto 0;text-align:center;z-index:10;}
+.modal .modal_frame02 .modal_cont a{display:block;}
+.modal .modal_frame02 .modal_cont img{width:208px;}
+.modal .modal_frame02 .btn_savemoney{width:208px;height:156px;background:url('http://image.gsshop.com/mobile/mc/images/popup/img_tvsavemoney.png') no-repeat 50% 50%;background-size:208px auto;-webkit-background-size:208px auto;}
+.modal .modal_frame02 .btn_savemoney u{display:block;overflow:hidden;color:transparent;font-size:0;text-indent:-9999px;}
+.modal .modal_frame02 .btn_close{display:block;position:absolute;right:10px;top:10px;width:30px;height:30px;padding:0;line-height:0;}
+.modal .modal_frame02 .btn_close u{display:block;width:30px;height:30px;color:transparent;background:url('http://image.gsshop.com/mobile/mc/images/popup/btn_close_tvsavemoney.png') no-repeat 50% 50%;background-size:15px auto;-webkit-background-size:15px auto;}
+.modal.savemoney02{overflow:hidden;position:fixed;top:0;left:0;width:100%;height:100%;min-height:100%;margin:0 auto;padding-bottom:250px;z-index:1000;}
+.modal.savemoney02 .modal_frame02{position:relative;width:208px;margin:0 auto;z-index:1001;}
+.modal .modal_frame03{margin:0 auto;z-index:1000;}
+.modal .modal_frame03 header{display:none;height:0;font-size:0;color:transparent;}
+.modal .modal_frame03 .modal_cont{position:relative;overflow:hidden;margin:88px auto 0;text-align:center;-webkit-border-radius:2px;border-radius:2px;z-index:10;}
+.modal .modal_frame03 .modal_cont a{display:block;}
+.modal .modal_frame03 .modal_cont img{width:207px;}
+.modal .modal_frame03 .btn_savemoney{width:207px;height:178px;-webkit-border-radius:2px 2px 0 0;border-radius:2px 2px 0 0;background:url('http://image.gsshop.com/mobile/mc/images/popup/img_tvsavemoney02.png') no-repeat 50% 50%;background-size:207px auto;-webkit-background-size:207px auto;}
+.modal .modal_frame03 .btn_savemoney u{display:block;overflow:hidden;width:207px;height:178px;color:transparent;font-size:0;text-indent:-9999px;}
+.modal .modal_frame03 .btn_today{width:207px;height:33px;-webkit-border-radius:0 0 3px 3px;border-radius:0 0 3px 3px;background:url('http://image.gsshop.com/mobile/mc/images/popup/btn_close_today.png') no-repeat 50% 50%;background-size:207px auto;-webkit-background-size:207px auto;}
+.modal .modal_frame03 .btn_today u{display:block;overflow:hidden;width:207px;height:33px;color:transparent;font-size:0;text-indent:-9999px;}
+.modal .modal_frame03 .btn_close{display:block;position:absolute;right:0;bottom:-2px;width:47px;height:35px;padding:0;line-height:0;}
+.modal .modal_frame03 .btn_close u{display:block;overflow:hidden;width:47px;height:35px;color:transparent;background:url('http://image.gsshop.com/mobile/mc/images/popup/btn_close_tvsavemoney02.png') no-repeat 50% 50%;background-size:37px auto;-webkit-background-size:37px auto;}
+.modal.savemoney03{display:none;overflow:hidden;position:fixed;top:0;left:0;width:100%;height:100%;min-height:100%;margin:0 auto;padding-bottom:250px;z-index:1000;}
+.modal.savemoney03 .modal_frame03{position:relative;width:207px;margin:0 auto;z-index:1001;}
+/* 제휴하단팝업 */
+.pop_bottom{background:#909090;}
+.pop_bottom .pop_bottom_wrapper{width:320px;margin:0 auto;}
+.pop_bottom h4{margin:0 auto;padding:0;text-align:center;}
+.pop_bottom h4 img{width:320px;}
+.pop_bottom a{display:block;}
+.prd_img .link{position:absolute;right:0;bottom:6px;width:45px;height:37px;}
+.prd_img .link p a{display:block;width:45px;height:37px;}
+.prd_img .link p a u{display:block;overflow:hidden;width:45px;height:37px;color:transparent;font-size:0;text-indent:-9999px;background: url('http://image.gsshop.com/mobile/mc/images/popup/icon_appview.png') no-repeat right top;background-size:45px auto;-webkit-background-size:45px auto;}
+/* 쿠폰다운로드 레이어팝업 */
+.modal.coupone_download{top:0;height:100%;min-height:100%;}
+.modal.coupone_download .modal_frame{margin:40px auto 0;}
+.modal.coupone_download header h4{text-align:left;text-indent:25px;}
+.modal.coupone_download header h4 span.gs_logo{margin-left:12px;}
+.modal.coupone_download .coupone_view{padding:23px 20px 18px;text-align:center;}
+.modal.coupone_download .coupone_view p.coupone3{width:auto;min-width:127px;}
+.modal.coupone_download .btn_area{height:36px;text-align:center;}
+.modal.coupone_download .btn_area a.btn_txt01{color:#4d5454;}
+.modal.coupone_download.type02 header{display:none;}
+.modal.coupone_download.type02 .modal_frame{width:300px;margin:40px auto 0;}
+.modal.coupone_download.type02 div.coupone_view{overflow:hidden;padding:0;}
+.modal.coupone_download.type02 div.coupone_view a{display:block;}
+.modal.coupone_download.type02 div.coupone_view img{width:300px;}
+.modal.coupone_download.type02 footer{background:#f5f5f5;}
+.modal.coupone_download.type02 footer a.btn_today{display:block;width:115px;}
+.modal.coupone_download.type02 footer a.btn_today img{width:100%;}
+.modal.coupone_download.type02 footer a.btn_close_modal{display:block;position:absolute;right:0;top:0;padding:10px;}
+.modal.coupone_download.type02 footer a.btn_close_modal span{display:block;width:14px;height:14px;color:transparent;background:url('http://image.gsshop.com/mobile/mc/images/common/btn_close_fam.png') no-repeat 0 0;background-size:14px auto;-webkit-background-size:14px auto;}
+/* 방송알림 레이어 */
+.modal#smsRegModal{top:0;height:100%;}
+.modal#smsRegModal .modal_frame{margin:50px auto 0;}
+.modal #ontv_alert_layer{width:100%;}
+.ontv_alert .ontv_alert_option{position:relative;z-index:1000;}
+.ontv_alert .ontv_alert_option dl{clear:both;overflow:hidden;display:table;padding:8px 10px;border-bottom:1px solid #efefef;}
+.ontv_alert .ontv_alert_option dl:after{display:block;clear:both;overflow:hidden;content:'';}
+.ontv_alert .ontv_alert_option dt{display:table-cell;width:30%;padding:0;font-weight:bold;color:#222;vertical-align:middle;}
+.ontv_alert .ontv_alert_option dd{display:table-cell;width:70%;vertical-align:middle;}
+.ontv_alert .ontv_alert_option dd .select_option_typ04, .ontv_alert .ontv_alert_option dd .select_option_typ04 label{display:block;width:100%;}
+.ontv_alert .ontv_alert_option dd select.select_style{width:100%;}
+.ontv_alert .ontv_alert_option dl.default dt{padding:0;}
+.ontv_alert .ontv_alert_option .ontv_phone dd:first-child{width:70%;}
+.ontv_alert .ontv_alert_option .ontv_phone dd:last-child{width:30%;}
+.ontv_alert .ontv_alert_option .ontv_phone .select_option_typ04{width:60px;}
+.ontv_alert .ontv_alert_option .ontv_alert_chck{clear:both;padding:13px 15px 5px;}
+.ontv_alert .ontv_alert_option .ontv_alert_chck p.checkbox{margin-right:10px;}
+.ontv_alert .ontv_alert_option .ontv_alert_chck span{margin-right:5px;}
+.ontv_alert .ontv_alert_option input[type='text']{width:50px;}
+.ontv_alert .ontv_alert_option .btn_txt01.t02{margin:0 0 0 15px;}
+.ontv_alert .ontv_alert_option dl.ontv_alert_select{padding:13px 15px;}
+.ontv_alert .ontv_alert_option dl.ontv_alert_select dt{clear:both;float:none;width:auto;margin:0 0 5px;}
+.ontv_alert .ontv_alert_option dl.ontv_alert_select dd{clear:both;float:none;}
+.ontv_alert .ontv_alert_option dl.ontv_alert_select dd li{padding:10px 0;border-bottom:1px dashed #efefef;}
+.ontv_alert .ontv_alert_option dl.ontv_alert_select dd li:last-child{border-bottom:none;}
+.ontv_alert .ontv_alert_option dl.ontv_alert_select dd li p.radio{margin-right:10px;}
+.ontv_alert_complete p{padding:20px 0;text-align:center;}
+.ontv_alert_complete p strong{font-size:16px;color:#373e40;font-weight:bold;}
+.ontv_alert_complete .ontv_alert_stxt{margin:0 10px 10px;text-align:center;color:#373e40;}
+.ontv_alert_complete .ontv_alert_stxt em{font-weight:bold;color:#00aebd;}
+.ontv_alert_complete .ontv_alert_pro{padding:12px 15px;font-size:12px;color:#373e40;}
+/* 레이어alert */
+.layerAlert{position:fixed;left:0;top:0;width:100%;height:100%;z-index:10000;}
+.layerAlert .layerAlertFrame{position:absolute;top:50%;left:50%;width:280px;margin:-50% 0 0 -140px;background:#fff;z-index:10001;}
+.layerAlert .layerAlertCont{width:100%;}
+.layerAlert .layerAlertCont p{padding:20px 0 15px;color:#444;text-align:center;}
+.layerAlert .layerAlertCont p.ttl{text-align:left;padding:20px 0 3px 10px;}
+.layerAlert .layerAlertBtn{width:100%;padding:10px 0 15px;text-align:center;}
+.layerAlert .layerAlertBtn button{display:inline-block;width:45%;margin:0 1%;padding:10px 0;font-size:13px;}
+.layerAlert .layerAlertBtn button:first-child{width:46%;margin-left:0;}
+.layerAlert .layerAlertBtn button:last-child{width:46%;margin-right:0;}
+.layerAlert .layerAlert_bg{position:absolute;top:0;left:0;min-height:100%;width:100%;height:100%;height:auto !important;background:url('http://image.gsshop.com/mobile/mc/images/common/bg_trans50.png') repeat;background-size:5px auto;-webkit-background-size:5px auto;z-index:1000;}
+.layerAlert .BtnGray{color:#717171;text-align:center;border:1px solid #cfcfcf;background:#fff;}
+.layerAlert .BtnGray.blue{color:#fff;text-align:center;border:1px solid #00aebd;background:#00aebd;}
+.layerAlert .BtnGray:active{background:#ececec;}
+.layerAlert .BtnGray.blue:active{color:#fff;background:#009eac;}
+.layerAlert .myFolder{padding:10px 10px 0;}
+.layerAlert .selectStyle{display:inline-block;width:100%;margin:0;padding:9px 30px 9px 5px;color:#373e40;border:1px solid #e1e1e1;background:url('http://image.gsshop.com/mobile/mc/images/goods/img_select_option02.png') no-repeat right 0;background-size: 50px auto;-webkit-background-size:50px auto;}
+/* 서비스안내페이지 */
+.service_guide{padding-top:110px;background:#fff url('http://image.gsshop.com/mobile/mc/images/common/bg_service_intro.png') no-repeat center 50px;background-size:57px auto;-webkit-background-size:57px auto;}
+.service_guide p.txt{color:#636363;font-weight:bold;line-height:16px;text-align:center;text-shadow:0 1px 1px #f2f2f2;}
+.service_guide_btn{padding:40px 0;text-align:center;}
+.service_guide_btn a{display:inline-block;width:135px;height:40px;margin-left:-6px;line-height:40px;font-size:13px;color:#636363;letter-spacing:-1px;border:1px solid #c9c9c9;background:#ebebeb;}
+.service_guide_btn a em{display:inline-block;}
+.service_guide_btn .btn_prev em{width:7px;height:10px;margin-right:6px;background:url('http://image.gsshop.com/mobile/mc/images/common/icon_service01.png') no-repeat 0 0;background-size:7px auto;-webkit-background-size:7px auto;vertical-align:-1px;}
+.service_guide_btn .btn_home em{width:15px;height:15px;margin-right:5px;background:url('http://image.gsshop.com/mobile/mc/images/common/icon_service02.png') no-repeat 0 0;background-size:15px auto;-webkit-background-size:15px auto;vertical-align:-3px;}
+
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+개편CSS 추가
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* 개편 - layout 공통 */
+html, body{height:100%;margin:0;padding:0;background:#fff;}
+#head{position:fixed;top:0;left:0;width:100%;background:#fff;z-index:10000;}
+#cont_wrap{padding-top:45px;background:#fff;}
+#container{height:auto !important;height:100%;min-height:100%;margin-bottom:-190px;}
+#container.app{height:auto !important;height:100%;margin-bottom:0;padding:0;}
+#container.app #push, .app #push{height:0;}
+.prd_calculator #cont_wrap{padding-top:0;}
+.sms_share #prd_detail_view #cont_wrap, .sms_share.app #prd_detail_view #cont_wrap{padding:45px 0 20px;}
+#container.sms_share.app{margin-bottom:-110px;}
+#push{height:190px}
+#footer{width:100%;height:190px;padding-bottom:50px;border-top:1px solid #d1d1d1;background:#ebebeb;}
+#app_footer{overflow:hidden;height:110px;padding-bottom:0;border-top:1px solid #d1d1d1;background:#ebebeb;}
+#app_footer.deal{padding-bottom:50px;}
+.footer_menu{padding:8px 7px 0;}
+.footer_menu:after{display:block;overflow:hidden;clear:both;content:''}
+.footer_menu li{float:left;width:25%;}
+.footer_menu li div{margin:0 3px;border:1px solid #c9c9c9;background:#eeeeee;}
+.footer_menu li div a{display:block;height:30px;padding:0;font-size:13px;line-height:30px;color:#444;text-align:center;letter-spacing:-1px;}
+#footer address, #app_footer address{overflow:hidden;margin:0;padding:12px 0 0 10px;font-size:10px;line-height:14px;color:#636363;text-align:left;letter-spacing:-1px;}
+#footer address strong, #app_footer address strong{display:block;padding-bottom:5px;font-size:11px;}
+#footer address a, #app_footer address a{color:#636363;}
+#footer address a.footer_link, #app_footer address a.footer_link{display:inline-block;color:#636363;font-weight:bold;text-decoration:underline;/* border-bottom:1px solid #9d9d9d; */}
+.footer_sub_nav{height:10px;padding:15px 0;line-height:10px;font-weight:bold;text-align:center;}
+.footer_sub_nav a{display:inline-block;height:10px;margin:0;padding:0 8px;line-height:10px;color:#636363;font-size:12px;border-right:1px solid #888;vertical-align:middle;}
+.footer_sub_nav a:last-child{padding:0 0 0 8px;border-right:none;}
+#copyright{margin:0 auto;padding:0;font-size:11px;color:#636363;text-align:center;}
+#head h1.logo, #head #search_form, #head nav{display:none;} /* 구MC GNB 히든처리 */
+/* 개편 하단 탭바 */
+.hidden_text{visibility:hidden;overflow:hidden;text-indent:-10000px;width:.1%;height:.1%;line-height:.1%;font-size:.1%}
+.quick_link_area{height:48px;position:fixed; bottom:0; left:0; width:100%; background:#fff; border-top:1px solid #a3a3a4; z-index:10000;}
+.quick_link_con{overflow:hidden; width:100%}
+.quick_link_con li{float:left;width:16.6%;color:#888;text-align:center;}
+.quick_link_con li div{padding-top:2px;text-align:center;}
+.quick_link_con li span, .quick_link_con li em, .quick_link_con li a{display:block;}
+.quick_link_con li span{height:12px;padding-top:3px;font-size:11px;line-height:10px;color:#888;letter-spacing:-1px;}
+.quick_link_con li.on span{color:#86cf00;}
+.quick_link_con li em{width:29px;height:28px;margin:0 auto;}
+.quick_link_con li.quick_home em{background:url('http://image.gsshop.com/mobile/mc/images/layout/tab_icon01.png') no-repeat 50% 50%;  background-size:29px; }
+.quick_link_con li.quick_category em{background:url('http://image.gsshop.com/mobile/mc/images/layout/tab_icon02.png') no-repeat 50% 50%; background-size:29px;}
+.quick_link_con li.quick_search em{background:url('http://image.gsshop.com/mobile/mc/images/layout/tab_icon03.png') no-repeat 50% 50%; background-size:29px;}
+.quick_link_con li.quick_cart em{background:url('http://image.gsshop.com/mobile/mc/images/layout/tab_icon04.png') no-repeat 50% 50%; background-size:29px;}
+.quick_link_con li.quick_ship em{background:url('http://image.gsshop.com/mobile/mc/images/layout/tab_icon05.png') no-repeat 50% 50%; background-size:29px;}
+.quick_link_con li.quick_shopping em{background:url('http://image.gsshop.com/mobile/mc/images/layout/tab_icon06.png') no-repeat 50% 50%; background-size:29px;}
+.quick_link_con li.quick_home.on em{background:url('http://image.gsshop.com/mobile/mc/images/layout/tab_icon01_ov.png') no-repeat 50% 50%; background-size:29px;}
+.quick_link_con li.quick_category.on em{background:url('http://image.gsshop.com/mobile/mc/images/layout/tab_icon02_ov.png') no-repeat 50% 50%; background-size:29px;}
+.quick_link_con li.quick_search.on em{background:url('http://image.gsshop.com/mobile/mc/images/layout/tab_icon03_ov.png') no-repeat 50% 50%; background-size:29px;}
+.quick_link_con li.quick_cart.on em{background:url('http://image.gsshop.com/mobile/mc/images/layout/tab_icon04_ov.png') no-repeat 50% 50%; background-size:29px;}
+.quick_link_con li.quick_ship.on em{background:url('http://image.gsshop.com/mobile/mc/images/layout/tab_icon05_ov.png') no-repeat 50% 50%; background-size:29px;}
+.quick_link_con li.quick_shopping.on em{background:url('http://image.gsshop.com/mobile/mc/images/layout/tab_icon06_ov.png') no-repeat 50% 50%; background-size:29px;}
+.info_num{background:#ed1f60; font-size:10px; font-weight:bold; position:absolute; right:5px; top:3px; color:#fff; border-radius:10px;padding:0 5px;height:15px;line-height:15px}
+.info_num span{display:inline;vertical-align:top;}
+/* 개편 상단 타이틀 */
+.sub_header{width:100%;border-bottom:1px solid #ccc;}
+.sub_header_back{position:absolute;left:0;top:7px}
+.sub_header_back a{display:block; padding:0;}
+.sub_header_back img{width:30px;}
+.sub_header_home{position:absolute;left:12px;top:9px;}
+.sub_header_home a{display:block; padding:0;}
+.sub_header_home a span{display:inline-block;overflow:hidden;width:21px;height:21px;line-height:21px;font-size:0;color:transparent;text-indent:-9999px;background:url('http://image.gsshop.com/mobile/mc/images/layout/btn_home.png') no-repeat 50% 50%;-webkit-background-size:21px auto;background-size:21px auto;}
+.sub_category_name{height:44px}
+.sub_category_name span.sub_category_tit{display:block;overflow:hidden;height:44px;padding:0 25px;font-size:17px; color:#111;line-height:44px;font-weight:bold;}
+.sub_category_name span.sub_category_num{font-size:12px;color:#888;}
+.sub_category_name.srch_tit span.sub_category_tit{height:auto;line-height:19px;padding-top:6px;}
+.sub_category_name span{display:block;text-align:center}
+.location_con{overflow:hidden; background:#36425c; height:40px;}
+.location_con li{overflow:hidden;float:left; background:url('http://image.gsshop.com/mobile/mc/images/navi_next.png') no-repeat right top; background-size:10px; font-size:13px; color:#d7d9de; padding-left:7px; height:40px; line-height:40px; padding-right:10px }
+.location_con li span{display:block}
+.depth_menu{color:transparent;background:url('http://image.gsshop.com/mobile/mc/images/btn_menu_select.png') no-repeat center 10px; background-size:23px; width:23px; height:30px; }
+.depth_menu a{color:transparent;}
+/* 개편 상단 타이틀 버튼 */
+.sub_header_area a.search_btn{position:absolute;top:5px;right:5px;width:42px;height:30px;border:solid 1px #cfcfcf;background:#fff;}
+.sub_header_area a.close3{position:absolute;top:6px;right:5px;}
+.sub_header_area a.search_btn span{display:inline-block;width:100%;height:30px;border-radius:2px;-webkit-border-radius:2px;box-shadow:inset 1px 1px #fff;-webkit-box-shadow:inset 1px 1px #fff;}
+.sub_header_area a.search_btn img{position:relative;top:5px;left:11px;height:17px;}
+.sub_header_area a.prd_info{position:absolute;top:6px;right:5px;height:30px;padding:0 5px;text-align:center;border:1px solid #c1c1c1;background:#fff;}
+.sub_header_area a.prd_info span{display:inline-block;width:100%;line-height:30px;font-size:13px;color:#7c8181;}
+.sub_header_area a.head_btn{position:absolute;top:5px;right:5px;line-height:30px;padding:0 8px;}
+.btn_prd_sns{display:block;position:absolute;top:6px;right:5px;height:27px;padding:0 5px;text-align:center;background:#fff;}
+.btn_prd_sns span{display:inline-block;overflow:hidden;width:44px;height:27px;line-height:27px;font-size:0;color:transparent;text-indent:-9999px;background:url('http://image.gsshop.com/mobile/mc/images/top_sns_btn.png') no-repeat 50% 50%;-webkit-background-size:44px auto;background-size:44px auto;}
+#head .btn_order_date, .sub_header_area .btn_order_date{position:absolute;top:5px;right:10px;}
+#head a.prd_info.btn_order_date, .sub_header_area a.prd_info.btn_order_date{padding:0 7px;}
+#head a.prd_info.btn_order_date span, .sub_header_area a.prd_info.btn_order_date span{width:auto;}
+#head a.prd_info.btn_order_date em, .sub_header_area a.prd_info.btn_order_date em{display:inline-block;width:8px;height:6px;margin-left:5px;vertical-align:1px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_cart.png') no-repeat -68px -19px;background-size:75px auto;-webkit-background-size:75px auto;}
+#head a.prd_info.btn_order_date.close em, .sub_header_area a.prd_info.btn_order_date.close em{background-position:-68px -4px;}
+/* 개편 탑버튼 */
+.btn_layer{overflow:hidden;position:fixed;width:41px;height:41px;right:10px;bottom:60px;z-index:999;}
+.btn_layer .btn_top{float:right;}
+.btn_layer span{display:inline-block;width:41px;height:41px;color:transparent;background:url('http://image.gsshop.com/mobile/mc/images/srch/btn_top.png') no-repeat;background-size:41px auto;-webkit-background-size:41px auto;}
+.btn_layer p a{display:block;padding:0;}
+.btn_layer02{overflow:hidden;position:fixed;width:41px;height:41px;right:10px;bottom:60px;z-index:999;}
+.btn_layer02 span{display:inline-block;width:41px;height:41px;color:transparent;}
+.btn_layer02 p a{display:block;padding:0;}
+.btn_layer02 .btn_top{float:right;}
+.btn_layer02 .btn_top span{background:url('http://image.gsshop.com/mobile/mc/images/srch/btn_top.png') no-repeat;background-size:41px auto;-webkit-background-size:41px auto;}
+.btn_layer02.app{bottom:11px;}
+/* 개편 딜단품상세보기 */
+#prd_detail_view #cont_wrap{padding-top:20px;}
+.app #prd_detail_view #cont_wrap{padding-top:70px;}
+#prd_detail_view #cont_wrap figure{text-align:center;}
+.prd_zoom_finger{position:relative;margin-bottom:30px;text-align:center;}
+.prd_zoom_finger p{display:inline-block;padding:0 35px;color:#666;font-size:13px;letter-spacing:-1px;background:#fff;}
+.prd_zoom_finger p em{display:table-cell;width:30px;height:30px;padding-right:8px;background:url('http://image.gsshop.com/mobile/mc/images/common/icon_finger.png') no-repeat left 50%;background-size:30px auto;-webkit-background-size:30px auto;}
+.prd_zoom_finger p span{display:table-cell;color:#666;font-size:13px;}
+.prd_zoom_finger:after{display:block;clear:both;overflow:hidden;content:'';height:0;margin:-20px 0 0;border-top:1px solid #e2e2e2;}
+/* 개편 제휴팝업 */
+.modal.Family{display:none;overflow:hidden;position:fixed;top:0;left:0;width:100%;height:100%;margin:0 auto;z-index:10000;}
+.modal.Family .modalFrame{position:relative;width:240px;margin:0 auto;z-index:10001;}
+.modal .modalFrame{padding:88px 0 0;}
+.modal .modalFrame header{display:none;height:0;font-size:0;color:transparent;}
+.modal .modalFrame .modal_cont{position:relative;overflow:hidden;margin:0 auto;text-align:center;z-index:10;}
+.modal .modalFrame .modal_cont a{display:block;}
+.modal .modalFrame .modal_cont img{width:240px;}
+.modal .modalFrame .btn_savemoney{width:240px;height:159px;background:url('http://image.gsshop.com/mobile/mc/images/popup/img_pop_family.png') no-repeat 50% 50%;background-size:240px auto;-webkit-background-size:240px auto;}
+.modal .modalFrame .btn_savemoney u{display:block;overflow:hidden;width:240px;height:159px;color:transparent;font-size:0;text-indent:-9999px;}
+.modal .modalFrame .modal_btn{overflow:hidden;clear:both;padding:0;text-align:center;border-top:1px solid #cfcfcf;background:#fff;}
+.modal .modalFrame .modal_btn a{display:block;float:left;width:50%;height:40px;line-height:40px;font-size:14px;font-weight:bold;color:#888;letter-spacing:-1px;}
+.modal .modalFrame .modal_btn a:last-child{box-shadow:-1px 0 0 0 #cfcfcf;}
+.modal.Family.Absolute{position:absolute;left:50%;width:240px;margin:105px 0 0 -120px;height:auto !important;border:1px solid #cfcfcf;background:#fff;z-index:100;}
+.modal.Family.Absolute .modalFrame{padding:0;}
+.modal .modalFrame .skFamily{background:#faffd5;}
+.modal .modalFrame .btn_skcoupon{display:block;width:240px;height:160px;background:url('http://image.gsshop.com/mobile/mc/images/popup/img_pop_skcoupon02.png') no-repeat 50% 50%;background-size:240px auto;-webkit-background-size:240px auto;}
+.modal .modalFrame .btn_skcoupon u{display:block;overflow:hidden;width:240px;height:160px;color:transparent;font-size:0;text-indent:-9999px;}
+.modal .modalFrame .skFamily .btn_savemoney{width:240px;height:60px;margin-top:-20px;background:url('http://image.gsshop.com/mobile/mc/images/popup/img_pop_skcoupon03.png') no-repeat 50% 50%;background-size:240px auto;-webkit-background-size:240px auto;}
+.modal .modalFrame .skFamily .btn_savemoney u{height:60px;}
+
+/* 개편 레이어알럿 */
+.basket_popup01{background:#fff; width:280px; min-height:150px; position:absolute; left:0; top:0; z-index:99;}
+.basket_popup01 .basket_title{font-size:15px; text-align:center; height: 108px; line-height:108px; color:#444}
+.basket_btn_area{border-top: 1px solid #cfcfcf; line-height:41px;  font-weight:bold}
+.basket_btn_area a{display:inline-block; width:50%; text-align:center}
+.basket_btn_area a span{display:block}
+.basket_btn_area a span.btn_shopping{font-size:14px; color:#888; border-right:1px solid #cfcfcf}
+.basket_btn_area a span.btn_basket{font-size:14px; color:#888;}
+.popup_normal{background:#fff; width:280px; min-height:150px; position:absolute; left:0px; top:200px; z-index:99;}
+.popup_normal .basket_title{font-size:15px; text-align:center; height: 38px; color:#444;  padding:35px;}
+.yn_btn_area{border-top: 1px solid #cfcfcf; line-height:41px;  font-weight:bold;}
+.yn_btn_area a{display:inline-block; width:50%; text-align:center}
+.yn_btn_area a span{display:block}
+.yn_btn_area a span.btn_shopping{font-size:14px; color:#888; border-right:1px solid #cfcfcf}
+.yn_btn_area a span.btn_basket{font-size:14px; color:#888;}
+.product_zzing_info{background:#fff; width:280px; min-height:150px; position:absolute; left:0; top:400px; z-index:99; }
+.product_zzing_info .basket_title{font-size:15px; text-align:center; height: 108px; line-height:108px; color:#444}
+.product_zzing_info .basket_title02{height:68px;padding:40px 0 0;font-size:15px; text-align:center; line-height:16px;color:#444}
+.basket_btn_area02{border-top: 1px solid #cfcfcf; line-height:41px; font-weight:bold}
+.basket_btn_area02 a{display:inline-block; width:50%; text-align:center}
+.basket_btn_area02 a span{display:block}
+.basket_btn_area02 a span.btn_shopping{font-size:14px; color:#888; border-right:1px solid #cfcfcf}
+.basket_btn_area02 a span.btn_basket{font-size:14px; color:#888;}
+.zzinm_info_con{background:#fff; width:280px; min-height:150px; position:absolute; left:0; top:600px; z-index:99; }
+.zzinm_info_con .basket_title{font-size:15px; text-align:center; height: 108px; line-height:108px; color:#444}
+.zzim_btn_area{border-top: 1px solid #cfcfcf; line-height:41px; font-weight:bold}
+.zzim_btn_area a{display:inline-block; width:100%; text-align:center}
+.zzim_btn_area a span{display:block}
+.zzim_btn_area a span.btn_basket{font-size:14px; color:#888;}
+.zzim_folder_select{background:#fff; width:280px; min-height:150px; position:absolute; left:0px; top:800px; z-index:99;}
+.zzim_folder_select .zzim_folder_con{padding:30px 15px}
+.zzim_folder_select .basket_title{font-size:15px;padding-left:10px; height: 25px; color:#444; }
+.zzimg_selectbox{border:1px solid #ddd; background:url(images/select_box_btn.png) right top no-repeat; background-size:35px; width:100%; height:39px;-webkit-appearance: none;}
+.yn_btn_area03{border-top: 1px solid #cfcfcf; line-height:41px;  font-weight:bold;}
+.yn_btn_area03 a{display:inline-block; width:50%; text-align:center}
+.yn_btn_area03 a span{display:block}
+.yn_btn_area03 a span.btn_shopping{font-size:14px; color:#888; border-right:1px solid #cfcfcf}
+.yn_btn_area03 a span.btn_basket{font-size:14px; color:#888;}
+/* 이메일구독취소 */
+.email_guide{padding:105px 0 0;background:#f8f8f8 url('http://image.gsshop.com/mobile/mc/images/common/bg_email_guide.png') no-repeat center 15px;background-size:105px auto;-webkit-background-size:105px auto;}
+.email_guide p.txt{position:relative;padding:15px 25px;color:#fff;line-height:17px;background:#00aebd;}
+.email_guide p.txt span{display:inline-block;text-decoration:underline;}
+.email_guide p.txt strong{display:block;}
+.email_guide p.txt:after{display:block;clear:both;overflow:hidden;content:'';position:absolute;bottom:-4px;left:50%;width:0px;height:0px;margin-left:-4px;border-left:4px solid transparent;border-right:4px solid transparent;border-top:4px solid #00aebd;}
+.email_guide .email{padding:20px 25px;color:#000;font-weight:bold;border-bottom:1px solid #ddd;background:#fff;}
+.email_guide .email dt, .email_guide .email dd{display:inline-block;}
+.email_guide_note{padding:20px 25px;color:#888;font-size:12px;letter-spacing:-1px;background:#fff;}
+.email_guide_btn{padding:0 0 20px;text-align:center;}
+.email_guide_btn a{display:inline-block;width:130px;height:40px;line-height:40px;font-size:13px;font-weight:bold;color:#111;letter-spacing:-1px;border:1px solid #bababa;}
+/* 앱다운로드 페이지 */
+.cont_app_download{position:relative;background:#f4f4f4 -webkit-gradient(linear, left top, left bottom, from(#f4f4f4), to(#fff)) no-repeat;}
+.cont_app_download header{display:none;}
+.cont_app_download article{width:320px;height:365px;margin:0 auto;background:url('http://image.gsshop.com/mobile/mc/images/common/img_appdown.png') no-repeat 0 0;background-size:320px auto;-webkit-background-size:320px auto;}
+.cont_app_download footer{position:absolute;bottom:60px;left:50%;margin:0 0 0 -75px;text-align:center;}
+.cont_app_download footer a{display:block;width:150px;}
+.cont_app_download footer a img{width:100%;}
+
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+개편 공통 CSS 추가
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* 내용 부분 */
+.container_padding{padding-top:45px;background:#fff;}
+/* 탑 버튼 */
+.page_top{position:fixed;bottom:60px;right:10px;width:41px;height:41px;z-index:100;}
+.page_top img{width:41px; }
+.page_top.app{bottom:11px}
+/* 푸터 */
+.footer_area{background:#ebebeb; font-size:10px}
+.footer_area address{margin-top:8px}
+.footer_con{ padding:15px 10px; width:300px; margin:0 auto}
+.footer_con  p.business_num{letter-spacing:-1.2px}
+.footer_con  p.business_info{font-weight:bold; text-decoration:underline}
+.footer_btn_set{display:-webkit-box; margin-bottom:15px}
+.footer_btn_set li{-webkit-box-flex:1; text-align:center; width:70px; height:31px; line-height:31px; border:1px solid #c9c9c9; background:#f8f8f8; margin-right:5px; font-size:12px; color:#444 }
+.footer_btn_set li:last-child{margin-right:0}
+.foot_bottom_link{text-align:center; margin-top:20px; font-size:11px; font-weight:bold}
+.foot_bottom_link span{display:inline-block; margin-right:10px}
+.foot_bottom_link span:after{content:"|"; padding-left:10px}
+.foot_bottom_link span:last-child:after{content:""}
+.info_ceo{color:#636363; font-size:10px; font-weight:bold;}
+.company_info{text-align:center; margin-top:20px; font-size:10px}
+/* 하단 메뉴 링크 */
+.quick_menu_area{overflow:hidden; background:#fff; margin-top:10px}
+.quick_menu_area li{float:left; width:50%; font-size:14px; border-bottom:1px solid #e5e5e5; height:40px; line-height:26px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+.quick_menu_area li a{display:block; border-right:1px solid #e5e5e5; padding:8px 10px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+.quick_menu_area li:nth-child(even) a{border-right:none}
+.quick_menu_area li:nth-child(odd):last-child{border-bottom:none}
+/* fixed로 수정 2014.06. -> remarkup 2014.06.26. */
+.sub_header_area{ text-align:center; position:fixed;top:0;left:0;width:100%;background:#fff;z-index:1000;border-bottom: 1px solid #ccc;}
+.sub_header_area h1.sub_category_tit{height:44px; line-height:44px; font-size:17px; color:#111; font-weight:bold; }
+.sub_header_area span.sub_category_subtitle{display:none;}
+.category_back_btn{position:absolute; left:0px; top:8px; background:url('http://image.gsshop.com/ui/gsshop/shop/images/btn_back.png') no-repeat;width:30px;height:30px;background-size:30px; }
+.category_back_btn a{color:transparent;  display:block}
+.sub_header_area02{ text-align:center; position:fixed;height:44px;top:0;left:0;width:100%;background:#fff;z-index:1000;border-bottom: 1px solid #ccc;}
+.sub_header_area02 h1.sub_category_tit{font-size:17px; color:#111; font-weight:bold; padding-top:6px}
+.sub_header_area02 span.sub_category_subtitle{font-size:12px; color:#888; text-align:center}
+.sub_category_button{position: absolute;top: 7px;right: 2px;height: 28px;padding: 0 5px;text-align: center;border: solid 1px #cfcfcf;background: #fff;}
+.sub_category_button span{display:inline-block;width:100%;line-height:27px;font-size:12px;color:#7c8181;}
+.sub_category_button span img.snsPopup{width:44px;padding:0;}
+.sub_header_area.hasHeaderAppdownbanner,.sub_header_area02.hasHeaderAppdownbanner {margin-top:41px}
+.exhibition_con li a{display:block; border-bottom:1px solid #e5e5e5;}
+.exhibition_con li a img{ -webkit-user-select: none;}
+/* 찜 - 팝업 */
+.back_back{background:rgba(1,1,1,0.5); width:100%; height:100%;position: fixed;z-index: 10001;top: 0;left: 0}
+
+/*세계로 배송 팝업*/
+.global_info_wrap {position:absolute;top:50%;left:50%;background:#FFF;width:280px;height:200px;margin:-100px 0 0 -140px;overflow:hidden}
+.global_info_wrap .global_info_con {padding:40px 20px 0;line-height:1.4em;font-size:15px}
+.global_info_wrap .global_info_con p:nth-child(1){font-weight:bold;padding-bottom:10px}
+.global_info_wrap .global_info_con strong{color:red}
+.global_info_wrap .basket_btn_area02{position:absolute;bottom:0;left:0;width:100%}

@@ -1,0 +1,944 @@
+@charset "utf-8";
+
+/*
+ * 파일명	 : member.css
+ * 작성자	 : 한미선
+ * 작성일	 : 2014-07-02
+ * 이메일	 : cutie415@gsshop.com
+ * 설명		 : m.gsshop mobile css
+ */
+
+/* 회원가입타이틀 */
+#member p.checkbox label span{margin-right:5px;}
+#member p.insert_tit{padding:18px 0 10px;margin:0 17px;line-height:17px;color:#777;}
+#member p.insert_tit u{display:inline-block;position:relative;top:-4px;font-size:15px;line-height:29px;color:#444646;}
+#member p.insert_tit span{display:inline-block;font-size:12px;line-height:15px;color:#959899;}
+#member p.insert_tit strong{color:#86cf00;}
+#member p.insert_tit em{font-weight:bold;}
+#member p.insert_tit.ipin_result{text-align:center;}
+#member p.insert_tit02{padding:18px 0 0;margin:0 17px;line-height:17px;color:#acacac;}
+#member div.insert_tit{padding:18px 0 10px;margin:0 17px;font-size:13px;line-height:16px;color:#777;text-shadow:0 1px 0 #f2f2f2;}
+#member div.insert_tit p{padding:0 0 5px;}
+#member div.insert_tit p em{font-weight:bold;}
+#member div.insert_tit p strong{font-weight:normal;color:#86cf00;}
+/* 로그인 */
+#login footer p.txt{padding:15px 0;text-align:center;text-shadow:0 1px 1px #f2f2f2;line-height:18px;color:#444646;font-weight:bold;}
+#login div.logo{padding:20px 0 15px;}
+#login div.logo p{width:126px;height:23px;margin:0 auto;background:url('http://image.gsshop.com/mobile/mc/images/common/logo_login.png') no-repeat 0 0;background-size:126px auto;-webkit-background-size:126px auto;}
+/* 실명인증 */
+#member .varification ul.tab{overflow:hidden;}
+#member .varification ul.tab li{float:left;width:50%;background:#f7f7f7;border-bottom:solid 1px #e2e2e2;}
+#member .varification ul.tab li:first-child{border-radius:3px 0 0 0;-webkit-border-radius:3px 0 0 0;}
+#member .varification ul.tab li:last-child{border-radius:0 3px 0 0;-webkit-border-radius:0 3px 0 0;}
+#member .varification ul.tab li a{display:block;height:40px;line-height:40px;text-indent:10px;font-weight:bold;font-size:13px;color:#adb0b0;border-right:solid 1px #e2e2e2;}
+#member .varification ul.tab li:last-child a{border-right:none;}
+#member .varification ul.tab li.on{background:#fff;border-bottom:solid 1px #efefef;}
+#member .varification ul.tab li.on a{color:#222;}
+#member .varification div.cont{overflow:hidden;}
+#member .varification div.cont label{display:block;margin:0 33px;line-height:49px;height:50px;}
+#member .varification div.cont label:last-child{margin-bottom:10px;}
+#member .varification div.cont label input[type='text'], #member .varification div.cont label input[type='password']{width:98%;height:45px;padding-left:2%;text-indent:0;border-bottom:solid 1px #efefef;}
+#member .varification div.cont label input[type='text']:focus, #member .varification div.cont label input[type='password']:focus{border-bottom:solid 1px #a4dd00;}
+#member .varification div.cont1 p{padding:15px 15px 30px;line-height:17px;font-size:12px;color:#222;}
+#member .varification div.cont1 p strong{font-weight:bold;color:#86cf00;}
+#member .guide ul{padding:15px 0 5px;border-top:solid 1px #e9e9e9;background:#f8f8f8;}
+#member .guide ul li{padding:0 15px 10px 20px;line-height:16px;text-indent:-7px;font-size:12px;color:#777;}
+#member .guide.nborder{border-top:none;}
+#member .guide.nborder ul{padding:5px 0 5px;background:none;border-top:none;}
+#member .guide.nborder ul li{color:#acacac;}
+#member .insert.type02 .guide{border-bottom:none;}
+/* 본인인증 */
+#member .varification div.cont.verify_btn{padding:10px 15px 20px 0;}
+#member .varification div.cont.verify_btn ul{overflow:hidden;padding:10px 0 0;}
+#member .varification div.cont.verify_btn li{float:left;width:50%;}
+#member .varification div.cont.verify_btn li a{display:block;margin:0 0 0 15px;text-align:center;color:#8c9b9b;font-weight:bold;text-shadow:0 1px 0 #fff;}
+#member .varification div.cont.verify_btn li a div{position:relative;margin:0;padding:20px 0 20px 12px;border:1px solid #cecece;text-align:left;background:#f8f8f8;}
+#member .varification div.cont.verify_btn li strong{display:block;color:#4d5454;}
+#member .varification div.cont.verify_btn li u{display:block;position:absolute;top:30px;right:12px;width:10px;height:10px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_member.png') no-repeat 0 -70px;background-size:25px auto;-webkit-background-size:25px auto;}
+#member .varification div.cont.verify_btn li em{display:block;float:left;position:relative;top:3px;width:35px;height:29px;margin-right:2px;background:url('http://image.gsshop.com/mobile/mc/images/common/icon_certify.png') no-repeat 0 0;background-size:35px auto;-webkit-background-size:35px auto;}
+#member .varification div.cont.verify_btn li em.certify_id{width:28px;background-position:-2px 0;}
+#member .varification div.cont.verify_btn li em.certify_ipin{background-position:0 -32px;}
+#member .varification div.cont.verify_btn li.name{clear:both;width:100%;}
+#member .varification div.cont.verify_btn li.name dl dt{padding-left:10px;}
+#member .varification div.cont.verify_btn li.name dl dd{padding:0;line-height:51px;}
+#member .varification div.cont.verify_btn li.name dl dd p{padding:0;font-size:14px;font-weight:bold;color:#86cf00;}
+#member .varification div.cont.verify_btn .ex_guide p{text-align:center;}
+#member .insert_note{margin:10px 12px;font-size:12px;color:#777;}
+#member .insert_note li{position:relative;line-height:30px;text-shadow:0 1px 0 #fff;}
+#member .insert_note li.line_height{padding:0 0 5px;line-height:16px;}
+#member .insert_note li a{display:block;position:absolute;top:0;right:0;}
+#member .insert_note li strong{font-weight:normal;color:#222;}
+#member .insert_note li a u{width:73px;text-align:center;}
+/* 성인인증 */
+#member .verify_19_head {margin:0 0 10px;padding:10px 10px 20px;border-bottom:1px solid #252d3b;background:#323d53 url('http://image.gsshop.com/mobile/mc/images/common/bg_certify_19.png') no-repeat right bottom;background-size:175px auto;-webkit-background-size:175px auto;}
+#member .verify_19_head h3{padding:0;color:#fff;font-size:16px;text-shadow:0 1px 1px #454847;}
+#member .verify_19_head h3 u{color:#ee2f58;text-decoration:underline;}
+#member .verify_19_head p{padding:8px 0 0;color:#fff;font-size:12px;}
+/* 아이핀찾기 결과 */
+#member .insert.ipin_result article.ipin_num{height:151px;text-align:center;}
+#member .insert.ipin_result article.ipin_num p{line-height:151px;font-weight:bold;font-size:17px;color:#4d5454;}
+#member .insert.ipin_result article.ipin_num p span{color:#86cf00;}
+/* 이용약관 */
+#member .insert.prom article.agree ul{padding-bottom:5px;}
+#member .insert.prom article.agree ul li{position:relative;padding:15px 12px;border-bottom:solid 1px #efefef;}
+#member .insert.prom article.agree ul li:first-child{border-bottom:none;}
+#member .insert.prom article.agree ul li:last-child{border-bottom:none;}
+#member .insert.prom article.agree ul li p{display:inline-block;vertical-align:middle;font-weight:bold;font-size:14px;color:#222;}
+#member .insert.prom article.agree ul li a{position:absolute;top:50%;right:10px;margin:-12px 0 0;}
+#member .insert.prom article.agree ul li.sub_prom{padding-top:0;}
+#member .insert.prom article.agree ul li.sub_prom dl{position:relative;overflow:hidden;height:35px;padding-left:20px;}
+#member .insert.prom article.agree ul li.sub_prom dl dt{float:left;width:60%;line-height:35px;font-size:12px;}
+#member .insert.prom article.agree ul li.sub_prom dl dd{float:left;width:40%;padding-top:0;line-height:35px;text-align:right;}
+#member .insert.prom article.agree ul li.sub_prom dl dd a{top:15px;right:0;}
+#member .insert.prom footer{padding:15px 0;}
+#member .prom article.detail pre{padding: 10px 20px 0;line-height:16px;font-size:12px;color:#777;word-wrap:break-word;}
+#member .prom article.detail pre strong{font-size:14px;color:#222;}
+#member .prom article.detail table{margin:10px 0 20px;}
+/* 정보입력 절차 */
+#member div.proceed{background:#323d53;border-bottom:solid 1px #252d3b;}
+#member div.proceed ul{overflow:hidden;height:35px;margin:0 10px;}
+#member div.proceed ul li{float:left;position:relative;width:26.5%;padding-top:9px;text-align:left;color:#fff;font-size:12px;text-shadow:0 -1px 0 #000;}
+#member div.proceed ul li:last-child{width:auto;}
+#member div.proceed ul li.on{color:#86cf00;font-weight:bold;}
+#member div.proceed ul li u.arrow{position:absolute;top:11px;right:5px;}
+/* 정보입력 */
+#member .insert{margin:0 8px 20px;background:#fff;border:1px solid #e5e5e5;}
+#member .insert article h3{height:22px;background:#f0f0f0;line-height:22px;text-indent:11px;font-weight:bold;font-size:14px;color:#8c9192;text-shadow:0 1px 0 #fbfbfb;border-bottom:solid 1px #dbdbdb;}
+#member .insert article ul li dl{overflow:hidden;height:52px;}
+#member .insert article ul li dl dt{float:left;width:115px;line-height:50px;text-indent:13px;font-size:14px;color:#777;}
+#member .insert article ul li dl dd{height:41px;margin:0 10px 0 115px;padding-top:10px;line-height:25px;font-size:14px;color:#222;}
+#member .insert article ul li dl dd input[type='text'], #member .insert article ul li dl dd input[type='password']{width:100%;border-bottom:solid 1px #ededed;}
+#member .insert article ul li dl dd input[type='text']:focus, #member .insert article ul li dl dd input[type='password']:focus{border-bottom:solid 1px #a4dd00;}
+#member .insert article ul li dl dd input[type='text']:active, #member .insert article ul li dl dd input[type='password']:active{border-bottom:solid 1px #a4dd00;}
+#member .insert article ul li dl dd.btn{display:block;position:absolute;top:0;right:10px;width:75px;margin:0;}
+#member .insert article ul li dl dd.btn a.btn_txt06{display:block;}
+#member .insert article ul li:last-child dl dd{border-bottom:none;}
+#member .insert article.base_info{padding-bottom:10px;}
+#member .insert article.base_info ul li.name{background:#f9f9f9;border-bottom:solid 1px #ebebeb;}
+#member .insert article.base_info ul li.name dl dd{padding:0;line-height:51px;}
+#member .insert article.base_info ul li.name dl dd input[type='text']{font-size:14px;font-weight:bold;color:#86cf00;border-bottom:none;}
+#member .insert article.base_info ul li.name dl dd input[type='text']::-webkit-input-placeholder{color:#86cf00;}
+#member .insert article.base_info ul li.name dl dd p{font-size:14px;font-weight:bold;color:#86cf00;}
+#member .insert article.base_info ul li.name.nbdr{background:none;border-bottom:none;}
+#member .insert article.base_info ul li.person_num{background:#f9f9f9;border-bottom:solid 1px #ebebeb;}
+#member .insert article.base_info ul li.person_num dl dt{line-height:43px;padding:0;line-height:51px;}
+#member .insert article.base_info ul li.person_num dl dd{width:67%;padding:0;line-height:51px;}
+#member .insert article.base_info ul li.person_num dl dd ul{overflow:hidden;}
+#member .insert article.base_info ul li.person_num dl dd ul li{float:left;}
+#member .insert article.base_info ul li.person_num dl dd ul li:nth-child(1){width:45%;}
+#member .insert article.base_info ul li.person_num dl dd ul li:nth-child(2){width:8%;text-align:center;}
+#member .insert article.base_info ul li.person_num dl dd ul li:nth-child(3){width:47%;}
+#member .insert article.base_info ul li.person_num dl dd input[type='text'], #member .insert article.base_info ul li.person_num dl dd input[type='password']{width:100%;padding-top:4px;font-size:13px;font-weight:bold;color:#86cf00;border-bottom:none;}
+#member .insert article.base_info ul li.person_num dl dd input[type='password']{text-indent:0;}
+#member .insert article.base_info ul li.person_num dl dd input[type='text']::-webkit-input-placeholder,
+#member .insert article.base_info ul li.person_num dl dd input[type='password']::-webkit-input-placeholder{color:#86cf00;}
+#member .insert article.base_info ul li.person_num dl dd span{position:relative;top:2px;font-weight:bold;color:#86cf00;}
+#member .insert article.base_info ul li.person_num dl dd p{font-size:14px;font-weight:bold;color:#86cf00;}
+#member .insert article.base_info ul li.id_input{position:relative;}
+#member .insert article.base_info ul li.id_input dl dd p{width:55%;margin:0 0 10px;}
+#member .insert article.base_info ul li.id_input dl dd.btn{display:block;position:absolute;top:0;right:10px;width:75px;margin:0;text-align:center;}
+#member .insert article.base_info ul li.id_input dl dd ul{overflow:hidden;}
+#member .insert article.base_info ul li.id_input dl dd ul li:nth-child(1){float:left;width:50%;margin-right:3%;}
+#member .insert article.base_info ul li.id_input dl dd ul li:nth-child(2){float:left;width:45%;text-align:right;}
+#member .insert article.base_info ul li.id_input dl dd ul li input[type='text']{width:100%;}
+#member .insert article.base_info ul li.location_result dl dd{font-size:14px;}
+#member .insert article.base_info ul li.phone_num dl dd ul{overflow:hidden;}
+#member .insert article.base_info ul li.phone_num dl dd ul li:nth-child(1){float:left;width:28%;}
+#member .insert article.base_info ul li.phone_num dl dd ul li:nth-child(2){float:left;width:8%;text-align:center;}
+#member .insert article.base_info ul li.phone_num dl dd ul li:nth-child(3){float:left;width:64%;}
+#member .insert article.base_info ul li.phone_num dl dd div.select_option_typ03{width:100%;}
+#member .insert article.base_info ul li.phone_num dl dd div.select_option_typ03 label select{width:100%;}
+#member .insert article.base_info ul li.phone_num dl dd input[type='text']{width:100%;text-indent:2px;}
+#member .insert article.base_info ul li.location{position:relative;}
+#member .insert article.base_info ul li.location dl, #member .insert article.base_info ul li.location dd{height:auto;}
+#member .insert article.base_info ul li.location dd a.btn_txt06{padding:0 15px 0 10px;}
+#member .insert article.base_info ul li.location dd p{margin:0 0 10px;line-height:25px;}
+#member .insert article.base_info ul li.location dd p:nth-child(1){width:55%;}
+#member div.location_srh{margin:5px;padding:0 10px 10px;background:#f8f8f8;border:solid 1px #e6e6e6;}
+#member div.location_srh ul li{position:relative;height:42px;line-height:42px;text-indent:2px;}
+#member div.location_srh ul li input[type='text']{background:#f8f8f8;}
+#member div.location_srh ul.srh_input li ul{overflow:hidden;}
+#member div.location_srh ul.srh_input li ul li:nth-child(1){float:left;width:83%;}
+#member div.location_srh ul.srh_input li ul li:nth-child(2){float:left;width:17%;text-align:right;}
+#member div.location_srh ul.srh_input li ul li input[type='text']{width:100%;}
+#member div.location_srh ul.srh_input li ul li a.btn_txt06{vertical-align:-3px;}
+#member div.location_srh ul.location_input li input[type='text']{width:100%;}
+#member div.location_srh ul.location_list li{height:auto;}
+#member div.location_srh ul.location_list li dl{overflow:hidden;height:36px;border-bottom:solid 1px #e1e1e1;}
+#member div.location_srh ul.location_list li dl:last-child{border-bottom:none;}
+#member div.location_srh ul.location_list li dl dt{float:left;width:28%;line-height:36px;text-indent:0;color:#222;}
+#member div.location_srh ul.location_list li dl dd{float:left;width:72%;padding-top:0;line-height:36px; font-size:14px;color:#222;}
+#member div.location_srh p{position:relative;padding-top:10px;line-height:20px;}
+#member div.location_srh p span{font-size:14px;color:#777;}
+#member div.location_srh p u{font-size:12px;color:#acacac;}
+#member div.location_srh p a.close_btn{position:absolute;top:15px;right:10px;}
+#member article.get_info h3{border-top:solid 1px #dbdbdb;}
+#member article.get_info h3.nbdr{}
+#member article.base_info h3.nbdr, #member article.get_info h3.nbdr{border-top:none;}
+#member article.base_info h3.tbdr, #member article.get_info h3.tbdr{border-top:solid 1px #dbdbdb;border-radius:0;-webkit-border-radius:0;}
+#member article.get_info dd{font-weight:bold;}
+/* 회원가입완료 */
+#member .complete article.guide{padding-top:94px;background:#fff url('http://image.gsshop.com/mobile/mc/images/common/bg_member.png') no-repeat center 41px;background-size:45px auto;}
+#member .complete article.guide p{text-align:center;text-shadow:0 1px 1px #f2f2f2;}
+#member .complete article.guide p.txt1{line-height:27px;color:#636363; font-size:15px;font-weight:bold;}
+#member .complete article.guide p.txt2{line-height:17px;color:#959899; font-size:12px;}
+#member .complete article.guide p.txt2 span{color:#777;}
+#member .complete article.banner{padding-bottom:19px;background:#fff;}
+#member .complete article.banner div{margin:0 10px;padding:5px 0;background:#efefef;border:solid 1px #c6c6c6;border-radius:4px;-webkit-border-radius:4px;box-shadow:0 1px 0 #ececec, inset 0 -20px 20px #ececec;-webkit-box-shadow:0 1px 0 #ececec, inset 0 -20px 20px #ececec;}
+#member .complete article.banner div p{position:relative;padding:10px;font-size:13px;font-weight:bold;color:#434545;text-shadow:0 1px 0 #f8f8f8;}
+#member .complete article.banner div p span{font-size:14px;color:#86906e;}
+#member .complete article.banner div p u.banner_icon{position:absolute;top:10px;right:10px;display:inline-block;width:45px;height:45px;background:url('http://image.gsshop.com/mobile/mc/images/common/banner_sample.png') no-repeat right center;background-size:45px;}
+#member .complete footer{padding-bottom:25px;background:#fff;border-top:none;box-shadow:none;}
+/* 하단 전송버튼영역 */
+#member footer{padding:15px 0;text-align:center;border-top:solid 1px #e5e5e5;}
+#member footer figure{padding:15px 0;text-align:left;text-indent:5px;}
+#member footer figure p{font-weight:bold;font-size:14px;color:#222;letter-spacing:-1px;}
+#member footer a{width:135px;height:35px;padding:0;font-weight:normal;color:#636363;line-height:35px;background:#f8f8f8;}
+#member footer div.other_btn{margin-top:15px;padding-top:21px;line-height:40px;border-top:solid 1px #e9e9e9;}
+#member footer div.other_btn p{margin-bottom:10px;line-height:15px;font-size:12px;color:#777;}
+#member footer div.other_btn a.btn_txt01{font-size:12px;color:#4d5454;}
+#member footer.tborder{border-top:solid 1px #e9e9e9;border-radius:0;-webkit-border-radius:0;}
+/* member 공통 */
+#login input[type='text'], #login input[type='password']{width:97%;padding-left:3%;background:transparent;}
+#member input[type='text'], #member input[type='password']{background:transparent;}
+/* 비밀번호 아이디 찾기 */
+#member .complete.pwd_fail article.guide{padding-top:142px;background:#fff url('http://image.gsshop.com/mobile/mc/images/common/bg_pwd_fail.png') no-repeat center 76px;background-size:51px auto;-webkit-background-size:51px auto;}
+#member .complete.id_fail article.guide{padding-top:257px;background:#fff url('http://image.gsshop.com/mobile/mc/images/common/bg_pwd_fail.png') no-repeat center 96px;background-size:51px auto;-webkit-background-size:51px auto;}
+#member .varification.certify div.cont label.sms_input{display:block;position:relative;margin:0 33px;line-height:49px;}
+#member .varification.certify{padding:10px 0;}
+#member .varification.certify div.cont label.sms_input a{position:absolute;right:0;top:15px;}
+#member .varification.certify div.cont p.radio label{margin:10px 0 0 33px !important;line-height:35px !important;}
+/* 마이쇼핑 공통 */
+.myshopping_box1{margin:12px 10px 0;background:#fff;border:solid 1px #e5e5e5;}
+.myshopping_box2{margin:10px 10px 0;background:#fff;border:solid 1px #e5e5e5;}
+.myshopping_box3{margin:0 10px;background:#f5f5f5;border:solid 1px #e5e5e5;}
+#myshopping.control article{margin:12px 10px 0;background:#fff;border:1px solid #e5e5e5;}
+#myshopping.control article ul li{overflow:hidden;line-height:42px;text-indent:11px;border-bottom:solid 1px #e5e5e5;}
+#myshopping.control article ul li:last-child{border-bottom:none;}
+#myshopping.control article ul li h4{float:left;font-size:14px;font-weight:bold;color:#373e40;}
+#myshopping.control article ul li span.direction{float:right;display:inline-block;width:11px;height:16px;margin:14px 10px 0;background:url('http://image.gsshop.com/mobile/mc/images/common/btn_arrow10.png') no-repeat right 50%;background-size:9px auto;-webkit-background-size:9px auto;}
+#myshopping.control article ul li em{float:right;display:inline-block;font-size:14px;}
+#myshopping.control article ul li em.off{color:#777;font-weight:normal;}
+#myshopping.control article ul li em.on{color:#86cf00;}
+#myshopping.control article ul li.nborder{border-bottom:none;}
+#myshopping.control article ul li a{overflow:hidden;display:block;}
+#myshopping #login div.logo{padding-top:30px;}
+/* 간편주문 인증해제 */
+#myshopping.release div.tit{padding-top: 86px;background:url('http://image.gsshop.com/mobile/mc/images/common/bg_fail.png') no-repeat center 20px;background-size: 66px auto;}
+#myshopping.release div.tit p{padding-bottom:20px;text-align: center;line-height: 20px;font-size: 16px;font-weight: bold;color: #444646;text-shadow: 0 1px 1px #fff;}
+#myshopping.release article{margin:0 10px;background:#fff;border:solid 1px #e5e5e5;}
+#myshopping.release article ul li{padding:10px 12px;line-height:17px;font-size:14px;color:#777;border-bottom:solid 1px #efefef;}
+#myshopping.release article ul li strong{color:#86cf00;}
+#myshopping.release p.release_btn{margin:30px 12px 30px 10px;}
+#myshopping.release p.release_btn a{display: inline-block;width:100%;text-align:center;border:1px solid #cecece;border-radius:2px;-webkit-border-radius:2px;background:#f4f4f4;}
+/* 회사소개 */
+#myshopping.intro p.slogan{text-align:center;color:#777;font-size:14px;font-weight:bold;}
+#myshopping.intro article{margin:12px 10px;padding:10px 0;background:#fff;border:solid 1px #e5e5e5;}
+#myshopping.intro article dl{overflow:hidden;padding:0 15px;line-height:26px;font-size:14px;}
+#myshopping.intro article dl dt{float:left;width:37%;color:#777;}
+#myshopping.intro article dl dd{float:left;width:63%;padding:4px 0;line-height:17px;color:#222;}
+#myshopping.intro article.intro2 dl{line-height:17px;}
+#myshopping.intro article.intro2 dl dt{float:none;display:block;width:100%;}
+#myshopping.intro article.intro2 dl dt a{color:#777;}
+#myshopping.intro article.intro2 dl dd{float:none;display:block;width:100%;padding:0;}
+/* 멤버쉽 */
+#myshopping.membership #cont_head{overflow:hidden;padding-top:10px;margin-bottom:22px;background:#f4f4f4;border-bottom:solid 1px #ccc;}
+#myshopping.membership #cont_head:after{display:block;clear:both;overflow:hidden;content:'';}
+#myshopping.membership #cont_head div{float:left;width:75px;height:47px;}
+#myshopping.membership #cont_head div span.level_icon{display:block;position:relative;top:-2px;width:37px;height:47px;margin:0 auto;background:url('http://image.gsshop.com/mobile/mc/images/common/ico_level.png') no-repeat 0 0;background-size: 37px auto;-webkit-background-size: 37px auto;}
+#myshopping.membership #cont_head p{line-height:18px;font-weight:bold;color:#111;}
+#myshopping.membership #cont_head p strong{color:#86cf00;}
+#myshopping.membership #cont_head p span{font-size:12px;color:#acacac;}
+#myshopping.membership #cont_head .membership_note{overflow:hidden;clear:both;padding:10px;border-top:1px solid #d6d6d6;background:#fff;}
+#myshopping.membership #cont_head .membership_note li{overflow:hidden;font-size:12px;color:#929292;}
+#myshopping.membership #cont_head .membership_note li div{float:none;width:auto;height:auto;margin-left:6px;}
+#myshopping.membership #cont_head .membership_note li .blit1{display:block;float:left;width:8px;height:4px;margin:6px 0 0;background:url('http://image.gsshop.com/mobile/mc/images/common/img_detail_new.png') no-repeat -45px 0px;background-size:115px auto;-webkit-background-size:115px auto;}
+#myshopping.membership #cont_head .membership_note li em{color:#444;}
+#myshopping.membership #cont_head .membership_note li strong{color:#86cf00;}
+#myshopping.membership #cont_head .membership_note.note_green{font-size:12px;color:#86cf00;line-height:15px;}
+#myshopping.membership h3{clear:both;position:relative;font-size:14px;font-weight:normal;color:#777;text-indent:15px;text-shadow:0 1px 0 #fff;}
+#myshopping.membership h3 a{position:absolute;top:-3px;right:10px;text-indent:0;background:#f8f8f8;border:solid 1px #c9c9c9;}
+#myshopping.membership h3 a u{color:#777;}
+#myshopping.membership h3 a.download_complete{color:#999;background:#ebebeb;}
+#myshopping.membership h3 a.download_complete u{color:#999;}
+#myshopping.membership article.coupones{margin:10px 10px 25px;padding:10px 0;background:#fff;border:1px solid #e5e5e5;}
+#myshopping.membership article.coupones ul{overflow:hidden;margin:5px 10px 0;padding-top:5px;border-top:1px solid #e6e6e6;}
+#myshopping.membership article.coupones ul:after{display:block;clear:both;overflow:hidden;content:'';}
+#myshopping.membership article.coupones ul:first-child{margin-top:0;padding-top:0;border-top:none;}
+#myshopping.membership article.coupones ul li{float:left;width:50%;padding:10px 0;}
+#myshopping.membership article.coupones ul li p.coupone2, #myshopping.membership article.coupones ul li p.coupone3{width:94%;}
+#myshopping.membership article.coupones ul li:nth-child(odd){text-align:right;}
+#myshopping.membership article.coupones ul li:nth-child(even){text-align:left;}
+#myshopping.membership article.coupones ul li:nth-child(odd) p.coupone2, #myshopping.membership article.coupones ul li:nth-child(odd) p.coupone3{margin-right:3%;}
+#myshopping.membership article.coupones ul li:nth-child(even) p.coupone2, #myshopping.membership article.coupones ul li:nth-child(even) p.coupone3{margin-left:3%;}
+#myshopping.membership article.coupones ul li p.txt{position:relative;top:5px;text-align:center;font-size:12px;font-weight:bold;color:#acacac;}
+#myshopping.membership article.coupones ul li p.delivery{line-height:48px;text-align:center;text-indent:6px;font-size:12px;font-weight:bold;color:#acacac;}
+#myshopping.membership article.coupones ul li p.delivery span{display:inline-block;width:60px;height:38px;margin-left:6px;vertical-align:-20px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_myshopping.png') no-repeat 0 -96px;background-size:100px auto;-webkit-background-size:100px auto;}
+#myshopping.membership article.guide{margin:10px;padding:5px 10px;background:#f2f2f2;border:solid 1px #cecece;box-shadow:none;-webkit-box-shadow:none;}
+#myshopping.membership article.guide ul li{overflow:hidden;padding:5px 0 5px 7px;color:#777;font-size:12px;background:url('http://image.gsshop.com/mobile/mc/images/common/blt_footer.png') no-repeat 0 12px;background-size:3px auto;-webkit-background-size:3px auto;}
+#myshopping.membership article.guide ul li strong{color:#86cf00;font-weight:normal;}
+#myshopping.membership article.guide ul li span{color:#acacac;}
+#myshopping.membership h3.coupones_ttl{padding:15px 0 0;}
+#myshopping.membership article.coupones_down{margin:10px 10px 25px;padding:15px 0 10px;background:#fff;border:1px solid #e5e5e5;}
+#myshopping.membership article.coupones_down ul{overflow:hidden;}
+#myshopping.membership article.coupones_down ul li dl{overflow:hidden;margin:0 10px 10px;padding:0 0 10px;border-bottom:1px dashed #e4e4e4;}
+#myshopping.membership article.coupones_down ul li dl dt{display:block;}
+#myshopping.membership article.coupones_down ul li dl dd{display:block;font-size:12px;color:#acacac;}
+#myshopping.membership article.coupones_down ul li dl dd.coupon_name{padding:5px 0 3px;font-weight:bold;color:#acacac;font-size:14px;}
+#myshopping.membership article.coupones_down ul li dl dd strong{color:#777;font-weight:normal;}
+#myshopping.membership article.coupones_down ul li dl dd u{clear:both;display:block;font-size:12px;color:#86cf00;font-weight:normal;}
+#myshopping.membership article.coupones_down ul li p.coupone2, #myshopping.membership article.coupones_down ul li p.coupone3{width:99%;}
+#myshopping.membership article.coupones_down footer{padding:10px 0;text-align:center;}
+#myshopping.membership article.coupones_down footer p{width:150px;margin:0 auto;}
+#myshopping.membership article.coupones_down footer p a{display:block;width:100%;}
+/* 할인쿠폰함 */
+#myshopping.coupones article{margin:10px 10px 0;padding:10px 0;background:#fff;border:1px solid #cbcbcb;box-shadow:0 0 5px #d1d1d1;-webkit-box-shadow:0 0 5px #d1d1d1;}
+#myshopping.coupones article dl{overflow:hidden;padding:10px 9px;border-bottom:solid 1px #efefef;}
+#myshopping.coupones article dl:last-child{border-bottom:none;}
+#myshopping.coupones article dl dt{float:left;width:67%;}
+#myshopping.coupones article dl dt p{line-height:17px;}
+#myshopping.coupones article dl dt p.limit{overflow:hidden;padding-right:10px;font-size:12px;font-weight:bold;color:#acacac;letter-spacing:-1px;}
+#myshopping.coupones article dl dt p.limit em{margin:0 0 0 10px;}
+#myshopping.coupones article dl dt p.tit{font-size:14px;color:#222;}
+#myshopping.coupones article dl dt p.detail{font-size:12px;color:#86906e;letter-spacing:-1px;}
+#myshopping.coupones article dl dd{float:left;width:33%;text-align:right;}
+#myshopping.coupones article dl dd div.coupone4{display:inline-block;width:100%;}
+#myshopping.coupones article dl dd div.coupone4 u.double{left:50%;margin:0 0 0 -18px;}
+#myshopping.coupones article dl dd div.coupone4 em{padding:0;}
+/* 적립금,연간할인권 */
+#myshopping.saved #cont_head div.total_save{position:relative;min-height:40px;}
+#myshopping.saved #cont_head div.total_save dl{overflow:hidden;margin-left:10px;line-height:40px;}
+#myshopping.saved #cont_head div.total_save dl dt{float:left;width:75%; font-weight:bold;color:#444646;}
+#myshopping.saved #cont_head div.total_save dl dd{float:left;width:25%;text-align:right;}
+#myshopping.saved #cont_head div.total_save dl dd strong{color:#86cf00;}
+#myshopping.saved #cont_head div.total_save dl dd em{margin-right:10px;font-weight:bold;color:#acacac;}
+#myshopping.saved #cont_head div.total_save dl.disapear_cost{position:relative;top:-5px;padding-bottom:5px;}
+#myshopping.saved.ecoin #cont_head div.total_save dl.disapear_cost dt{ width:100%; }
+#myshopping.saved #cont_head div.total_save dl.disapear_cost dt p{line-height:15px;}
+#myshopping.saved #cont_head div.total_save dl.disapear_cost dt p.txt1{font-size:14px;font-weight:bold;color:#acacac;}
+#myshopping.saved #cont_head div.total_save dl.disapear_cost dt p.txt2{font-size:12px;color:#acacac;}
+#myshopping.saved #cont_head div.total_save dl.disapear_cost dd{line-height:15px;font-size:14px;}
+#myshopping.saved #cont_head div.total_save dl.disapear_cost dd strong{color:#acacac;}
+#myshopping.saved #cont_head div.total_save dl.disapear_cost dd em{color:#acacac;}
+#myshopping.saved #cont_head ul.tab2 li{width:33.3%;}
+#myshopping.saved.year #cont_head ul.tab2 li{width:25%;}
+#myshopping.saved.ecoin .default_msg {margin:10px 8px 0;background:#fff;border:solid 1px #bebebe;}
+#myshopping.saved article{margin:10px 8px 0;background:#fff;border:1px solid #e5e5e5;}
+#myshopping.saved article dl{overflow:hidden;padding:15px 15px;border-bottom:solid 1px #efefef;}
+#myshopping.saved article dl:last-child{border-bottom:none;}
+#myshopping.saved article dl dt{float:left;width:65%;}
+#myshopping.saved article dl dt p.info{line-height:16px;font-size:9px;color:#e4e4e4;}
+#myshopping.saved article dl dt p.info span{font-size:12px;font-weight:bold;color:#acacac;}
+#myshopping.saved article dl dt p.tit{line-height:16px;font-size:14px;color:#222;}
+#myshopping.saved article dl dd{float:left;position:relative;width:35%;text-align:right;line-height:33px;}
+#myshopping.saved article dl dd strong{color:#86cf00;}
+#myshopping.saved article dl dd strong.minus{color:#777;}
+#myshopping.saved article dl dd span{color:#acacac;}
+#myshopping.saved article dl dd div.download{position:absolute;top:-5px;right:0;padding:5px;line-height:14px;text-align:center;background:#f4f4f4;border:solid 1px #d0d0d0;border-radius:2px;-webkit-border-radius:2px;}
+#myshopping.saved article dl dd div.download strong{color:#373e40;}
+#myshopping.saved article dl dd div.download span{color:#373e40;}
+#myshopping.saved article dl dd div.download em.txt{font-size:10px;color:#373e40;text-shadow:0 1px 0 #fff;}
+#myshopping.saved article .default_msg {background:#fff;border-radius:3px;-webkit-border-radius:3px;}
+/* 쇼핑알림 */
+#myshopping.alert article{margin:10px 8px 0;padding:13px;background:#fff;border:1px solid #e5e5e5;}
+#myshopping.alert article p.info{color:#acacac;font-weight:bold;font-size:12px;}
+#myshopping.alert article p.info span.new{position:relative;top:-2px;margin-left:5px;}
+#myshopping.alert article div{font-size:14px;color:#222;}
+#myshopping.alert article .alert_btn{padding:2px 0 0;text-align:right;}
+#myshopping.alert article .alert_btn a.btn_txt12{height:20px;padding:0 5px;line-height:20px;}
+/* 상품평관리 */
+#myshopping.assese div.guide{border-bottom:solid 1px #c1c1c1;/* background:#f8f8f8 url('http://image.gsshop.com/mobile/mc/images/common/detail_visual1.png') no-repeat 95% 10px;background-size:59px auto;-webkit-background-size:59px auto; */}
+#myshopping.assese div.guide p{padding:10px;font-size:14px;color:#777;font-weight:bold;}
+#myshopping.assese div.guide p em{color:#373240;}
+#myshopping.assese div.guide p strong{color:#86cf00;}
+#myshopping.assese div.guide p.add_txt{position:relative;top:-10px;font-size:12px;font-weight:normal;color:#acacac;}
+#myshopping.assese article{margin:10px 10px 0;background:#fff;border:solid 1px #e5e5e5;}
+#myshopping.assese article dl{overflow:hidden;padding:12px 10px;border-bottom:solid 1px #efefef;}
+#myshopping.assese article dl dt{float:left;width:80%;}
+#myshopping.assese article dl:last-child{border-bottom:none;}
+#myshopping.assese.my article dl dt{width:100%;}
+#myshopping.assese article dl dt a.thum{display:block;float:left;width:50px;padding:1px;margin-right:13px;border:solid 1px #cfcfcf;}
+#myshopping.assese article dl dt a.thum img{width:100%;}
+#myshopping.assese article dl dt a.hand{display:block;}
+#myshopping.assese article dl dt p.tit{overflow:hidden;max-height:50px;padding-top:0;}
+#myshopping.assese.my article dl dt p.tit{overflow:hidden;padding-top:0;line-height:18px;font-size:14px;text-overflow:ellipsis;-webkit-text-overflow:ellipsis;white-space:nowrap;}
+#myshopping.assese article dl dt p.info{font-size:10px;color:#efefef;}
+#myshopping.assese article dl dt p.info span{font-size:14px; font-weight:bold;color:#acacac;}
+#myshopping.assese article dl dt div.assese_desc{ position:relative;padding-left:67px; }
+#myshopping.assese article dl dt div p{vertical-align:middle;font-weight:bold;color:#86906e;font-size:14px;}
+#myshopping.assese article dl dt div p.desc{overflow:hidden;width:100%;text-overflow:ellipsis;-webkit-text-overflow:ellipsis;white-space:nowrap;}
+#myshopping.assese article dl dt div p.desc a{ color:#86906e;}
+#myshopping.assese article dl dt div p.stars_small{position:absolute;top:-17px;left:143px;}
+#myshopping.assese article dl dd{float:left;width:20%;line-height:54px;text-align:right;}
+#myshopping.assese article dl dd a.write_btn{display:inline-block;}
+#myshopping.assese.my article div.assese_detail div.star_food{padding:0;}
+#myshopping.assese.my article div.assese_detail div.star_food strong{font-weight:normal;font-size:12px;}
+#myshopping.assese.my article div.assese_detail div.rwDetail{padding:10px 0 0;word-break:break-all;}
+#myshopping.assese.my article div.assese_detail div.rwDetail img{width:100%;height:auto;}
+#myshopping.assese.my article div.assese_detail div.qnaReply p.repAns img.vam1, #myshopping.assese.my article div.assese_detail div.qnaReply p.repAns img.vMid{width:auto !important;vertical-align:middle;} 
+#myshopping.assese article.stars_small{display:inline-block;box-shadow:none;-webkit-box-shadow:none;border:none;border-radius:none;-webkit-border-radius:none;margin:0;background:url('http://image.gsshop.com/mobile/mc/images/goods/img_s_star.png') no-repeat 0 -15px;background-size:68px auto;-webkit-background-size:68px auto;vertical-align:middle;}
+#myshopping.assese #writeArticle, #myshopping.assese #writedArticle{margin:10px;}
+/* 상품평 상세 내용 */
+#myshopping.assese.my article div.assese_detail{background:#f6f6f6;font-size:13px;color:#222;border-bottom:solid 1px #ebebeb;}
+#myshopping.assese.my article div.assese_detail div{padding:10px;}
+#myshopping.assese.my article div.assese_detail footer{padding:5px 10px;text-align:right;border-top:1px solid #efefef;/* border-bottom:1px solid #e0e0e0; */ background:#f9f9f9;box-shadow:inset 0 1px 0 #fdfdfd;-webkit-box-shadow:inset 0 1px 0 #fdfdfd;}
+#myshopping.assese.my article div.assese_detail footer a{display:inline-block;padding:0 5px;border:1px solid #cacaca;background:#f7f7f7;}
+/* 상품평 쓰기 */
+#myshopping.assese.write #cont_head{background:#f8f8f8;box-shadow:0 1px 3px #dbdbdb;-webkit-box-shadow:0 1px 3px #dbdbdb;}
+#myshopping.assese.write section.assese{margin-bottom:15px;padding-top:15px;}
+/* 전송 */
+#myshopping.assese.write section.submit_btns{clear:both;height:71px;margin:10px 0 0;text-align:center;border-top:solid 1px #d4d4d4;box-shadow:inset 0 1px 0 #f9f9f9;-webkit-box-shadow:inset 0 1px 0 #f9f9f9;}
+#myshopping.assese.write section.submit_btns p{margin:0 auto;padding-top:14px;}
+#myshopping.assese.write section.submit_btns p a:last-child{margin-left:2px;}
+/* 결제안내 */
+#myshopping.pay_guide #cont_head div.guide{position:relative;border-bottom:solid 1px #c5c5c5;}
+#myshopping.pay_guide #cont_head div.guide p{padding:12px 40px 12px 10px;line-height:17px;font-weight:bold;color:#777;font-size:14px;}
+#myshopping.pay_guide #cont_head div.guide p strong{font-size:13px;color:#373e40;}
+#myshopping.pay_guide #cont_head div.guide p span{font-weight:normal;font-size:12px;}
+#myshopping.pay_guide #cont_head div.guide span.icon{display:inline-block;position:absolute;top:10px;right:10px;width:34px;height:33px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_myshopping.png') no-repeat 0 -255px;background-size:100px auto;-webkit-background-size:100px auto;}
+#myshopping.pay_guide #cont_head div.guide.ios span.icon{background-position:0 -308px;width:30px;height:35px;}
+#myshopping.pay_guide #cont_head div.guide.and span.icon{background-position:-69px -308px;width:30px;height:35px;}
+#myshopping.pay_guide div.pay_table{margin:15px 10px;background:#f5f5f5;border:solid 1px #cbcbcb;}
+#myshopping.pay_guide div.pay_table table{width:100%;font-size:14px;color:#222;text-shadow:0 1px 0 #fff;}
+#myshopping.pay_guide div.pay_table th{padding:8px 10px;text-align:left;color:#fff;text-shadow:none;background:#86cf00;}
+#myshopping.pay_guide div.pay_table thead th{padding-left:12px;line-height:28px;text-align:left;border-top:none;}
+#myshopping.pay_guide div.pay_table thead th:last-child{border-right:none;}
+#myshopping.pay_guide div.pay_table thead th span.apple{width:17px;vertical-align:-2px;}
+#myshopping.pay_guide div.pay_table thead th span.android{width:17px;vertical-align:-3px;}
+#myshopping.pay_guide div.pay_table th u{color:#86cf00;}
+#myshopping.pay_guide div.pay_table td{width:60%;padding:8px 12px;border-top:solid 1px #e5e5e5;border-right:solid 1px #e5e5e5;}
+#myshopping.pay_guide div.pay_table tbody td:last-child{width:40%;border-right:none;}
+#myshopping.pay_guide h2{margin:15px 0 0 15px;font-size:14px;color:#444646;text-shadow:0 1px 0 #fff;}
+#myshopping.pay_guide h3{height:19px;margin-bottom:3px;text-indent:15px;font-size:14px;color:#777;text-shadow:0 1px 0 #fff;}
+#myshopping.pay_guide article{margin:0 10px 15px;background:#f5f5f5;border:solid 1px #cbcbcb;}
+#myshopping.pay_guide article ul{padding:0 13px 10px;}
+#myshopping.pay_guide article ul li{padding:10px 0 0 8px;line-height:16px;text-indent:-8px;font-size:12px;color:#777;letter-spacing:-1px;}
+/* 나의 상담내역 */
+#myshopping.consult div.consult_btns{margin:0 10px;line-height:61px;}
+#myshopping.consult div.consult_btns ul{overflow:hidden;}
+#myshopping.consult div.consult_btns ul li{float:left;width:50%;}
+#myshopping.consult div.consult_btns ul li:last-child{text-align:right;}
+#myshopping.consult div.consult_btns a.btn_txt09{display:inline-block;width:97%;line-height:35px;padding:0;color:#4d5454;text-shadow:0 1px 0 #fff;}
+#myshopping.consult article.myshopping_box2{margin-top:0;}
+#myshopping.consult article ul li{clear:both;padding:10px;border-bottom:solid 1px #efefef;}
+#myshopping.consult article ul li a{display:block;overflow:hidden;line-height:14px;}
+#myshopping.consult article ul li a p{float:left;width:43px;height:43px;margin-right:13px;line-height:34px;text-align:center;border:solid 1px #dadada;border-radius:1px;-webkit-border-radius:1px;}
+#myshopping.consult article ul li a span.info{display:inline-block;padding-top:5px;font-size:12px;color:#acacac;}
+#myshopping.consult article ul li a span.tit{display:inline-block;max-width:75%;font-size:14px;color:#222;}
+#myshopping.consult article ul li div.reply{padding:13px 11px;margin-top:15px;background:#f6f6f6;border:solid 1px #dedede;}
+#myshopping.consult article ul li div.reply p.wait{color:#777;}
+#myshopping.consult article ul li div.reply p.wait strong{color:#86cf00;}
+#myshopping.consult article ul li div.reply p.complete{line-height:16px;font-size:14px;color:#555;}
+#myshopping.consult article ul li div.reply p.complete span.info{font-size:12px;color:#acacac;}
+#myshopping.consult article ul li .question{width:35px;height:34px;margin:5px 0 0;background-position:right -154px;}
+#myshopping.consult article ul li .answer{width:35px;height:34px;margin:5px 0 0;background-position:right -266px;}
+#myshopping.consult article ul li .waiting{width:35px;height:34px;margin:5px 0 0;background-position:right -208px;}
+#myshopping.consult article ul li:last-child{border-bottom:none;}
+/* 마이쇼핑 */
+#head div.title_area .btn_mygsshop_setting{display:block;position:absolute;top:5px;right:5px;width:auto;height:30px;padding:0 5px;text-align:center;border:solid 1px #c1c1c1;background:#f8f8f8;}
+#head div.title_area .btn_mygsshop_setting em{overflow:hidden;display:inline-block;width:20px;height:20px;margin:0 3px 0 0;line-height:30px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_mygsshop.png') no-repeat 0 0;background-size:218px auto;-webkit-background-size:218px auto;vertical-align:middle;}
+#head div.title_area .btn_mygsshop_setting span{display:inline-block;color:#7c8181;font-size:12px;font-weight:bold;line-height:30px;vertical-align:middle;}
+.mygsshop_loginfo, .mygsshop_loginfo02{overflow:hidden;background:#323d53;}
+.mygsshop_loginfo:after, .mygsshop_loginfo02:after{display:block;clear:both;overflow:hidden;content:'';}
+.mygsshop_loginfo .mygsshop_loginfo_status{float:left;width:40%;}
+.mygsshop_loginfo .mygsshop_loginfo_status section{padding:10px 0 15px;border-right:1px solid #373a39;}
+.mygsshop_loginfo .mygsshop_loginfo_status dl{width:100%;}
+.mygsshop_loginfo .mygsshop_loginfo_status dt{padding:0 0 5px;font-size:14px;font-weight:bold;color:#fff;text-align:center;text-shadow:0 -1px -1px #000;}
+.mygsshop_loginfo .mygsshop_loginfo_status dt strong{color:#bae441;}
+.mygsshop_loginfo .mygsshop_loginfo_status dd{padding:3px 0 0;text-align:center;}
+.mygsshop_loginfo .mygsshop_loginfo_status dd p{text-align:center;}
+.mygsshop_loginfo .mygsshop_loginfo_status dd p:nth-child(2){display:none;}
+.mygsshop_loginfo .mygsshop_loginfo_status dd .btn_level_info{display:inline-block;padding:5px 10px;border:1px solid #202021;border-radius:4px;-webkit-border-radius:4px;box-shadow:0 2px 4px #1e2020, inset 1px 1px 1px 0px #444646;-webkit-box-shadow:0 2px 4px #1e2020, inset 1px 1px 1px 0px #444646;color:#cbcbcb;font-size:14px;text-shadow:0 -1px -1px #292a2a;background:#353838 -webkit-gradient(linear, left top, left bottom, from(#353838), to(#303232)) no-repeat;}
+.mygsshop_loginfo .mygsshop_loginfo_link{float:left;width:60%;}
+.mygsshop_loginfo .mygsshop_loginfo_link section{border-left:1px solid #171818;}
+.mygsshop_loginfo .mygsshop_loginfo_link ul{width:100%;}
+.mygsshop_loginfo .mygsshop_loginfo_link li{overflow:hidden;padding:0;border-top:1px solid #373a39;border-bottom:1px solid #171818;}
+.mygsshop_loginfo .mygsshop_loginfo_link li a{display:block;padding:12px 10px;}
+.mygsshop_loginfo .mygsshop_loginfo_link li:first-child{border-top:none;}
+.mygsshop_loginfo .mygsshop_loginfo_link li:last-child{border-bottom:none;}
+.mygsshop_loginfo .mygsshop_loginfo_link li dl{overflow:hidden;}
+.mygsshop_loginfo .mygsshop_loginfo_link li dt{float:left;font-weight:bold;color:#8c9192;font-size:13px;text-shadow:0 -1px -1px #000;}
+.mygsshop_loginfo .mygsshop_loginfo_link li dd{float:right;font-weight:bold;color:#8c9192;font-size:13px;text-shadow:0 -1px -1px #000;}
+.mygsshop_loginfo .mygsshop_loginfo_link li dd em{margin-right:3px;color:#f2f2f2;font-size:14px;}
+.mygsshop_loginfo .mygsshop_loginfo_ttl{position:relative;padding:14px 0;}
+.mygsshop_loginfo .mygsshop_loginfo_ttl p{margin:0 10px;color:#e5e5e5;font-weight:bold;text-shadow:0 -1px -1px #000;letter-spacing:-1px;}
+.mygsshop_loginfo .mygsshop_loginfo_ttl p u{color:#bae441;}
+.mygsshop_loginfo .mygsshop_loginfo_ttl .btn_level_info{display:block;position:absolute;top:7px;right:10px;padding:5px 10px;border:1px solid #202021;border-radius:4px;-webkit-border-radius:4px;box-shadow:0 2px 4px #1e2020, inset 1px 1px 1px 0px #444646;-webkit-box-shadow:0 2px 4px #1e2020, inset 1px 1px 1px 0px #444646;color:#cbcbcb;font-size:14px;text-shadow:0 -1px -1px #292a2a;background:#353838 -webkit-gradient(linear, left top, left bottom, from(#353838), to(#303232)) no-repeat;}
+.mygsshop_main_tab{overflow:hidden;border-bottom:1px solid #bbb;box-shadow:0 2px 2px #d3d3d3, inset 0 2px 2px -1px #b8b8b8;-webkit-box-shadow:0 2px 2px #d3d3d3, inset 0 2px 2px -1px #b8b8b8;background:#f6f6f6 -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#eaeaea)) no-repeat;}
+.mygsshop_main_tab:after{display:block;clear:both;overflow:hidden;content:'';}
+.mygsshop_main_tab li{float:left;width:25%;}
+.mygsshop_main_tab li a{display:block;}
+.mygsshop_main_tab li div{position:relative;padding:8px 0 12px;border-right:1px solid #d7d7d7;border-left:1px solid #f0f0f0;text-align:center;}
+.mygsshop_main_tab li:first-child div{border-left:none;}
+.mygsshop_main_tab li:last-child div{border-right:none;}
+.mygsshop_main_tab li div span{display:block;width:37px;height:30px;margin:0 auto 8px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_mygsshop.png') no-repeat -50px 0;background-size:218px auto;-webkit-background-size:218px auto;}
+.mygsshop_main_tab li:nth-child(1) div span{background-position:-178px -30px;}
+.mygsshop_main_tab li:nth-child(1) div span.event{background-position:-50px 2px;}
+.mygsshop_main_tab li:nth-child(2) div span{background-position:-92px 0;}
+.mygsshop_main_tab li:nth-child(3) div span{width:41px;background-position:-133px 0;}
+.mygsshop_main_tab li:nth-child(4) div span{background-position:-178px 0;}
+.mygsshop_main_tab li div strong{display:block;color:#373e40;font-weight:bold;font-size:14px;text-shadow:0 1px 1px #fff;}
+.mygsshop_main_tab li div em.icon_new{display:block;position:absolute;top:22px;right:40%;width:17px;height:17px;margin-right:-15px;color:transparent;background:url('http://image.gsshop.com/mobile/mc/images/common/img_mygsshop.png') no-repeat -25px 0;background-size:218px auto;-webkit-background-size:218px auto;vertical-align:middle;}
+.mygsshop_main_cont h3{position:relative;margin:0 10px 0 15px;padding:10px 0 6px;color:#999;text-shadow:0 1px 1px #fff;}
+.mygsshop_main_cont h3 a.btn_goto_all{display:block;position:absolute;top:5px;right:0;height:23px;padding:0 5px;font-size:12px;font-weight:normal;line-height:23px;color:#7c7c7c;border:1px solid #c9c9c9;background:#e8e8e8;}
+.mygsshop_list_box{margin:0 8px 3px;padding:0;border:1px solid #e5e5e5;background:#fff;}
+.mygsshop_list_box ul li{position:relative;padding:12px 10px;border-bottom:1px solid #e9e9e9;}
+.mygsshop_list_box ul li:last-child{border-bottom:none;}
+.mygsshop_list_box ul li a{overflow:hidden;display:block;padding:0;color:#373e40;background:url('http://image.gsshop.com/mobile/mc/images/common/btn_order_detail.png') no-repeat right 50%;background-size:9px auto;-webkit-background-size:9px auto;}
+.mygsshop_list_box ul li .notice_date, .mygsshop_list_box ul li .event_date{display:block;font-weight:bold;font-size:14px;color:#acacac;}
+.mygsshop_list_box ul li strong{font-weight:bold;}
+.mygsshop_list_box ul li em{color:#acacac;}
+.mygsshop_list_box ul li u{color:#acacac;letter-spacing:-1px;font-size:13px;}
+.mygsshop_list_box ul li a.btn_txt01{display:block;position:absolute;right:10px;top:6px;height:25px;padding:0 5px;line-height:25px;background:#f9f9f9 -webkit-gradient(linear, left top, left bottom, from(#f9f9f9), to(#f1f1f1)) no-repeat;}
+.mygsshop_list_box ul li em.icon_new{display:inline-block;width:17px;height:17px;color:transparent;background:url('http://image.gsshop.com/mobile/mc/images/common/img_mygsshop.png') no-repeat -25px 0;background-size:218px auto;-webkit-background-size:218px auto;vertical-align:middle;}
+.mygsshop_list_box ul li a span:nth-child(2){display:inline-block;padding:0 15px 0 0;}
+/* faq */
+.faq_srch_wrap{position:relative;border-top:1px solid #e8e8e8;background:#f7f7f7;}
+.faq_srch_wrap section{overflow:hidden;padding:10px;border-top:1px solid #fdfdfd;}
+.faq_srch_bar{position:relative;overflow:hidden;height:26px;margin:0;padding:3px 50px 0 5px;color:#373e40;background:#fff;border:solid 1px #c9c9c9;}
+.faq_srch_bar input[type='text']{width:100%;font-weight:bold;border-bottom:none;}
+.faq_srch_bar input[type='text']:focus{border-bottom:none;}
+.faq_srch_bar .btn_del_srch{display:block;position:absolute;top:7px;right:35px;width:15px;height:15px;color:transparent;border:none;background:url('http://image.gsshop.com/mobile/mc/images/common/img_gnb.png') no-repeat -100px -47px;background-size:150px auto;-webkit-background-size:150px auto;}
+.faq_srch_bar .btn_faq_srch{display:block;position:absolute;top:6px;right:7px;width:20px;height:20px;color:transparent;border:none;background:url('http://image.gsshop.com/mobile/mc/images/common/img_mygsshop.png') no-repeat -3px -39px;background-size:218px auto;-webkit-background-size:218px auto;}
+.mygsshop_faq_list{padding-top:55px;}
+.mygsshop_faq_list h3.hide{display:none;}
+.mygsshop_faq_list ul{overflow:hidden;margin:10px;border:1px solid #e5e5e5;background:#fff;}
+.mygsshop_faq_list li{float:left;width:50%;}
+.mygsshop_faq_list li:nth-child(2n+1){clear:both;}
+.mygsshop_faq_list li a{display:block;}
+.mygsshop_faq_list li div{overflow:hidden;height:45px;margin:0;padding:10px 0 10px 15px;border-right:1px solid #efefef;border-top:1px solid #efefef;}
+.mygsshop_faq_list li div span, .mygsshop_faq_list li div strong{display:table-cell;}
+.mygsshop_faq_list li div strong{margin:0;padding:0 10px 0 15px;font-weight:normal;font-size:13px;color:#373e40;vertical-align:middle;word-break:break-all;}
+.mygsshop_faq_list li:nth-child(1) div{border-top:none;}
+.mygsshop_faq_list li:nth-child(2) div{border-top:none;}
+.mygsshop_faq_list li:nth-child(2n) div{border-right:none;}
+.mygsshop_faq_list li span{width:42px;height:42px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_faq_list.png') no-repeat 0 0;background-size:84px auto;-webkit-background-size:84px auto;}
+.mygsshop_faq_list li:nth-child(1) span{background-position:0 0;}
+.mygsshop_faq_list li:nth-child(2) span{background-position:100% 0;}
+.mygsshop_faq_list li:nth-child(3) span{background-position:0 -42px;}
+.mygsshop_faq_list li:nth-child(4) span{background-position:100% -42px;}
+.mygsshop_faq_list li:nth-child(5) span{background-position:0 -84px;}
+.mygsshop_faq_list li:nth-child(6) span{background-position:100% -84px;}
+.mygsshop_faq_list li:nth-child(7) span{background-position:0 -126px;}
+.mygsshop_faq_list li:nth-child(8) span{background-position:100% -126px;}
+.mygsshop_faq_list li:nth-child(9) span{background-position:0 -168px;}
+.mygsshop_faq_list li:nth-child(10) span{background-position:100% -168px;}
+.mygsshop_faq_list li:nth-child(11) span{background-position:0 -210px;}
+.mygsshop_faq_list li:nth-child(12){border-bottom:1px solid #efefef;}
+.mygsshop_faq_list li:nth-child(12) span{background-position:100% -210px;}
+.faq_head{margin:0 0 12px;padding:12px 0;border-bottom:1px solid #c5c5c5;box-shadow:0 2px 2px #d0d0d0;-webkit-box-shadow:0 2px 2px #d0d0d0;background:#f8f8f8 -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f7f7f7)) no-repeat;}
+.faq_head h3{margin:0 10px;color:#444646;font-weight:bold;}
+.faq_head h3 em{color:#acacac;}
+.faq_head h3 strong{color:#86cf00;}
+.faq_head h3 li{list-style:none;}
+.mygsshop_faq_cont{padding:10px 0 0;}
+.mygsshop_faq_cont .mygsshop_list_box ul li{padding:0;}
+.mygsshop_faq_cont .mygsshop_list_box ul li a{display:table;width:100%;background:none;}
+.mygsshop_faq_cont .mygsshop_list_box ul li div{display:table-cell;width:85%;padding:12px 10px 12px 13px;}
+.mygsshop_faq_cont .mygsshop_list_box ul li div strong{color:#86cf00;}
+.mygsshop_faq_cont .mygsshop_list_box ul li span{display:table-cell !important;margin:0;padding:0 !important;text-align:center;border-left:1px solid #efefef;}
+.mygsshop_faq_cont .mygsshop_list_box ul li:first-child span{border-radius:0 3px 0 0;-webkit-border-radius:0 3px 0 0;}
+.mygsshop_faq_cont .mygsshop_list_box ul li:last-child span{border-radius:0 0 3px 0;-webkit-border-radius:0 0 3px 0;}
+.mygsshop_faq_cont .mygsshop_list_box ul li span em{display:inline-block;width:9px;height:7px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_mygsshop.png') no-repeat -53px -39px;background-size:218px auto;-webkit-background-size:218px auto;}
+.mygsshop_faq_cont .mygsshop_list_box ul li span.open{background:#fff;}
+.mygsshop_faq_cont .mygsshop_list_box ul li span.open em{background-position:-77px -39px;}
+.mygsshop_faq_cont .mygsshop_list_box ul li span.close{background:#f6f6f6;}
+.mygsshop_faq_cont .mygsshop_list_box ul li span.close em{background-position:-53px -39px;}
+.mygsshop_faq_cont .mygsshop_list_box ul li a.open span em{background-position:-77px -39px;}
+.mygsshop_faq_cont .mygsshop_list_box ul li a.close span em{background-position:-53px -39px;}
+.qna_answer{padding:15px;background:#f6f6f6;border-bottom:1px solid #d4d4d4;}
+.qna_answer .qna_answer_ttl{display:none;}
+/* 공지사항 */
+.mygsshop_notice .mygsshop_list_box{margin:10px 8px 0;}
+.mygsshop_notice_view article{margin:10px 8px 0;}
+.mygsshop_notice_view article header{padding:10px 15px;border:1px solid #e5e5e5;border-bottom:none;background:#fff;}
+.mygsshop_notice_view article header .notice_date{font-weight:bold;font-size:14px;color:#acacac;}
+.mygsshop_notice_view article header .notice_ttl{color:#222;}
+.mygsshop_notice_view article header em.icon_new{display:inline-block;width:17px;height:17px;color:transparent;background:url('http://image.gsshop.com/mobile/mc/images/common/img_mygsshop.png') no-repeat -25px 0;background-size:218px auto;-webkit-background-size:218px auto;vertical-align:middle;}
+.mygsshop_notice_view article p{padding:15px;color:#222;border:1px solid #e5e5e5;border-top:1px solid #e5e5e5;background:#f6f6f6;}
+.mygsshop_notice_view article footer{padding:15px 0 0;text-align:center;}
+.mygsshop_notice_view article footer .btn_txt02.t03{height:35px;padding:0;line-height:35px;}
+/* 맞춤상담 */
+section.prd_head div a.btn_green1.btn_oneto_view{right:10px;width:90px;}
+section.prd_head div p.oneto_qa_ttl{color:#777;font-weight:bold;font-size:12px;}
+section.prd_head div p.oneto_qa_ttl em{color:#86cf00;font-size:14px;}
+section.prd_head div p.oneto_qa_ttl u{color:#373e40;}
+#prd_qa section.qa_write.oneto_qa{background:#fff;}
+#prd_qa section.qa_write.oneto_qa .oneto_select{margin:0 10px;padding:10px 0 0;}
+#prd_qa section.qa_write.oneto_qa .oneto_select:after{display:block;clear:both;overflow:hidden;content:'';}
+#prd_qa section.qa_write.oneto_qa .oneto_select li:first-child{float:left;width:65%;margin:0;}
+#prd_qa section.qa_write.oneto_qa .oneto_select li:last-child{float:right;width:30%;}
+#prd_qa section.qa_write.oneto_qa .oneto_select li div.select_option_typ04{width:100%;}
+#prd_qa section.qa_write.oneto_qa .oneto_select li div.select_option_typ04 select{width:100%;}
+#prd_qa section.qa_write.oneto_qa .oneto_select li a.btn_txt07{width:100%;height:24px;padding:0;line-height:24px;}
+#prd_qa section.qa_write.oneto_qa .oneto_select li a.btn_txt07 em{top:10px;}
+#prd_qa section.qa_write.oneto_qa .oneto_alert_chck{margin:5px 10px 15px;padding:10px;text-align:center;border:1px solid #cecece;border-radius:3px;-webkit-border-radius:3px;}
+#prd_qa section.qa_write.oneto_qa .oneto_alert_chck p.checkbox{margin-right:5px;vertical-align:middle;}
+#prd_qa section.qa_write.oneto_qa .oneto_alert_chck p.checkbox span{margin-right:5px;}
+#prd_qa section.qa_write.oneto_qa .oneto_alert_chck p.checkbox label{color:#222;font-size:14px;}
+#prd_qa section.qa_write.oneto_qa .oneto_alert_chck input[type='text']{height:25px;width:80px;text-indent:1px;border-bottom:1px solid #e4e4e4;}
+#prd_qa section.qa_write.oneto_qa .oneto_alert_chck input[type='text']:focus{color:#222;border-bottom:1px solid #a4dd00;}
+#prd_qa section.qa_write.oneto_qa .oneto_alert_chck a.btn_txt06{margin:0 0 0 10px;vertical-align:middle;}
+#prd_qa section.qa_write.oneto_qa div.photo_add{padding:5px 0 10px;text-align:center;}
+#prd_qa section.qa_write.oneto_qa div.photo_add a.btn_green2{padding:0 13px;}
+#prd_qa section.qa_write.oneto_qa div.photo_add a.btn_green2 span{margin-right:10px;vertical-align:-4px;}
+#prd_qa section.qa_write.oneto_qa div.qa_btns{border-top:1px solid #d4d4d4;background:#f2f2f2;}
+#prd_qa section.qa_write.oneto_qa div.qa_btns.write{padding:0 10px;}
+#prd_qa section.qa_write.oneto_qa div.photo_add span.btn_photo_add label.btn_green2{display:inline-block;padding:0 13px;height:26px;line-height:26px;text-align:center;font-weight:bold;font-size:13px;color:#fff;text-shadow:0 -1px 1px #83a22e;background:#a2c537;border-radius:2px;-webkit-border-radius:2px;border:solid 1px #92ae42;background:#fefefe -webkit-gradient(linear, left top, right bottom, from(#a9cf3b), to(#99bc34)) no-repeat;}
+#prd_qa section.qa_write.oneto_qa div.photo_add span.btn_photo_add label.btn_green2 span{margin-right:10px;vertical-align:-4px;}
+#prd_qa section.qa_write.oneto_qa div.photo_add span.btn_photo_add input[type='file']{display:none;}
+#prd_qa .qa_myorder_list{margin:10px 0 0;padding:10px;background:#fff;border-top:1px solid #bebebe;}
+#prd_qa .qa_myorder_list p{padding:0 0 10px 0 !important;color:#777;text-align:left !important;text-shadow:0 1px 1px #fff;}
+#prd_qa .qa_myorder_list .qa_myorder_pro{border:1px solid #cbcbcb;background:#fff;}
+#prd_qa .qa_myorder_list .qa_myorder_pro li{position:relative;overflow:hidden;padding:10px;border-bottom:1px solid #efefef;}
+#prd_qa .qa_myorder_list .qa_myorder_pro li:last-child{border-bottom:none;}
+#prd_qa .qa_myorder_list .qa_myorder_pro li:after{display:block;clear:both;overflow:hidden;content:'';}
+#prd_qa .qa_myorder_list .qa_myorder_pro li .listwrap{float:left;height:auto;margin:0 85px 0 0;}
+#prd_qa .qa_myorder_list .qa_myorder_pro li .listwrap>a{display:block;}
+#prd_qa .qa_myorder_list .qa_myorder_pro li .btnwrap{position:absolute;top:20px;right:10px;}
+#prd_qa .qa_myorder_list .qa_myorder_pro li .btnwrap .btn_txt03.t01.btn_qa_select{height:30px;padding:0 15px;font-size:14px;line-height:30px;}
+#prd_qa .qa_myorder_list .thumb{float:left;width:50px;height:50px;padding:1px;border:1px solid #cfcfcf;background:#fff;}
+#prd_qa .qa_myorder_list .thumb a{display:block;text-align:center;}
+#prd_qa .qa_myorder_list .info{margin:0 0 0 60px;}
+#prd_qa .qa_myorder_list .pro_tit{height:28px;margin:0 0 3px;font-size:13px;line-height:14px;}
+#prd_qa .qa_myorder_list .pro_tit.no_select{padding-top:20px;}
+#prd_qa .qa_myorder_list.selected{background:#fff;}
+#prd_qa .qa_myorder_list.selected .qa_myorder_pro{box-shadow:none;-webkit-box-shadow:none;}
+/* 비회원인증 */
+#member .varification div.cont.verify_by_phone label{display:block;margin:0;}
+#member .varification div.cont.verify_by_phone label:last-child{margin:0;}
+#member .varification div.cont.verify_by_phone ul{overflow:hidden;padding:8px 15px 0;}
+#member .varification div.cont.verify_by_phone ul li{height:50px;line-height:49px;}
+#member .varification div.cont.verify_by_phone ul li:nth-child(1){float:left;width:30%;}
+#member .varification div.cont.verify_by_phone ul li:nth-child(2){float:left;width:8%;text-align:center;}
+#member .varification div.cont.verify_by_phone ul li:nth-child(3){float:left;width:62%;}
+#member .varification div.cont.verify_by_phone ul li:nth-child(3) input{width:100%;}
+#member .varification div.cont.verify_by_phone ul li div.select_option_typ03{width:100%;}
+#member .varification div.cont.verify_by_phone ul li div.select_option_typ03 label select{width:100%;}
+#member p.insert_tit02 .complete{font-weight:bold;color:#86cf00;}
+/* 로그인UI변경 */
+#login .login_form fieldset{overflow:hidden;position:relative;margin:0 15px;background:#fafafa;border:solid 1px #c1c1c1;}
+#login .login_form fieldset{position:relative;padding:20px;box-shadow:none;-webkit-box-shadow:none;}
+#login .login_form fieldset label{margin:0 90px 0 0;}
+#login .login_form fieldset .login_btn{position:absolute;top:26px;right:20px;}
+#login .login_form fieldset .login_btn em{display:block;width:12px;height:14px;margin:20px auto 0;background:url('http://image.gsshop.com/mobile/mc/images/common/icon_login.png') no-repeat 0 0;background-size:12px auto;-webkit-background-size:12px auto;}
+#login .login_form fieldset .login_btn a{width:74px;height:75px;font-size:14px;line-height:25px;}
+#login .login_form fieldset p.checkbox label{margin:0 10px 0 0;color:#777;}
+#login .login_form fieldset p.checkbox span{margin: 0 5px 0 0;}
+#login .login_form div{padding:17px 0 0;text-align:center;}
+#login fieldset label input[type='text'], #login fieldset label input[type='password']{width:65%;height:40px;padding-left:2%;text-indent:0;border-bottom:solid 1px #efefef;}
+#login fieldset label input[type='text']:focus, #login fieldset label input[type='password']:focus{border-bottom:solid 1px #a4dd00;}
+#login footer{text-align:center;}
+#login .login_menu{overflow:hidden;margin:0 0 10px;padding:0 20px;}
+#login .login_menu li{float:left;width:30%;}
+#login .login_menu li:nth-child(2){float:left;width:40%;}
+#login .login_menu li a{display:block;height:9px;padding:15px 0;line-height:9px;color:#777;font-size:13px;}
+#login .login_menu li span{display:block;border-left:1px solid #fefefe;border-right:1px solid #c3c3c3;}
+#login .login_menu li:nth-child(1) span{border-left:none;}
+#login .login_menu li:nth-child(3) span{border-right:none;}
+#login .login_nonmem_btn{overflow:hidden;margin:0 15px;border:1px solid #c1c1c1;background:#f8f8f8;}
+#login .login_nonmem_btn li{float:left;width:50%;}
+#login .login_nonmem_btn li a{display:block;}
+#login .login_nonmem_btn li a span{display:block;padding:13px 0;text-align:center;color:#4d5454;border-right:1px solid #d0d0d0;border-left:1px solid #fefefe;}
+#login .login_nonmem_btn li:nth-child(1) a span{border-left:none;}
+#login .login_nonmem_btn li:nth-child(2) a span{border-right:none;}
+#login .login_nonmem_btn li.w01{width:100%;}
+#login .login_nonmem_btn li.w01 a span{border-right:none;border-left:none;}
+/*제휴카드안내*/
+.partner_banner{margin:0 0 10px;padding:10px 0;background:#019a93;}
+.partner_banner p{text-align:center;}
+.partner_banner p img{width:320px;margin:0 auto;}
+.partner_list ul{margin:0 10px;padding:10px 0;border:1px solid #e5e5e5;background:#f1f1f1;}
+.partner_list li{padding:10px 0;border-top:1px solid #fefefe;border-bottom:1px solid #e5e5e5;}
+.partner_list li:first-child{border-top:none;}
+.partner_list li:last-child{border-bottom:none;}
+.partner_list .thumb{text-align:center;}
+.partner_list .thumb img{width:302px;}
+.partner_list .card_tit, .partner_list .card_stit{display:none;}
+.event_note02{margin:20px 10px;}
+.event_note02 ul{padding:5px 0;border:1px solid #e5e5e5;background:#fff;}
+.event_note02 li{overflow:hidden;padding:2px 10px;font-size:13px;}
+.event_note02 span{display:block;float:left;margin:6px 0 0;}
+.event_note02 strong{display:block;padding:9px 9px 5px;font-weight:normal;color:#777;text-align:left;}
+.event_note02 div{margin:0 0 0 6px;color:#777;font-size:12px;text-align:left;}
+.event_note02 .blit1{display:inline-block;width:8px;height:4px;vertical-align:middle;background:url('http://image.gsshop.com/mobile/mc/images/common/img_detail.png') no-repeat 0 -32px;background-size:151px auto;-webkit-background-size:151px auto;}
+/* 2013-06-18 배송지변경 */
+#member .insert article.base_info li.location_srh{padding:0 10px;}
+/* 2013-07-12 상품평 축하글 추가 */
+#myshopping.assese.my article div.assese_detail div.rwDetail dl{overflow:hidden;margin:0 0 10px;padding:10px;border:1px solid #efefef;border-radius:5px;-webkit-border-radius:5px;background:#fff;}
+#myshopping.assese.my article div.assese_detail div.rwDetail dl:after{display:block;clear:both;overflow:hidden;content:'';}
+#myshopping.assese.my article div.assese_detail div.rwDetail dt{float:none;clear:both;margin:0 0 3px;font-weight:bold;color:#86cf00;}
+#myshopping.assese.my article div.assese_detail div.rwDetail dd{float:none;width:100%;line-height:16px;font-size:12px;text-align:left;color:#acacac;}
+#myshopping.assese.my article div.assese_detail div.rwDetail dd strong{color:#777;}
+/* 2013-07-10 고객센터 */
+.mygsshop_level{overflow:hidden;position:relative;margin:10px 0;padding:0 10px;}
+.mygsshop_level dt{float:left;margin-right:5px;}
+.mygsshop_level dt p:last-child strong{display:none;}
+.mygsshop_level dd strong{color:#86cf00;}
+.mygsshop_level dd p{color:#f2f2f2;font-weight:bold;text-shadow:0 -1px 1px #000;}
+.mygsshop_level dd p:first-child{overflow:hidden;margin:0 0 10px;padding:9px 0 0;height:20px;}
+.mygsshop_level dd a.btn_my_coupon{display:block;position:relative;width:135px;padding:5px 0 5px 10px;color:#c8cbd1;font-weight:normal;font-size:12px;border:1px solid #252d3b;background:#323d53;}
+.mygsshop_level dd a.btn_my_coupon em{display:block;position:absolute;right:10px;top:8px;width:7px;height:12px;background:url('http://image.gsshop.com/mobile/mc/images/common/btn_arrow8.png') no-repeat 0 0;background-size:7px auto;-webkit-background-size:7px auto;vertical-align:middle;}
+.mygsshop_level dd.info{margin:0 75px 0 80px;}
+.mygsshop_level dd.btn{position:absolute;right:10px;top:5px;}
+.mygsshop_level dd.btn a{display:block;margin:0 0 5px;padding:5px 10px;border:1px solid #252d3b;color:#c8cbd1;font-size:12px;text-shadow:0 -1px 1px #292a2a;background:#3d4960;}
+.mygsshop_level dd.btn .setting{overflow:hidden;display:inline-block;width:14px;height:14px;margin:0 3px 0 0;line-height:30px;background:url('http://image.gsshop.com/mobile/mc/images/common/icon_setting.png') no-repeat 0 0;background-size:14px auto;-webkit-background-size:14px auto;vertical-align:middle;}
+.mygsshop_status{overflow:hidden;border-bottom:1px solid #c9c9c9;background:#f4f4f4;}
+.mygsshop_status:after{display:block;clear:both;overflow:hidden;content:'';}
+.mygsshop_status ul{overflow:hidden;}
+.mygsshop_status li{float:left;width:33.3%;}
+.mygsshop_status li a{display:block;}
+.mygsshop_status li div{position:relative;padding:8px 0 12px;color:#696c6d;font-weight:bold;text-shadow:0 1px 1px #fbfbfb;border-right:1px solid #c9c9c9;border-left:1px solid #f0f0f0;text-align:center;}
+.mygsshop_status li:first-child div{border-left:none;}
+.mygsshop_status li:last-child div{border-right:none;}
+.mygsshop_status li strong, .mygsshop_status li em{display:block;}
+.mygsshop_status li strong{margin:0 0 5px;}
+.mygsshop_status li u{font-size:16px;color:#373e40;}
+.mygsshop_list_box.type02 ul{overflow:hidden;}
+.mygsshop_list_box.type02 ul:after{display:block;clear:both;overflow:hidden;content:'';}
+.mygsshop_list_box.type02 ul li{float:left;width:50%;padding:0;border-bottom:none;}
+.mygsshop_list_box.type02 ul li a{height:40px;padding:0 10px;line-height:40px;border-bottom:1px solid #e9e9e9;border-right:1px solid #e9e9e9;background:none;}
+.mygsshop_list_box.type02 ul li:nth-child(2n) a{border-right:none;}
+.mygsshop_list_box.type02 ul li.nbdr a{border-bottom:none;}
+.mygsshop_list_box.type02 ul li em{display:block;position:absolute;right:10px;top:13px;width:9px;height:15px;background:url('http://image.gsshop.com/mobile/mc/images/common/btn_arrow10.png') no-repeat right 0;background-size:9px auto;-webkit-background-size:9px auto;}
+.mygsshop_list_box.type02 ul li strong{font-weight:normal;}
+.mygsshop_list_box.type02 ul li .icon_new{position:static;display:inline-block;width:17px;height:17px;margin:-1px 0 0 3px;color:transparent;font-size:0;background:url('http://image.gsshop.com/mobile/mc/images/common/img_mygsshop.png') no-repeat -25px 0;background-size:218px auto;-webkit-background-size:218px auto;vertical-align:middle;}
+.mygsshop_list_box.type02 ul li div{overflow:hidden;height:40px;margin:0 15px 0 0;white-space:nowrap;}
+.mygsshop_alert{position:fixed;bottom:0;left:0;width:100%;min-height:35px;border-top:1px solid #404243;background:url('http://image.gsshop.com/mobile/mc/images/common/bg_trans.png') repeat 0 0;-webkit-overflow-scrolling:touch;z-index:100;}
+.mygsshop_alert em.myalert{position:absolute;left:0;top:-1px;}
+.mygsshop_alert p{overflow:hidden;padding:10px 80px 10px 25px;color:#ececec;font-weight:bold;text-shadow:0 -1px 1px #404242;text-overflow:ellipsis;-webkit-text-overflow:ellipsis;white-space:nowrap;}
+.mygsshop_alert p u{color:#00aebe;}
+.mygsshop_alert a.btn_all{position:absolute;right:10px;top:50%;height:22px;margin:-13px 0 0;padding:0 10px;border:1px solid #202021;border-radius:4px;-webkit-border-radius:4px;box-shadow:0 2px 4px #1e2020, inset 1px 1px 1px 0px #444646;-webkit-box-shadow:0 2px 4px #1e2020, inset 1px 1px 1px 0px #444646;color:#cbcbcb;font-size:14px;text-shadow:0 -1px 1px #292a2a;background:#353838 -webkit-gradient(linear, left top, left bottom, from(#353838), to(#303232)) no-repeat;}
+.mygsshop_alert a.btn_all u{display:inline-block;font-size:12px;color:#e3e3e3;line-height:22px;}
+em.myalert{display:block;width:35px;height:36px;font-size:0;color:transparent;}
+em.myalert.event{background:url('http://image.gsshop.com/mobile/mc/images/common/img_mygsshop_alert.png') no-repeat 0 0;background-size:35px auto;-webkit-background-size:35px auto;}
+em.myalert.notice{width:37px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_mygsshop_notice.png') no-repeat 0 0;background-size:37px auto;-webkit-background-size:37px auto;}
+.help_main_cont h3{position:relative;margin:0 10px 0 15px;padding:15px 0 6px;color:#999;text-shadow:0 1px 1px #fff;}
+.help_main_cont h3 a.btn_goto_all{display:block;position:absolute;top:10px;right:0;height:23px;padding:0 5px;font-size:12px;font-weight:normal;line-height:23px;color:#7c7c7c;border:1px solid #c9c9c9;border-radius:3px;-webkit-border-radius:3px;background:#e8e8e8 -webkit-gradient(linear, left top, left bottom, from(#e8e8e8), to(#e4e4e4)) no-repeat;}
+.mygsshop_list_box.type03 ul li{padding:0;border-bottom:none;}
+.mygsshop_list_box.type03 ul li a{height:40px;padding:0 10px;line-height:40px;border-bottom:1px solid #e9e9e9;background:none;}
+.mygsshop_list_box.type03 ul li:last-child a{border-bottom:none;}
+.mygsshop_list_box.type03 ul li em{display:block;position:absolute;right:10px;top:13px;width:9px;height:15px;background:url('http://image.gsshop.com/mobile/mc/images/common/btn_order_detail.png') no-repeat right 50%;background-size:9px auto;-webkit-background-size:9px auto;}
+.mygsshop_list_box.type03 ul li strong{font-weight:normal;}
+.mygsshop_list_box.type03 ul li u{display:inline-block;margin:0 2px 0 0;letter-spacing:0;font-size:14px;color:#748e27;}
+.mygsshop_list_box.type03 ul li div{overflow:hidden;height:40px;margin:0 15px 0 0;white-space:nowrap;}
+.mygsshop_help{overflow:hidden;position:relative;border-bottom:1px solid #d1d1d1;}
+.mygsshop_help:after{display:block;clear:both;overflow:hidden;content:'';}
+.mygsshop_help dt{float:left;margin:0;padding:0;}
+.mygsshop_help dd u{display:block;margin:0 0 2px;font-size:12px;font-weight:bold;}
+.mygsshop_help dd p{overflow:hidden;margin:0 50px 0 0;padding:10px 0;color:#444;white-space:nowrap;}
+.mygsshop_help dd a{display:block;width:100%;margin:0;color:#fff;}
+.mygsshop_help dd em{position:absolute;right:0;top:10px;width:45px;height:100%;margin:-8px 0 0;background:url('http://image.gsshop.com/mobile/mc/images/common/btn_arrow9.png') no-repeat 50% 50%;background-size:10px auto;-webkit-background-size:10px auto;}
+.mygsshop_help dd em a{height:100%;color:transparent;font-size:0;text-indent:-999%;}
+.mygsshop_list_faq{position:relative;padding:10px;background:#f8f8f8;border-bottom:1px solid #e9e9e9;}
+.mygsshop_list_faq .faq_srch_bar{margin:0 45px 0 0;padding:3px 0 0 5px;}
+.mygsshop_list_faq .btn_faq_srch{display:block;position:absolute;right:10px;top:10px;width:40px;height:31px;text-align:center;font-size:12px;font-weight:bold;color:#4d5454;border:1px solid #cecece;background:#f8f8f8;}
+.mygsshop_list_box ul li .event_date, .mygsshop_list_box ul li .giftcard_date{font-size:12px;font-weight:bold;color:#acacac;}
+.mygsshop_list_box ul li .event_result, .mygsshop_list_box ul li .giftcard_num{display:block;font-size:12px;color:#acacac;}
+.mygsshop_list_box ul li .event_result em, .mygsshop_list_box ul li .giftcard_num{color:#86cf00;}
+.mygsshop_list_box ul li .giftcard_date02{font-size:12px;font-weight:normal;color:#acacac;line-height:12px;}
+.mygsshop_list_box ul li .giftcard_date02 i{font-size:11px;font-style:normal;color:#222;}
+/* 2013-07-11 상품권관리 */
+.giftcard_head h3{overflow:hidden;padding:12px 0 12px 10px;border-bottom:1px solid #252d3b;background:#323d53;}
+.giftcard_head h3 p{color:#f2f2f2;font-weight:bold;text-shadow:0 -1px 1px #000;}
+.giftcard_head h3 p strong{color:#86cf00;}
+.giftcard_head dl{overflow:hidden;padding:12px 10px;color:#696c6d;font-weight:bold;text-shadow:0 1px 1px #fbfbfb;border-bottom:1px solid #c9c9c9;background:#f4f4f4;}
+.giftcard_head dl:after{display:block;clear:both;overflow:hidden;content:'';}
+.giftcard_head dt{float:left;}
+.giftcard_head dd{float:right;}
+.giftcard_head dd em{color:#222;font-size:15px;}
+.giftcard_cont{padding:10px 0;}
+.giftcard_regi_form{margin:0 8px 10px;border:1px solid #d4d4d4;background:#fff;}
+.giftcard_regi_form p{position:relative;overflow:hidden;padding:15px 10px 5px;text-align:center;}
+.giftcard_regi_form p input{width:75%;margin-right:5px;}
+.giftcard_regi_form p button{width:40px;height:31px;text-align:center;font-size:12px;font-weight:bold;color:#4d5454;border:1px solid #cbcbcb;border-radius:2px;-webkit-border-radius:2px;background:#f8f8f8;}
+.giftcard_regi_form dl{display:block;overflow:hidden;height:26px;margin:10px 10px 15px;padding:3px 10px;color:#373e40;text-align:center;background:#fff;border:solid 1px #c1c1c1;}
+.giftcard_regi_form dl:after{display:block;clear:both;overflow:hidden;content:'';}
+.giftcard_regi_form dt{float:left;color:#222;line-height:26px;}
+.giftcard_regi_form dd{float:right;font-weight:bold;color:#4d5454;line-height:26px;}
+.giftcard_regi_form dd input, .giftcard_regi_form dd input:focus{width:120px;font-weight:bold;color:#4d5454;border-bottom:none;text-align:right;vertical-align:bottom;}
+.giftcard_regi_form .btn_txt09{display:block;width:100px;height:35px;margin:0 auto 15px;line-height:35px;}
+.giftcard_regi_form blockquote{margin:0;padding:15px 15px 10px 20px;border-top:1px solid #dadada;text-indent:-8px;color:#777;font-size:12px;background:#f2f2f2;}
+.giftcard_regi_form blockquote li{margin:0 0 4px;line-height:14px;}
+.giftcard_regi_form blockquote li em, .giftcard_regi_form blockquote li strong{color:#86cf00;}
+.giftcard_regi_form blockquote li div.sub_list{padding:3px 0 0;color:#acacac;text-indent:0;}
+.mygsshop_list_box ul li dl{overflow:hidden;}
+.mygsshop_list_box ul li dt{float:left;width:60%;}
+.mygsshop_list_box ul li .giftcard_down{float:right;width:38%;height:40px;padding:5px 0 0;}
+.mygsshop_list_box ul li .giftcard_down a{background:none;text-align:center;}
+.mygsshop_list_box ul li .giftcard_down p{position:relative;border:1px solid #e3e3e3;text-align:center;line-height:40px;background:#fafafa;}
+.mygsshop_list_box ul li .giftcard_down em{color:#4d5454;font-weight:bold;font-size:13px;}
+.mygsshop_list_box ul li .giftcard_down span{position:absolute;left:0;top:0;width:33px;height:33px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_mygsshop_gcard.png') no-repeat 0 0;background-size:33px auto;-webkit-background-size:33px auto;}
+/*내정보관리*/
+#member .insert.chng_pwd{margin:20px 10px 3px;}
+#member .insert.chng_pwd article.base_info{padding-top:10px;}
+#member .insert.chng_pwd article.base_info ul li.name dl dd input[type='text']{border-bottom:1px solid #ededed}
+.infomodify .guide{overflow:hidden;position:relative;border-bottom:solid 1px #c1c1c1;background:#f8f8f8;}
+.infomodify .guide p{min-height:40px;padding:10px 90px 10px 10px;font-size:14px;color:#777;}
+.infomodify .guide p em{color:#373240;font-weight:bold;}
+.infomodify .guide p strong{font-weight:normal;color:#86cf00;}
+.infomodify .guide a.btn_txt01{position:absolute;top:50%;right:10px;height:40px;margin:-20px 0 0;font-size:12px;line-height:14px;color:#373e40;}
+.infomodify .guide a.btn_txt01 u{display:inline-block;margin:6px 0 0;line-height:14px;}
+#member .insert_tit_link{position:relative;padding:0;}
+#member .insert_tit.note{margin:0 15px;padding:18px 0 10px 18px;font-size:12px;font-weight:normal;background:url('http://image.gsshop.com/mobile/mc/images/common/icon_ex01.png') no-repeat 0 21px;background-size:13px auto;-webkit-background-size:13px auto;vertical-align:middle;}
+#member .insert_tit_link .btn_add_frame{position:absolute;right:10px;top:10px;}
+#member .btn_add_frame{width:auto;padding:0 20px 0 5px;text-align:left;}
+#member .btn_add_frame em, #member .insert .base_info.type02 ul li dl dd .btn_add_frame.open em{position:absolute;top:10px;right:5px;display:block;width:13px;height:7px;background:url('http://image.gsshop.com/mobile/mc/images/common/btn_arrow3.png') no-repeat 0 0;background-size:13px auto;-webkit-background-size:13px auto;}
+#member .btn_add_frame.close em{background-position:0 -8px;}
+#member .insert .base_info ul li.email dd.btn{width:55px !important;}
+#member .insert .base_info ul li.email dd p{width:60%;}
+#member .insert.type02 ul li dl dt{overflow:hidden;width:auto;margin-right:10px;line-height:45px;}
+#member .insert.type02 ul li dl dt strong{color:#86cf00;}
+#member .insert.type02 ul li dl.clear{height:auto;}
+#member .insert.type02 ul li dl.clear dt{float:none;}
+#member .insert.type02 ul li dl.clear dd{margin:0 10px 0 15px;padding-top:0;}
+#member .insert.type02 ul li dl.clear dd p.checkbox, #member .insert.type02 ul li dl.clear dd p.radio{margin-right:5px;}
+#member .insert.type02 ul li dl.clear dt.width_select{padding:10px 0 10px 13px;text-indent:0;line-height:20px;}
+#member .insert.type02 footer{padding:15px 0;}
+#member .insert article ul li.birthday dl{height:auto;}
+#member .insert article ul li.birthday dl dt{width:90px;margin-right:0;line-height:45px;}
+#member .insert article ul li.birthday dl dd{margin:0 10px 0 95px;}
+#member .insert article ul li.birthday dl dd div.select_option_typ03{width:29%;margin-right:1%;}
+#member .insert article ul li.birthday dl dd p.radio{margin-right:3%;}
+#member .insert article ul li.birthday dl dd select{width:100%;}
+#member .insert article ul li.birthday dl dd.npadding{padding-top:0;height:auto;}
+#member .insert article ul li.birthday dl dd .get_cupon{margin-left:0;color:#acacac;font-size:13px;}
+#member .insert article ul li.location_result dd p{margin:0 0 10px 0;}
+#member .insert article ul li.location_result dd p:first-child{margin:0 90px 10px 0}
+#member .insert article ul .tbdr{padding:15px 0 5px;border-top:1px solid #ebebeb;}
+#member .insert article ul .tbdr li.birthday dl dt{line-height:30px;}
+#member .insert article ul .tbdr li.birthday dl dd{padding:0;}
+@media all and (min-width:480px){ #member .insert article ul li.birthday dl dd .get_cupon{display:inline-block;margin-left:12px;vertical-align:middle;} }
+
+#member .insert.type02 .base_info ul li.agree{padding:10px 10px 5px;}
+#member .insert.type02 .base_info ul li.agree p{margin:0 0 10px;color:#373e40;}
+#member .insert.type02 .base_info ul li.agree p.agree_btn{margin:-10px 0 0;text-align:right;}
+#member .insert.type02 .base_info ul li.agree .tnc_agree_cont{position:relative;min-height:20px;}
+#member .insert.type02 .base_info ul li.agree .tnc_agree_cont p{display:inline-block;margin:0;vertical-align:middle;font-weight:bold;color:#222;}
+#member .insert.type02 .base_info ul li.agree .tnc_agree_cont a{position:absolute;right:0px;top:2px;}
+#member .insert.type02 .phone_num.num1{position:relative;}
+#member .insert.type02 .phone_num.num1 .guide, #member .insert.type02 .phone_num.num2 .guide{overflow:hidden;background:none;border-top:none;border-bottom:none;}
+#member .insert.type02 .phone_num.num1 .guide ul, #member .insert.type02 .phone_num.num2 .guide ul{padding:0 0 5px 85px;border-top:none;border-radius:0;-webkit-border-radius:0;background:none;}
+#member .insert.type02 .phone_num.num1 .guide ul li, #member .insert.type02 .phone_num.num2 .guide ul li{color:#acacac;}
+#member .insert.type02 .phone_num.num1 .onclick_layer{display:block;position:absolute;top:0;left:0;width:80%;height:40px;}
+#member .insert.type02 .phone_num.num2 .onclick_layer{display:block;position:absolute;top:0;right:10px;width:48%;height:40px;}
+#member .insert.type02 ul p.certify_btn{position:absolute;top:10px;right:10px;}
+.tnc_agree_more{padding:10px 12px;text-align:left !important;}
+.tnc_agree_more ul div{margin:0 0 10px;font-size:12px;color:#999;line-height:15px;}
+.tnc_agree_more ul li{margin:0 0 5px;font-size:12px;color:#999;}
+.tnc_agree_more ul li:after{clear:both;display:block;content:'';}
+.tnc_agree_more ul li span{display:block;float:left;margin:6px 0 0;}
+.tnc_agree_more ul li div{margin:0 0 0 6px;line-height:15px;}
+.tnc_agree_more ul li strong{color:#222;font-weight:normal;}
+#member .insert.type02{margin:15px 10px;}
+#member .insert.type02 .base_info ul li dl{position:relative;height:auto;}
+#member .insert.type02 .base_info ul li dl dt{line-height:50px;}
+#member .insert.type02 .base_info ul li dl dd{height:auto;margin:0 10px 0 95px;}
+#member .insert.type02 .base_info ul li dl dd.btn{position:absolute;right:10px;top:10px;width:75px;margin:0;padding:0;}
+#member .insert.type02 .get_info ul li.comment{padding:10px 10px 5px 15px;}
+#member .insert.type02 .get_info ul li.comment .select_option_typ03{width:100%;}
+#member .insert.type02 .get_info ul li.comment select{width:100%;}
+#member .insert.type02 .get_info ul.withdinfo{padding:0;}
+#member .insert.type02 .get_info ul.withdinfo li{border-bottom:1px solid #f3f3f3;line-height:28px;}
+#member .insert.type02 .get_info ul.withdinfo li:last-child{border-bottom:none;}
+#member .insert.type02 .get_info ul.withdinfo .info_ttl{padding:5px 10px 5px 15px;font-weight:bold;}
+#member .insert.type02 .get_info ul.withdinfo .info_ttl em{display:inline-block;width:9px;height:7px;margin-left:5px;background:url('http://image.gsshop.com/mobile/mc/images/common/img_mygsshop.png') no-repeat -77px -39px;background-size:218px auto;-webkit-background-size:218px auto;}
+#member .insert.type02 .get_info ul.withdinfo .info_ttl.active em{background-position:-53px -39px;}
+#member .insert.type02 .get_info ul.withdinfo .info_detail{display:none;padding:10px 10px 10px 15px;color:#777;font-size:12px;border-top:1px solid #f3f3f3;background:#f6f6f6;line-height:18px;}
+#member .insert.type02 .get_info ul.withdinfo .info_detail p{margin:0 0 8px;color:#222;}
+#member .insert.type02 .get_info ul.withdinfo .info_detail ul{padding:0 10px 5px 8px;}
+#member .insert.type02 .get_info ul.withdinfo .info_detail ul:after{display:block;clear:both;overflow:hidden;content:'';}
+#member .insert.type02 .get_info ul.withdinfo .info_detail ul li{overflow:hidden;margin:0 0 3px;}
+#member .insert.type02 .get_info ul.withdinfo .info_detail ul li span{display:block;float:left;margin:7px 0 0;}
+#member .insert.type02 .get_info ul.withdinfo .info_detail ul li div{margin:0 0 0 8px;line-height:18px;}
+#member .insert.type02 .get_info ul.withdinfo table {width:100%;border-spacing:1px;background:#e1e1e1;}
+#member .insert.type02 .get_info ul.withdinfo th{height:30px;padding:3px 5px;background:#f7f7f7;font-weight:bold;font-size:12px;text-align:center;}
+#member .insert.type02 .get_info ul.withdinfo td{height:30px;padding:3px 5px;background:#fff;color:#777;font-size:12px;vertical-align:top;}
+#member .varification.pwd.re div.cont{border-top:1px solid #e9e9e9;}
+#member.infomodify .complete article.guide{border-bottom:none;}
+#member.infomodify .complete article.guide p{padding:0;}
+#member.infomodify .complete article.guide p.txt1{margin-bottom:8px;line-height:19px;}
+/* GSnPoint 통합회원 */
+.agree .ex_guide{padding:10px 0;text-align:left;}
+.agree .ex_guide em{display:none;}
+#member .insert.gsnpoint article.agree .agree_note{padding:10px;color:#777;}
+#member .insert.gsnpoint article.agree h3{border-top:1px solid #dbdbdb;}
+#member .insert.gsnpoint article.agree h3.nbdr{border-top:none;}
+#member .insert.gsnpoint article.agree dl{overflow:hidden;height:auto;padding:15px 12px;}
+#member .insert.gsnpoint article.agree dl dt{float:left;width:80px;line-height:16px;font-weight:bold;font-size:14px;color:#222;text-indent:0;vertical-align:middle;}
+#member .insert.gsnpoint article.agree dl dd{height:auto;margin:0 0 0 80px;padding:0;line-height:16px;}
+#member .insert.gsnpoint article.agree dl dd p{font-size:13px;color:#777;font-weight:normal;}
+#member .insert.gsnpoint article.agree ul li:first-child{border-bottom:1px solid #efefef;}
+#member .insert.gsnpoint article.agree ul li{padding:0;}
+#member .insert .agree_chck{padding:15px 12px 10px;}
+#member .insert .agree_chck p{font-weight:bold;color:#222;}
+#member .insert .get_info .agree_chck p{display:inline-block;vertical-align:middle;}
+#member .insert .get_info .agree_chck span.txt{display:block;padding:0 0 0 33px;font-weight:normal;font-size:12px;color:#acacac;}
+#member .insert.gsnpoint article.base_info h3{border-top:1px solid #dbdbdb;}
+#member .insert.gsnpoint article.base_info ul li{position:relative;}
+#member .insert.gsnpoint article.base_info ul li.name{border-radius:3px 3px 0 0;-webkit-border-radius:3px 3px 0 0;}
+#member .insert.gsnpoint article.base_info ul li.id_input dd p{width:50%;margin:0 0 10px;}
+#member .insert.gsnpoint article.base_info ul li.id_input dd a{text-align:center;}
+#member .insert.gsnpoint article.base_info ul li.location dl{height:auto;}
+#member .insert.gsnpoint article.base_info ul li.location dd{height:auto;}
+#member .insert.gsnpoint article.base_info ul li.location dd p{margin:0 0 10px;line-height:25px;}
+#member .insert.gsnpoint article.base_info ul li.location_result dd p:nth-child(1),
+#member .insert.gsnpoint article.base_info ul li.location dd p:nth-child(1){width:50%;}
+#member p.insert_tit.complete{padding:18px 0 5px;line-height:22px;color:#444646;font-size:15px;text-align:center;font-weight:bold;}
+#member .insert article.base_info ul li.location_result .frame_box, #member .insert article.base_info ul li.location .frame_box{margin:0 10px;}
+#member .insert article.agree ul.gsnpoint_tnc{border-top:1px solid #efefef;}
+#member .insert article.agree ul.gsnpoint_tnc li:first-child{border-bottom:1px solid #efefef;}
+#member .insert article.agree ul.gsnpoint_tnc li{padding:15px 12px;}
+#member .insert.gsnpoint article.agree ul.gsnpoint_tnc{border-top:none;}
+#member .insert .table_type01{width:96%;margin:15px 2%;}
+/* 2013-09-04 앱불편신고 */
+section.prd_head div p.oneto_qa_ttl.help{padding:10px;font-weight:normal;font-size:13px;color:#777;}
+#prd_qa section.qa_write.oneto_qa .oneto_select.help li{width:100%;}
+#myshopping.consult article.myshopping_box2.help{margin:10px 8px 0;}
+#prd_qa section.qa_write.oneto_qa footer{border-top:solid 1px #d4d4d4;background:#f2f2f2;border-radius:0 0 3px 3px;-webkit-border-radius:0 0 3px 3px;box-shadow:inset 0 1px 0 #f6f6f6;-webkit-box-shadow:inset 0 1px 0 #f6f6f6;}
+#prd_qa section.qa_write.oneto_qa footer div.phone_info{margin:10px 10px 5px;padding:10px;text-shadow:0 1px 1px #fff;color:#777;font-weight:normal;border:solid 1px #e1e1e1;border-radius:4px;-webkit-border-radius:4px;background:#f8f8f8;}
+#prd_qa section.qa_write.oneto_qa footer div.phone_info ol{overflow:hidden;}
+#prd_qa section.qa_write.oneto_qa footer div.phone_info ol li{float:left;margin-right:15px;}
+#prd_qa section.qa_write.oneto_qa footer div.phone_info ol li span{color:#86cf00;font-weight:bold;}
+#prd_qa section.qa_write.oneto_qa footer div.checks{padding:10px 10px;line-height:62px;border-bottom:solid 1px #e9e9e9;box-shadow:0 1px 0 #f6f6f6;-webkit-box-shadow:0 1px 0 #f6f6f6;}
+#prd_qa section.qa_write.oneto_qa footer div.checks p label {font-weight:bold;color:#222;}
+#prd_qa section.qa_write.oneto_qa footer div.checks p label span{margin-right:5px;}
+#prd_qa section.qa_write.oneto_qa footer div.checks .guide{line-height:17px;text-indent:0;color:#777;}
+#prd_qa section.qa_write.oneto_qa footer div.btns{line-height:65px;text-align:center;}
+#prd_qa section.qa_write.oneto_qa footer div.btns a{line-height:35px;}
+#prd_qa section.qa_write.oneto_qa footer div.btns a{width:90px;}
+
+/* 리얼멤버쉽 e코인 */
+#myshopping.membership article.coupones ul li .ecoin_desc{line-height:48px;text-align:center;text-indent:6px;font-size:12px;font-weight:bold;color:#acacac;}
+#myshopping.membership article.coupones ul li .ecoin_desc p{display:inline-block;vertical-align:middle;line-height:16px;}
+#myshopping.membership article.coupones ul li .ecoin_desc span{display:inline-block;width:63px;height:48px;margin-left:6px;vertical-align:-20px;background:url('http://image.gsshop.com/mobile/mc/images/common/ico_common_myshop.png') no-repeat -36px 0;background-size:100px auto;-webkit-background-size:100px auto;}
+
+/* 접근성개선적용 */
+/* 이용약관 부분 css를 이용하는 것이 구조와 표현을 분리하는 가장 좋은 방법이므로 변경함 */
+#member .prom article.detail .yak_box {padding:15px 20px 0;line-height:16px;font-size:12px;color:#777;word-wrap:break-word;}
+#member .prom article.detail .yak_box h3 {font-size:14px;color:#222}
+#member .prom article.detail .yak_box h4 {margin-top:15px}
+#member .prom article.detail .yak_box ol.type01 {margin:3px 0}
+#member .prom article.detail .yak_box ol.type01 > li {text-indent:-15px;padding-left:15px}
+#member .prom article.detail .yak_box ol.type02 {margin:3px 0}
+#member .prom article.detail .yak_box ol.type02 > li {text-indent:-14px;padding-left:14px}
+#member .prom article.detail .yak_box ol.type03 {margin:3px 0}
+#member .prom article.detail .yak_box ol.type03 > li {text-indent:-20px;padding-left:20px}
+#member .prom article.detail .yak_box ul.type04 {margin:3px 0}
+#member .prom article.detail .yak_box ul.type04 > li {text-indent:-10px;padding-left:10px}
+#member .prom article.detail .yak_box p {margin:3px 0}
+#member .prom article.detail .yak_box p.desc{margin:15px 0 20px;}
+#member .prom article.detail .yak_box ol.type02 p{margin:3px 0;padding-left:10px;text-indent:0;}
+#member .prom article.detail .yak_box dl dt {margin:3px 0}
+#member .prom article.detail .yak_box .type_dash {margin:3px 0}
+#member .prom article.detail .yak_box .type_dash li {text-indent:-10px;padding-left:10px}
+/* gsnpoint 예외처리 */
+#member .insert.gsnpoint article.agree .agree_chck p{line-height:24px;}
+#member .insert.gsnpoint article.agree .agree_chck p label{line-height:24px;}
+#member .insert .get_info .agree_chck p:nth-child(2){margin:0;}
+
+/* 예외처리 */
+.infoChange-password-footer a + input[type="submit"], .infoChange-manager-footer a + input[type="submit"]{top:0 !important;}
+.infoChange-manager-footer p{margin-top:15px;}
+.modify-info-btn a + input[type="submit"] {top:0 !important;}
+#smart_cart ul.cart_list .list_title .htext{margin-left:30px !important;}

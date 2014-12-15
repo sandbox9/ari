@@ -1,0 +1,21 @@
+@charset "utf-8"; 
+
+
+.order_address dl dd,  
+.delivery_status_list dd, 
+.order_exchng_info dd, 
+div.order_info.complete ul li dl dd { margin-left: 85px; }
+ 
+ /* 주문서 작성/결제 */
+/* 배송지 변경 */
+.order_address dl dd input[name="dlv_rcvr_tel2"],
+.order_address dl dd input[name="dlv_rcvr_cell2"], 
+.order_address dl dd input[name="s_tel20"], 
+.order_address dl dd input[name="b_tel20"], 
+.order_address dl dd input[name="b_tel"], 
+.order_address dl dd input[name="s_tel"], 
+.order_exchng_apply input[name='cell_telM'], 
+.order_exchng_apply input[name='s_telM'] { width: 90px; } 
+
+/* 배송지 변경 border 추가 */
+.order_address .address_cont fieldset { border-bottom: 1px solid #e5e5e5; }
