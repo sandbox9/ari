@@ -9,7 +9,7 @@
     </parent>
     <artifactId>ari-site</artifactId>
     <packaging>war</packaging>
-    <name>ari-site</name>
+    <name>ari-site</name> 
     <description>Web Module For Broadleaf Commerce Based ECommerce Site</description>
     <properties>
         <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
