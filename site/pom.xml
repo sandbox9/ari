@@ -20,7 +20,7 @@
     </properties>
     <build>
         <outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
-        <finalName>ari</finalName>
+        <finalName>ari-site</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -71,7 +71,7 @@
     <dependencies>
         <dependency>
             <groupId>com.ari</groupId>
-            <artifactId>core</artifactId>
+            <artifactId>ari-core</artifactId>
         </dependency>
         <dependency>
             <groupId>org.broadleafcommerce</groupId>

@@ -20,7 +20,7 @@
     </properties>
     <build>
         <outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
-        <finalName>admin</finalName>
+        <finalName>ari-admin</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -86,7 +86,7 @@
         </dependency>
         <dependency>
             <groupId>com.ari</groupId>
-            <artifactId>core</artifactId>
+            <artifactId>ari-core</artifactId>
         </dependency>
         <dependency>
             <groupId>org.hsqldb</groupId>

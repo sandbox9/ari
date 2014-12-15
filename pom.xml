@@ -121,7 +121,7 @@
             
             <dependency>
                 <groupId>com.ari</groupId>
-                <artifactId>core</artifactId>
+                <artifactId>ari-core</artifactId>
                 <version>1.0</version>
                 <type>jar</type>
                 <scope>compile</scope>
