@@ -18,6 +18,7 @@ package com.ari.controller.catalog;
 
 //import com.ari.sample.domain.catalog.ExCategoryImpl;
 //import com.ari.sample.domain.catalog.SortOption;
+import com.ari.domain.catalog.SortOption;
 import org.apache.commons.lang3.StringUtils;
 import org.broadleafcommerce.common.web.BroadleafRequestContext;
 import org.broadleafcommerce.core.search.domain.ProductSearchCriteria;
@@ -48,13 +49,13 @@ public class CategoryController extends BroadleafCategoryController {
 
         //기존의 컨트롤러 로직중 category를 변경.
         //TODO 코드리뷰 받기.
-//        if (false == request.getParameterMap().containsKey("facetField")) {
+        if (false == request.getParameterMap().containsKey("facetField")) {
 //            List<SortOption> sortOptions = ((ExCategoryImpl) model.getModelMap().get(CATEGORY_ATTRIBUTE_NAME)).getSortOptions();
 //            for(SortOption sortOption : sortOptions){
 //                String sortCondition = sortOption.getSortCondition();
 //                sortOption.setLink(addSortLink(sortOption));
 //            }
-//        }
+        }
 
         return model;
     }
@@ -82,85 +83,85 @@ public class CategoryController extends BroadleafCategoryController {
         return url;
     }
 
-//    private String addSortLink(SortOption sortOption){
-//
-//
-//        Map<String, String> attrs = new HashMap<String, String>();
-//
-//        BroadleafRequestContext blcContext = BroadleafRequestContext.getBroadleafRequestContext();
-//        HttpServletRequest request = blcContext.getRequest();
-//
-//        String baseUrl = request.getRequestURL().toString();
-//        Map<String, String[]> params = new HashMap<String, String[]>(request.getParameterMap());
-//
-//        String key = ProductSearchCriteria.SORT_STRING;
-//        String sortField = sortOption.getSortCondition();
-//
-//        List<String[]> sortedFields = new ArrayList<String[]>();
-//
-//        String[] paramValues = params.get(key);
-//        if (paramValues != null && paramValues.length > 0) {
-//            String sortQueries = paramValues[0];
-//            for (String sortQuery : sortQueries.split(",")) {
-//                String[] sort = sortQuery.split(" ");
-//                if (sort.length == 2) {
-//                    sortedFields.add(new String[] { sort[0], sort[1] });
-//                }
-//            }
-//        }
-//
-//        boolean currentlySortingOnThisField = false;
-//        boolean currentlyAscendingOnThisField = false;
-//
-//        for (String[] sortedField : sortedFields) {
-//            if (sortField.equals(sortedField[0])) {
-//                currentlySortingOnThisField = true;
-//                currentlyAscendingOnThisField = sortedField[1].equals("asc");
-//                sortedField[1] = currentlyAscendingOnThisField ? "desc" : "asc";
-//            }
-//        }
-//
-//        String sortString = sortField;
-//        String classString = "";
-//
-//        if (currentlySortingOnThisField) {
-//            classString += "active ";
-//            if (currentlyAscendingOnThisField) {
-//                sortString += " desc";
-//                classString += "asc ";
-//            } else {
-//                sortString += " asc";
-//                classString += "desc ";
-//            }
-//        } else {
-//            sortString += " asc";
-//            classString += "asc ";
-//            params.remove(ProductSearchCriteria.PAGE_NUMBER);
-//        }
-//
-//        boolean allowMultipleSorts = false;
-//
-//        if (allowMultipleSorts) {
-//            StringBuilder sortSb = new StringBuilder();
-//            for (String[] sortedField : sortedFields) {
-//                sortSb.append(sortedField[0]).append(" ").append(sortedField[1]).append(",");
-//            }
-//
-//            sortString = sortSb.toString();
-//            if (sortString.charAt(sortString.length() - 1) == ',') {
-//                sortString = sortString.substring(0, sortString.length() - 1);
-//            }
-//        }
-//
-//        params.put(key, new String[] { sortString } );
-//
-//        String url = ProcessorUtils.getUrl(baseUrl, params);
-//
-//        //TODO
-//        attrs.put("class", classString);
-//        attrs.put("href", url);
-//
-//        return url;
-//    }
+    private String addSortLink(SortOption sortOption){
+
+
+        Map<String, String> attrs = new HashMap<String, String>();
+
+        BroadleafRequestContext blcContext = BroadleafRequestContext.getBroadleafRequestContext();
+        HttpServletRequest request = blcContext.getRequest();
+
+        String baseUrl = request.getRequestURL().toString();
+        Map<String, String[]> params = new HashMap<String, String[]>(request.getParameterMap());
+
+        String key = ProductSearchCriteria.SORT_STRING;
+        String sortField = sortOption.getSortCondition();
+
+        List<String[]> sortedFields = new ArrayList<String[]>();
+
+        String[] paramValues = params.get(key);
+        if (paramValues != null && paramValues.length > 0) {
+            String sortQueries = paramValues[0];
+            for (String sortQuery : sortQueries.split(",")) {
+                String[] sort = sortQuery.split(" ");
+                if (sort.length == 2) {
+                    sortedFields.add(new String[] { sort[0], sort[1] });
+                }
+            }
+        }
+
+        boolean currentlySortingOnThisField = false;
+        boolean currentlyAscendingOnThisField = false;
+
+        for (String[] sortedField : sortedFields) {
+            if (sortField.equals(sortedField[0])) {
+                currentlySortingOnThisField = true;
+                currentlyAscendingOnThisField = sortedField[1].equals("asc");
+                sortedField[1] = currentlyAscendingOnThisField ? "desc" : "asc";
+            }
+        }
+
+        String sortString = sortField;
+        String classString = "";
+
+        if (currentlySortingOnThisField) {
+            classString += "active ";
+            if (currentlyAscendingOnThisField) {
+                sortString += " desc";
+                classString += "asc ";
+            } else {
+                sortString += " asc";
+                classString += "desc ";
+            }
+        } else {
+            sortString += " asc";
+            classString += "asc ";
+            params.remove(ProductSearchCriteria.PAGE_NUMBER);
+        }
+
+        boolean allowMultipleSorts = false;
+
+        if (allowMultipleSorts) {
+            StringBuilder sortSb = new StringBuilder();
+            for (String[] sortedField : sortedFields) {
+                sortSb.append(sortedField[0]).append(" ").append(sortedField[1]).append(",");
+            }
+
+            sortString = sortSb.toString();
+            if (sortString.charAt(sortString.length() - 1) == ',') {
+                sortString = sortString.substring(0, sortString.length() - 1);
+            }
+        }
+
+        params.put(key, new String[] { sortString } );
+
+        String url = ProcessorUtils.getUrl(baseUrl, params);
+
+        //TODO
+        attrs.put("class", classString);
+        attrs.put("href", url);
+
+        return url;
+    }
 
 }
