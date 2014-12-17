@@ -46,19 +46,19 @@
                 <dl class="smart-cart-state-header-information smartcart-header-B">
                 	<dt class="information-term selected">장바구니</dt>
                     <dd class="information-define selected">
-                    	<a href="/mobile/cart/viewCart.gs?lseq=390489">5</a>
+                    	<a>0</a>
                     </dd>
                     <dt class="information-term">최근본상품</dt>
                     <dd class="information-define">
-                    	<a href="/main/lastprd.gs?lseq=390490">7</a>
+                    	<a>0</a>
                     </dd>
                     <dt class="information-term">나의찜상품</dt>
                     <dd class="information-define">
-                    	<a href="/mygsshop/myWishListMain.gs?lseq=390491">1</a>
+                    	<a>0</a>
                     </dd>
                     <dt class="information-term">추천 NOW!</dt>
                     <dd class="information-define">
-                    	<a href="/recomm/getRecommMain.gs?lseq=390492">
+                    	<a>
                     		<span class="recommendation-now accessible-hide">★</span>
                     	</a>
                     </dd>
@@ -70,7 +70,7 @@
                     <legend>일반상품 장바구니</legend>
                     <section class="order-item">
                    	    <h1 class="level-one-title">
-                   	    	<strong>일반상품 장바구니</strong><th:block th:unless="${#lists.isEmpty(cart.orderItems)}" th:text="${#lists.size(cart.orderItems)}"/>
+                   	    	<strong>일반상품 장바구니</strong> <th:block th:unless="${#lists.isEmpty(cart.orderItems)}" th:text="${#lists.size(cart.orderItems)}"/>
                    	    </h1>
                    	    <a href="#" class="function-item-whole-selection">전체선택</a>
                         <ul class="item-selection-list-information">
@@ -80,6 +80,7 @@
                                     <section class="individual-item">
                                         <h1 class="accessible-hide">상품</h1>
                                         <article class="iems-product">
+                                        	<input type="checkbox" class="checkbox-item"/>
                                             <h1 class="product-title">
                                             	<a th:href="@{*{product.url}}" th:text="*{product.name}">name</a>
                                             </h1>
@@ -108,14 +109,16 @@
                                                     	</a>
                                                     </dd>
                                                     
-                                                    <blc:product_option_display orderItem="${item}">
-                                                    <dd class="product-option" th:unless="${#lists.isEmpty(productOptionDisplayValues)}">
-                                                    <th:block th:each="entry: ${productOptionDisplayValues}" th:text="${entry.key} + ': ' + ${entry.value}"/>
+                                                    <blc:product_option_display orderItem="${item}" th:unless="${#lists.isEmpty(productOptionDisplayValues)}">
+                                                    <dd class="product-option">옵션 
+                                                    <th:block th:each="entry: ${productOptionDisplayValues}" th:object="${entry}" th:inline="text">
+                                                    [[${entry.key}]] : [[${entry.value}]]
+                                                    </th:block>
                                                     </dd>
                                                     </blc:product_option_display>
                                                     
                                                     <dd class="product-quantity">
-                                                    	<em th:text="*{quantity}"></em>
+                                                    	수량 <em th:text="*{quantity}"></em>
                                                     </dd>
                                                     <dd class="function-buttons">
                                                         <a href="" class="function-item-option-quantity-change">옵션변경</a>
@@ -164,7 +167,7 @@
                                             	<strong blc:price="*{getPriceBeforeAdjustments(true)}"></strong> + <strong>0</strong>(배송비)
                                             </p>
                                             <p class="product-total-price">
-                                            	합계 <strong blc:price="*{totalPrice}">totalPrice</strong>원
+                                            	합계 <strong blc:price="*{totalPrice}">totalPrice</strong>
                                             </p>
                                             <a href="javascript:;" class="link-immediate-order" id="checkOrdShipPrdGroup" data-bundldlvgrp="10159290023" data-basktgbn="INTG_BASKT" data-idx="4">바로주문</a>
                                         </footer>
@@ -183,7 +186,7 @@
                                 </dd>
                                 <dt class="total-delivery-amount">총 배송비</dt>
                                 <dd class="delivery-amount-information">
-                                	<em>0</em>원
+                                	<em>0</em>
                                 </dd>
                                 <dt class="order-total-amount">주문금액 합계</dt>
                                 <dd class="total-amount-information">
@@ -191,10 +194,21 @@
                                 </dd>
                             </dl>
                             <footer class="bottom-link-buttons">
-                                <p class="buttons-information global-product-oder-btn"><a href="javascript:;" id="checkForgnOrdChkBox" data-basktgbn="INTG_BASKT" data-vdorgubun="N" class="global-delivery-product-order"><strong>세계로 배송 주문</strong></a><a href="javascript:;" id="checkOrdChkBox" data-basktgbn="INTG_BASKT" data-vdorgubun="N" class="link-selection-product-order"><strong>선택상품 주문</strong></a> <a href="javascript:;" id="checkOrdChk" data-basktgbn="INTG_BASKT" data-vdorgubun="N" class="link-whole-product-order"><strong>전체상품 주문</strong></a>
+                                <p class="buttons-information global-product-oder-btn">
+                                	<a href="javascript:;" id="checkForgnOrdChkBox" data-basktgbn="INTG_BASKT" data-vdorgubun="N" class="global-delivery-product-order">
+                                		<strong>세계로 배송 주문</strong>
+                                	</a>
+                                	<a href="javascript:;" id="checkOrdChkBox" data-basktgbn="INTG_BASKT" data-vdorgubun="N" class="link-selection-product-order">
+                                		<strong>선택상품 주문</strong>
+                                	</a> 
+                                	<a href="javascript:;" id="checkOrdChk" data-basktgbn="INTG_BASKT" data-vdorgubun="N" class="link-whole-product-order">
+                                		<strong>전체상품 주문</strong>
+                                	</a>
                                 </p>
                                 <p class="bundle-delivery-product-guide-sentence">묶음배송 상품구입 후 반품할 경우에는 반품비가 상품별로 청구됩니다.</p>
-                                <p class="function-item-delete-buttons-information"><a href="javascript:;" id="removeSelectedCartChkBox" data-basktgbn="INTG_BASKT" data-type="selDel" data-itemid="0" class="function-checked-item-delete">선택상품 삭제</a><a href="javascript:;" id="removeInactiveCartChkBox" data-basktgbn="INTG_BASKT" class="function-sale-stop-item-delete">품절상품 전체 삭제</a>
+                                <p class="function-item-delete-buttons-information">
+                                	<a href="javascript:;" class="function-checked-item-delete">선택상품 삭제</a>
+                                	<a href="javascript:;" class="function-sale-stop-item-delete">품절상품 전체 삭제</a>
                                 </p>
                             </footer>
                         </section>
@@ -205,10 +219,17 @@
             </form>
             <!-- 선택상품 주문 플로팅 호출 영역 시작 -->
             <aside class="layer-selection-product-order pannel-close" id="divToggle" value="0">
-                <h1 class="accessible-hide ">선택상품 주문 플로팅 레이어 호출 시작</h1><a href="javascript:;" class="product-order-panel-call-button" id="orderPanelCall">선택상품 주문 플로팅 레이어 열기</a>
-                <dl class="selection-product-order-information"><dt><strong id="toggleTotCnt"></strong></dt>
-                    <dd class="total-amount"><strong id="toggleTotAmt"></strong>원</dd>
-                </dl><a href="javascript:;" class="link-selection-product-order" id="checkOrd">선택상품 주문</a>
+                <h1 class="accessible-hide ">선택상품 주문 플로팅 레이어 호출 시작</h1>
+                	<a href="javascript:;" class="product-order-panel-call-button" id="orderPanelCall">선택상품 주문 플로팅 레이어 열기</a>
+                <dl class="selection-product-order-information">
+                	<dt>
+                		<strong id="toggleTotCnt"></strong>
+                	</dt>
+                    <dd class="total-amount">
+                    	<strong id="toggleTotAmt"></strong>원
+                    </dd>
+                </dl>
+                <a href="javascript:;" class="link-selection-product-order" id="checkOrd">선택상품 주문</a>
             </aside>
             <!-- 선택상품 주문 플로팅 호출 영역 끝 -->
         </section>
