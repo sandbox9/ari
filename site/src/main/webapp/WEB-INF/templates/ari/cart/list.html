@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, , initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no"/>
+
+    <title>스마트카트 | ARI Express</title>
+    <!-- 장바구니 사용중인 css  정리 필요  141215 -->
+    <link type="text/css" rel="stylesheet" href="/css/ari/common.css?20141211130157"/>
+    <link type="text/css" rel="stylesheet" href="/css/ari/product.css?20141211130157"/>
+    <link type="text/css" rel="stylesheet" href="/css/ari/shop.css?20141211130157"/>
+    <link type="text/css" rel="stylesheet" href="/css/ari/member.css?20141211130157"/>
+    <link type="text/css" rel="stylesheet" href="/css/ari/override.css?20141211130157"/>
+
+
+
+    <script type="text/javascript" src="./js/jquery-1.8.2.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/ari/style.css"/>
+
+
+</head>
+
+<body>
+    <div id="container">
+
+        <header id="headline" class="sub_header_area">
+            <div id="div_staff_limit"></div>
+            <p class="category_back_btn"><a href="javascript:history.back();">뒤로가기</a>
+            </p>
+            <h1 class="sub_category_tit">스마트카트</h1><span class="sub_category_subtitle"></span>
+            <div id="div_orderchange_btn"></div>
+        </header>
+        <h1 class="accessible-hide">스마카트</h1>
+        <section class="smart-cart">
+            <header>
+                <h1 class="accessible-hide">스마트카트:장바구니</h1>
+            </header>
+            <!-- 탑 영역 -->
+
+
+            <article>
+                <h1 class="accessible-hide">스마트카트 헤더영역</h1>
+                <dl class="smart-cart-state-header-information smartcart-header-B">
+                	<dt class="information-term selected">장바구니</dt>
+                    <dd class="information-define selected">
+                    	<a>0</a>
+                    </dd>
+                    <dt class="information-term">최근본상품</dt>
+                    <dd class="information-define">
+                    	<a>0</a>
+                    </dd>
+                    <dt class="information-term">나의찜상품</dt>
+                    <dd class="information-define">
+                    	<a>0</a>
+                    </dd>
+                    <dt class="information-term">추천 NOW!</dt>
+                    <dd class="information-define">
+                    	<a>
+                    		<span class="recommendation-now accessible-hide">★</span>
+                    	</a>
+                    </dd>
+                </dl>
+            </article>
+
+            <form id="crtForm" name="crtForm" method="post" action="">
+                <fieldset>
+                    <legend>일반상품 장바구니</legend>
+                    <section class="order-item">
+                   	    <h1 class="level-one-title">
+                   	    	<strong>일반상품 장바구니</strong> <th:block th:unless="${#lists.isEmpty(cart.orderItems)}" th:text="${#lists.size(cart.orderItems)}"/>
+                   	    </h1>
+                   	    <a href="#" class="function-item-whole-selection">전체선택</a>
+                        <ul class="item-selection-list-information">
+                            <li class="item-selection-list" th:each="item : ${cart.orderItems}" th:object="${item}" th:id="${'productRow' + item.id}">
+                                <article class="item-group">
+                                    <h1 class="accessible-hide">상품 아이템 그룹</h1>
+                                    <section class="individual-item">
+                                        <h1 class="accessible-hide">상품</h1>
+                                        <article class="iems-product">
+                                        	<input type="checkbox" class="checkbox-item"/>
+                                            <h1 class="product-title">
+                                            	<a th:href="@{*{product.url}}" th:text="*{product.name}">name</a>
+                                            </h1>
+
+                                            <figure class="item-information clearfix" data-optaddprdgbncd="N">
+                                                <div class="item-thumb-area">
+                                                    <a href="javascript:;" id="goPrd" data-prdcd="14004710" data-dealno="15068504">
+                                                        <p class="product-image-area">
+                                                        	<img th:if="*{product.media['primary']}" th:src="@{*{product.media['primary'].url} + '?thumbnail'}" width="94" height="94" th:alt="*{product.name}"/>
+                                                        </p>
+                                                    </a>
+                                                    <!--  
+                                                    <p class="product-today-deal">
+                                                    	<strong class="image-typo-today-deal">오늘의 딜</strong>
+                                                    </p>
+                                                    -->
+                                                </div>
+                                                <dl class="item-data-list-area">
+                                                    <dt class="accessible-hide" th:text="*{product.name}"></dt>
+                                                    <dd class="product-price">
+                                                    	<strong blc:price="*{getPriceBeforeAdjustments(true)}"></strong>
+                                                    </dd>
+                                                    <dd class="product-coupon" th:unless="*{adjustmentValue.zero}">
+                                                    	<a href="javascript:;" class="function-product-coupon">
+                                                    		<em class="coupon-name" blc:price="*{totalAdjustmentValue}">offer</em>
+                                                    	</a>
+                                                    </dd>
+                                                    
+                                                    <blc:product_option_display orderItem="${item}" th:unless="${#lists.isEmpty(productOptionDisplayValues)}">
+                                                    <dd class="product-option">옵션 
+                                                    <th:block th:each="entry: ${productOptionDisplayValues}" th:object="${entry}" th:inline="text">
+                                                    [[${entry.key}]] : [[${entry.value}]]
+                                                    </th:block>
+                                                    </dd>
+                                                    </blc:product_option_display>
+                                                    
+                                                    <dd class="product-quantity">
+                                                    	수량 <em th:text="*{quantity}"></em>
+                                                    </dd>
+                                                    <dd class="function-buttons">
+                                                        <a href="" class="function-item-option-quantity-change">옵션변경</a>
+                                                        <a href="" class="function-item-storage">계속보관</a>
+                                                    </dd>
+                                                </dl>
+                                            </figure>
+                                        </article>
+
+                                        <article class="layer-option-quantity-change" id="articleOptQty4" style="display:none">
+                                            <h1 class="accessible-hide">옵션/수량변경</h1>
+                                            <ul class="select-box-list">
+                                                <li class="select-box-list-line" id="color4" style="display:none">
+                                                    <label>
+                                                        <select name="colorSelect" id="colorSelect4" class="select-box">
+                                                            <option value="0">색상 선택</option>
+                                                        </select>
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                            <div class="input-quantity-enter">
+                                                <p class="input-quantity-information">
+                                                    <a href="javascript:;" id="calcQty" data-calctype="minus" data-idx="4">
+                                                        <label class="subtract">
+                                                        	<span class="function-quantity-subtract" title="-1 감소">-</span>
+                                                        </label>
+                                                    </a>
+                                                    <label>
+                                                        <input type="text" name="tmpQty" id="tmpQty4" data-idx="4" value="0" class="function-quantity-input" title="입력수량"/>
+                                                    </label>
+                                                    <a href="javascript:;" id="calcQty" data-calctype="plus" data-idx="4">
+                                                        <label class="increase">
+                                                        	<span class="function-quantity-increase" title="+1 증가">+</span>
+                                                        </label>
+                                                    </a>
+                                                </p>
+                                            </div>
+                                            <footer class="footer-buttons-information">
+                                            	<a href="javascript:;" id="chooseChangeComplete" data-idx="4" class="function-option-quantity-change">변경</a>
+                                            </footer>
+                                        </article>
+                                        
+                                        <footer class="item-payment-amout">
+                                            <h1 class="accessible-hide">결제금액</h1>
+                                            <p class="product-delivery-cost-price">
+                                            	<strong blc:price="*{getPriceBeforeAdjustments(true)}"></strong> + <strong>0</strong>(배송비)
+                                            </p>
+                                            <p class="product-total-price">
+                                            	합계 <strong blc:price="*{totalPrice}">totalPrice</strong>
+                                            </p>
+                                            <a href="javascript:;" class="link-immediate-order" id="checkOrdShipPrdGroup" data-bundldlvgrp="10159290023" data-basktgbn="INTG_BASKT" data-idx="4">바로주문</a>
+                                        </footer>
+                                        <a href="javascript:;" class="function-item-individual-delete" id="deleteItem" data-basktgbn="INTG_BASKT" data-prdcd="14004710" data-basktitemid="395635488" data-idx="4">삭제</a>
+                                    </section>
+                                </article>
+                            </li>
+                        </ul>
+                        
+                        <section class="shopping-basket-order-payment-information">
+                            <h1 class="accessible-hide">주문금액 정보</h1>
+                            <dl class="payment-amount-information">
+                            	<dt class="total-product-amount">총 상품금액</dt>
+                                <dd class="product-amount-information">
+                                	<em blc:price="${cart.subTotal?.subtract(cart.orderAdjustmentsValue)}"></em>
+                                </dd>
+                                <dt class="total-delivery-amount">총 배송비</dt>
+                                <dd class="delivery-amount-information">
+                                	<em>0</em>
+                                </dd>
+                                <dt class="order-total-amount">주문금액 합계</dt>
+                                <dd class="total-amount-information">
+                                	<strong blc:price="${cart.subTotal?.subtract(cart.orderAdjustmentsValue)}"></strong>
+                                </dd>
+                            </dl>
+                            <footer class="bottom-link-buttons">
+                                <p class="buttons-information global-product-oder-btn">
+                                	<a href="javascript:;" id="checkForgnOrdChkBox" data-basktgbn="INTG_BASKT" data-vdorgubun="N" class="global-delivery-product-order">
+                                		<strong>세계로 배송 주문</strong>
+                                	</a>
+                                	<a href="javascript:;" id="checkOrdChkBox" data-basktgbn="INTG_BASKT" data-vdorgubun="N" class="link-selection-product-order">
+                                		<strong>선택상품 주문</strong>
+                                	</a> 
+                                	<a href="javascript:;" id="checkOrdChk" data-basktgbn="INTG_BASKT" data-vdorgubun="N" class="link-whole-product-order">
+                                		<strong>전체상품 주문</strong>
+                                	</a>
+                                </p>
+                                <p class="bundle-delivery-product-guide-sentence">묶음배송 상품구입 후 반품할 경우에는 반품비가 상품별로 청구됩니다.</p>
+                                <p class="function-item-delete-buttons-information">
+                                	<a href="javascript:;" class="function-checked-item-delete">선택상품 삭제</a>
+                                	<a href="javascript:;" class="function-sale-stop-item-delete">품절상품 전체 삭제</a>
+                                </p>
+                            </footer>
+                        </section>
+                    </section>
+                </fieldset>
+                <!-- //일반상품 장바구니 끝-->
+                <!-- 현금결제 장바구니 시작-->
+            </form>
+            <!-- 선택상품 주문 플로팅 호출 영역 시작 -->
+            <aside class="layer-selection-product-order pannel-close" id="divToggle" value="0">
+                <h1 class="accessible-hide ">선택상품 주문 플로팅 레이어 호출 시작</h1>
+                	<a href="javascript:;" class="product-order-panel-call-button" id="orderPanelCall">선택상품 주문 플로팅 레이어 열기</a>
+                <dl class="selection-product-order-information">
+                	<dt>
+                		<strong id="toggleTotCnt"></strong>
+                	</dt>
+                    <dd class="total-amount">
+                    	<strong id="toggleTotAmt"></strong>원
+                    </dd>
+                </dl>
+                <a href="javascript:;" class="link-selection-product-order" id="checkOrd">선택상품 주문</a>
+            </aside>
+            <!-- 선택상품 주문 플로팅 호출 영역 끝 -->
+        </section>
+        <div id="push"></div>
+    </div>
+
+
+
+
+
+    <div class="page_top" style="display: none;"><img src="http://image.gsshop.com/ui/gsshop/shop/images/btn_top.png" alt="위로"/>
+    </div>
+    <div class="quick_link_area">
+        <ul class="quick_link_con">
+            <li class="quick_home">
+                <a href="/index.gs?mseq=398049">
+                    <div><em></em><span>홈</span>
+                    </div>
+                </a>
+            </li>
+            <li class="quick_category">
+                <a href="/m/sect/category.gs?mseq=398050">
+                    <div><em></em><span>카테고리</span>
+                    </div>
+                </a>
+            </li>
+            <li class="quick_search">
+                <a href="/m/search/searchNewMain.gs?mseq=398051">
+                    <div><em></em><span>검색</span>
+                    </div>
+                </a>
+            </li>
+            <li class="quick_cart on ">
+                <a href="/mobile/cart/viewCart.gs?mseq=398052">
+                    <div><em></em><span>스마트카트</span>
+                    </div>
+                </a>
+            </li>
+            <li class="quick_ship">
+                <a href="/mygsshop/myOrderList.gs?mseq=398053">
+                    <div><em></em><span>주문배송</span>
+                    </div>
+                </a>
+            </li>
+            <li class="quick_shopping">
+                <a href="/mygsshop/myshopInfo.gs?mseq=398054">
+                    <div><em></em><span>마이쇼핑</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <footer id="footer" role="contentinfo">
+        <ul class="footer_menu">
+            <li>
+                <div class="footer_sub"><a href="">로그아웃</a>
+                </div>
+            </li>
+            <li>
+                <div class="footer_sub"><a href="/mygsshop/myshopInfo.gs?gsid=MCfooter">마이쇼핑</a>
+                </div>
+            </li>
+            <li>
+                <div class="footer_sub"><a href="/mygsshop/customerCenter.gs?gsid=MCfooter">고객센터</a>
+                </div>
+            </li>
+            <li>
+                <div class="footer_sub"><a href="/main/lastprd.gs?gsid=MCfooter">최근본상품</a>
+                </div>
+            </li>
+        </ul> <address><strong>(주)지에스홈쇼핑 대표이사 허태수</strong>서울시 영등포구 선유로 75 GS강서타워  호스팅제공자 (주)지에스홈쇼핑<br/>사업자등록번호 117-81-13253 통신판매업신고 영등포구청 제 2002-00068호<br/><a href="http://www.ftc.go.kr/info/bizinfo/communicationView.jsp?apv_perm_no=2002318011730200068&amp;area1=6110000&amp;area2=&amp;currpage=1&amp;searchKey=01&amp;searchVal=%C1%F6%BF%A1%BD%BA%C8%A8%BC%EE%C7%C-" target="_blank" class="footer_link">사업자정보확인</a> <a href="/mobile/etc/etc_loan.jsp" class="footer_link">기업은행 채무지급 보증안내</a><br/>고객센터 1899-4455 <a href="mailto:gsshop@gsshop.com">gsshop@gsshop.com</a></address>
+        <div class="footer_sub_nav"><a href="/m/mygsshop/articleMain.gs">이용약관</a><a href="/m/mygsshop/appDownGuide.gs?gsid=MCfooter">앱다운로드</a><a href="/m/mygsshop/payGuideIphoneApp.gs?gsid=MCfooter">결제안내</a>
+        </div>
+        <div id="copyright">© GS HOMESHOPPING</div>
+    </footer>
+
+
+    <section>
+
+        <noscript>&lt;img height="1" width="1" border="0" alt="" style="display:none" src="https://www.facebook.com/tr?id=588919104536691&amp;amp;ev=NoScript" /&gt;</noscript>
+
+
+
+
+
+        <!-- FIXME : AS-IS기준 하드코딩 된 js경로를 환경별 구분하여 설정하도록 변경해야 함 -->
+        <!--  <script type="text/javascript" src="http://image.gsshop.com/ui/gsshop/asis/script/global.js?20141211130157" charset="euc-kr"></script> -->
+
+    </section>
+
+
+</body>
+
+</html>

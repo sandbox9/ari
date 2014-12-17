@@ -204,6 +204,7 @@
         </property>
     </bean> 
     -->
+    <bean id="blPriceTextDisplayProcessor" class="com.ari.org.broadleafcommerce.core.web.processor.AriPriceTextDisplayProcessor" />
     
     <!-- The following two beans are defined like this in Broadleaf Commerce. However, -->
     <!-- you may want to override the bean definitions by uncommenting these two beans -->
