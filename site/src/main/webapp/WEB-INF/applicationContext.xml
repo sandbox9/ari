@@ -188,22 +188,21 @@
     <!-- This is an example of a custom dialect definition that uses a custom processor -->
     <!-- The second bean registers the dialct to the blWebTemplateEngine -->
     <!-- Note that the same thing could be done for the blEmailTemplateEngine -->
-    <!-- 
-    <bean id="myDialect" class="com.ari.common.web.dialect.MyDialect">
+    <bean id="exDialect" class="com.ari.org.broadleafcommerce.core.web.dialect.ExDialect">
         <property name="processors">
           <set>
-            <bean class="com.ari.common.web.processor.MyProcessor" />
+            <bean class="com.ari.org.broadleafcommerce.core.web.processor.OrderItemProductOptionDisplyProcessor" />
           </set>
         </property>     
     </bean> 
     <bean id="blWebTemplateEngine" class="org.thymeleaf.spring3.SpringTemplateEngine">
         <property name="dialects">
             <set>
-                <ref bean="myDialect" />
+                <ref bean="exDialect" />
             </set>
         </property>
-    </bean> 
-    -->
+    </bean>
+     
     <bean id="blPriceTextDisplayProcessor" class="com.ari.org.broadleafcommerce.core.web.processor.AriPriceTextDisplayProcessor" />
     
     <!-- The following two beans are defined like this in Broadleaf Commerce. However, -->

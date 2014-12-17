@@ -74,7 +74,7 @@
                    	    </h1>
                    	    <a href="#" class="function-item-whole-selection">전체선택</a>
                         <ul class="item-selection-list-information">
-                            <li class="item-selection-list" th:each="item : ${cart.orderItems}" th:object="${item}" th:id="${'productRow' + item.id}">
+                            <li class="item-selection-list" th:each="item, itemIter : ${cart.orderItems}" th:object="${item}" th:id="${'productRow' + item.id}">
                                 <article class="item-group">
                                     <h1 class="accessible-hide">상품 아이템 그룹</h1>
                                     <section class="individual-item">
@@ -101,44 +101,55 @@
                                                 <dl class="item-data-list-area">
                                                     <dt class="accessible-hide" th:text="*{product.name}"></dt>
                                                     <dd class="product-price">
-                                                    	<strong blc:price="*{getPriceBeforeAdjustments(true)}"></strong>
-                                                    </dd>
-                                                    <dd class="product-coupon" th:unless="*{adjustmentValue.zero}">
-                                                    	<a href="javascript:;" class="function-product-coupon">
-                                                    		<em class="coupon-name" blc:price="*{totalAdjustmentValue}">offer</em>
-                                                    	</a>
+                                                    	<strong blc:price="*{getPriceBeforeAdjustments(true)}"></strong>원
                                                     </dd>
                                                     
+                                                    <th:block th:if="*{#lists.size(orderItemPriceDetails)>=1}" th:each="orderItemPriceDetail : *{orderItemPriceDetails}" th:object="${orderItemPriceDetail}">
+                                                    <dd class="product-coupon" th:each="orderItemPriceDetailAdjustment : ${orderItemPriceDetail.orderItemPriceDetailAdjustments}" th:object="${orderItemPriceDetailAdjustment}">
+                                                    	<a href="javascript:;" class="function-product-coupon" th:inline="text">
+                                                    		<em class="coupon-name">[[*{offerName}]] <strong blc:price="*{value}"></strong> 쿠폰</em>
+                                                    	</a>
+                                                    </dd>
+                                                    </th:block>
+                                                    
                                                     <blc:product_option_display orderItem="${item}" th:unless="${#lists.isEmpty(productOptionDisplayValues)}">
-                                                    <dd class="product-option">옵션 
-                                                    <th:block th:each="entry: ${productOptionDisplayValues}" th:object="${entry}" th:inline="text">
-                                                    [[${entry.key}]] : [[${entry.value}]]
+                                                    <dd class="product-option">
+                                                    <th:block th:each="entry,iterStat: ${productOptionDisplayValues}" th:object="${entry}" th:inline="text">
+                                                    
+                                                    <th:block: th:if="${iterStat.first}">옵션 :</th:block:>
+                                                    [[${entry.value}]]
+                                                    <th:block th:unless="${iterStat.last}">,</th:block> 
+                                                    
                                                     </th:block>
                                                     </dd>
                                                     </blc:product_option_display>
                                                     
                                                     <dd class="product-quantity">
-                                                    	수량 <em th:text="*{quantity}"></em>
+                                                    	수량 <em th:text="*{quantity}"></em>개
                                                     </dd>
-                                                    <dd class="function-buttons">
-                                                        <a href="" class="function-item-option-quantity-change">옵션변경</a>
+                                                    <dd class="function-buttons" th:inline="text">
+                                                        <a th:onclick="'showArticleOpt(' + ${itemIter.index} + ')'" class="function-item-option-quantity-change">옵션/수량 변경</a>
                                                         <a href="" class="function-item-storage">계속보관</a>
+                                                        <a href="" class="function-item-individual-order">주문</a>
                                                     </dd>
                                                 </dl>
                                             </figure>
                                         </article>
 
-                                        <article class="layer-option-quantity-change" id="articleOptQty4" style="display:none">
-                                            <h1 class="accessible-hide">옵션/수량변경</h1>
-                                            <ul class="select-box-list">
-                                                <li class="select-box-list-line" id="color4" style="display:none">
+                                        <article class="layer-option-quantity-change" th:id="'articleOpt' + ${itemIter.index}" style="display:none">
+                                            <h1 class="accessible-hide">옵션/수량 변경</h1>
+                                            <ex:order_item_product_option_display orderItem="${item}">
+                                            <ul class="select-box-list" th:unless="${#lists.isEmpty(orderItemproductOptionDisplayValues)}">
+                                                <li th:each="productOption : ${orderItemproductOptionDisplayValues}" th:object="${productOption}" class="select-box-list-line" id="color4" style="display:block">
                                                     <label>
                                                         <select name="colorSelect" id="colorSelect4" class="select-box">
-                                                            <option value="0">색상 선택</option>
+                                                            <option value="" th:text="${productOption.key}">색상 선택</option>
+                                                            <option th:each="option : ${productOption.value}" th:text="${option}"></option>
                                                         </select>
                                                     </label>
                                                 </li>
                                             </ul>
+                                        	</ex:order_item_product_option_display>
                                             <div class="input-quantity-enter">
                                                 <p class="input-quantity-information">
                                                     <a href="javascript:;" id="calcQty" data-calctype="minus" data-idx="4">
@@ -147,7 +158,7 @@
                                                         </label>
                                                     </a>
                                                     <label>
-                                                        <input type="text" name="tmpQty" id="tmpQty4" data-idx="4" value="0" class="function-quantity-input" title="입력수량"/>
+                                                        <input type="text" name="tmpQty" id="tmpQty4" data-idx="4" th:value="*{quantity}" class="function-quantity-input" title="입력수량"/>
                                                     </label>
                                                     <a href="javascript:;" id="calcQty" data-calctype="plus" data-idx="4">
                                                         <label class="increase">
@@ -164,10 +175,10 @@
                                         <footer class="item-payment-amout">
                                             <h1 class="accessible-hide">결제금액</h1>
                                             <p class="product-delivery-cost-price">
-                                            	<strong blc:price="*{getPriceBeforeAdjustments(true)}"></strong> + <strong>0</strong>(배송비)
+                                            	<strong blc:price="*{totalPrice}"></strong>원 + <strong>0</strong>원(배송비)
                                             </p>
                                             <p class="product-total-price">
-                                            	합계 <strong blc:price="*{totalPrice}">totalPrice</strong>
+                                            	합계 <strong blc:price="*{totalPrice}">totalPrice</strong>원
                                             </p>
                                             <a href="javascript:;" class="link-immediate-order" id="checkOrdShipPrdGroup" data-bundldlvgrp="10159290023" data-basktgbn="INTG_BASKT" data-idx="4">바로주문</a>
                                         </footer>
@@ -182,15 +193,15 @@
                             <dl class="payment-amount-information">
                             	<dt class="total-product-amount">총 상품금액</dt>
                                 <dd class="product-amount-information">
-                                	<em blc:price="${cart.subTotal?.subtract(cart.orderAdjustmentsValue)}"></em>
+                                	<em blc:price="${cart.total}"></em>원
                                 </dd>
                                 <dt class="total-delivery-amount">총 배송비</dt>
                                 <dd class="delivery-amount-information">
-                                	<em>0</em>
+                                	<em>0</em>원
                                 </dd>
                                 <dt class="order-total-amount">주문금액 합계</dt>
                                 <dd class="total-amount-information">
-                                	<strong blc:price="${cart.subTotal?.subtract(cart.orderAdjustmentsValue)}"></strong>
+                                	<strong blc:price="${cart.subTotal?.subtract(cart.orderAdjustmentsValue)}"></strong>원
                                 </dd>
                             </dl>
                             <footer class="bottom-link-buttons">
@@ -311,10 +322,6 @@
 
         <noscript>&lt;img height="1" width="1" border="0" alt="" style="display:none" src="https://www.facebook.com/tr?id=588919104536691&amp;amp;ev=NoScript" /&gt;</noscript>
 
-
-
-
-
         <!-- FIXME : AS-IS기준 하드코딩 된 js경로를 환경별 구분하여 설정하도록 변경해야 함 -->
         <!--  <script type="text/javascript" src="http://image.gsshop.com/ui/gsshop/asis/script/global.js?20141211130157" charset="euc-kr"></script> -->
 
@@ -322,5 +329,11 @@
 
 
 </body>
+<script type="text/javascript">
+function showArticleOpt(index) {
+	var articleOpt = document.getElementById("articleOpt" + index);
+	articleOpt.setAttribute("style", "display:block");
+}         
+</script>
 
 </html>

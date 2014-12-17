@@ -47,7 +47,7 @@ public class AriPriceTextDisplayProcessor extends AbstractTextChildModifierAttrP
 			// 원화로 출력되도록 수정
 			// 소수점 무시를 위해 * 1000
             NumberFormat numberFormatFromCache = NumberFormat.getInstance(Locale.KOREA);
-			return numberFormatFromCache.format(price.getAmount().intValue() * 1000);
+			return numberFormatFromCache.format(price.getAmount().doubleValue() * 1000);
         } else {
             return price.getAmount().toString();
         }
