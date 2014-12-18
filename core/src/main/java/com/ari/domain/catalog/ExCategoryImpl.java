@@ -4,19 +4,24 @@ package com.ari.domain.catalog;
 import com.google.common.collect.Lists;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.Predicate;
+import org.broadleafcommerce.common.extensibility.jpa.clone.ClonePolicyMap;
+import org.broadleafcommerce.common.media.domain.Media;
+import org.broadleafcommerce.common.media.domain.MediaImpl;
 import org.broadleafcommerce.common.presentation.AdminPresentation;
+import org.broadleafcommerce.common.presentation.AdminPresentationMap;
+import org.broadleafcommerce.common.presentation.AdminPresentationMapKey;
 import org.broadleafcommerce.common.presentation.AdminPresentationToOneLookup;
 import org.broadleafcommerce.core.catalog.domain.Category;
 import org.broadleafcommerce.core.catalog.domain.CategoryImpl;
 import org.broadleafcommerce.core.search.domain.CategorySearchFacet;
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.Index;
+import org.hibernate.annotations.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.OrderBy;
+import javax.persistence.Table;
+import java.util.*;
 
 /**
  * 기존의 카테고리를 확장
@@ -38,7 +43,6 @@ public class ExCategoryImpl extends CategoryImpl {
     @Cascade(value = {org.hibernate.annotations.CascadeType.MERGE, org.hibernate.annotations.CascadeType.PERSIST})
     //@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region="blStandardElements")
     protected List<SortOption> excludedSortOption = new ArrayList<SortOption>();
-
 
     public List<ExCategorySortOption> getExCategorySortOptions() {
         return exCategorySortOptions;
