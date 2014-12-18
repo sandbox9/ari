@@ -17,7 +17,7 @@
 
 
 
-    <script type="text/javascript" src="./js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="/js/ari/jquery-1.8.2.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/ari/style.css"/>
 
 
@@ -72,7 +72,7 @@
                    	    <h1 class="level-one-title">
                    	    	<strong>일반상품 장바구니</strong> <th:block th:unless="${#lists.isEmpty(cart.orderItems)}" th:text="${#lists.size(cart.orderItems)}"/>
                    	    </h1>
-                   	    <a href="#" class="function-item-whole-selection">전체선택</a>
+                   	    <a onclick="selectAllItems()" class="function-item-whole-selection">전체선택</a>
                         <ul class="item-selection-list-information">
                             <li class="item-selection-list" th:each="item, itemIter : ${cart.orderItems}" th:object="${item}" th:id="${'productRow' + item.id}">
                                 <article class="item-group">
@@ -80,7 +80,7 @@
                                     <section class="individual-item">
                                         <h1 class="accessible-hide">상품</h1>
                                         <article class="iems-product">
-                                        	<input type="checkbox" class="checkbox-item"/>
+                                        	<input name="itemChk" th:value="'itemChk' + ${itemIter.index}" type="checkbox" class="checkbox-item"/>
                                             <h1 class="product-title">
                                             	<a th:href="@{*{product.url}}" th:text="*{product.name}">name</a>
                                             </h1>
@@ -152,15 +152,15 @@
                                         	</ex:order_item_product_option_display>
                                             <div class="input-quantity-enter">
                                                 <p class="input-quantity-information">
-                                                    <a href="javascript:;" id="calcQty" data-calctype="minus" data-idx="4">
+                                                    <a th:onclick="'updateQty(' + ${itemIter.index} + ', -1)'">
                                                         <label class="subtract">
                                                         	<span class="function-quantity-subtract" title="-1 감소">-</span>
                                                         </label>
                                                     </a>
                                                     <label>
-                                                        <input type="text" name="tmpQty" id="tmpQty4" data-idx="4" th:value="*{quantity}" class="function-quantity-input" title="입력수량"/>
+                                                        <input type="text" name="tmpQty" th:id="'itemQty' + ${itemIter.index}" th:value="*{quantity}" class="function-quantity-input" title="입력수량"/>
                                                     </label>
-                                                    <a href="javascript:;" id="calcQty" data-calctype="plus" data-idx="4">
+                                                    <a th:onclick="'updateQty(' + ${itemIter.index} + ', 1)'">
                                                         <label class="increase">
                                                         	<span class="function-quantity-increase" title="+1 증가">+</span>
                                                         </label>
@@ -329,11 +329,36 @@
 
 
 </body>
-<script type="text/javascript">
+<script th:inline="javascript">
+/*<![CDATA[*/
 function showArticleOpt(index) {
-	var articleOpt = document.getElementById("articleOpt" + index);
-	articleOpt.setAttribute("style", "display:block");
-}         
+	var article = $("#articleOpt" + index);
+	if(article == null) return;
+	
+	if(article.css("display") == "block") article.hide();
+	else article.show();
+}
+
+function updateQty(index, value) {
+	var qty = $("#itemQty" + index);
+	if(qty == null) return;
+	
+	var currVal = Number(qty.val());
+	var maintainedVal = currVal + Number(value);
+	
+	if(maintainedVal < 1) alert("수량은 1보다 커야합니다.");
+	else qty.val(maintainedVal);
+}
+
+function selectAllItems() {
+	$("input[name=itemChk]").each(function(index) {
+		var isChecked = $(this).is(":checked");
+		
+		if(isChecked == false) $(this).attr("checked", true);
+		else $(this).removeAttr("checked");
+	});
+}
+/*]]>*/
 </script>
 
 </html>
