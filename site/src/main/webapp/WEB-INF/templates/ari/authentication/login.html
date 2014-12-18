@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="Cache-Control" content="no-cache"/>
+    <title>로그인 | GS SHOP</title>
+    <link type="text/css" rel="stylesheet" href="./css/ari/common.css"/>
+
+    <!-- commonOldCssList : /mobile/mc/css/member.css / commonNewCssList : /cust/css/style.css?12305 -->
+    <!--<link type="text/css" rel="stylesheet" href="./style/asis/member.css"> -->
+    <!-- 로그인 css -->
+    <link type="text/css" rel="stylesheet" href="./css/ari/custstyle.css"/>
+	<script type="text/javascript" src="./js/ari/jquery-1.8.2.min.js"></script>
+</head>
+<body class="_member_logIn_gs">
+    <div id="container">
+
+        <header id="headline" class="sub_header_area">
+            <div id="div_staff_limit"></div>
+            <p class="category_back_btn"><a href="javascript:history.back();">뒤로가기</a>
+            </p>
+            <h1 class="sub_category_tit">로그인</h1><span class="sub_category_subtitle"></span>
+            <div id="div_orderchange_btn"></div>
+        </header>
+
+        <article id="cont_content">
+            <div id="mlogin">
+                <div class="logo">
+                    <p></p>
+                </div>
+                <blc:form th:action="@{/login_post.htm}" id="loginForm" method="post">
+                	<input type="hidden" name="successUrl" th:if="${successUrl}" th:value="${successUrl}"/>
+                    <section class="login_form">
+                        <fieldset>
+                            <legend>로그인 정보 입력</legend>
+                            <div class="input_box">
+                                <label for="id">
+                                    <input type="text" id="id" name="j_username" value="" maxlength="20" placeholder="hello@itwise.co.kr"/>
+                                </label>
+                                <label for="passwd">
+                                    <input type="password" id="passwd" name="j_password" value="" maxlength="16" placeholder="비밀번호"/>
+                                </label>
+                            </div>
+                            <p class="login_btn"><a href="#" class="btn_txt02 t03" id="btnLogin"><em></em>로그인</a>
+                             <input type="submit" th:value="#{login.login}" style="display:none"/>
+                            </p>
+                            <div class="login_check">
+                                <p class="checkbox">
+                                    <input type="checkbox" id="chkAutoid" name="chkAutoid" checked="checked"/>
+                                    <label onclick="" for="chkAutoid"><span></span>아이디 저장</label>
+                                </p>
+                               
+                            </div>
+                        </fieldset>
+                    </section>
+                </blc:form>
+                <footer>
+                    <ul class="login_menu">
+                        <li><a href="#"><span>아이디 찾기</span></a>
+                        </li>
+                        <li><a th:href="@{/login/forgotPassword}"><span>비밀번호 찾기</span></a>
+                        </li>
+                        <li><a th:href="@{/register}"><span>회원가입</span></a>
+                        </li>
+                    </ul>
+                    <ul class="login_nonmem_btn">
+                        <li><a href="#"><span>비회원 배송조회</span></a>
+                        </li>
+                        <li><a href="#" id="easiOrdCertCookiFlg" data-easiordcertcookiflg="N"><span>간편주문 배송조회</span></a>
+                        </li>
+                        <!-- 간편주문 배송조회 리스트 -->
+                    </ul>
+                </footer>
+            </div>
+        </article>
+            <div id="push"></div>
+    </div>
+
+    <div class="page_top" style="display: none;"><img src="http://image.gsshop.com/ui/gsshop/shop/images/btn_top.png" alt="위로"/>
+    </div>
+    <div class="quick_link_area">
+        <ul class="quick_link_con">
+            <li class="quick_home">
+                <a href="/index.gs?mseq=398049">
+                    <div><em></em><span>홈</span>
+                    </div>
+                </a>
+            </li>
+            <li class="quick_category">
+                <a href="/m/sect/category.gs?mseq=398050">
+                    <div><em></em><span>카테고리</span>
+                    </div>
+                </a>
+            </li>
+            <li class="quick_search">
+                <a href="/m/search/searchNewMain.gs?mseq=398051">
+                    <div><em></em><span>검색</span>
+                    </div>
+                </a>
+            </li>
+            <li class="quick_cart">
+                <a href="/mobile/cart/viewCart.gs?mseq=398052">
+                    <div><em></em><span>스마트카트</span>
+                    </div>
+                </a>
+            </li>
+            <li class="quick_ship">
+                <a href="/mygsshop/myOrderList.gs?mseq=398053">
+                    <div><em></em><span>주문배송</span>
+                    </div>
+                </a>
+            </li>
+            <li class="quick_shopping">
+                <a href="/mygsshop/myshopInfo.gs?mseq=398054">
+                    <div><em></em><span>마이쇼핑</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <footer id="footer" role="contentinfo">
+        <ul class="footer_menu">
+            <li>
+                <div class="footer_sub"><a href="/member/logIn.gs?returnurl=">로그인</a>
+                </div>
+            </li>
+            <li>
+                <div class="footer_sub"><a href="/mygsshop/myshopInfo.gs?gsid=MCfooter">마이쇼핑</a>
+                </div>
+            </li>
+            <li>
+                <div class="footer_sub"><a href="/mygsshop/customerCenter.gs?gsid=MCfooter">고객센터</a>
+                </div>
+            </li>
+            <li>
+                <div class="footer_sub"><a href="/main/lastprd.gs?gsid=MCfooter">최근본상품</a>
+                </div>
+            </li>
+        </ul> <address><strong>(주)지에스홈쇼핑 대표이사 허태수</strong>서울시 영등포구 선유로 75 GS강서타워  호스팅제공자 (주)지에스홈쇼핑 사업자등록번호 117-81-13253 통신판매업신고 영등포구청 제 2002-00068호 <a href="#" target="_blank" class="footer_link">사업자정보확인</a> <a href="/mobile/etc/etc_loan.jsp" class="footer_link">기업은행 채무지급 보증안내</a><br />고객센터 1899-4455 <a href="mailto:gsshop@gsshop.com">gsshop@gsshop.com</a></address>
+        <div class="footer_sub_nav"><a href="/m/mygsshop/articleMain.gs">이용약관</a><a href="/m/mygsshop/appDownGuide.gs?gsid=MCfooter">앱다운로드</a><a href="/m/mygsshop/payGuideIphoneApp.gs?gsid=MCfooter">결제안내</a>
+        </div>
+        <div id="copyright">© GS HOMESHOPPING</div>
+    </footer>
+
+
+</body>
+
+</html>
+
+<script>
+	$("#btnLogin").on("click", function(){
+		console.log("login button click");
+		$("#loginForm").submit();
+	});
+	
+	$("#loginForm").on("submit", function(){
+		var idBox = $("[name='j_username']");
+		if(idBox.val() == ""){
+			alert("아이디를 입력해주세요.");
+			idBox.focus();
+			return false;
+		}
+		
+		var pwdBox = $("[name='j_password']");
+		if(pwdBox.val() == ""){
+			alert("비밀번호를 입력해주세요.");
+			pwdBox.focus();
+			return false;
+		}
+		console.log("login process");
+	});
+</script>
