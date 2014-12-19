@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * Created by poets11 on 14. 12. 15..
  */
 @Controller
-@RequestMapping(value = "/ari/cart")
+@RequestMapping(value = "/cart")
 public class CartController extends BroadleafCartController {
     @RequestMapping(value = "/list")
     public String list(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
