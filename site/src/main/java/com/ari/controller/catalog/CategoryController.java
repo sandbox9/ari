@@ -21,11 +21,13 @@ package com.ari.controller.catalog;
 import com.ari.domain.catalog.SortOption;
 import org.apache.commons.lang3.StringUtils;
 import org.broadleafcommerce.common.web.BroadleafRequestContext;
+import org.broadleafcommerce.core.catalog.domain.Category;
 import org.broadleafcommerce.core.search.domain.ProductSearchCriteria;
 import org.broadleafcommerce.core.web.controller.catalog.BroadleafCategoryController;
 import org.broadleafcommerce.core.web.util.ProcessorUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 import org.thymeleaf.Arguments;
 import org.thymeleaf.dom.Element;
 
@@ -47,6 +49,16 @@ public class CategoryController extends BroadleafCategoryController {
     public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
         ModelAndView model = super.handleRequest(request, response);
 
+        if(request.getRequestURI().equals("/")){
+            Category category = (Category) model.getModelMap().get("category");
+            String url = category.getChildCategories().get(0).getUrl();
+            //어케 하는지 몰겠어.
+            RedirectView rv = new RedirectView( url );
+            rv.setExposeModelAttributes(true);
+
+            return new ModelAndView(rv);
+        }
+
         //기존의 컨트롤러 로직중 category를 변경.
         //TODO 코드리뷰 받기.
         if (false == request.getParameterMap().containsKey("facetField")) {
@@ -59,6 +71,7 @@ public class CategoryController extends BroadleafCategoryController {
 
         return model;
     }
+
 
     //리팩토링 할 것.
     //request라는 컨텍스트에 의존하는 메서드

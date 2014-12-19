@@ -3,8 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
     <meta http-equiv="Cache-Control" content="no-cache"/>
     <title>GS SHOP</title>
     <!-- gs asis css -->
@@ -18,15 +17,15 @@
 <header>
     <h1 class="hidden_text">GS Shop</h1>
 
-    <blc:categories resultVar="navCategories" parentCategory="Primary Nav" maxResults="6"/>
+    <blc:categories resultVar="navCategories" parentCategory="Primary Nav" maxResults="5"/>
 
-    <ul class="gnb" data-selected-id="52">
-        <li class="on" th:each="category : ${navCategories}" th:unless="${#strings.isEmpty(category.url)}">
-            <a th:href="@{${category.url}}">
-                <span th:text="${category.name}">카테고리명</span>
+    <ul class="gnb">
+        <li th:each="navCategory : ${navCategories}" th:classappend="${navCategory.id} == ${category.defaultParentCategory.id}? 'on'" th:unless="${#strings.isEmpty(navCategory.url)}">
+            <a th:href="@{${navCategory.url}}">
+                <img class="onImg" th:src="@{${navCategory.categoryMedia['icon'].url}}" alt="Home"/>
+                <span th:text="${navCategory.name}">카테고리명</span>
             </a>
         </li>
-
     </ul>
 
     <div class="depth1_wrap">
@@ -35,7 +34,7 @@
                 <div class="hidden_text">좌측메뉴 더보기</div>
             </div>
 
-            <blc:categories resultVar="subCategories" parentCategory="Hot Sauces" />
+            <blc:categories resultVar="subCategories" parentCategory="Home" />
 
             <ul class="depth1_menu left swiper-wrapper" style="padding-left: 0px; padding-right: 0px; width: 737px; height: 44px; transform: translate3d(0px, 0px, 0px); -webkit-transform: translate3d(0px, 0px, 0px); transition: 0.1s; -webkit-transition: 0.1s;">
                 <li class="swiper-slide swiper-slide-visible" th:each="subCategory : ${subCategories}" th:unless="${#strings.isEmpty(subCategory.url)}">
@@ -44,6 +43,7 @@
                     </a>
                 </li>
             </ul>
+
             <div class="top_menu_bg" style="display: block;">
                 <div class="hidden_text">우측메뉴 더보기</div>
             </div>
@@ -52,7 +52,6 @@
 </header>
 <section id="main_area" class="bodyContents" data-section-url="/main/bestdeal?mseq=W00054">
     <input type="hidden" id="pageListArea" value="dealList"/>
-
 
     <blc:content contentType="Homepage Banner Ad"/>
     <div id="banner_area" th:if="${contentItem !=null and contentItem['targetUrl'] != null and contentItem['imageUrl'] != null}">
@@ -95,8 +94,8 @@
     <!-- 베스트딜 끝 -->
 </section>
 <div class="loading_cont">
-    <div id="moreDiv" class="moreDiv" style="display: none;"><span id="moreBtn" class="loading15"
-                                                                   style="cursor:default"></span>
+    <div id="moreDiv" class="moreDiv" style="display: none;">
+        <span id="moreBtn" class="loading15" style="cursor:default"></span>
     </div>
 </div>
 
@@ -108,9 +107,10 @@
 </script>
 
 
-<div class="page_top" style="display: block;"><img src="http://image.gsshop.com/ui/gsshop/shop/images/btn_top.png"
-                                                   alt="위로"/>
+<div class="page_top" style="display: block;">
+    <img src="http://image.gsshop.com/ui/gsshop/shop/images/btn_top.png" alt="위로"/>
 </div>
+
 <div class="quick_link_area">
     <ul class="quick_link_con">
         <li class="quick_home on ">
