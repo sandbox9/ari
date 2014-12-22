@@ -1,16 +1,9 @@
 <!DOCTYPE html>
 <html lang="ko">
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
-    <meta http-equiv="Cache-Control" content="no-cache"/>
-    <title>GS SHOP</title>
-    <!-- gs asis css -->
-    <link type="text/css" rel="stylesheet" href="/css/ari/common.css"/>
-    <!-- 매장 공통 css -->
-    <link type="text/css" rel="stylesheet" href="/css/ari/shopcontent.css"/>
-</head>
+
+<!-- CSS는 여러개가 동시에 들어갈 경우도 있음. 요건 좀더 고민해보기ㅋ-->
+<head th:include="/ari/layout/partials/head (additionalCss='/css/ari/shopcontent.css')"></head>
 
 <body>
 
@@ -98,13 +91,6 @@
         <span id="moreBtn" class="loading15" style="cursor:default"></span>
     </div>
 </div>
-
-<script>
-    //   <![CDATA[
-    var param_openDate = "";
-    var param_brdTime = "";
-    //       ]]>
-</script>
 
 
 <div class="page_top" style="display: block;">
