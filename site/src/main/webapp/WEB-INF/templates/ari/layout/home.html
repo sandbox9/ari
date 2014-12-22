@@ -37,7 +37,7 @@
             <blc:categories resultVar="subCategories" parentCategory="Home" />
 
             <ul class="depth1_menu left swiper-wrapper" style="padding-left: 0px; padding-right: 0px; width: 737px; height: 44px; transform: translate3d(0px, 0px, 0px); -webkit-transform: translate3d(0px, 0px, 0px); transition: 0.1s; -webkit-transition: 0.1s;">
-                <li class="swiper-slide swiper-slide-visible" th:each="subCategory : ${subCategories}" th:unless="${#strings.isEmpty(subCategory.url)}">
+                <li class="swiper-slide swiper-slide-visible"  th:classappend="${subCategory.id} == ${category.id}? 'on'" th:each="subCategory : ${subCategories}" th:unless="${#strings.isEmpty(subCategory.url)}">
                     <a th:href="@{${subCategory.url}}">
                         <span th:text="${subCategory.name}">카테고리명</span>
                     </a>
