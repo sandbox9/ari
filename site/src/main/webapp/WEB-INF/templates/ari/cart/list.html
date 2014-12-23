@@ -92,11 +92,6 @@
                                                         	<img th:if="*{product.media['primary']}" th:src="@{*{product.media['primary'].url} + '?thumbnail'}" width="94" height="94" th:alt="*{product.name}"/>
                                                         </p>
                                                     </a>
-                                                    <!--  
-                                                    <p class="product-today-deal">
-                                                    	<strong class="image-typo-today-deal">오늘의 딜</strong>
-                                                    </p>
-                                                    -->
                                                 </div>
                                                 <dl class="item-data-list-area">
                                                     <dt class="accessible-hide" th:text="*{product.name}"></dt>
@@ -212,7 +207,7 @@
                                 	<a href="javascript:;" id="checkOrdChkBox" data-basktgbn="INTG_BASKT" data-vdorgubun="N" class="link-selection-product-order">
                                 		<strong>선택상품 주문</strong>
                                 	</a> 
-                                	<a href="javascript:;" id="checkOrdChk" data-basktgbn="INTG_BASKT" data-vdorgubun="N" class="link-whole-product-order">
+                                	<a href="/checkout" id="checkOrdChk" data-basktgbn="INTG_BASKT" data-vdorgubun="N" class="link-whole-product-order">
                                 		<strong>전체상품 주문</strong>
                                 	</a>
                                 </p>
@@ -256,7 +251,7 @@
     <div class="quick_link_area">
         <ul class="quick_link_con">
             <li class="quick_home">
-                <a href="/index.gs?mseq=398049">
+                <a href="/">
                     <div><em></em><span>홈</span>
                     </div>
                 </a>
@@ -274,7 +269,7 @@
                 </a>
             </li>
             <li class="quick_cart on ">
-                <a href="/mobile/cart/viewCart.gs?mseq=398052">
+                <a href="/cart/list">
                     <div><em></em><span>스마트카트</span>
                     </div>
                 </a>
