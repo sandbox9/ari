@@ -2,18 +2,16 @@
 <html>
 
 <head>
-    <title>주문/결제 - GS SHOP</title>
+    <title>주문/결제 - ARI Express</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
     <meta http-equiv="Cache-Control" content="no-cache" />
-    <title>GS SHOP</title>
+    <title>주문/결제 - ARI Express</title>
 
     <link type="text/css" rel="stylesheet" href="/css/ari/common.css" />
     <link type="text/css" rel="stylesheet" href="/css/ari/order.css" />
-    <!-- commonOldCssList :  / commonNewCssList : /order/css/override.css -->
     <link type="text/css" rel="stylesheet" href="/css/ari/override.css" />
     <link rel="stylesheet" type="text/css" href="/css/ari/style.css" />
-
 </head>
 
 <body>
@@ -41,22 +39,34 @@
                     <section class="order-item">
                         <form id="ordShtPrdForm" name="ordShtPrdForm" method="post" action="">
                             <h1 class="level-one-title accessible-hide">주문상품정보</h1>
-                            <article class="item-information clearfix">
-
-                                <h1 class="level-one-title accessible-hide">[롯데백화점][아디다스] 에센셜 3선 트랙탑 x20512</h1>
+                            <article th:each="item, itemIter : ${cart.orderItems}" th:object="${item}" class="item-information clearfix">
+                                <h1 class="level-one-title accessible-hide" th:text="*{product.name}">상품명</h1>
                                 <div class="item-thumb-area">
                                     <p class="product-image-area">
-                                        <a href="javascript:OrdShtPrdClass.fnGoPrd(15131522,'N',15055612)"><img src="http://image.gsshop.com/image/15/13/15131522_M1.jpg" onerror="this.src='http://image.gsshop.com/mobile/mc/images/common/thumb_noimg_tv.jpg'" class="product-image" alt="" />
+                                        <a th:href="@{*{product.url}}">
+                                        	<img th:if="*{product.media['primary']}" th:src="@{*{product.media['primary'].url} + '?thumbnail'}" width="94" height="94" th:alt="*{product.name}" class="product-image"/>
                                         </a>
                                     </p>
-                                    <p class="product-today-deal"><strong class="image-typo-today-deal">오늘의 딜</strong>
-                                    </p>
                                 </div>
-                                <dl class="item-data-list-area"><dt class="product-name"><a href="#"> [롯데백화점][아디다스] 에센셜 3선 트랙탑 x20512</a></dt>
-                                    <dd class="product-option">네이비/100</dd>
-                                    <dd class="product-quantity"><em>수량1개</em>
+                                <dl class="item-data-list-area">
+                                	<dt class="product-name">
+                                		<a th:href="@{*{product.url}}" th:text="*{product.name}">상품명</a>
+                                	</dt>
+                                	
+                                	<blc:product_option_display orderItem="${item}" th:unless="${#lists.isEmpty(productOptionDisplayValues)}">
+                                    <dd class="product-option">
+                                    <th:block th:each="entry,iterStat: ${productOptionDisplayValues}" th:object="${entry}" th:inline="text">
+                                    [[${entry.value}]]<th:block th:unless="${iterStat.last}"> / </th:block> 
+                                    </th:block>
                                     </dd>
-                                    <dd class="product-price"><strong>39,000</strong>원</dd>
+                                    </blc:product_option_display>
+                                    
+                                    <dd class="product-quantity">
+                                    	<em th:text="'수량' + *{quantity} + '개'"></em>
+                                    </dd>
+                                    <dd class="product-price">
+                                    	<strong blc:price="*{getPriceBeforeAdjustments(true)}">가격</strong>원
+                                    </dd>
                                 </dl>
                             </article>
                         </form>
@@ -65,40 +75,63 @@
                         <form name="ordShtDcForm" id="ordShtDcForm">
                             <header class="order-amount-information">
                                 <h1 class="level-one-title">1. 할인/혜택 사용</h1>
-                                <p class="order-amount">주문금액 <strong><span class="fixed-price-area">39,000</span><span class="won">원</span></strong>
+                                <p class="order-amount">
+                                주문금액 
+                                	<strong>
+                                		<span class="fixed-price-area" blc:price="${cart.total}">주문금액</span>
+                                		<span class="won">원</span>
+                                	</strong>
                                 </p>
                             </header>
-                            <dl class="discount-benefit-use-form" id="family_desc" style="display: none;"><dt class="information-term"><input type="checkbox" id="one_box_sale" name="one_box_sale" checked="checked" onclick="return false" class="checkbox-item"/><label for="one_box_sale">임직원할인 적용</label></dt>
+                            
+                            <dl class="discount-benefit-use-form" style="display: block;">
+                            	<dt class="information-term">
+                            		<input type="checkbox" checked="checked" class="checkbox-item" disabled="disabled"/>
+                            		<label for="one_box_sale">임직원할인 적용</label>
+                            	</dt>
                                 <dd class="information-define">
                                     <label>
-                                        <input type="text" name="dc_txt_insale_amt" id="dc_txt_insale_amt" pattern="[0-9]*" value="0" class="discount-benefit-point-fixed-setting" title="임직원할인 적용 금액" readonly="readonly" />원</label>
+                                        <input type="text" pattern="[0-9]*" value="0" class="discount-benefit-point-fixed-setting" title="임직원할인 적용 금액" readonly="readonly" />원
+                                    </label>
                                 </dd>
                             </dl>
-                            <dl class="discount-benefit-use-form" style="display:none;"> <dt class="information-term"><input type="checkbox" id="discontCheck" name="discontCheck" value="" checked="checked" onclick="" disabled="disabled" class="checkbox-item"/><label for="discontCheck">일시불할인 적용 <em>(0원)</em></label></dt>
+                            
+                            <dl class="discount-benefit-use-form" style="display:block;"> 
+                            	<dt class="information-term">
+                            		<input type="checkbox" value="" checked="checked" onclick="" disabled="disabled" class="checkbox-item"/>
+                            		<label for="discontCheck">일시불할인 적용 <em>(0원)</em></label>
+                            	</dt>
                                 <dd class="information-define">
                                     <label>
-                                        <input type="text" name="dc_txt_sgpay_amt" id="dc_txt_sgpay_amt" pattern="[0-9]*" value="0" class="discount-benefit-point-fixed-setting" title="일시불할인할인 적용 금액" readonly="readonly" />원</label>
+                                        <input type="text" pattern="[0-9]*" value="0" class="discount-benefit-point-fixed-setting" title="일시불할인할인 적용 금액" readonly="readonly" />원
+                                    </label>
                                 </dd>
                             </dl>
-                            <dl class="discount-benefit-use-form"> <dt class="information-term"><input type="checkbox" id="cpn_chk" name="cpn_chk" onclick="" class="checkbox-item" checked="checked"/><label for="cpn_chk">할인쿠폰<em>(<strong><span id="prdDblCpnQty">1</span></strong>)</em></label><a href="" id="coupon_btn" class="function-query-use"><span id="coupon_btn_nm">조회 및 사용</span></a></dt>
+                            
+                            <dl class="discount-benefit-use-form"> 
+                            	<dt class="information-term">
+                            		<input type="checkbox" class="checkbox-item" checked="checked"/>
+                            		<label for="cpn_chk">할인쿠폰<em>(<strong><span id="prdDblCpnQty">1</span></strong>)</em></label>
+                            		<a href="" class="function-query-use">
+                            			<span id="coupon_btn_nm">조회 및 사용</span>
+                            		</a>
+                            	</dt>
                                 <dd class="information-define">
-                                    <input type="text" name="dc_txt_cpn_amt" id="dc_txt_cpn_amt" pattern="[0-9]*" value="0" class="discount-benefit-point-fixed-setting" title="할인쿠폰 적용 금액" readonly="readonly" />원</dd>
-                            </dl>
-                            <dl class="discount-benefit-use-form" style="display:none;" id="cpn_juklib"> <dt class="information-term">쿠폰적용 적립예정액</dt>
-                                <dd class="information-define">
-                                    <input type="text" name="txt_cpn_juklib_amt" id="txt_cpn_juklib_amt" pattern="[0-9]*" value="0" class="discount-benefit-point-fixed-setting" title="쿠폰적용 적립예정액" readonly="readonly" />원</dd>
+                                    <input type="text" pattern="[0-9]*" value="10" class="discount-benefit-point-fixed-setting" title="할인쿠폰 적용 금액" readonly="readonly" />원
+                                </dd>
                             </dl>
                             <div class="layer-discount-coupon" id="coupon" style="display:none;">
-                                <dl class="coupon-information"><dt class="exposure-product-name">[롯데백화점][아디다스] 에센셜 3선 트랙탑 x20512</dt>
+                                <dl class="coupon-information">
+                                	<dt class="exposure-product-name">[롯데백화점][아디다스] 에센셜 3선 트랙탑 x20512</dt>
                                     <dd class="cupon-selection">
                                         <label>
                                             <select id="127934546|0" name="selectGenrlCpn" class="select-box">
                                                 <option value="defaultOption">상품쿠폰 선택</option>
-                                                <option value="15131522|141209129" data-sgpay-bef-amt="5,460" data-sgpay-aft-amt="5,460" data-cpn-typ-cd="1" data-date="(~12.22)" data-cntnt="롯데레포츠_14%"></option>
+                                                <option value="15131522|141209129">롯데레포츠_14%</option>
                                             </select>
                                         </label>
                                     </dd>
-                                    <dd class="cupon-selection" style="display: none;">
+                                    <dd class="cupon-selection" style="display: block;">
                                         <label>
                                             <select class="select-box" style="visibility: hidden;">
                                                 <option value="defaultOption">사용가능 쿠폰 없음</option>
@@ -106,101 +139,131 @@
                                         </label>
                                     </dd>
                                 </dl>
-                                <p class="buttons-information"><a id="btnCloseOrdDcCpn" href="#" class="function-discount-coupon-selection-cancel">취소</a><a id="btnUseOrdDcCpn" href="#" class="function-discount-coupon-selection-finish">쿠폰사용하기</a>
+                                <p class="buttons-information">
+                                	<a id="btnCloseOrdDcCpn" href="#" class="function-discount-coupon-selection-cancel">취소</a>
+                                	<a id="btnUseOrdDcCpn" href="#" class="function-discount-coupon-selection-finish">쿠폰사용하기</a>
                                 </p>
                             </div>
 
-                            <dl class="discount-benefit-use-form"> <dt class="information-term"><input type="checkbox" id="ecy_chk" name="ecy_chk" class="checkbox-item" disabled="disabled"/><label for="ecy_chk">연간할인권 적용불가 상품 </label></dt>
+                            <dl class="discount-benefit-use-form"> 
+                            	<dt class="information-term">
+                            		<input type="checkbox" class="checkbox-item" disabled="disabled"/><label for="ecy_chk">연간할인권 적용불가 상품 </label>
+                            	</dt>
                                 <dd class="information-define">
                                     <label>
-                                        <input type="text" name="dc_txt_ecy_amt" id="dc_txt_ecy_amt" value="0" class="discount-benefit-point-fixed-setting" title="연간할인권 사용 금액" readonly="readonly" />원</label>
+                                        <input type="text" value="0" class="discount-benefit-point-fixed-setting" title="연간할인권 사용 금액" readonly="readonly" />원
+                                    </label>
                                 </dd>
                             </dl>
 
-                            <dl class="discount-benefit-use-form" style="display:none;"><dt class="information-term"><input type="checkbox" id="dlvc_cpn_chk" name="dlvc_cpn_chk" value="" onclick="" class="checkbox-item"/><label for="dlvc_cpn_chk">무료배송쿠폰<em>(<strong><span id="freeCpnQty">0</span></strong>)</em></label><a href="#" id="dlvc_cpn_btn" class="function-query-use"><span id="freeCoupon_btn_nm">조회 및 사용</span></a></dt>
+                            <dl class="discount-benefit-use-form" style="display:block;">
+                            	<dt class="information-term">
+                            		<input type="checkbox" value="" onclick="" class="checkbox-item" disabled="disabled"/>
+                            		<label for="dlvc_cpn_chk">
+                            			무료배송쿠폰
+                            			<em>(<strong><span id="freeCpnQty">0</span></strong>)</em>
+                            		</label>
+                            		<a href="#" class="function-query-use">
+                            			<span id="freeCoupon_btn_nm">조회 및 사용</span>
+                            		</a>
+                            	</dt>
                                 <dd class="information-define">
-                                    <input type="text" name="dc_dlvc_cpn_amt" id="dc_dlvc_cpn_amt" pattern="[0-9]*" value="0" class="discount-benefit-point-fixed-setting" title="배송비 할인쿠폰 적용 금액" readonly="readonly" />원</dd>
+                                    <input type="text" pattern="[0-9]*" value="0" class="discount-benefit-point-fixed-setting" title="배송비 할인쿠폰 적용 금액" readonly="readonly" />원
+                                </dd>
                             </dl>
-                            <div class="layer-discount-coupon" id="freeCoupon" style="display:none;">
+                            <!-- <div class="layer-discount-coupon" id="freeCoupon" style="display:none;">
                                 <dl class="coupon-information"></dl>
-                                <p class="buttons-information"><a id="btnDlvcCpnClose" href="#" class="function-discount-coupon-selection-cancel">취소</a><a id="btnDlvcCpnUseCpn" href="#" class="function-discount-coupon-selection-finish">쿠폰 사용하기</a>
+                                <p class="buttons-information">
+                                	<a id="btnDlvcCpnClose" href="#" class="function-discount-coupon-selection-cancel">취소</a>
+                                	<a id="btnDlvcCpnUseCpn" href="#" class="function-discount-coupon-selection-finish">쿠폰 사용하기</a>
                                 </p>
-                            </div>
-                            <dl class="discount-benefit-use-form" style="display:none;"> <dt class="information-term"><input type="checkbox" id="accm_chk" name="accm_chk" value="" class="checkbox-item" onclick=""/><label for="accm_chk">적립금 사용 <em>(0원)</em></label></dt>
+                            </div> -->
+                            
+                            <dl class="discount-benefit-use-form" style="display:block;"> 
+                            	<dt class="information-term">
+                            		<input type="checkbox" value="" class="checkbox-item" onclick="" disabled="disabled"/>
+                            		<label for="accm_chk">적립금 사용 <em>(0원)</em></label>
+                            	</dt>
                                 <dd class="information-define">
-                                    <input type="text" name="dc_txt_accm_amt" id="dc_txt_accm_amt" pattern="[0-9]*" value="0" class="discount-benefit-point-use-enter" title="적립금 금액" />원</dd>
+                                    <input type="text" pattern="[0-9]*" value="0" class="discount-benefit-point-use-enter" title="적립금 금액" />원
+                                </dd>
                             </dl>
-                            <dl class="discount-benefit-use-form" style="display:none;"> <dt class="information-term"><input type="checkbox" id="gsnpnt_accm_chk" name="gsnpnt_accm_chk" value="" class="checkbox-item" onclick=""/><label for="gsnpnt_accm_chk">GS&amp;POINT 사용 <em>(0P)</em></label></dt>
+                            
+                            <dl class="discount-benefit-use-form" style="display:block;"> 
+                            	<dt class="information-term">
+                            		<input type="checkbox" value="" class="checkbox-item" onclick="" disabled="disabled"/>
+                            		<label for="gsnpnt_accm_chk">GS&amp;POINT 사용 <em>(0P)</em></label>
+                            	</dt>
                                 <dd class="information-define">
-                                    <input type="text" name="dc_txt_gsnpnt_accm_amt" id="dc_txt_gsnpnt_accm_amt" pattern="[0-9]*" value="0" class="discount-benefit-point-use-enter" title="GS&amp;POINT 사용 포인트" />P</dd>
-                            </dl>
-
-                            <dl class="discount-benefit-use-form" style="display:none;"> <dt class="information-term"><input type="checkbox" id="tmprc_chk" name="tmprc_chk" class="checkbox-item" onclick=""/><label for="tmprc_chk">예치금 사용 <em>(0원)</em></label></dt>
-                                <dd class="information-define">
-                                    <label>
-                                        <input type="text" name="dc_txt_tmprc_amt" id="dc_txt_tmprc_amt" pattern="[0-9]*" value="0" class="discount-benefit-point-use-enter" title="예치금 사용금액" />
-                                    </label>원</dd>
-                            </dl>
-                            <dl class="discount-benefit-use-form" id="div_sub_prepay1" style="display:none;"> <dt class="information-term"><input type="checkbox" id="gftcert_chk1" name="gftcert_chk1" class="checkbox-item" onclick=""/><label for="gftcert_chk1" onclick="">상품권 </label> <u id="janAmt1"></u></dt>
-                                <dd class="information-define">
-                                    <label>
-                                        <input type="text" name="tmppayamt1" id="tmppayamt1" pattern="[0-9]*" value="0" class="discount-benefit-point-use-enter" title="상품권 사용금액" />
-                                    </label>원</dd>
-                            </dl>
-                            <dl class="discount-benefit-use-form" id="div_sub_prepay2" style="display:none;"> <dt class="information-term"><input type="checkbox" id="gftcert_chk2" name="gftcert_chk2" class="checkbox-item" onclick=""/><label for="gftcert_chk2" onclick="">상품권 </label> <u id="janAmt2"></u></dt>
-                                <dd class="information-define">
-                                    <label>
-                                        <input type="text" name="tmppayamt2" id="tmppayamt2" pattern="[0-9]*" value="0" class="discount-benefit-point-use-enter" title="상품권 사용금액" />
-                                    </label>원</dd>
+                                    <input type="text" pattern="[0-9]*" value="0" class="discount-benefit-point-use-enter" title="GS&amp;POINT 사용 포인트" /> P 
+                                </dd>
                             </dl>
 
-                            <dl class="discount-benefit-use-form" id="div_sub_prepay3" style="display:none;"> <dt class="information-term"><input type="checkbox" id="gftcert_chk3" name="gftcert_chk3" class="checkbox-item"/><label for="gftcert_chk3" onclick="">상품권 </label> <u id="janAmt3"></u></dt>
+                            <dl class="discount-benefit-use-form" style="display:block;"> 
+                            	<dt class="information-term">
+                            		<input type="checkbox" class="checkbox-item" onclick="" disabled="disabled"/>
+                            		<label for="tmprc_chk">예치금 사용 <em>(0원)</em></label>
+                            	</dt>
                                 <dd class="information-define">
                                     <label>
-                                        <input type="text" name="tmppayamt3" id="tmppayamt3" pattern="[0-9]*" value="0" class="discount-benefit-point-use-enter" title="상품권 사용금액" />
-                                    </label>원</dd>
+                                        <input type="text" pattern="[0-9]*" value="0" class="discount-benefit-point-use-enter" title="예치금 사용금액" />
+                                    </label>원
+                                </dd>
                             </dl>
 
-                            <dl class="discount-benefit-use-form" id="div_sub_prepay4" style="display:none;"> <dt class="information-term"><input type="checkbox" id="gftcert_chk4" name="gftcert_chk4" class="checkbox-item"/><label for="gftcert_chk4" onclick="">상품권 </label> <u id="janAmt4"></u></dt>
-                                <dd class="information-define">
-                                    <label>
-                                        <input type="text" name="tmppayamt4" id="tmppayamt4" pattern="[0-9]*" value="0" class="discount-benefit-point-use-enter" title="상품권 사용금액" />
-                                    </label>원</dd>
-                            </dl>
-
-                            <dl class="discount-benefit-use-form" id="div_sub_prepay5" style="display:none;"> <dt class="information-term"><input type="checkbox" id="gftcert_chk5" name="gftcert_chk5" class="checkbox-item"/><label for="gftcert_chk5" onclick="">상품권 </label> <u id="janAmt5"></u></dt>
-                                <dd class="information-define">
-                                    <label>
-                                        <input type="text" name="tmppayamt5" id="tmppayamt5" pattern="[0-9]*" value="0" class="discount-benefit-point-use-enter" title="상품권 사용금액" />
-                                    </label>원</dd>
-                            </dl>
-
-                            <dl class="discount-benefit-use-form" id="giftCardReg"><dt class="information-term"><input type="checkbox" name="giftcard_chk" value="" id="giftcard_chk" class="checkbox-item" onclick="" checked="checked"/><label for="giftcard_chk" onclick="">상품권 사용</label><a href="#" id="giftCard_btn" class="function-giftcertificate-use expand"><span id="giftCard_btn_nm">닫기</span></a></dt>
+                            <dl class="discount-benefit-use-form">
+                            	<dt class="information-term">
+                            		<input type="checkbox" value="" class="checkbox-item" onclick="" checked="checked" disabled="disabled"/>
+                            		<label for="giftcard_chk" onclick="">상품권 사용</label>
+                            		<a href="#" class="function-query-use">
+                            			<span id="giftCard_btn_nm">조회 및 사용</span>
+                            		</a>
+                            	</dt>
                                 <dd class="information-define"></dd>
                             </dl>
-
-                            <div class="layer-gift-certificate-registration" id="giftCard" style="display: block;">
-                                <dl class="gift-certificate-information"><dt class="information-term accessible-hide"><label for="gift-certificate-number">상품권 번호</label></dt>
+                            <!-- <div class="layer-gift-certificate-registration" style="display:none;">
+                                <dl class="gift-certificate-information">
+                                	<dt class="information-term accessible-hide">
+                                		<label for="gift-certificate-number">상품권 번호</label>
+                                	</dt>
                                     <dd class="information-define">
                                         <div class="gift-certificate-number-enter-domain">
-                                            <input type="text" id="txtGiftCardNum" name="txtGiftCardNum" maxlength="12" pattern="[0-9]*" class="gift-certificate-number-enter" value="" placeholder="상품권번호 12자리 입력" /><a href="#" id="btnGiftCardSch" name="btnGiftCardSch" class="function-gift-certificate-number-query">조회</a> </div>
-                                    </dd><dt class="information-term"><label for="gift-certificate-amount">상품권 금액</label></dt>
+                                            <input type="text" maxlength="12" pattern="[0-9]*" class="gift-certificate-number-enter" value="" placeholder="상품권번호 12자리 입력" />
+                                            <a href="#" class="function-gift-certificate-number-query">조회</a> 
+                                        </div>
+                                    </dd>
+                                    <dt class="information-term">
+                                    	<label for="gift-certificate-amount">상품권 금액</label>
+                                    </dt>
                                     <dd class="information-define">
-                                        <input type="text" id="txtGiftCardUseAmt" name="txtGiftCardUseAmt" class="gift-certificate-amount" value="" readonly="readonly" />원</dd>
+                                        <input type="text" id="txtGiftCardUseAmt" name="txtGiftCardUseAmt" class="gift-certificate-amount" value="" readonly="readonly" />원
+                                    </dd>
                                 </dl>
 
-                                <p class="buttons-information"><a href="#" id="btnGiftCardCancel" name="btnGiftCardCancel" class="function-gift-certificate-registration-cancel">취소</a><a href="#" id="btnGiftCardUse" name="btnGiftCardUse" class="function-gift-certificate-registration-confirm">상품권 등록하기</a>
+                                <p class="buttons-information">
+                                	<a href="#" class="function-gift-certificate-registration-cancel">취소</a>
+                                	<a href="#" class="function-gift-certificate-registration-confirm">상품권 등록하기</a>
                                 </p>
                                 <p class="gift-certificate-paragraph">상품권을 등록하면 주문시 바로 사용하실 수 있습니다.</p>
                             </div>
-                            <dl class="discount-benefit-use-form" id="giftCardInfo" style="display:none;"><dt class="information-term accessible-hide">상품권 등록 안내</dt>
+                            <dl class="discount-benefit-use-form" style="display:none;">
+                            	<dt class="information-term accessible-hide">상품권 등록 안내</dt>
                                 <dd class="information-define">
                                     <p class="gift-certificate-guide-paragraph">1번 주문할 때 최대 5개까지 사용할 수 있습니다. 먼저 등록하신 상품권을 사용하신 후 다른 상품권을 사용하세요.</p>
-                                    <p class="gift-certificate-guide-paragraph"><strong>마이쇼핑&gt;상품권 관리</strong>에서도 등록 가능합니다. <a href="/mygsshop/giftCard.gs" class="link-gift-certificate-management">등록하러 가기</a>
+                                    <p class="gift-certificate-guide-paragraph">
+                                    	<strong>마이쇼핑&gt;상품권 관리</strong>에서도 등록 가능합니다. 
+                                    	<a href="/mygsshop/giftCard.gs" class="link-gift-certificate-management">등록하러 가기</a>
                                     </p>
                                 </dd>
-                            </dl>
-                            <p class="payment-waiting-amount"><em>결제하실 금액</em><i>(약 <span id="discountPercent">14</span>% 절약)</i> <strong><span id="total_ord_amt_span">33,540</span><span class="won">원</span></strong>
+                            </dl> -->
+                            
+                            <p class="payment-waiting-amount">
+                            	<em>결제하실 금액</em>
+                            	<i>(약 <span id="discountPercent">14</span>% 절약)</i> 
+                            	<strong>
+                            		<span id="total_ord_amt_span"  blc:price="${cart.subTotal?.subtract(cart.orderAdjustmentsValue)}">결제금액</span>
+                            		<span class="won">원</span>
+                            	</strong>
                             </p>
                         </form>
                     </section>
@@ -211,9 +274,12 @@
                             <div>
                                 <p class="order-customer">
                                     <label for="dlv_send_name">주문고객</label>
-                                    <input type="text" name="dlv_send_name" id="dlv_send_name" value="손영" class="order-customer-enter" /><em onclick="">dongdong@naver.com</em>
-                                    <input type="hidden" name="upEmail" id="upEmail" value="dongil2001@naver.com" /> </p>
+                                    <input type="text" th:value="${customer.firstName + ' ' + customer.lastName}" class="order-customer-enter" style="width:200px"/>
+                                    <em th:text="${customer.emailAddress}"></em>
+                                    <input type="hidden" th:value="${customer.emailAddress}" /> 
+                                </p>
                                 <!-- 이전 배송지 상세주소 -->
+                                
                                 <h1 class="accessible-hide">배송지선택</h1>
                                 <section class="partial-delivery-place-selection">
                                     <h1 class="accessible-hide">배송지 선택</h1>
@@ -222,65 +288,81 @@
                                         <li class="tab" id="preDlvp0">이전배송지</li>
                                         <li class="tab" id="newDlvp0">신규배송지</li>
                                     </ul>
+                                    
                                     <!-- 기본배송지 -->
                                     <article class="tab-base-delivery-place">
-
                                         <h1 class="accessible-hide">기본배송지</h1>
                                         <div class="delivery-receiver">
                                             <p class="receiver-information">
-                                                <label for="rcvrNm0">받으실분</label><strong><input type="hidden" id="hExRcvrNm0" value="손영훈"/><input type="hidden" id="hPreRcvrNm0" value=""/><input type="text" name="rcvrNm" id="rcvrNm0" value="" class="receiver-name" required="required"/></strong>
-                                            </p><a id="beforeAdressBtn0" class="function-delivery-place-list-browse" style="display: none;">배송지 목록보기</a><a id="newAdressBtn0" class="function-delivery-place-registration" style="display: none;">배송지 등록</a>
+                                                <label for="rcvrNm0">받으실분</label>
+                                                <strong>
+                                                	<input type="text" th:value="${customer.firstName + ' ' + customer.lastName}" class="receiver-name" style="width:200px" required="required"/>
+                                                </strong>
+                                            </p>
+                                            <!-- <a id="beforeAdressBtn0" class="function-delivery-place-list-browse" style="display:none;">배송지 목록보기</a>
+                                            <a id="newAdressBtn0" class="function-delivery-place-registration" style="display:none;">배송지 등록</a> -->
                                         </div>
+                                        
                                         <!-- 이전주소 iframe -->
-                                        <div class="frame_box" id="addrEtc0" style="display: none;">
+                                        <!-- <div class="frame_box" id="addrEtc0" style="display: none;">
                                             <article id="preDlvpNoneData_0" class="previous-delivery-place-domain" style="display:none;">
                                                 <h1 class="accessible-hide">이전 배송지 목록</h1>
                                                 <div class="empty-delivery-place-list">이전 배송지가 없습니다.</div>
                                             </article>
                                             <article id="preDlvpData_0" class="previous-delivery-place-domain" style="display:none;">
-
-                                                <h1 class="accessible-hide">이전 배송지 목록</h1><a href="#" class="function-previous-delivery-plce-domain-close" id="preDlvpListCose0">닫기</a>
+                                                <h1 class="accessible-hide">이전 배송지 목록</h1>
+                                                <a href="#" class="function-previous-delivery-plce-domain-close" id="preDlvpListCose0">닫기</a>
                                                 <ul id="dlvpInfo0" class="delivery-place-information"></ul>
                                                 <footer class="paginate-domain">
-                                                    <p class="list-item-information"><b class="accessible-hide">배송지 목록 리스트 정보</b> <u id="cntText">(2/4)</u><a href="javascript:void(0)" id="more0" class="function-more-item">10건 더보기</a>
+                                                    <p class="list-item-information">
+                                                    	<b class="accessible-hide">배송지 목록 리스트 정보</b> 
+                                                    	<u id="cntText">(2/4)</u>
+                                                    	<a href="javascript:void(0)" id="more0" class="function-more-item">10건 더보기</a>
                                                     </p>
                                                 </footer>
                                             </article>
-                                        </div>
+                                        </div> -->
                                         <!-- 이전주소 iframe -->
+                                        
                                         <p class="outside-page-call-previous-delivery-place-list" id="addrNew0" style="display: none;"></p>
-                                        <dl class="delivery-information"><dt class="information-term"><label for="baseAddr0">배송주소</label></dt>
+                                        <dl class="delivery-information">
+                                        	<th:block  th:each="customerAddress : ${customer.customerAddresses}" th:object="${customerAddress}" th:if="${customerAddress.address.default}">
+                                        	<dt class="information-term">
+                                        		<label for="baseAddr0">배송주소</label>
+                                        	</dt>
                                             <dd class="information-define">
-                                                <input type="text" name="baseAddr0" id="baseAddr0" value="" class="receiver-delivery-address" disabled="" />
-                                                <input type="text" name="roadNmbaseAddr0" id="roadNmbaseAddr0" value="" class="receiver-delivery-address" disabled="" style="display: none;" />
-                                            </dd><dt class="information-term"><label for="dtlAddr0" class="accessible-hide">상세주소</label></dt>
-                                            <dd class="information-define">
-                                                <input type="text" name="dtlAddr0" id="dtlAddr0" value="" class="receiver-delivery-detail-address" disabled="" />
-                                                <input type="text" name="roadNmdtlAddr0" id="roadNmdtlAddr0" value="" class="receiver-delivery-detail-address" disabled="" style="display: none;" />
+                                                <input type="text" th:value="*{address.addressLine1}" class="receiver-delivery-address"/>
                                             </dd>
-                                            <!-- 회원가입간소화 추가 2014.06.05  --><dt class="information-term">휴대폰번호</dt>
+                                            
+                                            <dt class="information-term">
+                                            	<label for="dtlAddr0" class="accessible-hide">상세주소</label>
+                                            </dt>
+                                            <dd class="information-define">
+                                                <input type="text" th:value="*{address.addressLine2}" class="receiver-delivery-detail-address"/>
+                                            </dd>
+                                            
+                                            <dt class="information-term">휴대폰번호</dt>
                                             <dd class="information-define">
                                                 <label for="celphnRegonTelno0" class="accessible-hide">휴대폰 식별번호 선택</label>
-
-                                                <select name="celphnRegonTelno" id="celphnRegonTelno0" class="receiver-delivery-cellular-identification-number" selected="selected">
-                                                    <option value="" selected="selected">선택</option>
-                                                    <option value="010" selected="">010</option>
-                                                    <option value="011">011</option>
-                                                    <option value="016">016</option>
-                                                    <option value="017">017</option>
-                                                    <option value="018">018</option>
-                                                    <option value="019">019</option>
-                                                    <option value="0130">0130</option>
-                                                    <option value="0505">0505</option>
+                                                <select class="receiver-delivery-cellular-identification-number">
+                                                    <option value="">선택</option>
+                                                    <option value="010" th:selected="'010' == ${#strings.substring(customerAddress.address.phonePrimary.phoneNumber,0, 3)}">010</option>
+                                                    <option value="011" th:selected="'011' == ${#strings.substring(customerAddress.address.phonePrimary.phoneNumber,0, 3)}">011</option>
+                                                    <option value="016" th:selected="'016' == ${#strings.substring(customerAddress.address.phonePrimary.phoneNumber,0, 3)}">016</option>
+                                                    <option value="017" th:selected="'017' == ${#strings.substring(customerAddress.address.phonePrimary.phoneNumber,0, 3)}">017</option>
+                                                    <option value="018" th:selected="'018' == ${#strings.substring(customerAddress.address.phonePrimary.phoneNumber,0, 3)}">018</option>
+                                                    <option value="019" th:selected="'019' == ${#strings.substring(customerAddress.address.phonePrimary.phoneNumber,0, 3)}">019</option>
+                                                    <option value="0130" th:selected="'0130' == ${#strings.substring(customerAddress.address.phonePrimary.phoneNumber,0, 3)}">0130</option>
+                                                    <option value="0505" th:selected="'0505' == ${#strings.substring(customerAddress.address.phonePrimary.phoneNumber,0, 3)}">0505</option>
                                                 </select> -
                                                 <label for="mMobileNo0" class="accessible-hide">휴대폰번호</label>
-
-                                                <input type="text" name="mMobileNo0" id="mMobileNo0" class="receiver-delivery-cellular-number" value="" maxlength="8" />
-                                            </dd><dt class="information-term">전화번호</dt>
+                                                <input type="text" class="receiver-delivery-cellular-number" th:value="${#strings.substring(customerAddress.address.phonePrimary.phoneNumber,4)}" maxlength="8" />
+                                            </dd>
+                                            
+                                            <dt class="information-term">전화번호</dt>
                                             <dd class="information-define">
                                                 <label for="genrlRegonTelno0" class="accessible-hide">전화번호 식별번호 선택</label>
-
-                                                <select name="genrlRegonTelno" id="genrlRegonTelno0" class="receiver-delivery-cellular-identification-number">
+                                                <select class="receiver-delivery-cellular-identification-number">
                                                     <option value="" selected="selected">선택</option>
                                                     <option value="02">02</option>
                                                     <option value="031">031</option>
@@ -305,7 +387,7 @@
                                                     <option value="0506">0506</option>
                                                     <option value="0130">0130</option>
                                                     <option value="0303">0303</option>
-                                                    <option value="010" selected="">010</option>
+                                                    <option value="010">010</option>
                                                     <option value="011">011</option>
                                                     <option value="016">016</option>
                                                     <option value="017">017</option>
@@ -313,30 +395,35 @@
                                                     <option value="019">019</option>
                                                 </select> -
                                                 <label for="gTelNo0" class="accessible-hide">전화번호</label>
-
-                                                <input type="text" name="gTelNo0" id="gTelNo0" class="receiver-delivery-cellular-number" value="" maxlength="8" />
+                                                <input type="text" class="receiver-delivery-cellular-number" value="" maxlength="8" />
                                             </dd>
+                                            </th:block>
                                         </dl>
+                                        
                                         <!-- 2014-10-06 안심번호 -->
-                                        <dl class="information-safe-guide"><dt class="information-safe-term">개인정보보호를 위해 안심번호로 서비스됩니다.</dt>
-                                            <dd class="information-safe-btn"><a href="#" class="information-safe-detail-browse" id="safeNumBtn0">안심번호란?</a>
+                                        <dl class="information-safe-guide">
+                                        	<dt class="information-safe-term">개인정보보호를 위해 안심번호로 서비스됩니다.</dt>
+                                            <dd class="information-safe-btn">
+                                            	<a class="information-safe-detail-browse" id="safeNumBtn0">안심번호란?</a>
                                             </dd>
+                                            
                                             <!-- expand 토글 -->
-                                            <dd class="information-safe-define0" style="display:none">
-                                                <!-- display:block 토글 -->
+                                            <!-- <dd class="information-safe-define0" style="display:none">
                                                 <div class="information-safe-define-wrapper">
                                                     <h6>안심번호 서비스란?</h6>
                                                     <p>GS SHOP 고객님의 개인정보보호를 위해 상품 주문 시 실제 전화번호가 타인에게 유출되지 않도록 1회성 임시번호(050*-000-0000)를 사용하는 서비스입니다.</p>
                                                     <p>협력사/택배사에 050* 안심번호가 전달되므로 만약에 발생할 수 있는 개인 정보 유출을 사전에 차단할 수 있습니다. (택배상자에 안심번호 표시함)</p>
                                                     <p>단, 실제 택배사를 통해서 배송이 발생되는 상품에만 서비스되며, 서비스 상품(렌탈/보험/핸드폰/금융/해외배송 대행/상담예약 등) 은 안심번호 대상에서 제외됩니다.</p>
                                                 </div>
-                                            </dd>
+                                            </dd> -->
                                         </dl>
                                         <!-- //2014-10-06 안심번호 -->
-                                        <dl id="memoDoman" class="delivery-information"><dt class="information-term">배송메모</dt>
+                                        
+                                        <dl id="memoDoman" class="delivery-information">
+                                        	<dt class="information-term">배송메모</dt>
                                             <dd class="information-define">
                                                 <label for="sctDlvPicMsg0" class="accessible-hide">배송메모 선택</label>
-                                                <select name="sctDlvPicMsg0" id="sctDlvPicMsg0" class="receiver-delivery-memo-selection" selected="selected">
+                                                <select class="receiver-delivery-memo-selection">
                                                     <option value="" selected="">배송 메모 선택</option>
                                                     <option value="부재시 경비실(관리실)에 맡겨주세요">부재시 경비실(관리실)에 맡겨주세요</option>
                                                     <option value="부재시 휴대폰으로 연락바랍니다">부재시 휴대폰으로 연락바랍니다</option>
@@ -346,8 +433,8 @@
                                             </dd>
                                             <dd class="information-define-user-enter">
                                                 <label for="dlvPickMsgCntnt0" class="accessible-hide">배송메모 입력</label>
-                                                <input type="hidden" id="hDlvPickMsgCntnt0" name="hDlvPickMsgCntnt0" value="" />
-                                                <textarea name="dlvPickMsgCntnt" id="dlvPickMsgCntnt0" placeholder="(한글20자, 영문40자 이내)" class="receiver-delivery-memo-selection-input" style="display: none;"></textarea>
+                                                <input type="hidden" value="" />
+                                                <textarea placeholder="(한글20자, 영문40자 이내)" class="receiver-delivery-memo-selection-input" style="display: none;"></textarea>
                                             </dd>
                                         </dl>
                                     </article>
@@ -357,17 +444,32 @@
                             </div>
                         </form>
                     </section>
+                    
                     <form name="ordShtPayForm" id="ordShtPayForm">
-
                         <section class="payment-means-selection">
                             <h1 class="level-one-title">3. 결제수단 선택</h1>
                             <div class="payment-relation-information">
                                 <article class="payment-amount">
                                     <h1 class="accessible-hide">결제금액</h1>
-                                    <dl class="amount-information"><dt class="information-term">총 상품금액</dt>
-                                        <dd class="information-define"><em class="apply-amount"><span class="fixed-price-area">39,000</span></em>원</dd><dt class="information-term total-discount-amount">총 할인금액</dt>
-                                        <dd class="information-define"><em class="apply-amount"><span id="total_dc_amt_span">-5,460</span></em>원</dd><dt class="information-term last-payment-amount">최종결제금액</dt>
-                                        <dd class="information-define"><strong class="last-payment-amount"><span id="total_ord_amt_span2">33,540</span></strong>원</dd>
+                                    <dl class="amount-information">
+                                    	<dt class="information-term">총 상품금액</dt>
+                                        <dd class="information-define">
+                                        	<em class="apply-amount">
+                                        		<span class="fixed-price-area" blc:price="${cart.total}">총 상품금액</span>
+                                        	</em>원
+                                        </dd>
+                                        <dt class="information-term total-discount-amount">총 할인금액</dt>
+                                        <dd class="information-define">
+                                        	<em class="apply-amount">
+                                        		<span id="total_dc_amt_span" blc:price="${cart.totalAdjustmentsValue}">총 할인금액</span>
+                                        	</em>원
+                                        </dd>
+                                        <dt class="information-term last-payment-amount">최종결제금액</dt>
+                                        <dd class="information-define">
+                                        	<strong class="last-payment-amount">
+                                        		<span id="total_ord_amt_span2" blc:price="${cart.subTotal}">최종결제금액</span>
+                                        	</strong>원
+                                        </dd>
                                     </dl>
                                     <div class="promotion-credit-card-charge" id="cardDiscountInfo" style="display: none;"></div>
                                 </article>
@@ -406,7 +508,7 @@
                                         <p class="account-holder-name">예금주명 <strong>GS홈쇼핑</strong>
                                         </p>
                                         <p class="deposit-person-name">입금자
-                                            <input type="text" id="pay_user_bank" name="pay_user_bank" class="deposit-person-name-input" value="손영훈" />
+                                            <input type="text" id="pay_user_bank" name="pay_user_bank" class="deposit-person-name-input" th:value="${customer.firstName + ' ' + customer.lastName}"/>
                                         </p>
                                         <p class="deposit-deadline-date"><strong>입금마감일 2014-12-17</strong>
                                         </p>
@@ -566,7 +668,11 @@
                             </p>
                         </section>
                         <footer class="bottom-link-buttons clearfix">
-                            <p class="buttons-information"> <a href="/mobile/cart/viewCart.gs?lseq=399199" class="link-shopping-basket" title="장바구니">장바구니</a> <a href="#" class="function-order-sheet-payment" title="결제하기">결제하기</a> </p>
+                            <p class="buttons-information"> 
+                            	<a href="/cart/list" class="link-shopping-basket" title="장바구니">장바구니</a>
+                            	<a blc:paypal_express_link="${paymentRequestDTO}" class="function-order-sheet-payment" complete_checkout="${true}">결제하기</a> 
+                            	<!-- <a href="#" class="function-order-sheet-payment" title="결제하기">결제하기</a> -->
+                            </p>
                         </footer>
                         <div class="card-promotion-notice-guide" id="pay_card_event_guide" style="display: none;">
                             <section class="card-promotion-guide">
@@ -741,7 +847,7 @@
     <div class="quick_link_area">
         <ul class="quick_link_con">
             <li class="quick_home">
-                <a href="/index.gs?mseq=398049">
+                <a href="/">
                     <div><em></em><span>홈</span>
                     </div>
                 </a>
@@ -759,7 +865,7 @@
                 </a>
             </li>
             <li class="quick_cart">
-                <a href="/mobile/cart/viewCart.gs?mseq=398052">
+                <a href="/cart/list">
                     <div><em></em><span>스마트카트</span>
                     </div>
                 </a>

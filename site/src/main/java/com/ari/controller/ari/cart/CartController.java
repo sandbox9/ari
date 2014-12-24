@@ -20,6 +20,8 @@ import org.broadleafcommerce.core.pricing.service.exception.PricingException;
 import org.broadleafcommerce.core.web.controller.cart.BroadleafCartController;
 import org.broadleafcommerce.core.web.order.CartState;
 import org.broadleafcommerce.core.web.order.model.AddToCartItem;
+import org.broadleafcommerce.profile.core.domain.Customer;
+import org.broadleafcommerce.profile.web.core.CustomerState;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -32,6 +34,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping(value = "/cart")
 public class CartController extends BroadleafCartController {
+	
+	@Override
+	@RequestMapping("")
+	public String cart(HttpServletRequest request, HttpServletResponse response, Model model) throws PricingException {
+		return super.cart(request, response, model);
+	}
+	
     @RequestMapping(value = "/list")
     public String list(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
     	super.cart(request, response, model);
