@@ -248,59 +248,76 @@
     <div class="quick_link_area">
         <ul class="quick_link_con">
             <li class="quick_home">
-                <a href="/">
-                    <div><em></em><span>홈</span>
-                    </div>
-                </a>
-            </li>
-            <li class="quick_category">
-                <a href="/m/sect/category.gs?mseq=398050">
-                    <div><em></em><span>카테고리</span>
-                    </div>
-                </a>
-            </li>
-            <li class="quick_search">
-                <a href="/m/search/searchNewMain.gs?mseq=398051">
-                    <div><em></em><span>검색</span>
-                    </div>
-                </a>
-            </li>
-            <li class="quick_cart on ">
-                <a href="/cart/list">
-                    <div><em></em><span>스마트카트</span>
-                    </div>
-                </a>
-            </li>
-            <li class="quick_ship">
-                <a href="/mygsshop/myOrderList.gs?mseq=398053">
-                    <div><em></em><span>주문배송</span>
-                    </div>
-                </a>
-            </li>
-            <li class="quick_shopping">
-                <a href="/mygsshop/myshopInfo.gs?mseq=398054">
-                    <div><em></em><span>마이쇼핑</span>
-                    </div>
-                </a>
-            </li>
+	            <a href="/">
+	                <div>
+	                	<em></em>
+	                	<span>홈</span>
+	                </div>
+	            </a>
+	        </li>
+	        <li class="quick_category">
+	            <a>
+	                <div>
+	                	<em></em>
+	                	<span>카테고리</span>
+	                </div>
+	            </a>
+	        </li>
+	        <li class="quick_search">
+	            <a>
+	                <div>
+	                	<em></em>
+	                	<span>검색</span>
+	                </div>
+	            </a>
+	        </li>
+	        <li class="quick_cart on">
+	            <a href="/cart/list">
+	                <div>
+	                	<em></em>
+	                	<span>스마트카트</span>
+	                </div>
+	            </a>
+	        </li>
+	        <li class="quick_ship">
+	            <a>
+	                <div>
+	                	<em></em>
+	                	<span>주문배송</span>
+	                </div>
+	            </a>
+	        </li>
+	        <li class="quick_shopping">
+	            <a href="/account/coupons">
+	                <div>
+	                	<em></em>
+	                	<span>마이쇼핑</span>
+	                </div>
+	            </a>
+	        </li>
         </ul>
     </div>
     <footer id="footer" role="contentinfo">
         <ul class="footer_menu">
             <li>
-                <div class="footer_sub"><a href="">로그아웃</a>
+	            <div class="footer_sub">
+	            	<a href="/login" th:if="${@blCustomerState.getCustomer().isAnonymous() == true}">로그인</a>
+	            	<a href="/logout" th:unless="${@blCustomerState.getCustomer().isAnonymous()} == true">로그아웃</a>
+	            </div>
+	        </li>
+            <li>
+                <div class="footer_sub">
+                	<a>마이쇼핑</a>
                 </div>
             </li>
             <li>
-                <div class="footer_sub"><a href="/mygsshop/myshopInfo.gs?gsid=MCfooter">마이쇼핑</a>
+                <div class="footer_sub">
+                	<a>고객센터</a>
                 </div>
             </li>
             <li>
-                <div class="footer_sub"><a href="/mygsshop/customerCenter.gs?gsid=MCfooter">고객센터</a>
-                </div>
-            </li>
-            <li>
-                <div class="footer_sub"><a href="/main/lastprd.gs?gsid=MCfooter">최근본상품</a>
+                <div class="footer_sub">
+                	<a>최근본상품</a>
                 </div>
             </li>
         </ul> <address><strong>(주)지에스홈쇼핑 대표이사 허태수</strong>서울시 영등포구 선유로 75 GS강서타워  호스팅제공자 (주)지에스홈쇼핑<br/>사업자등록번호 117-81-13253 통신판매업신고 영등포구청 제 2002-00068호<br/><a href="http://www.ftc.go.kr/info/bizinfo/communicationView.jsp?apv_perm_no=2002318011730200068&amp;area1=6110000&amp;area2=&amp;currpage=1&amp;searchKey=01&amp;searchVal=%C1%F6%BF%A1%BD%BA%C8%A8%BC%EE%C7%C-" target="_blank" class="footer_link">사업자정보확인</a> <a href="/mobile/etc/etc_loan.jsp" class="footer_link">기업은행 채무지급 보증안내</a><br/>고객센터 1899-4455 <a href="mailto:gsshop@gsshop.com">gsshop@gsshop.com</a></address>
