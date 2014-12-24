@@ -45,6 +45,7 @@ $(function(){
     }
 
     // Show the cart in a modal when any link with the class "modalcart" is clicked
+    /*
     $('body').on('click', 'a.modalcart', function() {
         BLC.ajax({ url: $(this).attr('href') }, function(data) {
             var extendedOptions = $.extend({}, modalCartOptions);
@@ -56,6 +57,7 @@ $(function(){
 
         return false;
     });
+    */
     
     // Intercept add to cart operations and perform them via AJAX instead
     // This will trigger on any input with class "addToCart" or "addToWishlist"

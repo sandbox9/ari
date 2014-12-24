@@ -35,7 +35,7 @@
                 <th:block th:with="checkInventory=*{defaultSku.inventoryType?.type == 'CHECK_QUANTITY'},
                                    availableInventory=${checkInventory ? #object.defaultSku.quantityAvailable != null and #object.defaultSku.quantityAvailable != 0 : true},
                                    inCart=${cart.containsSku(#object.defaultSku) and #lists.isEmpty(product.productOptions)}">
-                    <blc:form method="POST" th:action="@{/ari/cart/add}">
+                    <blc:form method="POST" th:action="@{/cart/add}">
                         <div class="product-option-nonjs" th:each="productOption : *{productOptions}" th:object="${productOption}">
                             <div class="form50">
                                 <label th:text="*{label}"></label>

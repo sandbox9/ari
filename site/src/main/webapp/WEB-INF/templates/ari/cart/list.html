@@ -92,11 +92,6 @@
                                                         	<img th:if="*{product.media['primary']}" th:src="@{*{product.media['primary'].url} + '?thumbnail'}" width="94" height="94" th:alt="*{product.name}"/>
                                                         </p>
                                                     </a>
-                                                    <!--  
-                                                    <p class="product-today-deal">
-                                                    	<strong class="image-typo-today-deal">오늘의 딜</strong>
-                                                    </p>
-                                                    -->
                                                 </div>
                                                 <dl class="item-data-list-area">
                                                     <dt class="accessible-hide" th:text="*{product.name}"></dt>
@@ -197,11 +192,11 @@
                                 </dd>
                                 <dt class="total-delivery-amount">총 배송비</dt>
                                 <dd class="delivery-amount-information">
-                                	<em>0</em>원
+                                	<em blc:price="${cart.totalFulfillmentCharges}">0</em>원
                                 </dd>
                                 <dt class="order-total-amount">주문금액 합계</dt>
                                 <dd class="total-amount-information">
-                                	<strong blc:price="${cart.subTotal?.subtract(cart.orderAdjustmentsValue)}"></strong>원
+                                	<strong blc:price="${cart.subTotal}"></strong>원
                                 </dd>
                             </dl>
                             <footer class="bottom-link-buttons">
@@ -212,7 +207,7 @@
                                 	<a href="javascript:;" id="checkOrdChkBox" data-basktgbn="INTG_BASKT" data-vdorgubun="N" class="link-selection-product-order">
                                 		<strong>선택상품 주문</strong>
                                 	</a> 
-                                	<a href="javascript:;" id="checkOrdChk" data-basktgbn="INTG_BASKT" data-vdorgubun="N" class="link-whole-product-order">
+                                	<a href="/checkout" id="checkOrdChk" data-basktgbn="INTG_BASKT" data-vdorgubun="N" class="link-whole-product-order">
                                 		<strong>전체상품 주문</strong>
                                 	</a>
                                 </p>
@@ -228,6 +223,7 @@
                 <!-- //일반상품 장바구니 끝-->
                 <!-- 현금결제 장바구니 시작-->
             </form>
+            
             <!-- 선택상품 주문 플로팅 호출 영역 시작 -->
             <aside class="layer-selection-product-order pannel-close" id="divToggle" value="0">
                 <h1 class="accessible-hide ">선택상품 주문 플로팅 레이어 호출 시작</h1>
@@ -247,16 +243,12 @@
         <div id="push"></div>
     </div>
 
-
-
-
-
     <div class="page_top" style="display: none;"><img src="http://image.gsshop.com/ui/gsshop/shop/images/btn_top.png" alt="위로"/>
     </div>
     <div class="quick_link_area">
         <ul class="quick_link_con">
             <li class="quick_home">
-                <a href="/index.gs?mseq=398049">
+                <a href="/">
                     <div><em></em><span>홈</span>
                     </div>
                 </a>
@@ -274,7 +266,7 @@
                 </a>
             </li>
             <li class="quick_cart on ">
-                <a href="/mobile/cart/viewCart.gs?mseq=398052">
+                <a href="/cart/list">
                     <div><em></em><span>스마트카트</span>
                     </div>
                 </a>
