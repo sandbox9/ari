@@ -1,0 +1,6155 @@
+html, body {
+	height: 100%;
+	padding: 0;
+	margin: 0;
+} 
+ 
+.overlay {
+	display: none;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: black;
+	background: rgba(0, 0, 0, 0.5);
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	-o-transition: opacity 400ms ease-in;
+	-ms-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+	z-index: 99999;
+}
+
+/* 제휴쿠폰 모달팝업 레이어*/
+ .modalOverlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	background: black;
+	opacity: 0.5;
+	z-index: 1002;
+}
+/*디스플레이 유무*/
+ .visibleY {
+	display: block;
+}
+.visibleN, .hidden, .exceptionTxt00, .prdTabHidden, .prdHidden {
+	display: none;
+}
+
+/*new : 제휴쿠폰 */
+ .modalPop {
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+.aliaCpnWrap {
+	position: relative;
+	width: 300px;
+	margin: 55px auto 0;
+	background: #fff;
+	z-index: 10001;
+}
+.aliaCpnWrap .couponeView {
+	overflow: hidden;
+	padding:10px 0 0;
+}
+.aliaCpnWrap .couponeView a {
+	display: block;
+	text-align: center;
+}
+.aliaCpnWrap .couponeView a img {
+	width: 300px;
+	margin: 0 auto;
+}
+.aliaCpnWrap .couponeFooter {
+/*
+	height: 45px;
+	padding: 0 9px;
+	line-height: 45px;
+	border-top: solid 1px #d4d4d4;
+	background: whitesmoke;
+	-moz-border-radius: 0 0 3px 3px;
+	-webkit-border-radius: 0 0 3px 3px;
+	border-radius: 0 0 3px 3px;
+*/
+}
+.aliaCpnWrap .couponeFooter a {
+	display: block;
+	position: absolute;
+	right: 0;
+	top:0;
+	padding:10px;
+	/*
+	bottom: 8px;
+	width: 11px;
+	border: 1px solid #cecece;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	*/
+}
+
+.aliaCpnWrap .couponeFooter a em{display:block;width:14px;height:14px;color:transparent;background:url('http://image.gsshop.com/mobile/mc/images/common/btn_close_fam.png') no-repeat 0 0;background-size:14px auto;-webkit-background-size:14px auto;}
+
+/* 단품메인 : 상품이름, 사진, 동영상 */
+.prdWrap {
+	background: #fff;
+	padding-top: 45px;
+}
+ .prdNames {
+	display: block;
+	overflow: hidden;
+	position: relative;
+	padding: 8px;
+	line-height: 15px;
+	letter-spacing: -1px;
+	text-align: left;
+	background: white;
+	word-break: break-all;
+}
+.prdNames span {
+	margin: 0 0 0 0;
+	letter-spacing: -0.5px;
+}
+.prdPhotoWrap {
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	height: 320px;
+	background: white;
+	border-bottom: 1px solid #e3e3e3;
+	-webkit-backface-visibility: hidden;
+}
+.prdPhoto {
+	width: 320px;
+	height: 320px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.prdPhoto ul {
+	position: relative;
+	overflow: hidden;
+	width: 320px;
+	margin: 0 auto;
+}
+.prdPhoto ul li {
+	position: relative;
+	float: left;
+	width: 100%;
+	height: 320px;
+}
+.prdPhoto ul li img {
+	width: 320px;
+	height: 320px;
+}
+.prdPhotoPaging {
+	position: absolute;
+	bottom: 10px;
+	left: 0;
+	width: 100%;
+	height: 20px;
+	padding: 0;
+	text-align: center;
+	line-height: 20px;
+}
+.prdPhotoPaging p {
+	display: inline-block;
+	height: 20px;
+	margin: 0 auto;
+	line-height: 20px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background: black;
+	background: rgba(0, 0, 0, 0.4);
+}
+.prdPhotoPaging p button {
+	display: inline-block;
+	margin: 0;
+	padding: 0 5px;
+	height: 20px;
+	border: none;
+	background: none;
+	overflow: hidden;
+}
+.prdPhotoPaging p .prev {
+	display: inline-block;
+	overflow: hidden;
+	width: 9px;
+	height: 12px;
+	color: transparent;
+	direction: ltr;
+	text-indent: -9999px;
+	background-position: -45px -20px;
+}
+.prdPhotoPaging p .next {
+	display: inline-block;
+	overflow: hidden;
+	width: 9px;
+	height: 12px;
+	color: transparent;
+	direction: ltr;
+	text-indent: -9999px;
+	background-position: -55px -20px;
+}
+.prdPhotoPaging p b {
+	display: inline-block;
+	padding: 0 5px;
+	color: white;
+	text-shadow: 0 0 2px black;
+	line-height: 20px;
+}
+
+.prdVod {
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	right: 50%;
+	width: 62px;
+	height: 62px;
+	padding: 0;
+	margin: -45px -31px 0 0;
+	color: transparent;
+	font-size: 0;
+	background: url('http://image.gsshop.com/mobile/mc/images/common/icon_vod_pro02.png') no-repeat 50% 50%;
+	background-size: 62px auto;
+	-webkit-background-size: 62px auto;
+}
+
+/*단품메인 > 옵션 : 추가상품 */
+ .addPrd {
+	/*padding: 5px 0 0;*/
+	border-top: 1px solid #d5d5d5;
+}
+.addPrdNoLine {
+	/*padding-top:5px;*/
+	border-top: 0;
+}
+
+/*단품메인 > 옵션 , 수량 */
+ .prdStyle, .prdOrderNum {
+	margin: 0 8px 5px;
+}
+.prdStyle:after, .prdOrderNum:after {
+	display: block;
+	content:'';
+	clear: both;
+}
+.prdStyle dd, .prdOrderNum dd {
+	position: relative;
+	float: none;
+}
+.prdStyle dd select, .prdOrderNum dd select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	vertical-align: middle;
+}
+.prdStyle dd .selectStyle, .prdOrderNum dd .selectStyle {
+	display: inline-block;
+	width: 100%;
+	margin: 0;
+	padding: 9px 30px 9px 5px;
+	color: #373e40;
+	border: 1px solid #cacaca;
+	background: #f7f7f7 url('http://image.gsshop.com/mobile/mc/images/goods/img_select_option02.png') no-repeat right 0;
+	background-size: 50px auto;
+	-webkit-background-size: 50px auto;
+}
+.prdStyle dd p, .prdOrderNum dd p {
+	display: block;
+	padding: 10px;
+	color: #393c3c;
+	border: 1px solid #d8d8d8;
+	background: #f1f1f1;
+	word-wrap: break-word;
+}
+.prdStyle dd p b, .prdOrderNum dd p b {
+	text-shadow: 0 1px 0 white;
+}
+.prdStyle dt {
+	display: none;
+}
+.prdOrderNum {
+	overflow: hidden;
+	clear: both;
+	min-height: 32px;
+	padding: 0;
+}
+.prdOrderNum dt {
+	float: left;
+	width: auto;
+	margin: 0 8px 0 0;
+	padding: 6px 0 0;
+	/* font-weight: bold;color: #393c3c; text-shadow: 0 1px 0 #fff; */
+	font-size: 13px;
+	color:#111;
+	
+}
+.prdOrderNum dd {
+	position: relative;
+	margin: 0;
+	padding: 4px 0 0;
+}
+.prdOrderNum dd .addDescription {
+	overflow: hidden;
+	font-size: 12px;
+	color: #666666;
+	line-height: 12px;
+	letter-spacing: -1px;
+	white-space: nowrap;
+	
+}
+/* 단품 메인: 가격정보 */
+ .prdInfoWrap {
+	position: relative;
+	overflow: hidden;
+	padding: 1px 8px 10px;
+	background: white;
+	border-bottom: 1px solid #b4b4b4;
+}
+.prdInfoWrap .btnCalc {
+	position: absolute;
+	right: 8px;
+	top: 6px;
+	height:22px;
+	margin: 0;
+	padding:0 5px;
+	color: #636363;
+	line-height:22px;
+	font-size: 12px;
+	letter-spacing: -1px;
+	vertical-align: middle;
+	border: 1px solid #cdcdcd;
+	background: #fff;
+}
+.prdInfoWrap .btnCalc em {
+	display: inline-block;
+	width: 13px;
+	height: 15px;
+	margin: 0 2px 0 0;
+	background: url('http://image.gsshop.com/mobile/mc/images/goods/icon_cal02.png') no-repeat 0 0;
+	background-size: 13px auto;
+	vertical-align: -3px;
+}
+.prdInfoWrap .btnCalc span {display: inline-block;}
+.prdInfoWrap .priceInfoN {
+	display: none;
+}
+.prdInfoWrap .priceInfo dl dd {
+	color: #888;
+}
+.prdInfoWrap .priceInfo dl dd span {
+	color: #888;
+	text-decoration: line-through;
+}
+.prdInfoWrap .priceInfo dl dd:last-child {
+	color: #00aebd;
+}
+.prdInfoWrap .priceInfo dl dd:last-child span {
+	display: inline-block;
+	font-size: 20px;
+	color: #00aebd;
+	font-weight: bold;
+	vertical-align: text-bottom;
+	text-decoration: none;
+}
+.prdInfoWrap .celphnPriceInfo dd {
+	width: 100%;
+	margin: 0;
+	font-size: 13px;
+	line-height: 19px;
+	color: #222222;
+}
+.prdInfoWrap .celphnPriceInfo dd .exceptionTxt {
+	letter-spacing: -1.5px;
+}
+.prdInfoWrap dl {
+	overflow: hidden;
+	margin: -1px 0 -1px;
+	padding: 8px 10px 10px 10px;
+	border: 1px solid #e5e5e5;
+}
+.prdInfoWrap dl:after {
+	display: block;
+	content:'';
+	clear: both;
+}
+.prdInfoWrap dl dt {
+	position: relative;
+	clear: both;
+	float: left;
+	width: 90px;
+	font-size: 13px;
+	color: #636363;
+	letter-spacing: -1px;
+	line-height: 19px;
+}
+.prdInfoWrap dl dt em {
+	color: #00aebd;
+}
+.prdInfoWrap dl dd {
+	float: none;
+	display: block;
+	margin: 0 0 0 90px;
+	line-height: 19px;
+	text-align: left;
+	font-size: 13px;
+}
+.prdInfoWrap dl dd:after {
+	display: block;
+	clear: both;
+	overflow: hidden;
+	content: '';
+}
+.prdInfoWrap dl dd .price {
+	color: #00aebd;
+	font-size: 14px;
+}
+.prdInfoWrap dl .addDescription {
+	color: #888;
+	font-style: normal;
+	text-decoration: none;
+}
+.prdInfoWrap dl .coupone {
+	margin: 2px 10px 4px 0;
+}
+.prdInfoWrap dl .coupone span:first-child {
+	margin: 0 0 0 10px;
+}
+.prdInfoWrap dl .coupone span:last-child {
+	margin: 0 10px 0 0;
+}
+.prdInfoWrap .discountInfo dd .coupone b {
+	display: inline-block;
+	min-width: 88px;
+	height: 25px;
+	line-height: 25px;
+	font-size: 12px;
+	color: #4d5454;
+}
+.prdInfoWrap .discountInfo {
+	padding: 5px 10px 0 10px;
+}
+.prdInfoWrap .discountInfo dt, .prdInfoWrap .discountInfo dd {
+	padding: 0;
+	color: #666666;
+	line-height: 22px;
+	letter-spacing: -1px;
+	
+}
+.prdInfoWrap .discountInfo dt u, .prdInfoWrap .discountInfo dd u {
+	display: inline-block;
+	width: 14px;
+	height: 11px;
+	margin: 0 2px 0 3px;
+	background-position: -70px -20px;
+	vertical-align: -2px;
+}
+.prdInfoWrap .discountInfo dt b, .prdInfoWrap .discountInfo dd b {
+	color: #222222;
+}
+.prdInfoWrap .discountInfo dt b:last-child, .prdInfoWrap .discountInfo dd b:last-child {
+	font-size: 12px;
+}
+.prdInfoWrap .discountInfo .cpnTypCd .cardDiscount, .prdInfoWrap .discountInfo .cpnTypCd .cardDiscount0 {
+	padding: 0;
+}
+.prdInfoWrap .discountInfo .couponeOk {
+	padding: 0;
+	color: #f3365f;
+	font-size: 13px;
+}
+.prdInfoWrap .cpnTypCd {
+	display: none;
+}
+.prdInfoWrap .dlvTypInfo dt {
+	width: 100%;
+}
+.prdInfoWrap .dlvTypInfo dd {
+	margin: 0;
+	font-size: 13px;
+	line-height: 16px;
+	color: #999999;
+	text-align: left;
+	letter-spacing: -1px;
+}
+/* 문자쿠폰 */
+.prdInfoWrap .dlvTypInfo.smsCoupon dt{
+	width: 90px;
+}
+.prdInfoWrap .dlvTypInfo.smsCoupon dd{
+	margin: 0 0 0 90px;
+	line-height: 19px;
+	color: #222;
+}
+.prdInfoWrap .dlvTypInfo dd i {
+	color: #00aebd;
+	font-style: normal;
+}
+/* new : 팁 관련 정보*/
+ .btnTip {
+	display: inline-block;
+	height: 15px;
+	padding:0 3px;
+	margin: 0;
+	line-height:initial;
+	vertical-align:1px;
+}
+.btnTip em {
+	display: inline-block;
+	width: 13px;
+	height: 13px;
+	margin-top:2px;
+	color: transparent !important;
+	font-size: 0;
+	direction: ltr;
+	background-position: -123px -240px;
+	vertical-align:top;
+}
+.cardDiscount .btnTip {
+	display: inline-block;
+	padding:0 3px;
+	margin: 0;
+}
+.cardDiscount .btnTip em {
+}
+
+/* 메시지 배너 추가 관련 */
+.cardDiscount .msgBarnner p:after {
+	padding-left: 15px;
+	content: "";
+	background: url('http://image.gsshop.com/mobile/mc/images/goods/img_mssageBanner_arrow.png') no-repeat 50% 50%;
+	-webkit-background-size: 9px auto;
+	background-size: 9px auto;
+	vertical-align: top;
+}
+.cardDiscount .msgBarnner,
+.cardDiscount .msgBarnner p span,
+.cardDiscount .msgBarnner a:link, 
+.cardDiscount .msgBarnner a:visited,
+.cardDiscount .msgBarnner a:hover,
+.cardDiscount .msgBarnner a:active {
+	font-size : 12px;
+	color : #289aa4;
+}
+.msgBarnner a{display:block}
+.msgBarnner a img{width:100%}
+/* 프로모션 배너 */
+.msgBanner_wrapper{padding-top:10px;}
+.msgBanner_wrapper .msgBarnner a{display:block}
+.msgBanner_wrapper .msgBarnner{position:relative;margin-top:-1px !important;}
+.msgBanner_wrapper .msgBarnner a{display:block;}
+.msgBanner_wrapper .msgBarnner a, .msgBarnner a img{width:320px !important;margin:0 auto;}
+.msgBanner_wrapper .msgBarnner:before{display:block;clear:both;overflow:hidden;content:'';position:absolute;left:0;top:0;width:100%;height:1px;background:#000;opacity:.1;}
+.msgBanner_wrapper .msgBarnner:after{display:block;clear:both;overflow:hidden;content:'';position:absolute;left:0;bottom:0;width:100%;height:1px;background:#000;opacity:.1;}
+
+.close em {
+	background-position: -123px -255px;
+}
+.tipContent {
+	position: absolute;
+	width: 160px;
+	margin: 0;
+	padding: 8px 10px;
+	font-size: 12px;
+	color: #666666;
+	border: 1px solid #00aebd;
+	background: #f7f7f7;
+	z-index: 100;
+}
+.tipContent .title {
+	margin: 0 0 6px;
+	padding: 0 0 6px;
+	color: #393c3c;
+	font-size: 13px;
+	font-weight: normal;
+	border-bottom: 1px solid #e9e9e9;
+}
+.tipContent dl:after {
+	display: block;
+	content:'';
+	clear: both;
+}
+.tipContent dl dt {
+	clear: both;
+	float: left;
+}
+.tipContent dl dd {
+	float: none;
+	display: block;
+}
+.tipContent dl dd b {
+	margin: 0 0 0 3px;
+	font-weight: bold;
+	color: #393c3c;
+}
+.tipContent dl dd .tot {
+	color: #00aebd;
+}
+.tipContent .noti {
+	margin: 6px 0 0;
+	padding: 6px 0 0 0;
+	border-top: 1px solid #e9e9e9;
+}
+.tipContent .noti li {
+	overflow: hidden;
+	clear: both;
+	float:left;
+	margin: 0 0 2px 0;
+	padding: 0 0 0 5px;
+	line-height: 14px;
+	letter-spacing: -1px;
+}
+.tipContent .noti li .icon {
+	position: absolute;
+	left: 10px;
+	width: 8px;
+	height: 4px;
+	margin: 5px 4px 0 0;
+	background-position: -45px 0;
+}
+.tipContent .notiCard {
+	margin: 0;
+	padding: 0;
+	border-top: none;
+}
+.tipContent .notiCard li {
+	float:left;
+}
+.tipContent .notiCard li .tot {
+	color: #00aebd;
+}
+.shareLinkWrap {
+	overflow: hidden;
+	padding: 7px 10px;
+	background: white;
+	border-top: 1px solid #b4b4b4;
+	text-align: right;
+}
+.shareLinkWrap .prdCd {
+	float: left;
+	padding: 8px 0 0;
+	color: #999999;
+	font-weight: normal;
+	font-size: 12px;
+}
+.shareLinkWrap a {
+	display: inline-block;
+	overflow: hidden;
+	width: 28px;
+	height: 28px;
+	padding: 0;
+	margin: 2px 5px;
+	text-align: center;
+	font-size: 0;
+	direction: ltr;
+	text-indent: -9999px;
+	vertical-align: middle;
+}
+.shareLinkWrap .facebook {
+	background-position: -45px -40px;
+}
+.shareLinkWrap .kakao {
+	background-position: -45px -70px;
+}
+.shareLinkWrap .twitter {
+	background-position: -75px -40px;
+}
+.shareLinkWrap .urlCopy {
+	background-position: -75px -70px;
+}
+/*new : tabWrap*/
+ .tabWrap {
+	background: white;
+}
+.tabWrap .buyingInfo {
+	overflow: hidden;
+	padding: 10px 8px;
+}
+/*new : prdTab*/
+ .prdTab {
+	overflow: hidden;
+	clear: both;
+	width: 100%;
+	height: 41px;
+	border-top: 1px solid #cacaca;
+	margin-top:10px;
+	transform: translateZ(0px);
+	-webkit-transform: translateZ(0);
+}
+.prdTab li {
+	float: left;
+	width: 25%;
+	border-bottom: 1px solid #cacaca;
+	background: #f4f4f5;
+	cursor: pointer;
+}
+.prdTab li a {
+	display: block;
+	overflow: hidden;
+	position: relative;
+	height: 40px;
+	line-height: 40px;
+	color: #888;
+	text-align: center;
+	font-weight: bold;
+	border-right: 1px solid #cacaca;
+}
+.prdTab li a span {
+	font-weight: normal;
+	font-size: 11px;
+	letter-spacing: -1px;
+}
+.prdTab li:last-child a {
+	border-right: none;
+}
+.prdTab li.on {
+	border-bottom: 1px solid white;
+	background: white;
+}
+.prdTab li.on a {
+	height: 41px;
+	color: #393c3c;
+}
+.prdTab li.on a .arrowUnder {
+	display: block;
+	position: absolute;
+	bottom: 3px;
+	left: 50%;
+	width: 7px;
+	height: 5px;
+	margin: 0 0 0 -3px;
+	background-position: -110px -20px;
+}
+.prdTabBtm {
+	overflow: hidden;
+	clear: both;
+	width: 100%;
+	margin: 0 0 0;
+	border-top: 1px solid #cacaca;
+}
+.prdTabBtm li {
+	float: left;
+	width: 25%;
+	height: 40px;
+	border-bottom: 1px solid #b4b4b4;
+	background: #f4f4f5;
+	cursor: pointer;
+}
+.prdTabBtm li a {
+	display: block;
+	position: relative;
+	height: 12px;
+	margin: 14px 0 0;
+	line-height: 12px;
+	color: #999999;
+	text-align: center;
+	font-weight: bold;
+	border-right: 1px solid #cacaca;
+}
+.prdTabBtm li a span {
+	font-weight: normal;
+	font-size: 11px;
+	letter-spacing: -1px;
+}
+.prdTabBtm li:last-child a {
+	border-right: none;
+}
+.prdTabBtm li.on a {
+	color: #393c3c;
+}
+.prdTabBtm li.on .arrowUnder {
+	display: block;
+	position: absolute;
+	left: 50%;
+	bottom: 15px;
+	width: 7px;
+	height: 5px;
+	margin: 0 0 0 -3px;
+	background-position: -120px -20px;
+}
+.exceptionTxt {
+	color: #acacac;
+	font-size: 13px;
+}
+/*new : 탭 이하 정보 중 디스플레이 정보 */
+ .displayInfo {
+	padding: 0;
+	margin: 0;
+	font-size: 13px;
+}
+.displayInfo dl {
+	display: block;
+	padding: 1px 0;
+}
+.displayInfo dl:after {
+	display: block;
+	overflow:hidden;
+	content:'';
+	clear: both;
+}
+.displayInfo dl dt {
+	float: left;
+	width: 64px;
+	color: #666666;
+	/*font-weight: bold;*/
+}
+.displayInfo dl dt .icon {
+	display: inline-block;
+	width: 7px;
+	height: 7px;
+	margin: 3px 0 0;
+	background-position: -45px 0;
+}
+.displayInfo dl dd {
+	float: none;
+	margin-left: 66px;
+	color: #666666;
+}
+.displayInfo dl dd b {
+	margin: 0 0 0 3px;
+}
+.displayInfo .addInfoFlag {
+	display: none;
+}
+
+/* new: prdInfoWrap 정보*/
+ .prdInfoListWrap {
+	overflow: hidden;
+	/*margin: 10px 0 0 0;*/
+	border: 2px solid #efefef;
+}
+.prdInfoListWrap .toggleTitle {
+	position: relative;
+	display: block;
+	padding: 10px;
+	text-align: left;
+	cursor: pointer;
+}
+.prdInfoListWrap .toggleTitle .title {
+	color: #444;
+	font-weight: normal;
+}
+.prdInfoListWrap .toggleContent {
+	clear: both;
+	padding: 5px 0 0 0;
+	color: #393c3c;
+	border-top: 1px solid #e5e5e5;
+	border-bottom: 1px solid #efefef;
+	background: #f8f8f8;
+}
+.prdInfoListWrap .toggleContent .title {
+	padding: 0 10px 5px;
+	line-height: 18px;
+	color: #222222;
+}
+.prdInfoListWrap .toggleContent:after {
+	display: block;
+	content:'';
+	clear: both;
+}
+.prdInfoListWrap .toggleContent dl:after {
+	display: block;
+	content:'';
+	clear: both;
+}
+.prdInfoListWrap .toggleContent dl:last-child {
+	border-bottom: none;
+}
+.prdInfoListWrap .toggleContent dl .pointTxt {
+	color: #80ad00;
+}
+
+.prdInfoListWrap .toggleContent dl dt {
+	float:left;
+	width: 100%;
+	padding: 3px 10px 0;
+	border-top: none;
+	font-weight: bold;
+	font-size: 13px;
+	color: #393c3c;
+}
+.prdInfoListWrap .toggleContent dl dt .exceptionTxt {
+	margin-bottom: 3px;
+	font-size: 12px;
+	font-weight: normal;
+	color: #999999;
+}
+.prdInfoListWrap .toggleContent dl dd {
+	float:left;
+	padding: 0 10px 5px 10px;
+	color: #777777;
+	font-size: 13px;
+}
+.prdInfoListWrap .toggleContent dl dd .icon {
+	position: absolute;
+	left: 10px;
+	width: 8px;
+	height: 4px;
+	margin: 5px 4px 0 0;
+	background-position: -45px 0;
+	background-image: url("http://image.gsshop.com/mobile/mc/images/common/img_detail_new.png");
+	background-repeat: no-repeat;
+	background-size: 115px auto;
+	background-color: transparent;
+}
+
+/*일반정보일 경우 dt, dd*/
+.prdInfoListWrap .toggleContent .generalInfoWrap {
+	padding:0 10px;
+}
+.prdInfoListWrap .toggleContent .generalInfoWrap dl dt {
+	float:left;
+	padding: 3px 0 0 0;
+}
+.prdInfoListWrap .toggleContent .generalInfoWrap dl dd {
+	float:left;
+	padding: 0 10px 5px 8px;
+	background: url(../images/dot_bl.png) no-repeat 0 6px;
+	background-size: 5px;
+}
+
+.prdInfoListWrap .toggleContent dl dd li {
+	float: left;
+	width: 100%;
+	padding: 0;
+}
+.prdInfoListWrap .toggleContent dl dd li:last-child {
+	padding: 0;
+}
+.prdInfoListWrap .toggleContent dl dd li .blank {
+	display: block;
+	height: 15px;
+}
+.prdInfoListWrap .toggleContent dl dd li div {
+	margin: 0 0 0 8px;
+}
+.prdInfoListWrap .toggleContent dl dd .htmlArea span {
+	position: absolute;
+	left: 16px;
+	width: 10px;
+	height: 6px;
+	margin: 5px 4px 0;
+	background-position: -45px 0;
+	background-image: url("http://image.gsshop.com/mobile/mc/images/common/img_detail_new.png");
+	background-repeat: no-repeat;
+	background-size: 115px auto;
+	background-color: transparent;
+}
+/*MD공간 */
+.prdInfoListWrap .toggleContent dl dd .htmlAreaMD .blit  {
+	position: absolute;
+	left: 16px;
+	width: 10px;
+	height: 6px;
+	margin: 5px 4px 0;
+	background-position: -45px 0;
+	background-image: url("http://image.gsshop.com/mobile/mc/images/common/img_detail_new.png");
+	background-repeat: no-repeat;
+	background-size: 115px auto;
+	background-color: transparent;
+}
+.prdInfoListWrap .toggleContent .noteGuide {
+	padding: 7px 10px;
+	border-top: 1px solid #e5e5e5;
+	font-size: 12px;
+	color: #999999;
+}
+.prdInfoListWrap .toggleContent .discountInfo {
+	padding: 0 10px;
+	border-bottom: 1px solid #e5e5e5;
+}
+.prdInfoListWrap .toggleContent .discountInfo dl {
+	padding: 0 0 5px 0;
+}
+.prdInfoListWrap .toggleContent .discountInfo dl dt, 
+.prdInfoListWrap .toggleContent .discountInfo dl dd {
+	width: auto;
+	padding: 0;
+	margin: 0;
+	font-size: 13px;
+	font-weight: normal;
+	color: #222222;
+	line-height: 18px;
+}
+.prdInfoListWrap .toggleContent .discountInfo dl dt b, 
+.prdInfoListWrap .toggleContent .discountInfo dl dd b {
+	font-family: arial;
+	color: #80ad00;
+}
+.prdInfoListWrap .toggleContent .discountInfo dl dd {
+	padding: 0 0 0 5px;
+}
+.prdInfoListWrap .toggleContent .cardInfo {
+	padding: 5px 0;
+}
+.prdInfoListWrap .toggleContent .cardInfo dl dt {
+	padding: 0px 10px 2px;
+}
+.prdInfoListWrap .toggleContent .cardInfo dl dd .icon {
+	left: 26px;
+}
+.prdInfoListWrap .toggleContent .cardInfo dl dd li {
+	padding: 0 0 0 8px;
+}
+
+.prdInfoListWrap .toggleContent .basicInfo {
+	padding: 5px 0;
+}
+.prdInfoListWrap .toggleContent .basicInfo dl dt {
+	padding: 5px 10px 2px;
+}
+.prdInfoListWrap .toggleContent .basicInfo dl dd .icon {
+	left: 25px;
+}
+
+.prdInfoListWrap .qulityCheck .noteGuide {
+	font-size: 12px;
+	color: #999999;
+	border-bottom: 1px solid #e5e5e5;
+}
+/* new : 상품설명*/
+ .prdDescription header {
+	position: relative;
+	margin: 0;
+	padding: 10px 8px;
+	line-height: 16px;
+	color: #999999;
+	font-size: 13px;
+	letter-spacing: -1px;
+	border-bottom: 1px solid #e5e5e5;
+}
+/*.prdDescription header .btnZoom {
+	position: absolute;
+	display: block;
+	top: 12px;
+	right: 10px;
+	width: 34px;
+	height: 27px;
+	text-align: center;
+	border: 1px solid #cacaca;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	background: #f7f7f7;
+}*/
+.prdDescription header .btnZoom em {
+	display: block;
+	overflow: hidden;
+	width: 16px;
+	height: 15px;
+	margin: 6px auto 0;
+	font-size: 0;
+	direction: ltr;
+	text-indent: -9999px;
+	background-position: -136px -225px;
+}
+.prdDescription .descriptionContents {
+	padding: 0;
+	text-align: left;
+	overflow-x: hidden;
+}
+.prdDescription .descriptionContents figure, 
+.prdDescription .descriptionContents .htmlArea {
+	width: 100%;	
+}
+
+.prdDetailWrap .prdDetailNote .contentWrap figure img {
+	width: 100%;
+	max-width: 720px;
+	height: auto;
+}
+
+.prdDescription .descriptionContents figure img {
+	width: 100%;
+	height: auto;
+}
+
+.prdDescription .descriptionContents .htmlArea img {        
+	clear: both;	
+	width : 100%;
+	height: auto;
+}
+.prdDescription .descriptionContents .htmlArea table {
+	
+}
+.prdDescription .descriptionContents figure table, 
+.prdDescription .descriptionContents .htmlArea table {
+	/* width: 0; */
+}
+/*추후에 li, dt, dd float 수정 후 삭제 예쩡 */
+.prdDescription .descriptionContents .htmlArea dd,
+.prdDescription .descriptionContents .htmlArea dt,
+.prdDescription .descriptionContents .htmlArea li   {
+	float:none;
+}
+
+.prdDescription footer {
+	overflow: hidden;
+	clear: both;
+	height: 50px;
+	line-height: 38px;
+	border-top: 1px solid #cacaca;
+	background: #f8f8f8;
+	text-align: right;
+	position:relative;
+}
+/*.prdDescription footer a {
+	display: inline-block;
+	height: 26px;
+	margin: 0 8px 0 0;
+	padding: 0 5px;
+	color: #666666;
+	font-size: 12px;
+	line-height: 26px;
+	border: 1px solid #cacaca;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}*/
+.prdDescription footer a em {
+	display: inline-block;
+	position: relative;
+	top: 1px;
+	width: 12px;
+	height: 12px;
+	margin: 0 0 0 3px;
+}
+.prdDescription footer .btnTop em {
+	background-position: -110px -40px;
+}
+.prdDescription footer .btnZoom em {
+	margin: 0 0 0 4px;
+	background-position: -125px -40px;
+}
+
+
+/* 주문과 연결되는 버튼 영역 */
+/* 버튼 크기, 칼라 */
+ .orderRelatedBtn {
+	padding: 0 1px 8px;
+}
+.orderRelatedBtn ul {
+	margin: 0 5px 0;
+}
+.orderRelatedBtn ul li {
+	float: left;
+	height: 40px;
+}
+.orderRelatedBtn:after {
+	display: block;
+	content:'';
+	clear: both;
+}
+.orderRelatedBtn a {
+	display: block;
+	width: auto;
+	height: 35px;
+	margin: 0 2px;
+	line-height: 35px;
+	color: white;
+	font-weight: bold;
+	border-radius: 0;
+	-webkit-box-shadow: 1px 2px 3px #d0d0d0;
+	-moz-box-shadow: 1px 2px 3px #d0d0d0;
+	box-shadow: 1px 2px 3px #d0d0d0;
+	text-align: center;
+	letter-spacing: -1px;
+	text-decoration: none;
+}
+.orderRelatedBtn a em {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0;
+}
+.orderRelatedBtn .call, .orderRelatedBtn .wish {
+	font-size: 0;
+	color: transparent;
+	border: 1px solid #838383;
+	background: -moz-linear-gradient(top, #8b8b8b 0%, #8c8c8c 100%);
+	background: -webkit-gradient(linear, center top, center bottom, from(#8b8b8b), to(#8c8c8c));
+	background: -webkit-linear-gradient(top, #8b8b8b 0%, #8c8c8c 100%);
+	background: -o-linear-gradient(top, #8b8b8b 0%, #8c8c8c 100%);
+	background: -ms-linear-gradient(top, #8b8b8b 0%, #8c8c8c 100%);
+}
+.orderRelatedBtn .call em {
+	width: 20px;
+	height: 19px;
+	background-position: -63px -120px;
+}
+.orderRelatedBtn .wish em {
+	width: 17px;
+	height: 19px;
+	background-position: -42px -120px;
+}
+.orderRelatedBtn .cart {
+	border: 1px solid #10939f;
+	background: -moz-linear-gradient(top, #00aebd 0%, #00aebd 100%);
+	background: -webkit-gradient(linear, center top, center bottom, from(#00aebd), to(#00aebd));
+	background: -webkit-linear-gradient(top, #00aebd 0%, #00aebd 100%);
+	background: -o-linear-gradient(top, #00aebd 0%, #00aebd 100%);
+	background: -ms-linear-gradient(top, #00aebd 0%, #00aebd 100%);
+}
+.orderRelatedBtn .cart em {
+	width: 20px;
+	height: 21px;
+	margin: 0 2px 0 0;
+	background-position: -21px -120px;
+}
+.orderRelatedBtn .cartN {
+	color: #dddddd;
+	text-shadow: 0 -1px 1px #aeb2b3;
+	border: 1px solid #adadad;
+	background: -moz-linear-gradient(top, #bdc2c3 0%, #bdc2c3 100%);
+	background: -webkit-gradient(linear, center top, center bottom, from(#bdc2c3), to(#bdc2c3));
+	background: -webkit-linear-gradient(top, #bdc2c3 0%, #bdc2c3 100%);
+	background: -o-linear-gradient(top, #bdc2c3 0%, #bdc2c3 100%);
+	background: -ms-linear-gradient(top, #bdc2c3 0%, #bdc2c3 100%);
+}
+.orderRelatedBtn .cartN em {
+	width: 20px;
+	height: 21px;
+	margin: 0 2px 0 0;
+	background-position: -84px -120px;
+}
+.orderRelatedBtn .order {
+	border: 1px solid #e62763;
+	background: -moz-linear-gradient(top, #f22867 0%, #f22867 100%);
+	background: -webkit-gradient(linear, center top, center bottom, from(#f22867), to(#f22867));
+	background: -webkit-linear-gradient(top, #f22867 0%, #f22867 100%);
+	background: -o-linear-gradient(top, #f22867 0%, #f22867 100%);
+	background: -ms-linear-gradient(top, #f22867 0%, #f22867 100%);
+}
+.orderRelatedBtn .order em {
+	width: 20px;
+	height: 19px;
+	margin: 0 2px 0 0;
+	background-position: 0 -123px;
+}
+/* 버튼 사이즈 -
+ telOrder : 전화주문
+ telIcon : 전화 아이콘
+ zzim : 찜
+ rentalConsult: 상담신청
+ */
+/*전화주문 or 상담신청*/
+.orderRelatedBtn .telOrdButtnY li {
+	width: 100%;
+}
+.orderRelatedBtn .conslReqButtnY.wishButtn li {
+	width: 100%;
+}
+
+/*전화, 찜, 장바구니, 바로주문*/
+.orderRelatedBtn .telButtnY li:nth-child(1) {
+	width: 20%;
+}
+.orderRelatedBtn .wishButtnY.telButtnY li:nth-child(2) {
+	width: 20%;
+}
+.orderRelatedBtn .basktButtnY.telButtnY li:nth-child(3) {
+	width: 30%;
+}
+.orderRelatedBtn .ordButtnY.telButtnY li:nth-child(4),
+.orderRelatedBtn .ordmadOrdButtnY.telButtnY li:nth-child(4),
+.orderRelatedBtn .rsrvOrdButtnY.telButtnY li:nth-child(4) {
+	width: 30%;
+}
+
+/*찜, 장바구니, 바로주문*/
+.orderRelatedBtn .wishButtnY.basktButtnY.telButtn li:nth-child(1) {
+	width: 24%;
+}
+.orderRelatedBtn .wishButtnY.basktButtnY.telButtn li:nth-child(2) {
+	width: 38%;
+}
+.orderRelatedBtn .wishButtnY.basktButtnY.ordButtnY.telButtn li:nth-child(3),
+.orderRelatedBtn .ordmadOrdButtnY.telButtn li:nth-child(3),
+.orderRelatedBtn .rsrvOrdButtnY.telButtn li:nth-child(3) {
+	width: 38%;
+}
+
+/*찜, 상담신청*/
+.orderRelatedBtn .wishButtnY.basktButtn.telButtn li:nth-child(1) {
+	width: 30%;
+}   
+.orderRelatedBtn .conslReqButtnY li:nth-child(2) {
+	width: 70%;
+}
+
+/*장바구니, 바로주문*/
+.orderRelatedBtn .basktButtnY.wishButtn.telButtn li:nth-child(1) {
+	width: 50%;
+}
+.orderRelatedBtn .basktButtnY.wishButtn.ordButtnY li:nth-child(2),
+.orderRelatedBtn .basktButtnY.wishButtn.ordmadOrdButtnY li:nth-child(2),
+.orderRelatedBtn .basktButtnY.wishButtn.rsrvOrdButtnY li:nth-child(2) {
+	width: 50%;
+}
+
+
+
+.soldoutBtn {
+	clear: both;
+	position: relative;
+	width: 100%;
+	margin: -9px auto 0;
+	background: #ebebeb;
+	border-top: 1px solid #b4b4b4;
+	height: auto;
+}
+.soldoutBtn p {
+	position: relative;
+	display: block;
+	margin: 10px 8px;
+	height: 35px;
+	line-height: 35px;
+	border-radius: 0;
+	text-align: center;
+	background: #bbbbbb;
+	-webkit-box-shadow: #d6d6d6 1px 2px 3px;
+	-moz-box-shadow: #d6d6d6 1px 2px 3px;
+	box-shadow: #d6d6d6 1px 2px 3px;
+}
+.soldoutBtn p b {
+	color: white;
+}
+.soldoutBtn .soldout {
+	border: solid 1px #a3a3a3;
+	background: #bbbbbb;
+}
+.soldoutBtn .soldout b {
+	text-shadow: 0 -1 px 1px #b5b5b5;
+}
+.soldoutBtn .other {
+	border: solid 1px #838383;
+	background: #8c8c8c;
+}
+.soldoutBtn .other b {
+	text-shadow: 0 -1px 1px #828282;
+}
+.soldoutBtn .onlyEventBtn {
+	position: relative;
+	padding: 8px;
+	margin: 0;
+	height: auto;
+	line-height: 19px;
+	text-align: left;
+	background: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	z-index: 100;
+}
+.soldoutBtn .onlyEventBtn b {
+	color: #222222;
+}
+.orderRelatedWrap {
+	margin: 0;
+	/*padding: 8px 0 0 0;*/
+	/* 수량 계산하는 영역*/
+}
+.orderRelatedWrap .optionWrap {
+	/* margin: 0 0 5px 0; */
+}
+.orderRelatedWrap .selectedOption {
+	margin: 0 0 5px;
+	font-size: 14px;
+	display: none;
+}
+.orderRelatedWrap .selectedOption ul {
+	display: none;
+	margin: -1px 8px 0;
+	background: #f7f7f7;
+	border: 1px solid #cacaca;
+}
+.orderRelatedWrap .selectedOption ul:after {
+	display: block;
+	content:'';
+	clear: both;
+}
+.orderRelatedWrap .selectedOption ul li {
+	position: relative;
+	float: left;
+	overflow: hidden;
+	width: 100%;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.orderRelatedWrap .selectedOption ul li:last-child {
+	border-bottom: none;
+}
+.orderRelatedWrap .selectedOption ul li .listWrap {
+	clear: both;
+	padding:10px;
+}
+.orderRelatedWrap .selectedOption ul li .listWrap .numEdit {
+	display: inline-block;
+	position: relative;
+	left: 0;
+	width: 140px;
+	text-align: left;
+}
+.orderRelatedWrap .selectedOption ul li .listWrap .numEdit .btnPlus {
+	right: -1px;
+	background:url(../../img/btn_plus.png) no-repeat 0 0;
+	background-size:34px;
+}
+.orderRelatedWrap .selectedOption ul li .listWrap .numEdit .btnPlus span{
+	font-size:0;
+	display:none
+}
+
+.orderRelatedWrap .selectedOption ul li .listWrap .selOptPriceWrap {
+	float: right;
+	height: 31px;
+	text-align: right;
+	line-height: 31px;
+	font-size: 13px;
+	color: #00aebd;
+}
+.orderRelatedWrap .selectedOption ul li .listWrap .selOptPriceWrap .selOptPrice {
+	display: inline-block;
+	padding: 0 2px 0 0;
+	font-size: 18px;
+	font-weight: bold;
+}
+.orderRelatedWrap .selectedPrd {
+	display: block;
+	line-height: 16px;
+	margin: 0 20px 5px 0;
+	text-align: left;
+}
+.orderRelatedWrap .selectedPrd u {
+	color: #6a969a;
+	padding: 0 5px 0 0;
+}
+.orderRelatedWrap .numEdit {
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 140px;
+	text-align: right;
+}
+.orderRelatedWrap .numEdit fieldset {
+	display: inline-block;
+	position: relative;
+	padding: 0;
+	margin: 0;
+	border: none;
+	text-align: center;
+}
+.orderRelatedWrap .numEdit fieldset legend {
+	display: none;
+}
+.orderRelatedWrap .numEdit fieldset .btn {
+	display: inline-block;
+	position: absolute;
+	bottom: 0;
+	width: 35px;
+	height: 32px;
+	line-height: 30px;
+	background: #f7f7f7;
+	border: solid 1px #cacaca;
+	text-align: center;
+}
+.orderRelatedWrap .numEdit fieldset .btn span {
+	display: block;
+	height: 30px;
+	font-weight: normal;
+	font-size: 26px;
+	color: #848484;
+	line-height: 30px;
+	text-shadow: 0 1px 1px white;
+	text-align: center;
+}
+.orderRelatedWrap .numEdit fieldset .btnMinus {
+	/*left: 0;*/
+	background:url(../../img/btn_minor.png) no-repeat 0 0;
+	background-size:34px 30px;
+	font-size:0;
+}
+
+.orderRelatedWrap .numEdit fieldset .btnMinus span{
+	font-size:0;
+	display:none
+	}
+
+.orderRelatedWrap .numEdit fieldset .btnPlus {
+	right: 0;
+	background:url(../../img/btn_plus.png) no-repeat 0 0;
+	background-size:34px 30px;
+	font-size:0;
+}
+
+.orderRelatedWrap .numEdit fieldset .btnPlus span{
+		display:none
+}
+
+.orderRelatedWrap .numEdit fieldset input {
+	width: 99%;
+	height: 30px;
+	color: #222222;
+	text-align: center;
+	text-indent: 1px;
+	background: white;
+	border: solid 1px #cacaca;
+}
+.orderRelatedWrap .reset {
+	display: inline-block;
+	position: absolute;
+	top: 5px;
+	right: 4px;
+	width: 30px;
+	height: 30px;
+	padding: 0;
+	text-align: center;
+	border: none;
+	background: none;
+}
+.orderRelatedWrap .reset .delete {
+	display: inline-block;
+	overflow: hidden;
+	width: 31px;
+	height: 31px;
+	font-size: 0;
+	direction: ltr;
+	text-indent: -9999px;
+	background: url('http://image.gsshop.com/mobile/mc/images/float_exbtn02.png') no-repeat 50% 50%;
+	background-size: 19px auto;
+	-webkit-background-size: 19px auto;
+	vertical-align: middle;
+}
+.orderRelatedWrap .giftChk, .orderRelatedWrap .giftChkNN, .orderRelatedWrap .attrGftArea {
+	display: none;
+}
+.orderRelatedWrap .gift {
+	/* position: relative; */
+	overflow: hidden;
+	clear: both;
+	margin: 0 8px 8px;
+	padding: 8px;
+	border: 1px solid #e5e5e5;
+	background: white;
+	z-index: 100;
+}
+.orderRelatedWrap .gift:after {
+	display: block;
+	content:'';
+	clear: both;
+}
+.orderRelatedWrap .gift dl {
+	clear: both;
+	width: 100%;
+}
+.orderRelatedWrap .gift dl dt {
+	float: left;
+	width: 70px;
+	height: 22px;
+	padding: 0;
+	color: #393c3c;
+	font-weight: bold;
+	text-align: left;
+	line-height: 22px;
+	letter-spacing: -1px;
+}
+.orderRelatedWrap .gift dl dd {
+	float: none;
+	margin: 0 0 0 71px;
+	padding: 0 3px 0 0;
+	color: #222222;
+	text-align: left;
+}
+.orderRelatedWrap .gift dl dd input[type=checkbox] {
+	margin: 0 5px 0 0;
+}
+.orderRelatedWrap .gift dl dd p {
+	padding: 2px 0 0 0;
+	color: #393c3c;
+}
+.total {
+	display: none;
+	clear: both;
+	overflow: hidden;
+	margin: -2px 8px 0;
+	padding: 0px 10px;
+	border: 1px solid #cacaca;
+	background: white;
+}
+
+/*상담신청, 휴대폰상품 bar*/
+.newTotal{
+	padding: 6px 10px 7px 8px;
+	height:40px
+}
+
+.total .eachPrice {
+	display: block;
+	padding: 0 0 5px 10px;
+	font-size: 12px;
+	font-weight: normal;
+	text-align: left;
+	color: #acacac;
+}
+.total b {
+	float: left;
+	clear: both;
+	font-size: 13px;
+	font-weight: normal;
+	color: #00aebd;
+}
+.total .totalPriceWrap {
+	float: right;
+	text-align: right;
+	font-size: 14px;
+	color: #00aebd;
+}
+.total .totalPriceWrap .totalPrice {
+	display: inline-block;
+	padding: 0 1px 0 0;
+	font-size: 20px;
+	font-weight: bold;
+	vertical-align: bottom;
+}
+.total .totalPriceWrap .won {
+	display: inline-block;
+	font-size: 13px;
+	line-height: 18px;
+	text-align: right;
+}
+/* toggle과 관련된 영역 */
+ .productInfoToggle:last-child .toggleClose,
+ .productInfoToggle:last-child .toggleContent {
+	border-bottom: none;
+}
+.toggleClose {
+	background: white;
+	border-bottom: 1px solid #efefef;
+}
+.toggleClose .arrowDown {
+	position: absolute;
+	right: 15px;
+	top: 50%;
+	width: 13px;
+	height: 9px;
+	margin: -4px 0 0;
+	background-position: -130px -75px;
+}
+.toggleOpen {
+	background: white;
+}
+.toggleOpen .arrowUp {
+	position: absolute;
+	right: 15px;
+	top: 50%;
+	width: 13px;
+	height: 9px;
+	margin: -4px 0 0;
+	background-position: -110px -75px;
+}
+/* 브랜드추천상품/추천기획전 */
+ .jointInformationWrap {
+	overflow: hidden;
+	clear: both;
+}
+.brandRecommandWrap, .recommandEventWrap, .dittoWrap {
+	overflow: hidden;
+	clear: both;
+	margin: 8px;
+	padding: 10px;
+	border: 1px solid #cbcbcb;
+	/*-moz-box-shadow: 0 1px 3px #d2d2d2;
+	-webkit-box-shadow: 0 1px 3px #d2d2d2;
+	box-shadow: 0 1px 3px #d2d2d2;*/
+	background: white;
+}
+.brandRecommandWrap header, .recommandEventWrap header, .dittoWrap header {
+	position: relative;
+	margin-bottom: 10px;
+	padding: 0 0 10px;
+	border-bottom: 1px solid #e5e5e5;
+}
+.brandRecommandWrap header .title, .recommandEventWrap header .title, .dittoWrap header .title {
+	font-weight: normal;
+}
+.brandRecommandWrap header .title .dittoLogo, .recommandEventWrap header .title .dittoLogo, .dittoWrap header .title .dittoLogo {
+	display: inline-block;
+	width: 39px;
+	height: 18px;
+	margin: 0 3px 0 0;
+	vertical-align: -4px;
+	background: url(http://image.gsshop.com/mobile/mc/images/ditto/img_ditto_logo.png) 0 -33px no-repeat;
+	background-size: 40px;
+}
+.brandRecommandWrap header .btnGo, .recommandEventWrap header .btnGo, .dittoWrap header .btnGo {
+	position: absolute;
+	top: -10px;
+	right: -10px;
+	padding: 10px;
+	font-size: 12px;
+	color: #999999;
+}
+.brandRecommandWrap header .btnGo em, .recommandEventWrap header .btnGo em, .dittoWrap header .btnGo em {
+	display: inline-block;
+	width: 11px;
+	height: 11px;
+	background-position: -139px -55px;
+	vertical-align: -1px;
+}
+.brandRecommandWrap header .btnrecopickRcmd, .brandRecommandWrap header .btngsRcmd, .recommandEventWrap header .btnrecopickRcmd, .recommandEventWrap header .btngsRcmd, .dittoWrap header .btnrecopickRcmd, .dittoWrap header .btngsRcmd {
+	display: none;
+}
+.brandRecommandWrap header .btnbrandRcmd, .recommandEventWrap header .btnbrandRcmd, .dittoWrap header .btnbrandRcmd {
+	display: inline-block;
+}
+.brandRecommandWrap ul, .recommandEventWrap ul, .dittoWrap ul {
+	overflow: hidden;
+	margin: 0;
+}
+.brandRecommandWrap ul li, .recommandEventWrap ul li, .dittoWrap ul li {
+	float: left;
+	width: 25%;
+}
+.brandRecommandWrap ul li a, .recommandEventWrap ul li a, .dittoWrap ul li a {
+	text-decoration: none;
+}
+.brandRecommandWrap ul li a figure, .recommandEventWrap ul li a figure, .dittoWrap ul li a figure {
+	width: 63px;
+	height: 63px;
+	margin: 0 auto 3px;
+	border: 1px solid #f2f2f2;
+}
+.brandRecommandWrap ul li a figure img, .recommandEventWrap ul li a figure img, .dittoWrap ul li a figure img {
+	width: 100%;
+	height: auto;
+}
+.brandRecommandWrap ul li a p, .recommandEventWrap ul li a p, .dittoWrap ul li a p {
+	height: 19px;
+	color: #999999;
+	font-size: 11px;
+	text-align: center;
+}
+.brandRecommandWrap ul li a p b, .recommandEventWrap ul li a p b, .dittoWrap ul li a p b {
+	font-size: 13px;
+}
+.brandRecommandWrap ul li a .eventTitle, .recommandEventWrap ul li a .eventTitle, .dittoWrap ul li a .eventTitle {
+	width: 64px;
+	margin: 0 auto;
+	padding: 5px 0 0;
+	color: #777777;
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+.brandRecommandWrap .dividThree, .recommandEventWrap .dividThree, .dittoWrap .dividThree {
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+}
+.brandRecommandWrap .dividThree li, .recommandEventWrap .dividThree li, .dittoWrap .dividThree li {
+	float: left;
+	width: 30%;
+	margin: 0 5% 0 0;
+	text-align: center;
+}
+.brandRecommandWrap .dividThree li:last-child, .recommandEventWrap .dividThree li:last-child, .dittoWrap .dividThree li:last-child {
+	margin: 0;
+}
+.brandRecommandWrap .recommandList, .recommandEventWrap .recommandList, .dittoWrap .recommandList {
+	margin: 0;
+}
+.brandRecommandWrap .recommandList li, .recommandEventWrap .recommandList li, .dittoWrap .recommandList li {
+	width: 100%;
+	border-top: 1px solid #efefef;
+}
+.brandRecommandWrap .recommandList li:last-child, .recommandEventWrap .recommandList li:last-child, .dittoWrap .recommandList li:last-child {
+	border-bottom: none;
+}
+.brandRecommandWrap .recommandList li:first-child, .recommandEventWrap .recommandList li:first-child, .dittoWrap .recommandList li:first-child {
+	border-top: none;
+}
+.brandRecommandWrap .recommandList li:first-child a, .recommandEventWrap .recommandList li:first-child a, .dittoWrap .recommandList li:first-child a {
+	padding: 0 0 10px 0;
+}
+.brandRecommandWrap .recommandList li a, .recommandEventWrap .recommandList li a, .dittoWrap .recommandList li a {
+	display: block;
+	padding: 10px 0;
+	text-align: left;
+}
+.brandRecommandWrap .recommandList li a .title, .recommandEventWrap .recommandList li a .title, .dittoWrap .recommandList li a .title {
+	font-weight: normal;
+	color: #393c3c;
+}
+.brandRecommandWrap .recommandList li a p, .recommandEventWrap .recommandList li a p, .dittoWrap .recommandList li a p {
+	height: auto;
+	padding: 2px 0 0;
+	font-size: 12px;
+	color: #999999;
+	text-align: left;
+}
+/**********************************************/
+
+/* SMS 공유 영역  */
+ .shareSMSWrap .prodBox {
+	padding: 20px 10px;
+	min-height: 140px;
+}
+.guideText {
+	padding: 20px 10px 10px;
+	color: #777777;
+}
+/**********************************************/
+
+
+/* 상세보기 영역  */
+ .descHeader {
+	position: fixed;
+	width: 100%;
+	left: 0;
+	top: 0;
+	background: #e4e4e4;
+	z-index: 100;
+}
+.descHeader .headLine {
+	position: relative;
+	border-bottom: solid 1px #82b000;
+	-webkit-box-shadow: 0 1px 3px #d4d4d4;
+	-moz-box-shadow: 0 1px 3px #d4d4d4;
+	box-shadow: 0 1px 3px #d4d4d4;
+}
+.descHeader .headLine .lineBottom {
+	border-bottom: solid 2px #a4dd00;
+}
+.descHeader .headLine .titleBlock {
+	position: relative;
+	width: 100%;
+	height: 43px;
+	padding: 0;
+	text-align: center;
+	line-height: 43px;
+	font-size: 18px;
+	font-weight: bold;
+	color: #222222;
+	border-top: solid 1px white;
+	border-bottom: solid 1px white;
+	background: -moz-linear-gradient(top, #ffffff 0%, #f7f7f7 100%);
+	background: -webkit-gradient(linear, center top, center bottom, from(#ffffff), to(#f7f7f7));
+	background: -webkit-linear-gradient(top, #ffffff 0%, #f7f7f7 100%);
+	background: -o-linear-gradient(top, #ffffff 0%, #f7f7f7 100%);
+	background: -ms-linear-gradient(top, #ffffff 0%, #f7f7f7 100%);
+}
+.descHeader .headLine .titleBlock b {
+	display: block;
+	overflow: hidden;
+	margin: 0 55px;
+	height: 43px;
+	font-size: 18px;
+	line-height: 43px;
+}
+.descHeader .headLine .titleBlock .btnBack {
+	display: block;
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	width: 42px;
+	height: 30px;
+	border: solid 1px #dadada;
+	border-radius: 3px;
+	-webkit-box-shadow: 1px 1px white;
+	-moz-box-shadow: 1px 1px white;
+	box-shadow: 1px 1px white;
+	background: -moz-linear-gradient(left top, #fefefe 0%, #f4f4f4 100%);
+	background: -webkit-gradient(linear, left top, right bottom, from(#fefefe), to(#f4f4f4));
+	background: -webkit-linear-gradient(left top, #fefefe 0%, #f4f4f4 100%);
+	background: -o-linear-gradient(left top, #fefefe 0%, #f4f4f4 100%);
+	background: -ms-linear-gradient(left top, #fefefe 0%, #f4f4f4 100%);
+}
+.descHeader .headLine .titleBlock .btnBack span {
+	display: inline-block;
+	position: relative;
+	top: -5px;
+	left: -1px;
+	width: 24px;
+	height: 19px;
+	background: url('http://image.gsshop.com/mobile/mc/images/common/btn_back.png') 0 0 no-repeat;
+	background-size: 24px 19px;
+}
+/* 상품설명 - 단독화면 */
+ .contentShadow {
+	background: white;
+	border-bottom: 1px solid #bcbcbc;
+	-webkit-box-shadow: 0 0 3px #d1d1d1;
+	-moz-box-shadow: 0 0 3px #d1d1d1;
+	box-shadow: 0 0 3px #d1d1d1;
+}
+.contentShadow .prdDetailWrap {
+	/*padding: 100px 20px 100px 20px;*/
+	text-align: left;
+	background: white;
+}
+.contentShadow .prdDetailWrap.app{padding:70px 0 0 0}
+.contentShadow .prdDetailWrap.web{padding:20px 0 0 0}
+
+.contentShadow .prdDetailWrap:after {
+	display:block;
+	clear:both;
+	content:'';
+	padding:0 20px;
+}
+
+.contentShadow .prdDetailWrap .contentWrap {
+	background:#fff;
+}
+
+.productDescriptionTop{margin-top:20px}
+.productDescription p img{width:100%}
+
+/*상담신청 완료*/
+.completeMsg {
+	padding: 86px 0 0;
+	background: #e4e4e4 url('http://image.gsshop.com/mobile/mc/images/common/bg_payby_cash.png') no-repeat center 20px;
+	background-size: 66px auto;
+}
+.completeMsg p.order_num{
+	padding-top:10px;
+	padding-bottom:35px;
+	font-size:14px;
+	font-weight:bold;
+	color:#4d5454;
+	text-align:center;
+	text-shadow: 0 1px 1px white;
+}
+.completeMsg p.nonmem_order_note{
+	margin:-35px 0 0;
+	font-size:13px;
+	font-weight:bold;
+	color:#ce0c47;
+	text-align:center;
+	text-shadow: 0 1px 1px white;
+}
+.completeMsg .message {
+	text-align: center;
+	line-height: 20px;
+	font-size: 16px;
+	color: #959899;
+	text-shadow: 0 1px 1px white;
+}
+.completeMsg .message b {
+	color: #444646;
+}
+.completeMsg .btn {
+	margin: 35px 0 0 0;
+	padding: 15px 0;
+	text-align: center;
+	background: #f2f2f2;
+	border: none;
+	-webkit-box-shadow: 0 1px 3px #d5d5d5, 0 -1px 3px #d5d5d5;
+	-moz-box-shadow: 0 1px 3px #d5d5d5, 0 -1px 3px #d5d5d5;
+	box-shadow: 0 1px 3px #d5d5d5, 0 -1px 3px #d5d5d5;
+}
+.completeMsg .btn button {
+	display: inline-block;
+	height: 35px;
+	line-height: 35px;
+	padding: 0 13px;
+	text-align: center;
+}
+.completeMsg .btn a {
+	display: inline-block;
+	height: 33px;
+	line-height: 33px;
+	padding: 0 13px;
+	text-align: center;
+}
+.btnLayer {
+	overflow: hidden;
+	position: fixed;
+	width: 100%;
+	left: 0;
+	bottom: 0;
+	z-index: 999;
+}
+.btnLayer .btnBack {
+	float: left;
+}
+.btnLayer .btnTop {
+	float: right;
+}
+.btnLayer .btnTop a {
+	display: block;
+	padding: 10px;
+}
+.btnLayer .btnTop a span {
+	display: inline-block;
+	width: 41px;
+	height: 41px;
+	color: transparent;
+	background: url("../images/btn_top.png") no-repeat;
+	-webkit-background-size: 41px;
+	background-size: 41px;
+}
+/**********************************************/
+
+/* 상담신청 영역  */
+ .reciever .info dl {
+	overflow: visible;
+}
+.applicants .info dl, .rentalPrdOrderInfo .info dl {
+	overflow: hidden;
+}
+.applicants .title, .reciever .title, .rentalPrdOrderInfo .title {
+	position: relative;
+	height: 30px;
+	padding: 0 0 0 10px;
+	line-height: 30px;
+	background: #f0f0f0;
+	border-top: 1px solid #d4d4d4;
+	border-bottom: 1px solid #dbdbdb;
+	color: #8c9192;
+	text-shadow: 0 1px 1px white;
+}
+.applicants .info, .reciever .info, .rentalPrdOrderInfo .info {
+	border-bottom: none;
+	background: white;
+	/*비회원주문정보수집동의*/
+}
+.applicants .info:after, .reciever .info:after, .rentalPrdOrderInfo .info:after {
+	display: block;
+	content:'';
+	clear: both;
+}
+.applicants .info .orderAgree, .reciever .info .orderAgree, .rentalPrdOrderInfo .info .orderAgree {
+	margin: 0 0 15px;
+	border: 1px solid #cbcbcb;
+	border-radius: 3px;
+	background: #f6f6f6;
+}
+.applicants .info .orderAgree header, .reciever .info .orderAgree header, .rentalPrdOrderInfo .info .orderAgree header {
+	padding: 6px 0 5px 12px;
+	color: #555555;
+	border-bottom: 1px solid #e6e6e6;
+	font-weight: bold;
+}
+.applicants .info .orderAgree .msgContent, .reciever .info .orderAgree .msgContent, .rentalPrdOrderInfo .info .orderAgree .msgContent {
+	padding: 10px;
+	color: #777777;
+	font-size: 13px;
+}
+.applicants .info .orderAgree .msgContent .agreeChk:after, .reciever .info .orderAgree .msgContent .agreeChk:after, .rentalPrdOrderInfo .info .orderAgree .msgContent .agreeChk:after {
+	display: block;
+	clear: both;
+	content:'';
+}
+.applicants .info .orderAgree .msgContent .agreeChk input[type="checkbox"], .reciever .info .orderAgree .msgContent .agreeChk input[type="checkbox"], .rentalPrdOrderInfo .info .orderAgree .msgContent .agreeChk input[type="checkbox"] {
+	display: none;
+	position: absolute;
+	left: 20px;
+	width: 20px;
+	height: 20px;
+}
+.applicants .info .orderAgree .msgContent .agreeChk input[type="checkbox"]:checked + label em, .reciever .info .orderAgree .msgContent .agreeChk input[type="checkbox"]:checked + label em, .rentalPrdOrderInfo .info .orderAgree .msgContent .agreeChk input[type="checkbox"]:checked + label em {
+	border:solid 1px #bbb;
+	box-shadow:inset 1px 1px 1px #d4d4d4, 0 2px 2px #fff;
+	-webkit-box-shadow:inset 1px 1px 1px #d4d4d4, 0 2px 2px #fff;
+	background:#fff url('http://image.gsshop.com/mobile/mc/images/common/ico_common_form.png') no-repeat 3px -26px;
+	-webkit-background-size:100px auto;
+	background-size:100px auto;
+}
+.applicants .info .orderAgree .msgContent .agreeChk label em, .reciever .info .orderAgree .msgContent .agreeChk label em, .rentalPrdOrderInfo .info .orderAgree .msgContent .agreeChk label em {
+	display: block;
+	float: left;
+}
+.applicants .info .orderAgree .msgContent .agreeChk label .agreeTxt, .reciever .info .orderAgree .msgContent .agreeChk label .agreeTxt, .rentalPrdOrderInfo .info .orderAgree .msgContent .agreeChk label .agreeTxt {
+	margin: 0 0 0 35px;
+	padding: 3px 0 0;
+	font-size: 13px;
+	line-height: 16px;
+}
+.applicants .info .orderAgree .msgContent .agreeChk label .agreeTxt .btn_txt04, .reciever .info .orderAgree .msgContent .agreeChk label .agreeTxt .btn_txt04, .rentalPrdOrderInfo .info .orderAgree .msgContent .agreeChk label .agreeTxt .btn_txt04 {
+	padding: 1px 5px;
+	font-size: 12px;
+	color: #333333;
+	-moz-box-shadow: #fcfcfc 0 1px 0;
+	-webkit-box-shadow: #fcfcfc 0 1px 0;
+	box-shadow: #fcfcfc 0 1px 0;
+}
+.applicants .info .orderAgree .noMsgMore, .reciever .info .orderAgree .noMsgMore, .rentalPrdOrderInfo .info .orderAgree .noMsgMore {
+	padding: 10px 12px;
+	font-size: 12px;
+	color: #999999;
+}
+.applicants .info .orderAgree .noMsgMore:after, .reciever .info .orderAgree .noMsgMore:after, .rentalPrdOrderInfo .info .orderAgree .noMsgMore:after {
+	display: block;
+	content:'';
+	clear: both;
+}
+.applicants .info .orderAgree .noMsgMore p, .reciever .info .orderAgree .noMsgMore p, .rentalPrdOrderInfo .info .orderAgree .noMsgMore p {
+	margin: 0 0 5px;
+}
+.applicants .info .orderAgree .noMsgMore li, .reciever .info .orderAgree .noMsgMore li, .rentalPrdOrderInfo .info .orderAgree .noMsgMore li {
+	margin: 0 0 6px 6px;
+	line-height: 15px;
+}
+.applicants .info .orderAgree .noMsgMore li strong, .reciever .info .orderAgree .noMsgMore li strong, .rentalPrdOrderInfo .info .orderAgree .noMsgMore li strong {
+	font-weight: normal;
+	color: #222222;
+}
+.applicants .info .orderAgree .noMsgMore li .icon, .reciever .info .orderAgree .noMsgMore li .icon, .rentalPrdOrderInfo .info .orderAgree .noMsgMore li .icon {
+	position: absolute;
+	left: 24px;
+	width: 8px;
+	height: 4px;
+	margin: 5px 4px 0 0;
+	background-position: -45px 0;
+}
+.applicants .info dl, .reciever .info dl, .rentalPrdOrderInfo .info dl {
+	width: 100%;
+	padding: 0 0 5px;
+}
+.applicants .info dl dt, .reciever .info dl dt, .rentalPrdOrderInfo .info dl dt {
+	float: left;
+	padding: 4px 0 0;
+	color: #222222;
+}
+.applicants .info dl dd, .reciever .info dl dd, .rentalPrdOrderInfo .info dl dd {
+	float: none;
+	position: relative;
+	margin-left: 75px;
+	color: #222222;
+}
+.applicants .info dl dd .inputEditTxt, .reciever .info dl dd .inputEditTxt, .rentalPrdOrderInfo .info dl dd .inputEditTxt {
+	width: 108px;
+	height: 25px;
+	text-indent: 1px;
+	border-bottom: 1px solid #e4e4e4;
+}
+.applicants .info dl dd .inputEditTxt:focus, .reciever .info dl dd .inputEditTxt:focus, .rentalPrdOrderInfo .info dl dd .inputEditTxt:focus {
+	border-bottom: 1px solid #a4dd00;
+}
+.applicants .info dl dd .inputEditTxtWrap, .reciever .info dl dd .inputEditTxtWrap, .rentalPrdOrderInfo .info dl dd .inputEditTxtWrap {
+	display: inline-block;
+	height: 25px;
+	padding: 0 6px;
+	color: #acacac;
+	font-weight: bold;
+	font-size: 12px;
+	line-height: 25px;
+	border-radius: 2px;
+	border: 1px solid #d7d7d7;
+	background: #f9f9f9;
+}
+.applicants .info dl dd .inputEditTxtWrap .inputEditTxt, .reciever .info dl dd .inputEditTxtWrap .inputEditTxt, .rentalPrdOrderInfo .info dl dd .inputEditTxtWrap .inputEditTxt {
+	width: 108px;
+	height: 25px;
+	text-indent: 1px;
+	border-bottom: none;
+	background: none;
+}
+.applicants .info dl dd .inputEditTxtWrap .inputEditTxt:focus, .reciever .info dl dd .inputEditTxtWrap .inputEditTxt:focus, .rentalPrdOrderInfo .info dl dd .inputEditTxtWrap .inputEditTxt:focus {
+	border-bottom: none;
+	color: #222222;
+}
+.applicants .info dl dd .reciever, .reciever .info dl dd .reciever, .rentalPrdOrderInfo .info dl dd .reciever {
+	font-weight: bold;
+}
+.applicants .info dl dd .recieveAddr, .reciever .info dl dd .recieveAddr, .rentalPrdOrderInfo .info dl dd .recieveAddr {
+	width: 100%;
+}
+.applicants .info dl dd .selectWrap, .reciever .info dl dd .selectWrap, .rentalPrdOrderInfo .info dl dd .selectWrap {
+	display: inline-block;
+}
+.applicants .info dl dd select, .reciever .info dl dd select, .rentalPrdOrderInfo .info dl dd select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	cursor: default;
+}
+.applicants .info dl dd .selectStyle, .reciever .info dl dd .selectStyle, .rentalPrdOrderInfo .info dl dd .selectStyle {
+	display: inline-block;
+	height: 30px;
+	margin: 0;
+	padding: 5px 15px 5px 5px;
+	font-size: 12px;
+	color: #373e40;
+	-webkit-box-shadow: inset 0 0 3px #e4e4e4, 0 1px 0 #eeeeee;
+	-moz-box-shadow: inset 0 0 3px #e4e4e4, 0 1px 0 #eeeeee;
+	box-shadow: inset 0 0 3px #e4e4e4, 0 1px 0 #eeeeee;
+	border: 1px solid #bbbbbb;
+	border-radius: 3px;
+	background-position: 98% -55px;
+}
+.applicants .info dl dd .btn_txt06, .reciever .info dl dd .btn_txt06, .rentalPrdOrderInfo .info dl dd .btn_txt06 {
+	height: 27px;
+}
+.applicants .info dl dd .btn_txt06 span, .reciever .info dl dd .btn_txt06 span, .rentalPrdOrderInfo .info dl dd .btn_txt06 span {
+	display: block;
+	font-size: 12px;
+	color: #4d5454;
+	line-height: 25px;
+	text-shadow: 0 1px 2px white;
+}
+.applicants .info dl dd .order_edit_btn02, .reciever .info dl dd .order_edit_btn02, .rentalPrdOrderInfo .info dl dd .order_edit_btn02 {
+	margin: 0 4px 0 0;
+}
+.applicants .info dl dd .btnTxt07, .reciever .info dl dd .btnTxt07, .rentalPrdOrderInfo .info dl dd .btnTxt07 {
+	position: absolute;
+	right: 0;
+	top: -4px;
+	display: inline-block;
+	height: 27px;
+	line-height: 25px;
+	padding: 0;
+	border: 1px solid #afafaf;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	background: #f9f9f9;
+	-webkit-box-shadow: inset 0 -8px 10px #f1f1f1;
+	-moz-box-shadow: inset 0 -8px 10px #f1f1f1;
+	box-shadow: inset 0 -8px 10px #f1f1f1;
+}
+.applicants .info dl dd .btnTxt07 span, .reciever .info dl dd .btnTxt07 span, .rentalPrdOrderInfo .info dl dd .btnTxt07 span {
+	display: inline-block;
+	margin: 0 20px 0 6px;
+	font-size: 12px;
+	color: #4d5454;
+	text-shadow: 0 1px 2px white;
+}
+.applicants .info dl dd .btnTxt07 em, .reciever .info dl dd .btnTxt07 em, .rentalPrdOrderInfo .info dl dd .btnTxt07 em {
+	display: inline-block;
+	position: absolute;
+	top: 8px;
+	right: 5px;
+	width: 13px;
+	height: 7px;
+	margin-left: 5px;
+	vertical-align: 1px;
+	background-position: -13px 0;
+}
+.applicants .info dl dd .open em, .reciever .info dl dd .open em, .rentalPrdOrderInfo .info dl dd .open em {
+	background-position: 0 0;
+}
+.applicants .info dl dd .btnWrap, .reciever .info dl dd .btnWrap, .rentalPrdOrderInfo .info dl dd .btnWrap {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.applicants .info dl dd .btnWrap .btn_add_frame, .reciever .info dl dd .btnWrap .btn_add_frame, .rentalPrdOrderInfo .info dl dd .btnWrap .btn_add_frame {
+	display: none;
+	position: relative;
+	width: auto;
+	height: 27px;
+	padding: 2px 20px 0 5px;
+	color: #4d5454;
+	font-size: 13px;
+	text-shadow: 0 1px 1px white;
+	text-align: center;
+	line-height: 20px;
+}
+.applicants .info dl dd .btnWrap .btn_add_frame em, .reciever .info dl dd .btnWrap .btn_add_frame em, .rentalPrdOrderInfo .info dl dd .btnWrap .btn_add_frame em {
+	display: block;
+	position: absolute;
+	top: 10px;
+	right: 5px;
+	width: 13px;
+	height: 7px;
+	background-position: 0 -8px;
+}
+.applicants .info dl dd .btnWrap .btn_add_frame .close, .reciever .info dl dd .btnWrap .btn_add_frame .close, .rentalPrdOrderInfo .info dl dd .btnWrap .btn_add_frame .close {
+	background-position: 0 0;
+}
+.applicants .info dl dd .textareaWrap, .reciever .info dl dd .textareaWrap, .rentalPrdOrderInfo .info dl dd .textareaWrap {
+	width: 100%;
+	padding: 10px 0;
+}
+.applicants .info dl dd .textareaWrap textarea, .reciever .info dl dd .textareaWrap textarea, .rentalPrdOrderInfo .info dl dd .textareaWrap textarea {
+	display: block;
+	width: 95%;
+	height: 50px;
+	padding: 5px;
+	font-size: 13px;
+	color: #777777;
+	background: white;
+	border: solid 1px #d0d0d0;
+	border-radius: 3px;
+	-webkit-box-shadow: inset 2px 2px 2px 0 gainsboro;
+	-moz-box-shadow: inset 2px 2px 2px 0 gainsboro;
+	box-shadow: inset 2px 2px 2px 0 gainsboro;
+}
+.applicants .info dl dd .textareaWrap textarea:focus, .reciever .info dl dd .textareaWrap textarea:focus, .rentalPrdOrderInfo .info dl dd .textareaWrap textarea:focus {
+	color: #222222;
+}
+.applicants .info dl dd .textareaWrap textarea::-webkit-input-placeholder, .reciever .info dl dd .textareaWrap textarea::-webkit-input-placeholder, .rentalPrdOrderInfo .info dl dd .textareaWrap textarea::-webkit-input-placeholder {
+	color: #777777;
+}
+.applicants .info dl dd .textareaWrap textarea:-moz-placeholder, .reciever .info dl dd .textareaWrap textarea:-moz-placeholder, .rentalPrdOrderInfo .info dl dd .textareaWrap textarea:-moz-placeholder {
+	color: #777777;
+}
+.applicants .info dl dd .textareaWrap textarea::-moz-placeholder, .reciever .info dl dd .textareaWrap textarea::-moz-placeholder, .rentalPrdOrderInfo .info dl dd .textareaWrap textarea::-moz-placeholder {
+	color: #777777;
+}
+.applicants .info dl dd .textareaWrap textarea:-ms-input-placeholder, .reciever .info dl dd .textareaWrap textarea:-ms-input-placeholder, .rentalPrdOrderInfo .info dl dd .textareaWrap textarea:-ms-input-placeholder {
+	color: #777777;
+}
+.reciever .addresslistBox {
+	overflow: hidden;
+	margin: 0 0 3px 0;
+	border: 1px solid #cecece;
+	border-radius: 3px;
+}
+.reciever .addresslistBox:after {
+	display: block;
+	content:'';
+	clear: both;
+}
+.reciever .addresslistBox ul:after {
+	display: block;
+	content:'';
+	clear: both;
+}
+.reciever .addresslistBox ul li {
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	padding: 7px 0;
+	color: #777777;
+	border-bottom: 1px solid #e6e6e6;
+}
+.reciever .addresslistBox ul li div {
+	position: relative;
+	padding: 0 10px;
+}
+.reciever .addresslistBox ul li div b {
+	color: #222222;
+}
+.reciever .addresslistBox ul li div p {
+	margin: 0 50px 0 0;
+}
+.reciever .addresslistBox ul li div button {
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	margin: -12px 0 0 0;
+	line-height: 25px;
+	color: #4d5454;
+	font-size: 13px;
+	text-shadow: 0 1px 1px white;
+	text-align: center;
+}
+.reciever .addresslistBox nav {
+	position: relative;
+	height: 18px;
+	padding: 10px 12px 3px;
+	color: #777777;
+	text-align: center;
+	font-size: 13px;
+	cursor: default;
+	background: #fafafa;
+}
+.reciever .addresslistBox nav .pageNum {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+}
+.reciever .addresslistBox nav a {
+	color: #777777;
+}
+.reciever .addresslistBox nav .btnCloseImg {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	width: 29px;
+	height: 19px;
+	background: url('http://image.gsshop.com/mobile/mc/images/common/btn_close_address02.png') 0 0 no-repeat;
+	background-size: 29px auto;
+	border: none;
+}
+.applicants .info {
+	padding: 5px 10px;
+}
+.applicants .info p {
+	padding: 4px 0 0 0;
+}
+.applicants .info .inputEditTxt {
+	color: #777777;
+}
+.reciever .info {
+	padding: 10px;
+	/* 우편번호 찾기 1단계 */
+}
+.reciever .info .inputEditTxt {
+	color: #222222;
+}
+.reciever .info .list_box {
+	overflow: hidden;
+	border: 1px solid #cecece;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	/* 우편번호검색 5단계 */
+	/* 우편번호검색 4단계 */
+}
+.reciever .info .list_box .header {
+	display: block;
+	padding: 7px 10px;
+	color: #222222;
+	border-bottom: 1px solid #e9e9e9;
+	background: whitesmoke;
+}
+.reciever .info .list_box .location_srh ul {
+	padding: 10px;
+}
+.reciever .info .list_box .location_srh ul:after {
+	display: block;
+	content:'';
+	clear: both;
+}
+.reciever .info .list_box .location_srh ul li {
+	position: relative;
+	float: none;
+	padding-right: 60px;
+}
+.reciever .info .list_box .location_srh ul li input {
+	width: 100%;
+	margin-right: 5px;
+}
+.reciever .info .list_box .location_srh .btn_add_frame {
+	display: block;
+	position: absolute;
+	right: 0;
+	bottom: 50%;
+	padding: 2px 0 0 0;
+	margin: 0 0 -15px 0;
+	width: 40px;
+	height: 25px;
+	line-height: 25px;
+	color: #4d5454;
+	font-size: 13px;
+	text-shadow: 0 1px 1px white;
+	text-align: center;
+}
+.reciever .info .list_box .location_srh .header4 {
+	padding: 5px 10px;
+	color: #777777;
+	border-top: 1px solid #c7c7c7;
+	border-bottom: 1px solid #c7c7c7;
+	background: #fafafa;
+}
+.reciever .info .list_box .location_srh .location_list {
+	padding: 0 10px;
+}
+.reciever .info .list_box .location_srh .location_list li {
+	padding-right: 0;
+}
+.reciever .info .list_box .location_srh .location_list li:last-child dl {
+	border-bottom: none;
+}
+.reciever .info .list_box .location_srh .location_list li dl {
+	position: relative;
+	padding: 10px 0;
+	border-bottom: 1px solid #e9e9e9;
+}
+.reciever .info .list_box .location_srh .location_list li dl a {
+	display: block;
+}
+.reciever .info .list_box .location_srh .location_list li dl dt {
+	float: none;
+}
+.reciever .info .list_box .location_srh .location_list li dl dd {
+	margin: 0 55px 0 0;
+}
+.reciever .info .list_box .location_srh dl {
+	padding: 0;
+}
+.reciever .info .list_box .location_srh dl dt {
+	float: none;
+	padding: 0;
+}
+.reciever .info .list_box .location_srh dl dd {
+	margin: 0;
+}
+.reciever .info .list_box .location_etc {
+	overflow: hidden;
+	width: auto;
+	padding: 5px 10px 8px;
+}
+.reciever .info .list_box .location_etc dt {
+	padding: 3px 0 0;
+	color: #777777;
+	font-size: 13px;
+}
+.reciever .info .list_box .location_etc dd {
+	margin: 0 0 0 65px;
+}
+.reciever .info .list_box .location_etc dd input {
+	width: 100px;
+}
+.reciever .info .list_box .edit_btn {
+	margin: 0 0 15px;
+	padding: 10px 0 0;
+	text-align: center;
+}
+.reciever .info .list_box .edit_btn a {
+	margin: 0 3px 0 0;
+	padding: 0 10px;
+	height: 24px;
+	line-height: 24px;
+}
+.reciever .info .list_box .result .select_location {
+	margin: 0 10px;
+	padding: 10px 0 5px;
+	border-bottom: 1px solid #e9e9e9;
+}
+.reciever .info .list_box .result .select_location .sttl {
+	display: inline-block;
+	padding: 3px;
+	color: #97ad54;
+	border: 1px solid #b7ce72;
+	background: #eff2e5;
+	font-size: 12px;
+}
+.reciever .info .list_box .result .select_location:last-child {
+	border-bottom: none;
+}
+.reciever .info .list_box .result .select_location .location_list {
+	padding: 0;
+}
+.reciever .info .list_box .result .select_location .location_list ul {
+	padding: 0;
+}
+.reciever .info .list_box .result .select_location .location_list dl {
+	padding: 5px 0;
+}
+.reciever .info .list_box .result .select_location .location_list dl dt {
+	padding: 0;
+}
+.consultBtnWrap {
+	margin: 0;
+	padding: 15px 25px;
+	text-align: center;
+	background: #f2f2f2;
+	border-top: solid 1px #d4d4d4;
+}
+.consultBtnWrap:after {
+	display: block;
+	content:'';
+	clear: both;
+}
+.consultBtnWrap ul li {
+	float: left;
+	width: 50%;
+	height: 37px;
+}
+.consultBtnWrap ul li:last-child {
+	text-align: right;
+}
+.consultBtnWrap button {
+	display: inline-block;
+	width: 95%;
+	height: 37px;
+	line-height: 37px;
+	text-align: center;
+}
+.consultBtnWrap a {
+	display: inline-block;
+	width: 95%;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+}
+.addressWrap {
+	margin: 10px 10px 0;
+}
+.addressWrap ul {
+	overflow: hidden;
+	border: 1px solid #b5b5b5;
+	border-radius: 3px;
+}
+.addressWrap ul li {
+	float: left;
+	width: 33.33%;
+}
+.addressWrap ul li div {
+	height: 28px;
+	text-align: center;
+	color: #777777;
+	font-weight: bold;
+	line-height: 28px;
+	background: -moz-linear-gradient(top, #fefefe 0%, #f2f2f2 100%);
+	background: -webkit-gradient(linear, left top, left bottom, from(#fefefe), to(#f2f2f2)) no-repeat;
+	background: -webkit-linear-gradient(top, #fefefe 0%, #f2f2f2 100%);
+	background: -o-linear-gradient(top, #fefefe 0%, #f2f2f2 100%);
+	background: -ms-linear-gradient(top, #fefefe 0%, #f2f2f2 100%);
+}
+.addressWrap ul li.on div {
+	color: #222222;
+	background: #e4e4e4;
+	-webkit-box-shadow: #d4d4d4 2px 3px 6px -2px inset;
+	-moz-box-shadow: #d4d4d4 2px 3px 6px -2px inset;
+	box-shadow: #d4d4d4 2px 3px 6px -2px inset;
+}
+.addressWrap ul li:nth-child(1) div, .addressWrap ul li:nth-child(2) div {
+	border-right: 1px solid #b5b5b5;
+}
+.rentalPrdOrderInfo {
+	background: white;
+}
+.rentalPrdOrderInfo .process {
+	overflow: hidden;
+	padding: 3px 10px 13px;
+}
+.rentalPrdOrderInfo .process li {
+	float: left;
+	width: 49%;
+	margin: 10px 0 0;
+}
+.rentalPrdOrderInfo .process li:nth-child(2), .rentalPrdOrderInfo .process li:nth-child(4) {
+	float: right;
+}
+.rentalPrdOrderInfo .process li div {
+	height: 92px;
+	padding: 7px 12px;
+	background: #fcfcfc;
+	border: solid 1px #e4e4e4;
+}
+.rentalPrdOrderInfo .process li div b {
+	display: block;
+	padding: 0 0 2px 0;
+	font-size: 16px;
+	line-height: 18px;
+	color: #acacac;
+}
+.rentalPrdOrderInfo .process li div span {
+	display: block;
+	line-height: 16px;
+	color: #4d5454;
+}
+.rentalPrdOrderInfo .process li div p {
+	margin: 5px 0 0 0;
+	line-height: 14px;
+	color: #777777;
+}
+/*********************************************/
+
+/*new : 메인 상품평, 상품문의 */
+
+/* 메인 상품평 상품문의 ajax replace 전 style */
+.review .default_loading, .inquiry .default_loading {
+	display:none;
+	position:relative;
+	height:50px;
+}
+
+.review .default_loading .loading30_trans, .inquiry .default_loading .loading30_trans {
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin:-15px 0 0 -15px;
+}
+
+
+
+.prdReview .reviewList, .inquiry .reviewList {
+	position: relative;
+	margin: 0;
+	font-size: 13px;
+	border-bottom: none;
+	background: white;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+.prdReview .reviewList .productBaseInformationHead, .inquiry .reviewList .productBaseInformationHead {
+	position: relative;
+	margin: 0;
+	font-size: 13px;
+	border-bottom: 1px solid #e5e5e5;
+	background: white;
+}
+.prdReview .reviewList .productBaseInformationHead p, .inquiry .reviewList .productBaseInformationHead p {
+	padding: 10px 8px;
+	line-height: 16px;
+	color: #999999;
+}
+.prdReview .reviewList .productBaseInformationHead a, .inquiry .reviewList .productBaseInformationHead a {
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	width: 68px;
+	height: 27px;
+	margin: -14px 0 0;
+	text-align: center;
+	line-height: 27px;
+	color: #666;
+	border: 1px solid #cacaca;
+	background: #f7f7f7;
+}
+.prdReview .reviewList .defaultMsg, .inquiry .reviewList .defaultMsg {
+	margin: 0 10px;
+	background: white;
+	border: none;
+	box-shadow: none;
+}
+.prdReview .reviewList .productReviewTypeTab, .inquiry .reviewList .productReviewTypeTab {
+	position: relative;
+	padding: 10px 8px 0;
+}
+.prdReview .reviewList .productReviewTypeTab ul, .inquiry .reviewList .productReviewTypeTab ul {
+	border: none;
+}
+.prdReview .reviewList .productReviewTypeTab ul li.on div, .inquiry .reviewList .productReviewTypeTab ul li.on div {
+	border: 1px solid #5e5f62;
+	background: #77787a;
+}
+.prdReview .reviewList .productReviewTypeTab ul li.on div em, .inquiry .reviewList .productReviewTypeTab ul li.on div em {
+	color: #dbdbdb;
+}
+.prdReview .reviewList .productReviewTypeTab ul li div, .inquiry .reviewList .productReviewTypeTab ul li div {
+	margin: 0 0 0 -1px;
+	height: 28px;
+	line-height: 28px;
+	font-size: 13px;
+	border: 1px solid #cacaca;
+}
+.prdReview .reviewList .productReviewTypeTab ul li:first-child div, .inquiry .reviewList .productReviewTypeTab ul li:first-child div {
+	margin: 0;
+}
+.prdReview .reviewList .productReviewList, .inquiry .reviewList .productReviewList {
+	padding: 0;
+	border-bottom: none;
+}
+.prdReview .reviewList .productReviewList li, .inquiry .reviewList .productReviewList li {
+	padding: 0 8px;
+}
+.prdReview .reviewList .productReviewList li .iconMobileY, .inquiry .reviewList .productReviewList li .iconMobileY {
+	font-size: 14px;
+}
+.prdReview .reviewList .btnMoreWrap, .inquiry .reviewList .btnMoreWrap {
+	overflow: hidden;
+	clear: both;
+	height: 40px;
+	line-height: 40px;
+	margin: -1px 0;
+	border-bottom: 1px solid #cacaca;
+	background: #f8f8f8;
+	text-align: right;
+}
+.prdReview .reviewList .btnMoreWrap a, .inquiry .reviewList .btnMoreWrap a {
+	display: inline-block;
+	height: 26px;
+	margin: 0 10px 0 0;
+	padding: 0 8px 0 11px;
+	font-size: 12px;
+	color: #666;
+	line-height: 26px;
+	border: 1px solid #cacaca;
+	width: 49px;
+	
+}
+.prdReview .reviewList .btnMoreWrap a em, .inquiry .reviewList .btnMoreWrap a em {
+	display: inline-block;
+	width: 8px;
+	height: 13px;
+	margin: 0 0 0 1px;
+	vertical-align: -2px;
+	background-position: -50px -100px;
+}
+.prdReview .reviewList .evalPrdList, .inquiry .reviewList .evalPrdList {
+	overflow: hidden;
+	clear: both;
+	padding: 15px 0;
+}
+.prdReview .reviewList .evalPrdList .totGrade, .inquiry .reviewList .evalPrdList .totGrade {
+	float: left;
+	width: 35%;
+	padding: 20px 0 0;
+	text-align: center;
+}
+.prdReview .reviewList .evalPrdList .totGrade strong, .inquiry .reviewList .evalPrdList .totGrade strong {
+	font-size: 32px;
+	color: #00aebd;
+}
+.prdReview .reviewList .evalPrdList .totGrade span, .inquiry .reviewList .evalPrdList .totGrade span {
+	display: block;
+	font-style: normal;
+	font-size: 12px;
+	color: #393c3c;
+}
+.prdReview .reviewList .evalPrdList .gradeWrap, .inquiry .reviewList .evalPrdList .gradeWrap {
+	float: left;
+	width: 65%;
+	text-align: center;
+}
+.prdReview .reviewList .evalPrdList .gradeWrap .innerLine, .inquiry .reviewList .evalPrdList .gradeWrap .innerLine {
+	display: block;
+	text-align: center;
+	border-left: 1px solid #e5e5e5;
+}
+.prdReview .reviewList .evalPrdList .gradeWrap .innerLine:after, .inquiry .reviewList .evalPrdList .gradeWrap .innerLine:after {
+	display: block;
+	content:'';
+	clear: both;
+}
+.prdReview .reviewList .evalPrdList .gradeWrap .innerLine .gradeList li, .inquiry .reviewList .evalPrdList .gradeWrap .innerLine .gradeList li {
+	float: none;
+	overflow: hidden;
+	clear: both;
+	margin-bottom: 1px;
+	font-size: 13px;
+	line-height: 15px;
+}
+.prdReview .reviewList .evalPrdList .gradeWrap .innerLine .gradeList li {
+	margin-bottom: 2px;
+}
+.prdReview .reviewList .evalPrdList .gradeWrap .innerLine .gradeList li strong {
+	display: inline-block;
+	overflow: hidden;
+	width: 60px;
+	height: 15px;
+	font-size: 13px;
+	text-align: left;
+	font-weight: normal;
+	color: #393c3c;
+	line-height: 15px;
+	letter-spacing: -1px;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+
+.prdReview .reviewList .evalPrdList .gradeWrap .innerLine .gradeList li .grade {
+	display: inline-block;
+	width: 35px;
+	height: 15px;
+	margin-left: 4px;
+	font-style: normal;
+	text-align: right;
+	font-size: 13px;
+	color: #999999;
+	line-height: 15px;
+	vertical-align: middle;
+}
+.prdReview .reviewList .evaluationProductNotice {
+	padding: 8px 10px 10px;
+	height: auto;
+} 
+.prdReview .evaluationProductNotice li .bulletNoti {
+	float: left;
+	margin: 6px 0 0;
+	width: 8px;
+	height: 4px;
+	vertical-align: middle;
+	background: url('http://image.gsshop.com/mobile/mc/images/common/img_detail_new.png') no-repeat;
+	background-size: 115px auto;
+	background-position: -45px 0;
+}
+.prdReview .evaluationProductNotice li p{
+	margin: 0 0 0 8px;
+	font-size: 12px;
+	color: #999;
+	line-height: 15px;
+	padding: 0;
+}
+
+.inquiry .reviewList .evaluationProductNotice {
+	padding: 0 10px 10px;
+	height: auto;
+}
+.prdReview .reviewList .evaluationProductNotice:after, .inquiry .reviewList .evaluationProductNotice:after {
+	display: block;
+	content:'';
+	clear: both;
+}
+/* new: 메인 상품평*/
+ .prdReview .btnMoreWrap {
+	margin: 0;
+	border-top: 1px solid #cacaca;
+}
+.prdReview .productReviewList li .reviewCursorWrap .open .iconMobileY {
+	margin: 13px -8px -10px;
+}
+/* new: 메인 상품문의*/
+ .inquiry .reviewList .myConsultWrap a {
+	display: inline-block;
+	padding: 7px 15px;
+	margin: 10px 0;
+	color: #666666;
+	border: 1px solid #cacaca;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	background: #f7f7f7;
+}
+.inquiry .reviewList .qnaList {
+	margin: 0;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+.inquiry .reviewList .qnaList li {
+	float:left;
+	border-top: none;
+	border-bottom: solid 1px #efefef;
+}
+.inquiry .reviewList .qnaList li:last-child {
+	border-bottom: none;
+}
+.inquiry .reviewList .qnaList .qnaBtns {
+	display: none;
+}
+.inquiry .reviewList .qnaList .answerBox {
+	clear: both;
+	margin: 10px 0 0 0;
+	padding: 10px 0;
+	font-size: 13px;
+	background: #f8f8f8;
+	border-top: solid 1px #e5e5e5;
+	border-left: none;
+	border-right: none;
+	border-bottom: none;
+}
+.inquiry .reviewList .qnaList .answerBox li {
+	margin: 0;
+	border-bottom: none;
+}
+
+.inquiry .reviewList .qnaList .answerBox li .info {
+	margin: 0 8px;
+}
+.inquiry .reviewList .qnaList .answerBox li .answerContent {
+	padding: 0 8px;
+}
+
+.inquiry .reviewList .qnaList .answerBox li .answerBtns {
+	display: none;
+}
+.inquiry .reviewList .btnMoreWrap {
+	margin: 0;
+	border-top: none;
+	border-bottom: none;
+}
+
+
+/**********************************************/
+
+/* 상품평쓰기 영역  */
+ .productBaseInformationHead {
+	position: relative;
+	border-bottom: solid 1px #c5c5c5;
+	background: #f8f8f8;
+}
+.productBaseInformationHead p {
+	padding: 10px 0 10px 10px;
+	color: #777777;
+	letter-spacing: -1px;
+}
+.productBaseInformationHead p strong {
+	color: #80ad00;
+}
+.productBaseInformationHead p em {
+	color: #373240;
+}
+.productBaseInformationHead p .addTxt {
+	display: block;
+	font-size: 12px;
+	font-weight: normal;
+	color: #acacac;
+}
+.productBaseInformationHead a, .productBaseInformationHead button {
+	position: absolute;
+	top: 12px;
+	right: 5px;
+}
+.productBaseInformationHead a.btnGreen1, .productBaseInformationHead button.btnGreen1 {
+	width: 80px;
+}
+.eCoin {
+	background: #f8f8f8 url('http://image.gsshop.com/mobile/mc/images/common/detail_visual1.png') no-repeat 95% 10px;
+	-webkit-background-size: 59px auto;
+	background-size: 59px auto;
+}
+/* 상품정보 영역 */
+ .starImg {
+	background: url("http://image.gsshop.com/mobile/mc/images/goods/img_s_star.png") 0 0 no-repeat;
+}
+.starImgOn {
+	background: url("http://image.gsshop.com/mobile/mc/images/common/img_stars_all_on.png") 0 0 no-repeat;
+}
+.productBaseInformationInfo {
+	display: block;
+	height: 50px;
+	padding: 10px;
+}
+.productBaseInformationInfo a {
+	display: block;
+	float: left;
+	width: 65%;
+}
+.productBaseInformationInfo a .productImage {
+	float: left;
+	width: 48px;
+	height: 48px;
+	border: 1px solid #f2f2f2;
+	margin-right: 5px;
+}
+.productBaseInformationInfo a .productImage img {
+	width: 100%;
+}
+.productBaseInformationInfo a p {
+	overflow: hidden;
+	height: 48px;
+	margin-right: 3px;
+	padding-top: 1px;
+	font-weight: normal;
+	color: #777777;
+	line-height: 16px;
+}
+.productBaseInformationInfo .grade {
+	float: right;
+	width: 34%;
+	margin: 4px 0 0;
+	text-align: center;
+	border-left: 1px solid #efefef;
+}
+.productBaseInformationInfo .grade strong {
+	margin: 0 auto;
+	font-size: 32px;
+	font-weight: bold;
+	color: #393c3c;
+	text-align: center;
+}
+.productBaseInformationInfo .grade .starsBg {
+	display: block;
+	margin: 2px auto 0;
+}
+/* tab영역 !*/
+ .productReviewTypeTab {
+	display: none;
+	padding: 0 10px;
+}
+.productReviewTypeTab:after {
+	display: block;
+	content:'';
+	clear: both;
+}
+.productReviewTypeTab ul {
+	overflow: hidden;
+	border: 1px solid #cbcbcb;
+}
+.productReviewTypeTab li {
+	float:left;
+}
+.productReviewTypeTab ul li:first-child div {
+	border-right: 1px solid #e2e2e2;
+}
+.productReviewTypeTab ul li:last-child div {
+	border-right: none;
+}
+.productReviewTypeTab ul li.on div {
+	background: #77787a;
+	color: white;
+}
+.productReviewTypeTab ul li a {
+	display: block;
+}
+.productReviewTypeTab ul li a div {
+	height: 30px;
+	padding: 0;
+	line-height: 30px;
+	color: #adb0b0;
+	text-align: center;
+	border-right: 1px solid #e2e2e2;
+}
+.evaluationProductTab ul li:last-child div {
+	-webkit-border-radius: 3px 3px 0 0;
+	-moz-border-radius: 3px 3px 0 0;
+	border-radius: 3px 3px 0 0;
+	text-align: left;
+	text-indent: 10px;
+}
+.reviewInfo .stars em, .myPrdList .stars em {
+	margin: 0 0 -2px;
+}
+/*new : 평가상품 별점 공통 사용 */
+ .stars em, .starsBg em {
+	display: block;
+	position: absolute;
+	top: 0;
+	overflow: hidden;
+	height: 15px;
+	margin: 0;
+	background-size: 68px auto;
+	background-position: 0 0;
+}
+.stars em.starE1, .starsBg em.starE1 {
+	width: 20%;
+}
+.stars em.starE2, .starsBg em.starE2 {
+	width: 40%;
+}
+.stars em.starE3, .starsBg em.starE3 {
+	width: 60%;
+}
+.stars em.starE4, .starsBg em.starE4 {
+	width: 80%;
+}
+.stars em.starE5, .starsBg em.starE5 {
+	width: 100%;
+}
+.stars em.star0, .starsBg em.star0 {
+	width: 0;
+}
+.stars em.star1, .starsBg em.star1 {
+	width: 1%;
+}
+.stars em.star2, .starsBg em.star2 {
+	width: 2%;
+}
+.stars em.star3, .starsBg em.star3 {
+	width: 3%;
+}
+.stars em.star4, .starsBg em.star4 {
+	width: 4%;
+}
+.stars em.star5, .starsBg em.star5 {
+	width: 5%;
+}
+.stars em.star6, .starsBg em.star6 {
+	width: 6%;
+}
+.stars em.star7, .starsBg em.star7 {
+	width: 7%;
+}
+.stars em.star8, .starsBg em.star8 {
+	width: 8%;
+}
+.stars em.star9, .starsBg em.star9 {
+	width: 9%;
+}
+.stars em.star10, .starsBg em.star10 {
+	width: 10%;
+}
+.stars em.star11, .starsBg em.star11 {
+	width: 11%;
+}
+.stars em.star12, .starsBg em.star12 {
+	width: 12%;
+}
+.stars em.star13, .starsBg em.star13 {
+	width: 13%;
+}
+.stars em.star14, .starsBg em.star14 {
+	width: 14%;
+}
+.stars em.star15, .starsBg em.star15 {
+	width: 15%;
+}
+.stars em.star16, .starsBg em.star16 {
+	width: 16%;
+}
+.stars em.star17, .starsBg em.star17 {
+	width: 17%;
+}
+.stars em.star18, .starsBg em.star18 {
+	width: 18%;
+}
+.stars em.star19, .starsBg em.star19 {
+	width: 19%;
+}
+.stars em.star20, .starsBg em.star20 {
+	width: 20%;
+}
+.stars em.star21, .starsBg em.star21 {
+	width: 21%;
+}
+.stars em.star22, .starsBg em.star22 {
+	width: 22%;
+}
+.stars em.star23, .starsBg em.star23 {
+	width: 23%;
+}
+.stars em.star24, .starsBg em.star24 {
+	width: 24%;
+}
+.stars em.star25, .starsBg em.star25 {
+	width: 25%;
+}
+.stars em.star26, .starsBg em.star26 {
+	width: 26%;
+}
+.stars em.star27, .starsBg em.star27 {
+	width: 27%;
+}
+.stars em.star28, .starsBg em.star28 {
+	width: 28%;
+}
+.stars em.star29, .starsBg em.star29 {
+	width: 29%;
+}
+.stars em.star30, .starsBg em.star30 {
+	width: 30%;
+}
+.stars em.star31, .starsBg em.star31 {
+	width: 31%;
+}
+.stars em.star32, .starsBg em.star32 {
+	width: 32%;
+}
+.stars em.star33, .starsBg em.star33 {
+	width: 33%;
+}
+.stars em.star34, .starsBg em.star34 {
+	width: 34%;
+}
+.stars em.star35, .starsBg em.star35 {
+	width: 35%;
+}
+.stars em.star36, .starsBg em.star36 {
+	width: 36%;
+}
+.stars em.star37, .starsBg em.star37 {
+	width: 37%;
+}
+.stars em.star38, .starsBg em.star38 {
+	width: 38%;
+}
+.stars em.star39, .starsBg em.star39 {
+	width: 39%;
+}
+.stars em.star40, .starsBg em.star40 {
+	width: 40%;
+}
+.stars em.star41, .starsBg em.star41 {
+	width: 41%;
+}
+.stars em.star42, .starsBg em.star42 {
+	width: 42%;
+}
+.stars em.star43, .starsBg em.star43 {
+	width: 43%;
+}
+.stars em.star44, .starsBg em.star44 {
+	width: 44%;
+}
+.stars em.star45, .starsBg em.star45 {
+	width: 45%;
+}
+.stars em.star46, .starsBg em.star46 {
+	width: 46%;
+}
+.stars em.star47, .starsBg em.star47 {
+	width: 47%;
+}
+.stars em.star48, .starsBg em.star48 {
+	width: 48%;
+}
+.stars em.star49, .starsBg em.star49 {
+	width: 49%;
+}
+.stars em.star50, .starsBg em.star50 {
+	width: 50%;
+}
+.stars em.star51, .starsBg em.star51 {
+	width: 51%;
+}
+.stars em.star52, .starsBg em.star52 {
+	width: 52%;
+}
+.stars em.star53, .starsBg em.star53 {
+	width: 53%;
+}
+.stars em.star54, .starsBg em.star54 {
+	width: 54%;
+}
+.stars em.star55, .starsBg em.star55 {
+	width: 55%;
+}
+.stars em.star56, .starsBg em.star56 {
+	width: 56%;
+}
+.stars em.star57, .starsBg em.star57 {
+	width: 57%;
+}
+.stars em.star58, .starsBg em.star58 {
+	width: 58%;
+}
+.stars em.star59, .starsBg em.star59 {
+	width: 59%;
+}
+.stars em.star60, .starsBg em.star60 {
+	width: 60%;
+}
+.stars em.star61, .starsBg em.star61 {
+	width: 61%;
+}
+.stars em.star62, .starsBg em.star62 {
+	width: 62%;
+}
+.stars em.star63, .starsBg em.star63 {
+	width: 63%;
+}
+.stars em.star64, .starsBg em.star64 {
+	width: 64%;
+}
+.stars em.star65, .starsBg em.star65 {
+	width: 65%;
+}
+.stars em.star66, .starsBg em.star66 {
+	width: 66%;
+}
+.stars em.star67, .starsBg em.star67 {
+	width: 67%;
+}
+.stars em.star68, .starsBg em.star68 {
+	width: 68%;
+}
+.stars em.star69, .starsBg em.star69 {
+	width: 69%;
+}
+.stars em.star70, .starsBg em.star70 {
+	width: 70%;
+}
+.stars em.star71, .starsBg em.star71 {
+	width: 71%;
+}
+.stars em.star72, .starsBg em.star72 {
+	width: 72%;
+}
+.stars em.star73, .starsBg em.star73 {
+	width: 73%;
+}
+.stars em.star74, .starsBg em.star74 {
+	width: 74%;
+}
+.stars em.star75, .starsBg em.star75 {
+	width: 75%;
+}
+.stars em.star76, .starsBg em.star76 {
+	width: 76%;
+}
+.stars em.star77, .starsBg em.star77 {
+	width: 77%;
+}
+.stars em.star78, .starsBg em.star78 {
+	width: 78%;
+}
+.stars em.star79, .starsBg em.star79 {
+	width: 79%;
+}
+.stars em.star80, .starsBg em.star80 {
+	width: 80%;
+}
+.stars em.star81, .starsBg em.star81 {
+	width: 81%;
+}
+.stars em.star82, .starsBg em.star82 {
+	width: 82%;
+}
+.stars em.star83, .starsBg em.star83 {
+	width: 83%;
+}
+.stars em.star84, .starsBg em.star84 {
+	width: 84%;
+}
+.stars em.star85, .starsBg em.star85 {
+	width: 85%;
+}
+.stars em.star86, .starsBg em.star86 {
+	width: 86%;
+}
+.stars em.star87, .starsBg em.star87 {
+	width: 87%;
+}
+.stars em.star88, .starsBg em.star88 {
+	width: 88%;
+}
+.stars em.star89, .starsBg em.star89 {
+	width: 89%;
+}
+.stars em.star90, .starsBg em.star90 {
+	width: 90%;
+}
+.stars em.star91, .starsBg em.star91 {
+	width: 91%;
+}
+.stars em.star92, .starsBg em.star92 {
+	width: 92%;
+}
+.stars em.star93, .starsBg em.star93 {
+	width: 93%;
+}
+.stars em.star94, .starsBg em.star94 {
+	width: 94%;
+}
+.stars em.star95, .starsBg em.star95 {
+	width: 95%;
+}
+.stars em.star96, .starsBg em.star96 {
+	width: 96%;
+}
+.stars em.star97, .starsBg em.star97 {
+	width: 97%;
+}
+.stars em.star98, .starsBg em.star98 {
+	width: 98%;
+}
+.stars em.star99, .starsBg em.star99 {
+	width: 99%;
+}
+.stars em.star100, .starsBg em.star100 {
+	width: 100%;
+}
+.starsBg {
+	display: inline-block;
+	position: relative;
+	width: 68px;
+	height: 15px;
+	margin: 0;
+	background-size: 68px auto;
+	background-position: 0 -30px;
+}
+.stars {
+	display: inline-block;
+	position: relative;
+	width: 68px;
+	height: 15px;
+	margin: 0;
+	background-size: 68px auto;
+	background-position: 0 -15px;
+	vertical-align: middle;
+}
+.evaluationReview:after {
+	display: block;
+	content:'';
+	clear: both;
+}
+.evaluationReview ul li {
+	width: 100%;
+	padding: 0 0 3px 0;
+	font-size: 12px;
+	border-top: none;
+}
+.evaluationReview ul li:nth-child(2), .evaluationReview ul li:nth-child(3), .evaluationReview ul li:nth-child(4), .evaluationReview ul li:last-child {
+	display: none;
+}
+.evaluationReview ul li .evaluationItem {
+	vertical-align: top;
+}
+.productReviewList {
+	margin: 0;
+	padding: 0 0 5px;
+	border-bottom: 1px solid #e5e5e5;
+}
+.productReviewList li {
+	clear: both;
+	float: none;
+	padding: 0 10px;
+	border-top: solid 1px #efefef;
+	margin: -1px 0 0 0;
+}
+.productReviewList li:first-child {
+	border-top: none;
+}
+.productReviewList li:after {
+	display: block;
+	content:'';
+	clear: both;
+}
+.productReviewList li .reviewPoint {
+	float: left;
+	width: 43px;
+	height: 43px;
+	margin: 8px 5px 8px 0;
+	color: #80ad00;
+	font-size: 12px;
+	line-height: 43px;
+	text-align: center;
+	border: 1px solid #dadada;
+}
+.productReviewList li .reviewPoint strong {
+	font-size: 18px;
+	letter-spacing: -1px;
+}
+.productReviewList li .reviewCursorWrap + .assessBtns {
+	display: none;
+}
+
+.productReviewList li .reviewCursorWrap {
+	display: block;
+	cursor: pointer;
+}
+.productReviewList li .reviewCursorWrap:after {
+	display: block;
+	content:'';
+	clear: both;
+}
+.productReviewList li .reviewCursorWrap .reviewInfo {
+	padding: 12px 0 2px;
+	font-size: 12px;
+	color: #acacac;
+	vertical-align: middle;
+}
+.productReviewList li .reviewCursorWrap .reviewInfo .stars {
+	margin: 0 5px 0 0;
+}
+.productReviewList li .reviewCursorWrap .reviewInfo em:nth-child(2) {
+	padding: 0 4px;
+}
+.productReviewList li .reviewCursorWrap .reviewInfo .photo, .productReviewList li .reviewCursorWrap .reviewInfo .photo1 {
+	display: none;
+}
+.productReviewList li .reviewCursorWrap .reviewInfo .photo2, .productReviewList li .reviewCursorWrap .reviewInfo .photo3, .productReviewList li .reviewCursorWrap .reviewInfo .photo4 {
+	display: inline-block;
+	width: 17px;
+	height: 14px;
+	margin: 0 0 0 3px;
+	background-size: 151px auto;
+	background-position: -16px -139px;
+	vertical-align: middle;
+}
+
+
+.productReviewList li .reviewCursorWrap .reviewInfo .lock {
+	display: inline-block;
+	width: 17px;
+	height: 14px;
+	background-size: 151px auto;
+	background-position: 2px -139px;
+}
+.productReviewList li .reviewCursorWrap .close {
+	overflow: hidden;
+	height: 17px;
+	margin: 0 0 10px 0;
+}
+.productReviewList li .reviewCursorWrap .close .wrap {
+	height: 30px;
+	overflow: hidden;
+}
+.productReviewList li .reviewCursorWrap .close .reviewTitle {
+	height: 17px;
+	padding: 0 0 10px;
+	overflow: hidden;
+	-webkit-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-size: 13px;
+	color: #222222;
+	line-height: 15px;
+}
+.productReviewList li .reviewCursorWrap .close img {
+	display: none;
+}
+.productReviewList li .reviewCursorWrap .close video {
+	display: none;
+}
+.productReviewList li .reviewCursorWrap .mgY {
+	padding: 0;
+}
+.productReviewList li .reviewCursorWrap .open {
+	position: relative;
+	height: auto;
+}
+.productReviewList li .reviewCursorWrap .open .wrap {
+	padding: 0 0 10px 0;
+	height: auto;
+}
+.productReviewList li .reviewCursorWrap .open .reviewContent {
+	display: block;
+	overflow: hidden;
+	color: #393c3c;
+	font-size: 14px;
+	word-wrap: break-word;
+	line-height: 15px;
+}
+.productReviewList li .reviewCursorWrap .open .reviewContent img {
+	display: block;
+	margin: 3px auto;
+	width: 270px;
+	height: auto;
+}
+.productReviewList li .reviewCursorWrap .open .reviewContent video {
+	display: block;
+	padding: 0 15px 10px;
+	margin: 0 auto;
+}
+.productReviewList li .reviewCursorWrap .open .iconMobileY {
+	display: block;
+	clear: both;
+	margin: 13px -10px -10px;
+	padding: 6px 10px 4px;
+	font-size: 12px;
+	color: #999999;
+	border-top: 1px solid #efefef;
+	border-bottom: 1px solid #efefef;
+	background: #f8f8f8;
+}
+
+.productReviewList li .reviewCursorWrap .open .iconMobileY em {
+	display: inline-block;
+	position: relative;
+	top: -2px;
+	width: 12px;
+	height: 20px;
+	margin: 0 5px 0 0;
+	background-position: 0 -380px;
+	vertical-align: middle;
+}
+.productReviewList li .reviewCursorWrap .open .iconMobileN {
+	display: none;
+}
+/*상품평 수정버튼*/
+ .assessBtns {
+	padding: 5px 0;
+	text-align: right;
+}
+.assessBtns a {
+	display: inline-block;
+	padding: 0 5px;
+}
+.assessBtns .productReviewModifyButton {
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	font-size: 13px;
+	font-weight: normal;
+	color: #01a4b3;
+	text-align: center;
+}
+/* 상품평이 없을 경우 */
+ .defaultMsg {
+	display: block;
+	padding: 60px 0;
+	text-align: center;
+}
+.defaultMsg .txt {
+	padding-top: 20px;
+	font-weight: bold;
+	color: #444646;
+	text-shadow: 0 1px 0 #f2f2f2;
+}
+.evalDefaultMsg {
+	display: block;
+	padding: 60px 0;
+	text-align: center;
+	margin: 0 0 3px;
+}
+.evalDefaultMsg .txt {
+	padding-top: 20px;
+	font-weight: bold;
+	color: #444646;
+	text-shadow: 0 1px 0 #f2f2f2;
+}
+/*new : 상품문의메인에서 로그인 유도 영역*/
+ .loginMsg {
+	display: none;
+	padding: 60px 0;
+	text-align: center;
+	background: white;
+}
+.loginMsg .txt {
+	padding: 20px 0;
+	font-weight: bold;
+	color: #444646;
+	text-shadow: 0 1px 0 #f2f2f2;
+}
+.myConsultBtn {
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+.reviewList {
+	margin: 0 0 3px;
+	background: white;
+}
+.reviewList .defaultMsg {
+	margin: 0 10px;
+	background: white;
+	border: 1px solid #d4d4d4;
+	border-top: none;
+	border-radius: 0 0 3px 3px;
+	-webkit-box-shadow: #d2d2d2 1px 1px 3px, #d2d2d2 -1px 0 2px;
+	-moz-box-shadow: #d2d2d2 1px 1px 3px, #d2d2d2 -1px 0 2px;
+	box-shadow: #d2d2d2 1px 1px 3px, #d2d2d2 -1px 0 2px;
+}
+/*상품평 목록 수정버튼*/
+ .reviewList .productReviewList li .assessBtns {
+	border-top: 1px solid #efefef;
+	margin: -1px -10px 0;
+	padding:5px 15px 5px 0;
+}
+/* 식품,의료기기일 경우의 notice문구 */
+ .evaluationProductNotice {
+	height: 32px;
+	padding: 10px 12px;
+	font-size: 12px;
+	color: #777777;
+}
+.evaluationProductNotice li {
+	float: left;
+	position: relative;
+	line-height: 16px;
+	text-shadow: white 0 1px 0;
+}
+.evaluationProductNotice li .bulletNoti {
+	display: inline-block;
+	width: 8px;
+	height: 4px;
+	vertical-align: middle;
+	background: url("http://image.gsshop.com/mobile/mc/images/common/img_detail_new.png") no-repeat;
+	background-size: 115px auto;
+	background-position: -45px 0;
+}
+.evaluationProductNotice li strong {
+	font-weight: normal;
+	color: #222222;
+}
+.moreWrap {
+	position: absolute;
+	float: left;
+	bottom: -44px;
+	left: 50%;
+	margin-left: -50px;
+	width: 100px;
+	height: 30px;
+	line-height: 36px;
+}
+.moreWrap a {
+	display: inline-block;
+	text-align: center;
+}
+.moreWrap .more {
+	width: 100px;
+	text-align: center;
+	font-size: 13px;
+	color: #7c7c7c;
+	cursor: pointer;
+	z-index: 999;
+}
+.moreWrap .more:after {
+	display: block;
+	content:'';
+	clear: both;
+}
+.moreWrap .loading30 {
+	width: 30px;
+	margin: 3px 0 0 35px;
+	background: url('http://image.gsshop.com/mobile/mc/images/loading/line_30.gif') no-repeat 0 0;
+	-webkit-background-size: 30px auto;
+	background-size: 30px auto;
+}
+.evaluationProductBox .reviewInfo em {
+	padding: 0 3px 0 4px;
+}
+.evaluationProductBox .evaluationReview .stars {
+	padding: 0 7px 0 0;
+}
+.evaluationProductBox .moreWrap {
+	bottom: -96px;
+}
+/*test : reviewListWrap*/
+ .tabContentBox {
+	position: relative;
+}
+/* 버튼 영역 */
+ .moreNavWrap {
+	padding: 0 8px 1px;
+	margin: 11px 0 11px 0;
+}
+.moreNavWrap:after {
+	display: block;
+	content:'';
+	clear: both;
+}
+.moreNavWrap ul.moreNav {
+	margin: 0;
+	padding: 0;
+	border: 1px solid #c6c6c6;
+}
+.moreNavWrap ul.moreNav:after {
+	display: block;
+	content:'';
+	clear: both;
+}
+.moreNavWrap ul.moreNav li {
+	float:left;
+	margin-left: -100px;
+	height: 37px;
+	margin: 0;
+}
+.moreNavWrap ul.moreNav li:nth-child(1) a img {
+	position: relative;
+	top: -2px;
+	width: 8px;
+	margin: 0 3px 0 0;
+	vertical-align: middle;
+}
+.moreNavWrap ul.moreNav li:nth-child(2) {
+	float: right;
+	text-align: right;
+}
+.moreNavWrap ul.moreNav li:nth-child(2) a img {
+	display: inline-block;
+	width: 8px;
+	vertical-align: 1px;
+}
+.moreNavWrap ul.moreNav li a {
+	display: inline-block;
+	padding: 10px;
+	font-size: 13px;
+	color: #7c7c7c;
+	letter-spacing: -1px;
+}
+/*상품평작성 공통 박스 영역*/
+ .reviewWrite {
+	margin: 0 0 3px;
+	padding: 46px 0 0 0;
+	background: white;
+}
+
+/* 상품평 작성 버튼 영역*/
+ .reviewWrite .submitBtns {
+	clear: both;
+	height: 57px;
+	margin: 10px 0 0;
+	padding: 14px 0 0 0;
+	text-align: center;
+	border-top: 1px solid #d4d4d4;
+}
+.reviewWrite .submitBtns button {
+	position: relative;
+	top: -1px;
+	margin-left: 5px;
+}
+.reviewWrite .submitBtns button.t03 {
+	height: 37px;
+}
+/*사진등록 */
+ .appInstallExposure {
+	position: relative;
+	margin: 0 10px;
+	padding: 0;
+	overflow: hidden;
+	font-size: 12px;
+	color: #4d5454;
+}
+.appInstallExposure .btnGreen2 {
+	float: left;
+	display: block;
+	padding: 0 10px;
+}
+.appInstallExposure .btnGreen2 span {
+	width: 22px;
+	height: 19px;
+	margin-right: 10px;
+	vertical-align: -4px;
+	background-position: -29px -150px;
+}
+.appInstallExposure input[type='file'] {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+}
+.appInstallExposure p {
+	max-height: 30px;
+	margin-left: 112px;
+	line-height: 15px;
+}
+.appInstallExposure .copy {
+	display: inline-block;
+	padding: 7px 0 0 0;
+	margin-left: 0;
+	font-weight: normal;
+}
+.photoAddBtn .btnGreen2 {
+	float: right;
+	height: 28px;
+	line-height: 29px;
+	color: #fff;
+}
+/* 별점 */
+ .evaluationItemList {
+	margin: 0 10px;
+	border: solid 1px #e5e5e5;
+}
+.evaluationItemList dl {
+	clear: both;
+	height: 40px;
+	margin: -1px 0 0;
+	border-top: solid 1px #e5e5e5;
+}
+.evaluationItemList dl dt {
+	float:left;
+	width: 42%;
+}
+.evaluationItemList dl dt span {
+	display: block;
+	padding: 12px 0 0 15%;
+	font-size: 15px;
+}
+.evaluationItemList dl dd {
+	float:left;
+	width: 58%;
+}
+.evaluationItemList dl dd .starsLarge {
+	padding: 10px 0 0;
+}
+.evaluationItemList dl dd .starsLarge span {
+	display: inline-block;
+	width: 21px;
+	height: 20px;
+	margin: 0 10px 0 0;
+	background: url('http://image.gsshop.com/mobile/mc/images/goods/img_l_star.png') no-repeat 0 0;
+	background-size: 21px auto;
+}
+.evaluationItemList dl dd .starsLarge span:last-child {
+	margin: 0;
+}
+.evaluationItemList dl dd .starsLarge span.on {
+	background-position: 0 -20px;
+}
+/*상품평 작성 입력 폼*/
+ .asseseWrite {
+	margin: 10px;
+	padding: 5px;
+	border: 1px solid #e5e5e5;
+}
+.asseseWrite .type1 {
+	display: block;
+	width: 100%;
+	height: 128px;
+	margin: 0 auto;
+	font-size: 13px;
+	color: #777777;
+}
+.asseseWrite .type1:focus {
+	color: #222222;
+}
+/* [공통] 연간할인권 안내 문구 */
+ .prdReview .annualCouponesWrap {
+	margin: -1px 0 0;
+	border-bottom: none;
+}
+.annualCouponesWrap {
+	clear: both;
+	/* margin: 15px 0 0 0; */
+	padding: 0;
+	border-top: 1px solid #d0d0d0;
+	/* border-bottom: 1px solid #d0d0d0; */
+	/* background: #dddddd; */
+	background: #f4f4f4;
+}
+.annualCouponesWrap .title {
+	height: 43px;
+	font-size: 13px;
+	line-height: 43px;
+	text-align: center;
+	letter-spacing: -1px;
+}
+.annualCouponesWrap .title p {
+	display: inline-block;
+	color: #777777;
+	margin: 0 5px 0 0;
+}
+.annualCouponesWrap .title a {
+	display: inline-block;
+	height: 20px;
+	color: #7c7c7c;
+	font-size: 12px;
+	line-height: 20px;
+	text-align: center;
+	border: 1px solid #c9c9c9;
+	background: #e7e7e7;
+	cursor: pointer;
+	width:50px;
+}
+.annualCouponesWrap .note_cont {
+	padding: 15px;
+	background: #fff;
+	border-top:1px solid #d0d0d0;
+}
+.annualCouponesWrap .note_cont ul {
+	overflow: hidden;
+	clear: both;
+}
+.annualCouponesWrap .note_cont ul .plus {
+	float: left;
+	width: 5%;
+	padding: 35px 0 0;
+	text-align: center;
+}
+.annualCouponesWrap .note_cont ul li {
+	float: left;
+	width: 30%;
+}
+.annualCouponesWrap .note_cont ul li .ctsWrap {
+	border: 1px solid #efeeee;
+}
+.annualCouponesWrap .note_cont ul li .ctsWrap .condition {
+	display: block;
+	padding: 8px;
+	color: #9d9e9e;
+	line-height: 14px;
+}
+.annualCouponesWrap .note_cont ul li .ctsWrap .promotion {
+	display: block;
+	padding: 10px 8px;
+	color: #4d5454;
+	font-size: 11px;
+	line-height: 14px;
+	background: #fcfcfc;
+}
+.annualCouponesWrap .note_cont ul li .ctsWrap .promotion strong {
+	display: block;
+	color: #4d5454;
+	font-weight: bold;
+	font-size: 18px;
+	text-align: right;
+}
+.annualCouponesWrap .note_cont .note_txt .addNoti {
+	padding: 15px 0 5px;
+	color: #9e9e9e;
+	letter-spacing: -1px;
+}
+.annualCouponesWrap .note_cont .note_txt .addNoti li {
+	width: 100%;
+}
+.annualCouponesWrap .note_cont .note_txt .addNoti li strong {
+	font-weight: normal;
+}
+/* 상품평 관리 */
+ .tabWrapper {
+	padding: 5px 10px;
+	border-bottom: 1px solid #d6d6d6;
+	background:#f4f4f4;
+}
+.tabWrapper .tab2{margin:0;border:none;background:none;}
+.tabWrapper .tab2 li:last-child a{border-right:1px solid #c9c9c9 !important;}
+.tabWrapper a{margin:0;height:28px;text-align:center;color:#a3a3a3 !important;font-size:15px !important;font-weight:bold;line-height:28px;letter-spacing:-1px;text-shadow:none !important;border-right:none !important;border:1px solid #c9c9c9;background:#fff;}
+.tabWrapper a span{font-size:12px !important;font-weight:normal;}
+.tabWrapper .on a {
+	color: #fff !important;
+	border:1px solid #86cf00;
+	background:#86cf00;
+}
+.tabWrapper .on span{color:#fff !important;}
+.ReviewListBox {
+	margin:10px 10px 18px 10px;
+	background: #fff;
+	border: solid 1px #cbcbcb;
+}
+
+.writPsblPrdrevw .moreWrap, 
+.writPrdrevw .moreWrap {
+	line-height:48px;
+}
+.writPsblPrdrevw .moreWrap .loading30, 
+.writPrdrevw .moreWrap .loading30{
+	margin: 10px 0 0 35px;
+}
+
+.writPrdrevw .myPrdList li {
+	float:left;
+	border-bottom: solid 1px #ebebeb;
+}
+.writPrdrevw .myPrdList li:last-child {
+	border-bottom: none;
+}
+.writPrdrevw .myPrdList li .myReviewInfo {
+	padding: 12px 10px;
+}
+.writPrdrevw .myPrdList li .myReviewInfo .reviewInfoWrap {
+	display: block;
+	overflow: hidden;
+	/*max-height: 52px;*/
+}
+.writPrdrevw .myPrdList li .myReviewInfo .reviewInfoWrap .prdName {
+	overflow: hidden;
+	line-height: 18px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.writPrdrevw .myPrdList li .myReviewInfo .reviewInfoWrap .info b {
+	margin: 0 8px 0 0;
+	color: #acacac;
+	vertical-align: top;
+}
+.writPrdrevw .myPrdList li .myReviewInfo .reviewInfoWrap .reviewTitle {
+	overflow: hidden;
+	width: 100%;
+	padding:0;
+	margin:0;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color: #86906e;
+}
+.writPrdrevw .myPrdList .myReviewInfoContent {
+	padding: 10px 0 0 0;
+	background: #f6f6f6;
+	color: #222222;
+	border-top: solid 1px #efefef;
+}
+.writPrdrevw .myPrdList .myReviewInfoContent:after {
+	display: block;
+	content:'';
+	clear: both;
+}
+.writPrdrevw .myPrdList .myReviewInfoContent ul {
+	margin: 0 10px;
+}
+.writPrdrevw .myPrdList .myReviewInfoContent ul:after {
+	display: block;
+	content:'';
+	clear: both;
+}
+.writPrdrevw .myPrdList .myReviewInfoContent ul li {
+	float:left;
+	padding:0;
+	border-bottom: none;
+	font-size: 12px;
+}
+.writPrdrevw .myPrdList .myReviewInfoContent ul li .itemName {
+	padding: 0 0 0 3px;
+}
+.writPrdrevw .myPrdList .myReviewInfoContent .reviewContent {
+	display: block;
+	overflow: visible;
+	max-height: 100%;
+	padding: 10px;
+	word-break: break-all;
+	font-size: 13px;
+}
+.writPrdrevw .myPrdList .myReviewInfoContent .reviewContent dl {
+	overflow: hidden;
+	margin: 0 0 10px;
+	padding: 10px;
+	border: 1px solid #efefef;
+	background: white;
+}
+.writPrdrevw .myPrdList .myReviewInfoContent .reviewContent dl dt {
+	float: none;
+	clear: both;
+	margin: 0 0 3px;
+	color: #80ad00;
+}
+.writPrdrevw .myPrdList .myReviewInfoContent .reviewContent dl dd {
+	float: none;
+	width: 100%;
+	line-height: 16px;
+	font-size: 12px;
+	text-align: left;
+	color: #acacac;
+}
+.writPrdrevw .myPrdList .myReviewInfoContent .reviewContent dl dd strong {
+	color: #777777;
+}
+.writPrdrevw .myPrdList .myReviewInfoContent .qnaReply {
+	padding: 0 20px 10px;
+	font-size: 13px;
+}
+.writPrdrevw .myPrdList .myReviewInfoContent .qnaReply .repAns {
+	overflow: inherit;
+}
+.writPrdrevw .myPrdList .myReviewInfoContent .qnaReply .repAns img {
+	margin-top: -3px;
+}
+.writPrdrevw .myPrdList .myReviewInfoContent .assessBtns {
+	padding: 5px 10px;
+	text-align: right;
+	border-top: 1px solid #efefef;
+	background: #fff;
+}
+.writPrdrevw .myPrdList .myReviewInfoContent .assessBtns a {
+	display: inline-block;
+	padding: 0 5px;
+	border: 1px solid #cacaca;
+	background: #f7f7f7;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	font-size: 12px;
+	color: #7c7c7c;
+	font-weight: normal;
+	text-shadow: 0 1px 0 #efefef;
+}
+.myPrdList {
+	overflow: hidden;
+}
+.myPrdList li {
+	float:left;
+	position: relative;
+	width: 100%;
+	border-bottom: solid 1px #efefef;
+}
+.myPrdList li:last-child {
+	border-bottom: none;
+}
+.myPrdList li div {
+	padding: 12px 60px 12px 10px;
+}
+.myPrdList li div:after {
+	display: block;
+	content:'';
+	clear: both;
+}
+.myPrdList li div .prdImage {
+	display: block;
+	float: left;
+	width: 50px;
+	padding: 1px;
+	margin: 0 13px 0 0;
+	border: solid 1px #cfcfcf;
+}
+.myPrdList li div .prdImage img {
+	width: 100%;
+}
+.myPrdList li div p {
+	overflow: hidden;
+	max-height: 50px;
+}
+/*나의 상품평관리에서 이미지 등록시 이미지가 잘려서 보이는 현상 해결.*/
+.myPrdList li .myReviewInfoContent .reviewContent p {
+	overflow: visible;
+	max-height: 100%;
+}
+
+.myPrdList li .btnWrap {
+	position: absolute;
+	top: 50%;
+	right: 10px;
+	margin: -18px 0 0 0;
+}
+.myPrdList li .writeBtn {
+	display: inline-block;
+	width: 36px;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	border: solid 1px #d0d0d0;
+	background: -moz-linear-gradient(top, #f1f1f1 0%, #f9f9f9 100%);
+	background: -webkit-gradient(linear, center top, center bottom, from(#f1f1f1), to(#f9f9f9)) no-repeat;
+	background: -webkit-linear-gradient(top, #f1f1f1 0%, #f9f9f9 100%);
+	background: -o-linear-gradient(top, #f1f1f1 0%, #f9f9f9 100%);
+	background: -ms-linear-gradient(top, #f1f1f1 0%, #f9f9f9 100%);
+}
+.myPrdList li .writeBtn span {
+	width: 15px;
+	height: 19px;
+	background-position: -1px -195px;
+	vertical-align: middle;
+}
+/************ Q&A ************/
+ .questionWrite {
+	display: none;
+	position: relative;
+	width: 100%;
+	border-top: 1px solid #fdfdfd;
+	border-bottom: 1px solid #c5c5c5;
+	background: white;
+}
+.questionWrite .edit {
+	margin: 10px;
+	padding: 5px;
+	text-align: center;
+	border: 1px solid #e5e5e5;
+	background: white;
+}
+.questionWrite .edit textarea {
+	overflow: hidden;
+	width: 100%;
+	height: 70px;
+	font-size: 13px;
+	color: #999999;
+}
+.formElement .check {
+	width: 200px;
+	padding: 0 10px 18px 10px;
+	color: #777777;
+	font-size: 12px;
+}
+.formElement .questionWrite .check {
+	width: 200px;
+	padding: 0 10px 14px 10px;
+	color: #777777;
+	font-size: 12px;
+}
+.formElement .check label {
+	display: inline-block;
+	padding: 0 11px 0 0;
+	letter-spacing: -1px;
+}
+.formElement .check input[type=checkbox] {
+	display: none;
+}
+.formElement .check .checkbox {
+	overflow: hidden;
+	display: inline-block;
+	width: 19px;
+	height: 19px;
+	margin: 0 5px 0 0;
+	vertical-align: -7px;
+	background: #fff;
+	border: solid 1px #bbb;
+}
+.formElement .check input[type=checkbox]:checked + .checkbox {
+	border: solid 1px #bbb;
+	background:#fff url('http://image.gsshop.com/mobile/mc/images/srch/icon_chcked.jpg') no-repeat 50% 3px;
+	background-size:12px auto;
+	-webkit-background-size:12px auto;
+}
+.formElement .check .lock {
+	display: inline-block;
+	width: 11px;
+	height: 16px;
+	vertical-align: middle;
+	background-position: 0 -140px;
+}
+.formElement .btns {
+	float: right;
+	position: absolute;
+	right: 10px;
+	bottom: 15px;
+}
+.formElement .questionWrite .btns {
+	float: right;
+	position: absolute;
+	right: 10px;
+	bottom: 11px;
+}
+.formElement .btns button {
+	display: inline-block;
+	width: 52px;
+	height: 29px;
+	text-align: center;
+	line-height: 29px;
+	color: #666666;
+	font-size: 13px;
+	text-shadow: white 0 1px 0;
+	border: 1px solid #c9c9c9;
+	background: white;
+}
+.formElement .btns button:first-child {
+	margin: 0 7px 0 0;
+}
+/*상품문의  등록된 상품문의 내역 없을 경우.*/
+ .qna .defaultMsg {
+	background: white;
+	border-bottom: 1px solid #bcbcbc;
+	-moz-box-shadow: 0 0 3px #d2d2d2;
+	-webkit-box-shadow: 0 0 3px #d2d2d2;
+	box-shadow: 0 0 3px #d2d2d2;
+}
+.qnaList {
+	position: relative;
+	background: white;
+	border-bottom: 1px solid #bcbcbc;
+	-webkit-box-shadow: 0 0 3px #d4d4d4;
+	-moz-box-shadow: 0 0 3px #d4d4d4;
+	box-shadow: 0 0 3px #d4d4d4;
+}
+.qnaList .edit {
+	display: block;
+	height: 100%;
+	color: #222222;
+}
+.qnaList .edit textarea {
+	overflow: hidden;
+	display: block;
+	width: 90%;
+	height: 96px;
+	margin: 0 10px;
+	padding: 5px;
+	color: #999999;
+	font-size: 13px;
+	border: 1px solid #e5e5e5;
+	border-radius: 2px;
+}
+.qnaList .answerModify .edit {
+	margin: 0 -10px 0 10px;
+}
+.qnaList .answerModify .edit textarea {
+	margin: 0;
+}
+.qnaList .answerWrite {
+	padding: 8px 0 0 0;
+	background: #f8f8f8;
+	border-top:1px solid #efefef;
+}
+.qnaList .answerModify .btns, .qnaList .answerWrite .btns {
+	float: none;
+	position: relative;
+	bottom: auto;
+	right: auto;
+	padding: 10px;
+	margin: 0 2px;
+	text-align: center;
+}
+.qnaList .questionModify {
+	position: relative;
+}
+.qnaList .questionModify .edit {
+	clear: both;
+	margin: 0 0 10px 0;
+}
+.qnaList .questionModify .check {
+	padding: 0 10px 18px 10px;
+	border-bottom: none;
+}
+.qnaList ul:after {
+	display: block;
+	content:'';
+	clear: both;
+}
+.qnaList ul li {
+	overflow: hidden;
+	width: 100%;
+	padding: 10px 0 0;
+	border-top: 1px solid #efefef;
+}
+.qnaList ul li:last-child {
+	border-bottom: none;
+}
+.qnaList ul li:first-child {
+	border-top: none;
+}
+.qnaList ul li .icon_status {
+	float: left;
+	width: 43px;
+	height: 43px;
+	margin: 0 0 8px 9px;
+	text-align: center;
+	border: 1px solid #dadada;
+}
+.qnaList ul li .icon_status .reply {
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	margin: 5px 0 0;
+	background-position: -58px -75px;
+}
+.qnaList ul li .icon_status .waiting {
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	margin: 5px 0 0;
+	background-position: -115px -115px;
+}
+.qnaList ul li .icon_status .question {
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	margin: 5px 0 0;
+	background-position: -96px -75px;
+}
+.qnaList ul li .questionInfoContent a {
+	display: block;
+	margin: 0 10px 0 60px;
+	cursor: pointer;
+}
+/*상품평목록에만 사용*/
+.qna .qnaList ul li .questionInfoContent a:nth-child(3) {
+	margin: 0 10px 8px 60px;
+}
+.qnaList ul li .questionInfoContent a span {
+	display: inline-block;
+	margin: 0 0 5px 0;
+	font-size: 12px;
+	color: #acacac;
+}
+.qnaList ul li .questionInfoContent a span em {
+	margin: 0 2px;
+	color: #e4e4e4;
+}
+.qnaList ul li .questionInfoContent a .lock {
+	display: inline-block;
+	width: 17px;
+	height: 14px;
+	margin: 0;
+	background-position: 2px -138px;
+}
+.qnaList ul li .questionInfoContent a p {
+	height: auto;
+}
+.qnaList ul li .questionInfoContent a .questionTitle {
+	height: 17px;
+	font-size: 13px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.qnaList ul li .questionInfoContent a .questionContent {
+	width: 100%;
+	min-height: 17px;
+	padding: 0 0 5px 0;
+	word-break: break-all;
+}
+.qnaList ul li .questionInfoContent .waitComment {
+	display: block;
+	clear: both;
+	padding: 7px 10px;
+	font-size: 12px;
+	color: #999999;
+	border-top: 1px solid #efefef;
+	background: #f8f8f8;
+}
+.qnaList ul li .questionInfoContent .btns button {
+	display: inline-block;
+	margin: 0;
+}
+.qnaList ul li .questionInfoContent .btns button:first-child {
+	margin: 0 6px 0 0;
+}
+.qnaList ul li .answerBox {
+	clear: both;
+	margin: 0;
+	padding: 10px 0;
+	background: #f8f8f8;
+	border-top: solid 1px #e5e5e5;
+	border-left: none;
+	border-right: none;
+	border-bottom: none;
+}
+.qnaList ul li .answerBox ul {
+	margin: 0;
+}
+.qnaList ul li .answerBox ul li {
+	width: 100%;
+	padding: 0;
+	border-top: none;
+	border-bottom: none;
+}
+.qnaList ul li .answerBox ul li .answerContent {
+	padding: 2px 10px 5px;
+	font-size: 13px;
+	color: #393c3c;
+}
+.qnaList ul li .answerBox ul li .answerContent p {
+	padding: 0;
+}
+.qnaList ul li .answerBox ul li .info {
+	margin: 0 10px;
+	padding: 0;
+	height: 18px;
+	font-size: 12px;
+	color: #acacac;
+}
+.qnaList ul li .answerBox ul li .info em {
+	margin: 0 1px;
+	color: #e4e4e4;
+}
+.qnaList ul li .answerBox ul li .answerBtns {
+	overflow: hidden;
+	height: 25px;
+	padding: 5px 10px 0 0;
+	text-align: right;
+}
+.qnaList ul li .answerBox ul li .answerBtns button {
+	display: inline-block;
+	padding-left: 14px;
+	font-size: 12px;
+	color: #999999;
+	border: none;
+	background: url('http://image.gsshop.com/mobile/mc/images/goods/icon_del.png') 0 50% no-repeat;
+	-webkit-background-size: 11px;
+	-moz-background-size: 11px;
+	background-size: 11px;
+}
+.qnaList ul li .answerBox ul li .answerBtns button:last-child {
+	padding: 0;
+	background: none;
+}
+.qnaList ul li .answerBox ul li .answerBtns .answerDelete {
+	padding-left: 5px;
+}
+.qnaList ul li .answerBox ul li .answerBtns em {
+	display: inline-block;
+	margin: 0 8px;
+}
+.qnaList ul li .qnaBtns {
+	clear: both;
+	overflow: hidden;
+	height: 23px;
+	padding-top: 7px;
+	border-top: 1px solid #e5e5e5;
+}
+.qnaList ul li .qnaBtns button {
+	margin: -3px 0 0 0;
+	color: #00aebd;
+	font-size: 12px;
+	border: none;
+	background: transparent;
+}
+.qnaList ul li .qnaBtns .questionDeleteButton {
+	padding-left: 16px;
+}
+.qnaList ul li .qnaBtns .answerWriteButton {
+	float: right;
+	padding-right: 12px;
+	margin: 1px 0 0 0;
+	font-weight: normal;
+	vertical-align: middle;
+}
+.qnaList ul li .qnaBtns .answerWriteButton span {
+	display: inline-block;
+	width: 18px;
+	height: 16px;
+	margin: 0 3px 0 0;
+	background-position: -40px -139px;
+	vertical-align: middle;
+}
+.qnaList ul li .qnaBtns em {
+	display: inline-block;
+	margin: 0 12px;
+	width: 3px;
+	height: 3px;
+	background-position: 0 -32px;
+	vertical-align: middle;
+}
+/****************** 공통 스타일 ***************************/
+
+/* 버튼 공퉁 사용 */
+ .btnTxt02 {
+	display: inline-block;
+	text-align: center;
+	border: 1px solid #c1c1c1;
+	background: #f7f7f7;
+}
+.btnTxt09 {
+	display: inline-block;
+	text-align: center;
+	font-size: 13px;
+	color: #4d5454;
+	font-weight: bold;
+	text-shadow: 0 1px 0 white;
+	border: 1px solid #cecece;
+	border-radius: 3px;
+	-webkit-box-shadow: 0 1px 0 #dbdbdb;
+	-moz-box-shadow: 0 1px 0 #dbdbdb;
+	box-shadow: 0 1px 0 #dbdbdb;
+	background: -moz-linear-gradient(top, #f8f8f8 0%, #efefef 100%);
+	background: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#efefef)) no-repeat;
+	background: -webkit-linear-gradient(top, #f8f8f8 0%, #efefef 100%);
+	background: -o-linear-gradient(top, #f8f8f8 0%, #efefef 100%);
+	background: -ms-linear-gradient(top, #f8f8f8 0%, #efefef 100%);
+}
+.submitBtns .t03 {
+	width: 120px;
+	height: 35px;
+	line-height: 35px;
+	padding: 0;
+	color: #4d5454;
+	font-size: 13px;
+	font-weight: bold;
+}
+.t04 {
+	width: 100px;
+	padding: 10px 0;
+	color: #4d5454;
+	font-size: 13px;
+	font-weight: bold;
+}
+/* 그린버튼 */
+ .btnGreen1 {
+	display: inline-block;
+	text-align: center;
+	width: 68px;
+	height: 27px;
+	text-align: center;
+	line-height: 27px;
+	border: 1px solid #cacaca;
+}
+
+.btnGreen1 span {
+	display: inline-block;
+	width: 10px;
+	height: 8px;
+	margin-left: 5px;
+	background-position: -18px -24px;
+}
+.close span {
+	background-position: -18px -38px;
+}
+.btnGreen2 {
+	display: inline-block;
+	height: 26px;
+	line-height: 26px;
+	text-align: center;
+	font-size: 13px;
+	color: white;
+	border: solid 1px #cbcbcb;
+	color:#666;
+	background:#82cd00;
+	/*background: -moz-linear-gradient(left top, right bottom, #a9cf3b 0%, #99bc34 100%);
+	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #a9cf3b), color-stop(100%, #99bc34));
+	background: -webkit-linear-gradient(left top, right bottom, #a9cf3b 0%, #99bc34 100%);
+	background: -o-linear-gradient(left top, right bottom, #a9cf3b 0%, #99bc34 100%);
+	background: -ms-linear-gradient(left top, right bottom, #a9cf3b 0%, #99bc34 100%);*/
+}
+.iconPhoto2 {
+	display: inline-block;
+	background: url('http://image.gsshop.com/mobile/mc/images/common/img_myshopping.png') no-repeat;
+	-webkit-background-size: 100px auto;
+	background-size: 100px auto;
+}
+.iconFail {
+	display: inline-block;
+	width: 73px;
+	height: 54px;
+	vertical-align: middle;
+	background: url('http://image.gsshop.com/mobile/mc/images/common/bg_fail.png') no-repeat 0 0;
+	-webkit-background-size: 73px auto;
+	background-size: 73px auto;
+}
+.prodImg {
+	background-image: url('http://image.gsshop.com/mobile/mc/images/common/img_detail.png');
+	-webkit-background-size: 151px auto;
+	background-size: 151px auto;
+}
+.prodImgN {
+	background-image: url("http://image.gsshop.com/mobile/mc/images/common/img_detail_new.png");
+	background-repeat: no-repeat;
+	background-size: 115px auto;
+	background-color: transparent;
+}
+.optionImg {
+	background: #f6f6f6 url("http://image.gsshop.com/mobile/mc/images/common/img_select_option.png");
+	background-repeat: no-repeat;
+	background-size: 50px auto;
+}
+.cartImg {
+	background-image: url('http://image.gsshop.com/mobile/mc/images/common/img_cart.png');
+	background-size: 75px auto;
+	background-repeat: no-repeat;
+}
+.mgoodsImg {
+	background-image: url('http://image.gsshop.com/mobile/mc/images/goods/img_mgoods.png');
+	background-size: 150px auto;
+	background-repeat: no-repeat;
+}
+.tvsImg {
+	background: url('http://image.gsshop.com/mobile/mc/images/common/icon_tvshopping.png');
+	background-size: 150px auto;
+	background-repeat: no-repeat;
+}
+.checkImg {
+	display:block;
+	float:left;
+	overflow:hidden;
+	width:23px;
+	height:24px;
+	vertical-align:-8px;
+	background:#f6f6f6;
+	border:solid 1px #bbb;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+}
+.arrowImg {
+	background: url('http://image.gsshop.com/mobile/mc/images/common/btn_arrow3.png');
+	background-size: 13px auto;
+	background-repeat: no-repeat;
+}
+
+/* 앱으로 보기 */
+.prdPhotoWrap .link {
+	position: absolute;
+	right: 0;
+	bottom: 6px;
+	width: 45px;
+	height: 37px;
+	z-index:999;
+}
+.prdPhotoWrap .link p a {
+	display: block;
+	width: 45px;
+	height: 37px;
+}
+
+.prdPhotoWrap .link p a u {
+	display: block;
+	overflow: hidden;
+	width: 45px;
+	height: 37px;
+	color: transparent;
+	font-size: 0;
+	direction:ltr;
+	text-indent: -9999px;
+	background: url('http://image.gsshop.com/mobile/mc/images/popup/icon_appview.png') no-repeat right top;
+	background-size: 45px auto;
+	-webkit-background-size: 45px auto;
+}
+
+/* swipe-img */
+.swiper-slide img {
+	z-index:-1;
+}
+
+
+/* 단품메인 KC인증마크*/
+.specKc {
+	padding: 8px 10px;
+	border-top: 1px solid #e5e5e5;
+}
+.specKc em {
+	display: inline-block;
+	width: 20px;
+	height: 23px;
+	margin-right: 6px;
+	background: url('http://image.gsshop.com/mobile/mc/images/common/img_kcc.jpg') no-repeat 0 0;
+	background-size: 16px auto;
+	-webkit-background-size: 16px auto;
+	vertical-align: middle;
+}
+.specKc span {
+	display: inline-block;
+	font-size: 12px;
+	color: #7b7b7b;
+	line-height: 14px;
+	vertical-align: middle;
+}
+
+/*검색영영 li 꺠지는 부분 */
+.auto_left li, .auto_right li {
+	float: none;
+}
+
+
+/* 하단 배너 */
+/*.pop_bottom {
+	background: #292929;
+	margin-bottom: 180px;
+	margin-top: -172px;
+}
+.popBottomWrap {
+	background: #292929;
+	margin-bottom: 180px;
+	margin-top: -172px;
+}*/
+
+/* 2014-03-05 렌탈상품 상담신청 */
+.order_prd{position:relative;padding:8px 10px;}
+.order_prd:after{display:block;clear:both;content:'';}
+.order_prd.tbdr{border-top:1px solid #e7e7e7;}
+.order_prd p.thumb{float:left;width:70px;height:70px;}
+.order_prd p.thumb a{display:block;}
+.order_prd p.thumb a img{width:100%;}
+.order_prd figure{margin:0 0 0 75px;}
+.order_prd .prd_ttl{overflow:hidden;margin:0;line-height:16px;}
+.order_prd .prd_opt{overflow:hidden;color:#a1a696;font-size:12px;}
+
+/* 렌탈 신청 하단 카드안내문구 */
+.order_guide_bottom{clear:both;margin:0 10px 20px;}
+.order_guide_bottom ul li{overflow:hidden;margin:0 0 2px;font-size:12px;color:#999;}
+.order_guide_bottom ul li span{display:block;float:left;margin:6px 0 0;}
+.order_guide_bottom ul li div{margin:0 0 0 6px;line-height:15px;}
+.order_guide_bottom ul li strong{color:#222;font-weight:normal;}
+.order_guide_bottom ul li div.red{color:#ec1f60;}
+.order_guide_bottom ul li div .btn_txt04{padding:2px 5px;vertical-align:1px;}
+.blit1{display:inline-block;width:8px;height:4px;vertical-align:middle;background:url('http://image.gsshop.com/mobile/mc/images/common/img_detail_new.png') no-repeat -45px 0px;background-size:115px auto;-webkit-background-size:115px auto;}
+
+
+/* 2014-03-11 제휴팝업 */
+.modal .modal_bg30{position:absolute;top:0;left:0;min-height:100%;width:100%;height:100%;height:auto !important;background:url('http://image.gsshop.com/mobile/mc/images/popup/bg_trans03_02.png') repeat;background-size:5px auto;-webkit-background-size:5px auto;z-index:1000;}
+.modal .modal_bg70{position:absolute;top:0;left:0;min-height:100%;width:100%;height:100%;height:auto !important;background:url('http://image.gsshop.com/mobile/mc/images/popup/bg_trans07_02.png') repeat;background-size:5px auto;-webkit-background-size:5px auto;z-index:1000;}
+.modal.savemoney{overflow:hidden;position:absolute;top:0;left:50%;width:208px;margin:0 0 0 -104px;z-index:1000;}
+
+.modal .modal_frame02{margin:0 auto;z-index:10;}
+.modal .modal_frame02 header{display:none;height:0;font-size:0;color:transparent;}
+.modal .modal_frame02 .modal_cont{position:relative;margin:88px auto 0;text-align:center;z-index:10;}
+.modal .modal_frame02 .modal_cont a{display:block;}
+.modal .modal_frame02 .modal_cont img{width:208px;}
+.modal .modal_frame02 .btn_savemoney{width:208px;height:156px;background:url('http://image.gsshop.com/mobile/mc/images/popup/img_tvsavemoney.png') no-repeat 50% 50%;background-size:208px auto;-webkit-background-size:208px auto;}
+.modal .modal_frame02 .btn_savemoney u{display:block;overflow:hidden;color:transparent;font-size:0;text-indent:-9999px;}
+.modal .modal_frame02 .btn_close{display:block;position:absolute;right:10px;top:10px;width:30px;height:30px;padding:0;line-height:0;}
+.modal .modal_frame02 .btn_close u{display:block;width:30px;height:30px;color:transparent;background:url('http://image.gsshop.com/mobile/mc/images/popup/btn_close_tvsavemoney.png') no-repeat 50% 50%;background-size:15px auto;-webkit-background-size:15px auto;}
+.modal.savemoney02{display:none;overflow:hidden;position:fixed;top:0;left:0;width:100%;height:100%;min-height:100%;margin:0 auto;padding-bottom:250px;z-index:1000;}
+.modal.savemoney02 .modal_frame02{position:relative;width:208px;margin:0 auto;z-index:1001;}
+
+.modal .modal_frame03{margin:0 auto;z-index:10;}
+.modal .modal_frame03 header{display:none;height:0;font-size:0;color:transparent;}
+.modal .modal_frame03 .modal_cont{position:relative;overflow:hidden;margin:88px auto 0;text-align:center;border-radius:3px;-webkit-border-radius:3px;z-index:10;}
+.modal .modal_frame03 .modal_cont a{display:block;}
+.modal .modal_frame03 .modal_cont img{width:207px;}
+.modal .modal_frame03 .btn_savemoney{width:207px;height:178px;background:url('http://image.gsshop.com/mobile/mc/images/popup/img_tvsavemoney02.png') no-repeat 50% 50%;background-size:207px auto;-webkit-background-size:207px auto;}
+.modal .modal_frame03 .btn_savemoney u{display:block;overflow:hidden;width:207px;height:178px;color:transparent;font-size:0;text-indent:-9999px;}
+.modal .modal_frame03 .btn_today{width:207px;height:33px;background:url('http://image.gsshop.com/mobile/mc/images/popup/btn_close_today.png') no-repeat 50% 50%;background-size:207px auto;-webkit-background-size:207px auto;}
+.modal .modal_frame03 .btn_today u{display:block;overflow:hidden;width:207px;height:33px;color:transparent;font-size:0;text-indent:-9999px;}
+.modal .modal_frame03 .btn_close{display:block;position:absolute;right:0;bottom:-2px;width:47px;height:35px;padding:0;line-height:0;}
+.modal .modal_frame03 .btn_close u{display:block;overflow:hidden;width:47px;height:35px;color:transparent;background:url('http://image.gsshop.com/mobile/mc/images/popup/btn_close_tvsavemoney02.png') no-repeat 50% 50%;background-size:37px auto;-webkit-background-size:37px auto;}
+.modal.savemoney03{display:none;overflow:hidden;position:fixed;top:0;left:0;width:100%;height:100%;min-height:100%;margin:0 auto;padding-bottom:250px;z-index:1000;}
+.modal.savemoney03 .modal_frame03{position:relative;width:207px;margin:0 auto;z-index:1001;}
+
+/* 추천상품 플리킹 */
+.brandRecommandWrap .swiper-container{
+	width:100%;
+	height:85px;
+}
+.brandRecommandWrap #gsRecomList ul li {
+	width:100%;
+}
+.brandRecommandWrap .RecomWrap{
+	float:left;
+	width:25%;
+}
+/* 미사용쿠폰 */
+.prdDescription .descriptionContents .smsCoupon{
+	margin-top:-1px;
+	margin-bottom:10px;
+	padding:8px;
+	border-bottom:1px solid #e5e5e5;
+}
+.prdDescription .descriptionContents .smsCoupon em{
+	display:table-cell;
+	width:56px;
+	height:56px;
+	background:url('http://image.gsshop.com/mobile/mc/images/goods/icon_desc_coupon.jpg') no-repeat 50% 50%;
+	-webkit-background-size:56px auto;
+	background-size:56px auto;
+}
+.prdDescription .descriptionContents .smsCoupon p{
+	display:table-cell;
+	padding-left:0;
+	font-size:12px;
+	color:#999;
+	line-height:14px;
+	vertical-align:middle;
+}
+.prdDescription .descriptionContents .smsCoupon b{
+	display:block;
+	margin-bottom:2px;
+	font-size:13px;
+	color:#00aebd;
+}
+.prdDescription .descriptionContents .smsCoupon i{
+	font-style:normal;
+	color:#222;
+}
+.sellNum{
+	margin:0 -10px 10px;
+	padding:0 10px 10px;
+	border-bottom:1px solid #e5e5e5;
+}
+
+/* 추천상품 예외처리 */
+#gsRecomList .prdPhotoPaging{display:none;}
+
+/* 원산지표기 */
+.prdInfoWrap dl dd.orgP{
+	overflow: hidden;
+	margin: 0;
+	max-height: 38px;
+	font-size: 14px;
+	font-weight: bold;
+	letter-spacing: -1px;
+}
+
+
+/* 2014-04-22 방송알림 추가 */
+.orderRelatedBtn .alert{
+	border: 1px solid #838383;
+	background: -moz-linear-gradient(top, #8b8b8b 0%, #8c8c8c 100%);
+	background: -webkit-gradient(linear, center top, center bottom, from(#8b8b8b), to(#8c8c8c));
+	background: -webkit-linear-gradient(top, #8b8b8b 0%, #8c8c8c 100%);
+	background: -o-linear-gradient(top, #8b8b8b 0%, #8c8c8c 100%);
+	background: -ms-linear-gradient(top, #8b8b8b 0%, #8c8c8c 100%);
+}
+
+.orderRelatedBtn .alert em {
+	width: 16px;
+	height: 18px;
+	margin: 0 2px 0 0;
+	background-position: -110px -122px;
+}
+
+.orderRelatedBtn .wish.on em{
+	background-position: -130px -120px;
+}
+
+.orderRelatedBtn .other{
+	height:35px;
+	text-align:center;
+	line-height:35px;
+}
+.orderRelatedBtn .other b{
+	color: #8b8b8b;
+}
+.orderRelatedBtn .soldoutBtn{
+	position:static;
+	margin: -10px auto 0;
+	border-top:none;
+}
+.orderRelatedBtn .soldoutBtn p{
+	margin: 10px 2px;
+}
+
+.skip{visibility:hidden;overflow:hidden;text-indent:-10000px;width:.1%;height:.1%;line-height:.1%;font-size:.1%}
+
+html, body {
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
+.positionR{position:relative}
+button{background:none; border:none}
+.orderRelatedWrap{position:relative}
+
+/* 구매하기 버튼만 있을경우 */
+.orderBottomArea{position:fixed; bottom:0;  width:100%; z-index:1002; background:#fff}
+.orderBottomBuy{background:#fb1f65; text-align:center; font-size:16px}
+.orderBottomBuy input[type="button"]{background:none; color:#fff; font-weight:bold; display:block;height:39px; line-height:39px; text-align:center; width:100%; font-size:16px}
+
+						/* orderBottomBar 클래스 패딩 수정 */
+.orderBottomBar{padding:6px 10px 7px 8px;  position:relative; border-top:1px solid #a6a6a6;}
+.orderZzimArea{position:absolute; left:8px; top:6px; z-index:9999;}
+.orderIconZzim{color:transparent; background:url(../../img/icon_zzim_off.png) no-repeat center ; background-size:46px; border:1px solid #d4d4d4; height:39px; width:46px}
+.orderIconZzim.on{color:transparent; background:url(../../img/icon_zzim_on.png) no-repeat center ; background-size:46px; border:1px solid #d4d4d4; height:39px; width:46px}
+
+/* 찜하기 구매하기 버튼 */
+.orderBottomBuy02{background:#fb1f65; text-align:center; margin-left:54px;font-size:16px}
+.orderBottomBuy02 input[type="button"]{background:none; color:#fff; font-weight:bold; display:block;height:39px; line-height:39px; text-align:center; width:100%; font-size:16px}
+
+
+/* 찜하기 알람 구매하기 버튼 */
+.orderBottomBuy03{background:#fb1f65; text-align:center; margin-left:102px; }
+.orderBottomBuy03 input[type="button"]{background:none; color:#fff; font-weight:bold; display:block;height:39px; line-height:39px; text-align:center; width:100%; font-size:16px}
+.orderIconAlram{color:transparent; background:url(../../img/icon_alram_off.png) no-repeat center; background-size:46px;border:1px solid #d4d4d4; height:39px; width:46px; margin-left:5px}
+.orderIconAlram.on{color:transparent; background:url(../../img/icon_alram_on.png) no-repeat center; background-size:46px;border:1px solid #d4d4d4; height:39px; width:46px; margin-left:5px}
+.orderIconAlram.off{background:url(../../img/icon_alram_no.png) no-repeat center; background-size:46px;}
+
+/* 전화주문 */
+.orderBottomBar a{display:block; height:39px}
+.orderTelBtn{background:#fb1f65; text-align:center; width:100%;  font-size:16px; font-weight:bold; height:39px; line-height:13px;}
+/*.orderTelBtn em.tel{background:url(../images/icon_tel_btn.png) no-repeat; background-size:28px; display:inline-block; text-align:center; width:28px; height:25px; margin-top:2px; color:transparent }*/
+.orderTelBtn em.tel{font-size:0; position:absolute; /* left:-999px */}
+.orderTelBtn span{padding-top:4px; margin-top:-5px; display:inline-block; color:#fff; height:39px; line-height:39px; background:url(../images/icon_tel_btn.png) no-repeat 2px 11px; background-size:28px; padding-left:29px; }
+
+
+/* 일시품절되었습니다 */
+.timeOrderOut{background:#f4f4f4; border:1px solid #d4d4d4; color:#888; font-weight:bold; height:37px; line-height:37px; text-align:center;  font-size:17px;}
+
+/* 찜 / 일시품절되었습니다 */
+.timeOrderOut02{background:#f4f4f4; border:1px solid #d4d4d4; color:#888; font-weight:bold;height:37px; line-height:37px; text-align:center; margin-left:52px; font-size:17px}
+
+
+/* 찜 / 알람/ 일시품절되었습니다. */
+.timeOrderOut03{background:#f4f4f4; border:1px solid #d4d4d4; color:#888; font-weight:bold; height:37px; line-height:37px; text-align:center; margin-left:103px; font-size:17px;}
+
+/* 판매종료 되었습니다. */
+.orderOut{color:#ee1f60; font-weight:bold; text-align:center; padding:11px 0; font-size:17px;}
+
+/* 품절된 상품입니다. */
+.orderOut02{color:#ee1f60; font-weight:bold; text-align:center; padding:10px 0; margin-left:54px; font-size:17px;}
+
+.orderIconZzim.off{background:url(../img/icon_zzim_no.png) no-repeat; background-size:46px}
+
+
+/*단독판매하지 않은 상품입니다.*/
+.product_info{color:#888; font-weight:bold; text-align:center; padding:12px 0; font-size:17px;}
+.product_info em.event_info{display:inline-block; background:url(../images/icon_event.png) no-repeat; background-size:22px;  color:transparent; width:22px; height:20px}
+.product_info span.event_info_txt{display:inline-block; vertical-align:top}
+
+.dropBoxArea{position:fixed;  width:100%; z-index:1000; bottom:0;}
+.dropBtn{background:url(../../img/drop_top_btn.png) no-repeat center 2px; background-size:84px; color:transparent; width:100%; text-align:center; display:block; position:absolute; top:2px }
+.dropBtnCon{border-bottom:1px solid #acacac; height:18px; }
+
+
+.orderConArea{position:relative;}
+.amountArea{border:1px solid #e5e5e5; padding:20px 10px; }
+.amountArea span.amountTxt01{font-size:14px; font-weight:bold; color:#111}
+.amountArea span.amountTxt02{font-size:11px; color:#636363}
+.amountArea .orderAmountEa{position:absolute; right:15px; top:15px; width:114px;}
+.orderAmountEa input[type="text"]{width:46px; border:1px solid #c9c9c9; height:30px; border-left:none; border-right:none; text-align:center; margin-left:32px}
+
+.iconMinor{display:inline-block; width:34px; height:30px; background:url(../images/btn_minor.png) no-repeat center; background-size:34px; color:transparent; float:left; border:1px solid #c9c9c9; position:absolute; left:0; top:0}
+.iconPlus{display:inline-block; width:34px; height:30px; background:url(../images/btn_plus.png) no-repeat center; background-size:34px; color:transparent; border:1px solid #c9c9c9; position:absolute; right:0; top:0}
+.amountInfo{background:url(../images/icon_dot.png) no-repeat 0 10px; background-size:5px; margin-top:5px; padding:5px 10px; font-size:11px}
+
+
+.productSelect.type1{width:100%; position:absolute; left:0; top:0; z-index:6;margin-top:0px}
+.productSelect{margin-top:5px}
+.productSelect h2.selectTitle{border:1px solid #ddd; padding:10px; background:#fff;  }
+.productArea{position:absolute; width:100%; left:0; top:0; z-index:5; }
+.productList{border:1px solid #ddd; display:none; }
+.productList li{padding:10px;  background:#fff ;}
+.productList li:nth-child(even){background:#f4f4f4}
+.productCon{}
+
+.orderCheck{border:1px solid #e5e5e5; background:#f4f4f4; padding:10px; margin-top:5px; position:relative}
+.orderCheck h2{font-size:14px; color:#111; font-weight:bold}
+.orderCheck .orderAmountEa{width:114px; margin-top:5px}
+.orderCheck .productPrice{position:absolute; right:10px; bottom:10px}
+.orderCheck .productPrice span.productPrice1{color:#00aebd; font-weight:bold; font-size:17px;}
+.orderCheck .productPrice span.productPrice2{color:#00aebd; font-weight:bold; font-size:14px }
+.btn_ex{color:transparent; background:url(../../images/btn_ex.png) no-repeat center; background-size:20px; border:1px solid #c9c9c9; height:20px; width:20px}
+
+
+/*.totalPriceInfo{border-top:1px solid #9f9f9f; height:50px; position:fixed; bottom:0; width:100%; background:#fff;z-index: 1001;}
+.totalPriceInfo p{padding:10px 180px 15px 0px}
+.totalPriceInfo p span{text-align:right; float:right}
+.totalPriceInfo p span.totalPrice{font-size:19px; font-weight:bold}
+.totalPriceInfo p span.totalPriceWon{font-size:15px}*/
+
+/*하단 버튼 2개일경우*/
+.money_info{position:absolute; right:10px; top:6px; text-align:right;}
+.money_info input[type="radio"]{display:none}
+/*.money_info .btn_market{color:transparent; background:#00aebd url(../images/icon_basket.png) no-repeat center; background-size:30px; display:inline-block; width:54px; height:35px; float:right }*/
+.money_info.off span{display:none}
+
+/*하단 버튼 3개일 경우*/
+.money_info02{position:absolute; right:10px; top:6px; text-align:right;}
+.money_info02 input[type="radio"]{display:none}
+.money_info02 .btn_tel{color:transparent;background:#fb1f65 url(../../img/icon_tel.png) no-repeat center; background-size:30px; display:inline-block; width:40px; height:39px; /* float:left; */  margin-right:5px;vertical-align:middle;}
+.money_info02 .btn_price{background:#fb1f65; color:#fff; font-weight:bold; width:82px; height:39px; display:inline-block; line-height:39px; text-align:center; /* float:left;margin-right:5px; */ font-size:16px;vertical-align:middle;}
+.money_info02 .btn_price2{background:#fb1f65; color:#fff; font-weight:bold; width:107px; height:35px; display:inline-block; line-height:35px; text-align:center; /* float:left;margin-right:5px; */ font-size:16px;vertical-align:middle;}
+.money_info02 .btn_market{color:transparent; background:#00aebd url(../../img/icon_basket.png) no-repeat 7px 3px; background-size:30px; display:inline-block; width:40px; height:39px; /* float:right */ margin-right:5px;vertical-align:middle; }
+.money_info02 .btn_market.off{background-color:#888}
+
+/*플로팅 IScroll 적용*/
+.emptyContainer{/* overflow:hidden;height:189px; */}
+.orderScrollArea{overflow:hidden;/* height:189px; */}
+/* 플로팅 css 해제부분1*/
+.total{border:none; margin:0}
+.total b{color:#111; font-size:15px; margin-top:18px}
+/*.total .totalPriceWrap .totalPrice{font-size:19px; font-weight:bold; margin-top:0px}
+.total .totalPriceWrap .won{color:#111; font-size:15px}*/
+
+.prdStyle dd p, .prdOrderNum dd p{background:#fff; padding:15px 10px; border:1px solid #e5e5e5; border-bottom:none}
+.prdStyle.type1{position:absolute; left:0; top:0; width:100%; z-index:10;}
+.prdStyle, .prdOrderNum{margin:0}
+.prdOrderNum{padding:10px; border:1px solid #e5e5e5; margin-bottom:5px; background:#f4f4f4;}
+
+.prdStyle.visibleY{border-bottom:none}
+.addPrd{border-top:none}
+.prdStyle dd .selectStyle, .prdOrderNum dd .selectStyle{background-color:#fff; border:1px solid #ddd; padding:15px 30px 15px 10px; background-position-y:8px}
+.prdStyle dd .selectStyle.type1, .prdOrderNum dd .selectStyle.type1{border:1px solid #86cf00; background:#fff url(../images/img_select_option02.png) no-repeat right top; background-size:50px auto; background-position-y: -35px;}
+.prdStyle dd .selectStyle.type2, .prdOrderNum dd .selectStyle.type2{border:1px solid #86cf00; background:#fff url(../images/img_select_option02.png) no-repeat right top; background-size:50px auto; background-position-y: -78px;}
+
+
+.orderRelatedWrap .selectedOption ul{margin:0 0 0 0; background:#f4f4f4; border:1px solid #e5e5e5; border-bottom:none; }
+.orderRelatedWrap .selectedOption ul:last-child{border-bottom:1px solid #e5e5e5}
+.prdStyle dd p span{float:right}
+.orderRelatedWrap .selectedPrd{color:#111; /* font-size:14px; font-weight:bold; */ word-wrap: break-word;}
+.orderRelatedWrap .selectedPrd u{ color:#111; font-size:14px}
+
+.orderRelatedWrap .selectedOption ul li .listWrap .selOptPriceWrap{float:left}
+.orderRelatedWrap .selectedOption ul li .listWrap .selOptPriceWrap span{font-size:15px; position:relative; top:-1px}
+.orderRelatedWrap .reset{position:initial; float:left; margin:0 0 0 5px; width:31px; height:31px}
+.orderRelatedWrap .reset .delete{background:url('http://image.gsshop.com/mobile/mc/images/float_exbtn02.png') no-repeat; background-size:31px}
+.selBtn{overflow:hidden; position:absolute; right:10px; bottom:11px}
+.orderRelatedWrap .numEdit{width:115px}
+.orderRelatedWrap .numEdit fieldset{width:115px}
+.orderRelatedWrap .numEdit fieldset .btn span{line-height:23px}
+.orderRelatedWrap .numEdit fieldset input{width:98%; font-weight:bold}
+
+
+
+/* 제품 리스트 상세 팝업 리스트 */
+.product_pop_list{border:1px solid #86cf00; background:#fff url(../../images/img_select_option02.png) no-repeat right top; background-size:50px auto; background-position-y: -36px; width:100%}
+.product_pop_list.type1{position:absolute; left:0; top:0; width:100%}
+.product_pop_list h1{font-size:14px; font-weight:bold; padding:15px 10px; border-bottom:1px solid #86cf00}
+.product_pop_list .product_list_con li{padding:10px; font-size:14px; border-bottom:1px solid #e5e5e5}
+.product_pop_list .product_list_con li:last-child{border-bottom:none}
+.product_pop_list .product_list_con li span{font-weight:bold}
+.product_pop_list .product_list_con li span.won{font-size:12px}
+.product_pop_list .product_list_con li.on{background:#f4f4f4}
+.product_pop_list .product_list_con li.select{background:url(../../images/pop_select.png) no-repeat right 14px; background-size:30px}
+.product_pop_list .product_list_con li.type1{color:#888}
+
+
+/*오버*/
+.prdStyle dd .selected, .prdOrderNum dd .selected{border:1px solid #86cf00; background: #fff url(../images/img_select_option02.png) no-repeat right top; background-size: 50px auto; background-position-y: -77px;}
+
+@media screen and (min-width:340px){
+	.orderConArea{width:345px; margin:0 auto}
+	#orderConArea{width:335px; margin:0 auto}
+}
+
+
+
+/* 상세설명 */
+.tapUp{position:fixed;top:34px;width:100%;z-index:102;}
+
+
+
+/*플로팅 추가*/
+button{background:none; border:none}
+.order_con_position{position:relative}
+.position{position: absolute;left: 0;top: 0;z-index: 99;background: #fff;width: 100%;}
+.dropBoxArea{position:fixed; bottom:0px;  width:100%;visibility:hidden;}
+.dropBtn{background:url(../../img/drop_top_btn.png) no-repeat center 2px; background-size:84px; height:21px; color:transparent; width:100%; text-align:center; display:block; position:absolute; top:2px }
+.dropBtnCon{border-bottom:1px solid #acacac; height:21px; }
+.orderContainer{padding:10px 10px 0 10px; background:#fff; position:relative}
+
+.floating_btn{height:38px; padding:6px 8px; border-top:1px solid #a6a6a6; background:#fff}
+.floating_btn label{background:#ee1f60; display:block; height:38px; color:#fff; text-align:center; line-height:32px}
+.floating_btn input[type="button"]{background:none; color:#fff; font-size:17px}
+.floating_btn p.shell_out{color:#ee1f60; text-align:center; font-size:17px; font-weight:bold; line-height:33px}
+.floating_btn p.shell_stop{color:#888; text-align:center; font-size:17px; font-weight:bold; line-height:33px}
+
+.select_box{border:1px solid #c9c9c9; /*margin-bottom:5px;*/background:#fff;}
+.select_box h2{color:#111; height:38px; line-height:38px; margin-top:-1px; padding-left:10px;  position:relative; font-size:14px; overflow: hidden; padding-right:35px;word-wrap: break-word; background:#fff; border-top:1px solid #c9c9c9; z-index:1;}
+.select_box h2:after{content:""; display: block;  width:25px; height:25px; background: transparent url(../images/select_top_off.png) no-repeat 0 0; background-size: 25px 25px; position:absolute; right:4px; top:7px }
+
+.select_box.type1{border:1px solid #86cf00;}
+.select_box.type1 h2{color:#111;border-top:1px solid #86cf00;}
+.select_box.type1 h2:after{content:""; display: block;  width:25px; height:25px; background: transparent url(../images/select_top_btn02.png) no-repeat 0 0; background-size: 25px 25px; position:absolute; right:4px; top:7px }
+
+.select_box.type2{border:1px solid #86cf00;}
+.select_box.type2 h2{color:#111;border-bottom:1px solid #86cf00;border-top:1px solid #86cf00;}
+.select_box.type2 h2:after{background: transparent url(../images/select_top_btn.png) no-repeat 0 0;background-size: 25px 25px;}
+
+.select_list_con{/* border-top:1px solid #86cf00; */display:none;}
+.select_list_con li.active{background:#ebebeb}
+.select_list_con li{/*height:33px;*/ padding:12px 30px 10px 10px; border-bottom:1px solid #e5e5e5; font-size:14px; word-wrap: break-word;}
+/*.select_list_con li:last-child{border-bottom:none}*/
+.select_list_con li span.product_price{display:block}
+.select_list_con li span.won{}
+
+.select_list_con li.on{background:url(../images/pop_select.png) no-repeat right 6px; background-size:30px }
+.select_list_con li.soldout{color:#888}
+
+.price_info_area{padding:10px; background:#f4f4f4; border:1px solid #e5e5e5; position:relative}
+.price_info_area p.price_info_title01{color:#111; font-weight:bold}
+.price_info_area p.price_info_title02{color:#636363; }
+
+.price_info_area p.price_info_qty{position:relative; margin-top:7px; width:117px}
+.price_info_area p.price_info_qty span.qty_minor{border:1px solid #c9c9c9; display:inline-block; width:35px; height:29px; background:url(../images/btn_minor.png) no-repeat; background-size:35px; position:absolute; left:0; top:0; color:transparent}
+.price_info_area p.price_info_qty span.qty_plus{border:1px solid #c9c9c9; display:inline-block; width:35px; height:29px; background:url(../images/btn_plus.png) no-repeat; background-size:35px; position:absolute; right:0; top:0;  color:transparent}
+
+.price_info_qty input[type="text"]{width:115px; border:1px solid #c9c9c9; height:29px; text-align:center; font-weight:bold; color:#111 }
+.price_info_con{font-weight:bold; font-size:17px; color:#00aebd; position:absolute; right:10px; bottom:15px }
+.price_info_con span.won{font-size:15px}
+.price_info_con label{background:url(../images/float_exbtn.png) no-repeat; display:inline-block; background-size:21px; width:21px; height:21px}
+.amountInfo{background:url(../images/icon_dot.png) no-repeat 0 10px; background-size:5px; margin-top:5px; padding:5px 10px; font-size:11px}
+
+.total{border:none; margin:0}
+.total b{color:#111; font-size:15px; margin-top:18px; }
+.total b.total_txt{position:absolute; left:10px;top:8px}
+.total .totalPriceWrap .totalPrice{font-size:19px; font-weight:bold; margin-top:0px; letter-spacing:-1px}
+.total .totalPriceWrap .won{color:#111; font-size:15px}
+
+/* totalPriceInfo 클래스 높이 수정 */
+.totalPriceInfo{border-top:1px solid #acacac; height:52px; position:fixed; bottom:0; width:100%; background:#fff; z-index:1001;}
+.totalPriceInfo p{padding:18px 180px 15px 0; text-align:right}
+.totalPriceInfo p span{text-align:right; float:right}
+.totalPriceInfo p span.totalPrice{font-size:19px; font-weight:bold}
+.totalPriceInfo p span.totalPriceWon{font-size:15px}
+
+.money_info{position:absolute; right:10px; top:6px; text-align:right;}
+.money_info input[type="radio"]{display:none}
+.money_info .btn_price{ background:#fb1f65; color:#fff; font-weight:bold; width:120px; height:39px; display:inline-block; line-height:39px; text-align:center; /* float:left;margin-right:5px; */  font-size:16px; vertical-align:middle;}
+.money_info .btn_price2{background:#fb1f65; color:#fff; font-weight:bold; width:100px; height:39px; display:inline-block; line-height:39px; text-align:center; /* float:left;margin-right:5px; */  font-size:16px; vertical-align:middle;}
+.money_info .btn_market{color:transparent; background:#00aebd url(../images/icon_basket.png) no-repeat 7px 3px; background-size:30px; display:inline-block; width:40px; height:39px; /* float:right */ margin-right:5px;vertical-align:middle; }
+.money_info .btn_market.off{background-color:#888}
+.money_info.off span{display:none}
+
+.money_info label{background:#ee1f60; color:#fff; width:166px; height:38px; line-height:32px; text-align:center; display:inline-block}
+.money_info input{background:none; color:#fff; font-size:15px; font-weight:bold}
+.money_info label.btn_tel{background:#ee1f60 url(../images/icon_tel_btn.png) no-repeat; color:transparent; background-size:28px}
+
+
+/* 단품 UI 수정 */
+.orderRelatedWrap .gift{margin:0 0 5px 0;} 
+.prdStyle dd p{border-bottom:1px solid #e5e5e5}
+.orderRelatedWrap .gift dl dt{font-weight:normal; color:#393c3c; font-size:13px; font-weight:bold }
+
+.prdInfoWrap {
+position: relative;
+/* overflow: hidden; */
+ padding: 0 0 0 0; 
+background: white;
+border-top:1px solid #e5e5e5; 
+border-bottom: none;
+}
+
+.prdInfoListWrap{border:none; border-top:1px solid #e5e5e5}
+.prdInfoWrap dl{border-left:none; border-right:none  }
+.displayInfo.sellNum{padding:10px; margin:0 0 0 0}
+.buyInfo_edit{padding:8px 10px}
+.buyInfo_edit dl dt{color:#888; }
+.buyInfo_edit dl dd{color:#888; }
+.buyInfo_edit02{padding:8px 10px}
+.buyInfo_edit02 dl dt{width:90px; color:#636363; letter-spacing:-1px;}
+.buyInfo_edit02 dl dd{ color:#222; /* margi-left:94px; */ margin-left:90px; letter-spacing:-1px;}
+.prodImgN{background:none}
+
+.displayInfo dl dt .icon{display:inline}
+.tabWrap .buyingInfo{padding:0 0 0 0}
+
+.prdTabBtm li.on{background:#fff}
+
+.prdTabBtm li.on .arrowUnder {
+display: block;
+position: absolute;
+left: 50%;
+bottom: 30px;
+width: 7px;
+height: 5px;
+margin: 0 0 0 -3px;
+background-position: -120px -20px;
+}
+
+.prdTabBtm li a {
+display: block;
+position: relative;
+height: 40px;
+margin: 0 0 0 0; 
+line-height: 40px;
+color: #999999;
+text-align: center;
+font-weight: bold;
+border-right: 1px solid #cacaca;}
+
+
+/*.prdDescription header .btnZoom{width:58px; line-height:27px; border-radius:0; background:#f8f8f8; border:1px solid #cbcbcb}*/
+/*.prdDescription footer a{width:58px; line-height:27px; border-radius:0; background:#f8f8f8; border:1px solid #cbcbcb; text-align:center; padding:0 0 0 0}*/
+.contentShadow .prdDetailWrap .contentWrap{text-align:center}
+.contentShadow .prdDetailWrap .contentWrap .productDescription p, 
+.contentShadow .prdDetailWrap .contentWrap .productDescription li{text-align:left;}
+.prdDescription .btnZoom{width:68px; line-height:27px; border-radius:0; background:#f8f8f8; border:1px solid #cbcbcb; position:absolute;
+display: block;top: 12px;right: 10px;height: 27px;text-align: center; font-size:13px; color:#666}
+.prdDescription footer .btnZoom{top:10px;}
+
+/* 공유하기 */
+
+.popup_list{ width:100%}
+.view_list{display:-webkit-box}
+.view_list li{width:25%; text-align:center; font-size:12px}
+.view_list li a{display:block; }
+.view_list li a:before{content:""; background:url(../images/icon_facebook.png) no-repeat center center; background-size:39px; width:39px; height:45px; width:100%; display:block;}
+.view_list li.click_twitter a:before{background:url(../images/icon_tweeter.png) no-repeat center center; background-size:39px; width:39px; height:45px; width:100%; display:block;}
+.view_list li.click_kakaotalk a:before{background:url(../images/icon_kakao.png) no-repeat center center; background-size:39px; width:39px; height:45px; width:100%; display:block;}
+.view_list li.click_sms a:before{background:url(../images/icon_sms.png) no-repeat center center; background-size:39px; width:39px; height:45px; width:100%; display:block;}
+.popup_list h1{border-bottom:1px solid #00aebd; text-align:center; font-size:16px; padding:12px 0 }
+.pop_icon_area{padding:25px; border-bottom:1px solid #cfcfcf}
+.pop_btn_area{padding:13px 0 !important; text-align:center}
+.pop_btn_cancel{color:#717171; font-size:14px;  background:none; border:none; font-weight:bold }
+
+ 
+/*교환반품 블릿추가*/
+.prdInfoListWrap .toggleContent dl dd li{background:url(../images/dot_bl.png) no-repeat 0 6px; background-size:5px; padding:0 0 0 8px }
+
+.prdInfoListWrap .toggleContent dl dd li:last-child{padding:0 0 0 8px}
+.prdInfoListWrap .toggleContent dl dd .htmlArea span{background:none}
+
+/* 공통영역 페이지 탑버튼 */
+.page_top{bottom:60px}
+
+.prdOrderNum dd .addDescription {display:inline-block; padding-top:4px}
+
+/* 프로모션 */
+.pmoNames{color:#00aebd; font-weight:bold}
+
+
+/*종류선택부분 */
+.prdStyle dd{}
+
+.prdStyle dd p b{
+	position:absolute;
+	left:10px; 
+	top:15px;
+	width:70px
+}
+.prdStyle dd p{padding:15px 10px 15px 82px}
+.prdStyle dd p span{
+	float:initial;
+		
+}
+
+
+.prdStyle.visibleY{margin-bottom:5px}
+
+.prdStyle{margin-bottom:5px}
+
+
+/* 단품 컨텐츠 수정 부분 2014.07.03 */
+.msgBarnner{/*padding:0 0 10px 0 ; margin-top:10px */ }
+.displayInfo dl dd b{
+	font-weight:normal;
+	margin:0 0 0 0 
+}
+
+
+/*.displayInfo.buyInfo_edit02 dl:nth-child(3){margin-bottom:10px}
+.displayInfo.buyInfo_edit02 dl:nth-child(6){margin-bottom:10px}
+.displayInfo.buyInfo_edit02 dl:nth-child(9){margin-bottom:10px}
+.displayInfo.buyInfo_edit02 dl:nth-child(12){margin-bottom:10px}
+*/
+
+.prdInfoWrap .priceInfo dl:last-child{border-bottom:none}
+.prdTab li a span{
+	display:inline-block;
+	margin-left:3px;
+	position:relative;
+	top:-2px
+	
+}  
+
+.prdInfoWrap dl{border-bottom:none}
+.tipContent .noti li{
+	background: url(../images/dot_bl.png) no-repeat -1px 5px;
+	background-size: 5px;
+}
+
+
+
+/* 플로팅 부분 추가 버튼들 정의 2014.07.07 */
+
+	/* 바로구매, 전화기, 장바구니 버튼 = 토탈 3개 버튼 있을때 */
+	.money_info_area{
+		padding-left:90px;
+		position:relative;
+		}
+	.money_info_area .btn_price{
+		height:39px;
+		line-height:39px; 
+		background:#fb1f65;
+		color:#fff; 
+		font-weight:bold; 
+		text-align:center;
+		font-size:16px;
+		display:block;
+		width:100%
+	}
+	
+	.money_info_area input[type="radio"]{
+		display:none
+	}
+	
+	.money_info_area .btn_tel{
+		color: transparent;
+		background: #fb1f65 url(../images/icon_tel.png) no-repeat center;
+		background-size: 30px;
+		display: inline-block;
+		width: 40px;
+		height: 39px;
+		position:absolute; 
+		left:45px;
+		top:0px
+	}
+
+	.money_info_area .btn_market{
+		color: transparent;
+		background: #00aebd url(../images/icon_basket.png) no-repeat 7px 3px;
+		background-size: 30px;
+		display: inline-block;
+		width: 40px;
+		height: 39px;
+		float: left;
+		position:absolute; 
+		left:0px;
+		top:0px
+
+	}
+
+
+	/* 바로구매, 장바구니 버튼 = 토탈 2개 버튼 있을때 */
+	.money_info_area02{
+		padding-left:45px;
+		position:relative
+		}
+	.money_info_area02 .btn_price{
+		height:39px;
+		line-height:39px; 
+		background:#fb1f65;
+		color:#fff; 
+		font-weight:bold; 
+		text-align:center;
+		font-size:16px;
+		display:block;
+		width:100%
+	}
+	
+
+	.money_info_area02 .btn_market{
+		color: transparent;
+		background: #00aebd url(../images/icon_basket.png) no-repeat 7px 3px;
+		background-size: 30px;
+		display: inline-block;
+		width: 40px;
+		height: 39px;
+		float: left;
+		position:absolute; 
+		left:0px;
+		top:0px
+
+	}
+
+	.money_info_area02 input[type="radio"]{
+		display:none
+	}
+
+		/* 바로구매, 전화기 버튼 = 토탈 2개 버튼 있을때 */
+	.money_info_area03{
+		padding-left:45px;
+		position:relative
+		}
+	.money_info_area03 .btn_price{
+		height:39px;
+		line-height:39px; 
+		background:#fb1f65;
+		color:#fff; 
+		font-weight:bold; 
+		text-align:center;
+		font-size:16px;
+		display:block;
+		width:100%
+	}
+	
+	.money_info_area03 .btn_tel{
+		color: transparent;
+		background: #fb1f65 url(../images/icon_tel.png) no-repeat center;
+		background-size: 30px;
+		display: inline-block;
+		width: 40px;
+		height: 39px;
+		position:absolute; 
+		left:0px;
+		top:0px
+	}
+	
+	.money_info_area03 input[type="radio"]{
+		display:none
+	}
+
+	/* 바로구매 1개 버튼 있을때 */
+	.money_info_area04{
+		position:relative
+		}
+
+	.money_info_area04 .btn_price{
+		height:39px;
+		line-height:39px; 
+		background:#fb1f65;
+		color:#fff; 
+		font-weight:bold; 
+		text-align:center;
+		font-size:16px;
+		display:block;
+		width:100%
+	}
+	
+	.money_info_area04 input[type="radio"]{
+		display:none
+	}
+	.money_info_area04 .btn_price2{
+		height:39px;
+		line-height:39px; 
+		background:#fb1f65;
+		color:#fff; 
+		font-weight:bold; 
+		text-align:center;
+		font-size:16px;
+		display:block;
+		width:100%
+	}
+	
+
+/* 방송알림 팝업 CSS 시작 */
+.prd_ontv_popup section.modal#smsRegModal {
+	height: auto;
+	box-sizing: border-box;
+	position: fixed;
+}
+.prd_ontv_popup #ontv_alert_layer {
+	display: block;
+	position: fixed;
+	top: 50%;
+	margin-top: -172px;
+	z-index: 100000;	
+}
+
+.prd_ontv_popup .modal_frame {
+	top: 0;
+} 
+
+.prd_ontv_popup .modal#smsRegModal .modal_frame {
+	margin: 0 auto;
+}
+/* 방송알림 팝업 CSS 끝 */
+
+
+.prdDescription .smsCoupon, .prdDetailNote .smsCoupon {
+width: auto !important;
+margin-bottom: 10px;
+padding: 8px;
+border-top: 1px solid #e5e5e5;
+border-bottom: 1px solid #e5e5e5;
+}
+
+
+.prdDescription .smsCoupon em, .prdDetailNote .smsCoupon em{
+display:none;
+/*
+display: table-cell;
+width: 56px;
+height: 56px;
+background: url('http://image.gsshop.com/mobile/mc/images/goods/icon_desc_coupon.jpg') no-repeat 50% 50%;
+-webkit-background-size: 56px auto;
+background-size: 56px auto;
+*/
+}
+
+
+.prdDetailNote .smsCoupon p{
+	padding: 0 5px 0 10px;
+}
+
+.prdDescription .smsCoupon p, .prdDetailNote .smsCoupon p{
+	display: table-cell;
+	/* padding: 0 15px 0 10px; */
+	padding:0;
+	font-size: 12px;
+	color: #999;
+	line-height: 14px;
+	vertical-align: middle;
+	
+}
+
+.prdDescription .smsCoupon, .prdDetailNote .smsCoupon{
+	width: auto !important;
+	margin-bottom: 10px;
+	padding: 8px;
+	border-bottom: 1px solid #e5e5e5;
+	}
+
+.prdDescription .smsCoupon b, .prdDetailNote .smsCoupon b{
+	display: block;
+	margin-bottom: 2px;
+	font-size: 13px;
+	color: #00aebd;
+	
+}
+.prdDescription .smsCoupon i, .prdDetailNote .smsCoupon i{
+	font-style: normal;
+	color: #222;
+}
+
+.smsCoupon{text-align:left !important}
+
+.blueTxt{
+	color: #00aebd;
+	font-style: normal;
+}
+
+/* 장바구니 없어질때 정의 */
+.money_info .btn_price.oneBtn{
+	background: #fb1f65;
+	color: #fff;
+	font-weight: bold;
+	width: 165px;
+	height: 39px;
+	display: inline-block;
+	line-height: 39px;
+	text-align: center;
+	/* float: left; */
+	margin-right: 0px;
+	font-size: 16px;
+	vertical-align:middle;
+	
+}
+
+.money_info02 .btn_tel.mr0{ /* margin-right:0 !important; */ }
+
+.money_info02 .btn_price.twoBtn {
+	background: #fb1f65;
+	color: #fff;
+	font-weight: bold;
+	width: 127px;
+	height: 39px;
+	display: inline-block;
+	line-height: 39px;
+	text-align: center;
+	/* float: left; margin-right: 5px; */
+	vertical-align:middle;
+	font-size: 16px;
+}
+
+.iconNo{background:none !important}
+
+/* 여행 추가 */
+.traval_txt{
+	color:#888;
+	font-size:12px;
+	padding:10px 10px 3px 10px;
+	border-top:1px solid #e5e5e5;
+	margin-top:10px
+}
+
+/*app일 경우 위로 버튼(main)*/
+.page_top.app {
+    bottom: 60px;
+}
+
+/* yhchoi24 2014.07.24 */
+
+/* common css */
+.accessible-hide {
+    position: absolute;
+    top: -1000em;
+    left: -1000em;
+}
+.clearfix {
+    overflow: hidden;
+    zoom: 1;
+}
+.no-item-default-message {
+    background: url("http://image.gsshop.com/mobile/mc/images/common/bg_fail.png") no-repeat 0 0;
+}
+.no-item-default-message {
+    position: relative;
+    height: 91px;
+    margin: 60px auto;
+    -moz-background-size: 73px auto;
+    -webkit-background-size: 73px auto;
+    background-size: 73px auto;
+    background-position: 50% 0;
+    text-align: center;
+}
+.no-item-default-message .default-message-paragraph {
+        padding-top: 74px;
+        margin: 0;
+}
+.recommendation-now-product,
+.recent-visit-product {
+  overflow: hidden;
+  position: relative;
+  margin: 45px 0 3px;
+  background: #fff;
+}
+
+.recommendation-now-product 
+.recent-visit-product {
+  margin: 0;
+  padding: 0;
+}
+.recommendation-now-product .smart-cart-state-header-information,
+.recent-visit-product .smart-cart-state-header-information {
+  overflow: hidden;
+  margin: 0;
+  border-bottom: 1px solid #2e384c;
+  background: #323d53;
+  color: #9da19f;
+  font-weight: bold;
+  text-align: center;
+}
+.recommendation-now-product .smart-cart-state-header-information .information-term,
+.recent-visit-product .smart-cart-state-header-information .information-term {
+  float: left;
+  width: 25%;
+  height: 46px;
+  padding-top: 8px;
+  font-weight: bold;
+  font-size: 12px;
+}
+.recommendation-now-product .smart-cart-state-header-information .information-define,
+.recent-visit-product .smart-cart-state-header-information .information-define {
+  position: relative;
+  float: left;
+  width: 25%;
+  margin-left: -25%;
+}
+.recommendation-now-product .smart-cart-state-header-information .information-define a,
+.recent-visit-product .smart-cart-state-header-information .information-define a {
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: 27px 0 11px;
+  border-right: 1px solid #2b3447;
+  color: #c8cbd1;
+  font-size: 20px;
+  font-family: arial;
+}
+.recommendation-now-product .smart-cart-state-header-information .information-define .recommendation-now,
+.recent-visit-product .smart-cart-state-header-information .information-define .recommendation-now {
+  display: inline-block;
+  position: relative;
+  top: -5px;
+  left: -2px;
+  width: 25px;
+  height: 25px;
+  background: url("http://image.gsshop.com/mobile/mc/images/common/img_cart.png") no-repeat 0px 0px;
+  -moz-background-size: 75px auto;
+  -webkit-background-size: 75px auto;
+  background-size: 75px auto;
+  background-position: -28px 0;
+  content: "";
+  text-indent: -1000em;
+}
+.recommendation-now-product .smartcart-header-R .information-term:nth-of-type(4),
+.recommendation-now-product .smartcart-header-W .information-term:nth-of-type(3),
+.recommendation-now-product .smartcart-header-P .information-term:nth-of-type(2),
+.recommendation-now-product .smartcart-header-B .information-term:nth-of-type(1),
+.recent-visit-product .smartcart-header-R .information-term:nth-of-type(4),
+.recent-visit-product .smartcart-header-W .information-term:nth-of-type(3),
+.recent-visit-product .smartcart-header-P .information-term:nth-of-type(2),
+.recent-visit-product .smartcart-header-B .information-term:nth-of-type(1) {
+  float: left;
+  width: 25%;
+  height: 46px;
+  padding-top: 8px;
+  background: #3d4960;
+  color: #86cf00;
+  font-size: 12px;
+}
+.recommendation-now-product .smartcart-header-W .information-define:nth-of-type(3),
+.recommendation-now-product .smartcart-header-P .information-define:nth-of-type(2),
+.recommendation-now-product .smartcart-header-B .information-define:nth-of-type(1),
+.recent-visit-product .smartcart-header-W .information-define:nth-of-type(3),
+.recent-visit-product .smartcart-header-P .information-define:nth-of-type(2),
+.recent-visit-product .smartcart-header-B .information-define:nth-of-type(1) {
+  position: relative;
+  float: left;
+  width: 25%;
+  margin-left: -25%;
+}
+.recommendation-now-product .smartcart-header-W .information-define:nth-of-type(3) a,
+.recommendation-now-product .smartcart-header-P .information-define:nth-of-type(2) a,
+.recommendation-now-product .smartcart-header-B .information-define:nth-of-type(1) a,
+.recent-visit-product .smartcart-header-W .information-define:nth-of-type(3) a,
+.recent-visit-product .smartcart-header-P .information-define:nth-of-type(2) a,
+.recent-visit-product .smartcart-header-B .information-define:nth-of-type(1) a {
+  color: #86cf00;
+}
+.recommendation-now-product .smartcart-header-R .information-define:nth-of-type(4) .recommendation-now,
+.recent-visit-product .smartcart-header-R .information-define:nth-of-type(4) .recommendation-now {
+  display: inline-block;
+  position: relative;
+  top: -5px;
+  left: -2px;
+  width: 25px;
+  height: 25px;
+  background: url("http://image.gsshop.com/mobile/mc/images/common/img_cart.png") no-repeat 0px 0px;
+  -moz-background-size: 75px auto;
+  -webkit-background-size: 75px auto;
+  background-size: 75px auto;
+  background-position: 0 0;
+  content: "";
+  text-indent: -1000em;
+}
+.recommendation-now-product .visited-item .order-item-information,
+.recent-visit-product .visited-item .order-item-information {
+  border-top: 1px solid #efefef;
+}
+.recommendation-now-product .visited-item .item-information,
+.recent-visit-product .visited-item .item-information {
+  position: relative;
+  margin: 10px;
+}
+.recommendation-now-product .visited-item .item-information .item-thumb-area,
+.recent-visit-product .visited-item .item-information .item-thumb-area {
+  position: relative;
+  float: left;
+  margin: 0;
+  width: 104px;
+  height: 104px;
+  border: 1px solid #f4f4f4;
+}
+.recommendation-now-product .visited-item .item-information .item-thumb-area .product-image-area,
+.recent-visit-product .visited-item .item-information .item-thumb-area .product-image-area {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.recommendation-now-product .visited-item .item-information .item-thumb-area .product-image-area .product-image,
+.recent-visit-product .visited-item .item-information .item-thumb-area .product-image-area .product-image {
+  width: 100%;
+  height: 100%;
+}
+.recommendation-now-product .visited-item .item-information .item-thumb-area .zzim,
+.recent-visit-product .visited-item .item-information .item-thumb-area .zzim {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 30px;
+  height: 27px;
+  background: url("http://image.gsshop.com/mobile/mc/images/srch/icon_heart_off.png") no-repeat 0 0;
+  -moz-background-size: 30px auto;
+  -webkit-background-size: 30px auto;
+  background-size: 30px auto;
+  border-left: 1px solid #e5e5e5;
+  border-top: 1px solid #e5e5e5;
+  color: transparent;
+  text-shadow: none;
+}
+.recommendation-now-product .visited-item .item-information .item-thumb-area .selected,
+.recent-visit-product .visited-item .item-information .item-thumb-area .selected {
+  background: url("http://image.gsshop.com/mobile/mc/images/srch/icon_heart_on.png") no-repeat 0 0;
+  -moz-background-size: 30px auto;
+  -webkit-background-size: 30px auto;
+  background-size: 30px auto;
+}
+.recommendation-now-product .visited-item .item-information .item-data-list-area,
+.recent-visit-product .visited-item .item-information .item-data-list-area {
+  position: relative;
+  margin: 0 0 0 114px;
+}
+.recommendation-now-product .visited-item .item-information .item-data-list-area .product-name,
+.recent-visit-product .visited-item .item-information .item-data-list-area .product-name {
+  overflow: hidden;
+  max-height: 34px;
+  margin: 0;
+}
+.recommendation-now-product .visited-item .item-information .item-data-list-area .product-name a,
+.recent-visit-product .visited-item .item-information .item-data-list-area .product-name a {
+  color: #111;
+}
+.recommendation-now-product .visited-item .item-information .item-data-list-area .product-no-interest,
+.recent-visit-product .visited-item .item-information .item-data-list-area .product-no-interest {
+  position: absolute;
+  height: 16px;
+  padding: 2px 0;
+}
+.recommendation-now-product .visited-item .item-information .item-data-list-area .product-no-interest .month-count,
+.recent-visit-product .visited-item .item-information .item-data-list-area .product-no-interest .month-count {
+  color: #666;
+  font-size: 12px;
+  line-height: 16px;
+}
+.recommendation-now-product .visited-item .item-information .item-data-list-area .product-no-interest strong,
+.recent-visit-product .visited-item .item-information .item-data-list-area .product-no-interest strong {
+  display: inline-block;
+  overflow: hidden;
+  width: 16px;
+  height: 16px;
+  background: url("http://image.gsshop.com/mobile/mc/images/common/icon_prd.png") no-repeat 0 0;
+  -moz-background-size: 90px auto;
+  -webkit-background-size: 90px auto;
+  background-size: 90px auto;
+  background-position: 0 0;
+  color: transparent;
+  vertical-align: bottom;
+}
+.recommendation-now-product .visited-item .item-information .item-data-list-area .product-price,
+.recent-visit-product .visited-item .item-information .item-data-list-area .product-price {
+  margin-top: 20px;
+  color: #111;
+  font-weight: normal;
+  font-size: 12px;
+}
+.recommendation-now-product .visited-item .item-information .item-data-list-area .product-price .discount-price,
+.recent-visit-product .visited-item .item-information .item-data-list-area .product-price .discount-price {
+  display: inline-block;
+  color: #86cf00;
+  font-size: 18px;
+}
+.recommendation-now-product .visited-item .item-information .item-data-list-area .product-price .original-price,
+.recent-visit-product .visited-item .item-information .item-data-list-area .product-price .original-price {
+  display: inline-block;
+  margin-left: 1px;
+  color: #888;
+  font-size: 13px;
+  text-decoration: line-through;
+}
+.recommendation-now-product .visited-item .item-information .item-data-list-area .product-price .counsel-exclusive-product,
+.recent-visit-product .visited-item .item-information .item-data-list-area .product-price .counsel-exclusive-product {
+  color: #888;
+  font-style: normal;
+  font-size: 11px;
+}
+.recommendation-now-product .visited-item .item-information .many-visited-product,
+.recent-visit-product .visited-item .item-information .many-visited-product {
+  display: inline-block;
+  position: absolute;
+  left: 114px;
+  bottom: 0;
+  width: auto;
+  height: 25px;
+  padding: 0 4px;
+  border: solid 1px #cbcbcb;
+  background: #f8f8f8;
+  color: #4d5454;
+  font-size: 12px;
+  line-height: 25px;
+  text-shadow: 0 1px 2px #fff;
+  letter-spacing: -1px;
+  text-align: left;
+}
+.recommendation-now-product .visited-item .item-information .many-visited-product:after,
+.recent-visit-product .visited-item .item-information .many-visited-product:after {
+  display: inline-block;
+  width: 8px;
+  height: 6px;
+  margin: 0 0 0 2px;
+  background: url("http://image.gsshop.com/mobile/mc/images/common/img_cart.png") no-repeat;
+  -moz-background-size: 75px auto;
+  -webkit-background-size: 75px auto;
+  background-size: 75px auto;
+  background-position: -68px -19px;
+  content: "";
+}
+.recommendation-now-product .visited-item .item-information .expand:after,
+.recent-visit-product .visited-item .item-information .expand:after {
+  background-position: -68px -4px;
+}
+.recommendation-now-product .visited-item .other-visited-item,
+.recent-visit-product .visited-item .other-visited-item {
+  overflow: hidden;
+  position: relative;
+  height: 91px;
+  background: #ebebeb;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+.recommendation-now-product .visited-item .other-visited-item .visited-item-list,
+.recent-visit-product .visited-item .other-visited-item .visited-item-list {
+  overflow: hidden;
+  width: 80%;
+  padding: 0;
+  margin: 0 auto;
+  list-style: none;
+}
+.recommendation-now-product .visited-item .other-visited-item .visited-item-list .item-list,
+.recent-visit-product .visited-item .other-visited-item .visited-item-list .item-list {
+  display: inline-block;
+  float: left;
+  width: 25%;
+  padding-top: 10px;
+  text-align: center;
+}
+.recommendation-now-product .visited-item .other-visited-item .visited-item-list .item-list .relation-product,
+.recent-visit-product .visited-item .other-visited-item .visited-item-list .item-list .relation-product {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto;
+  border: solid 1px #cfcfcf;
+  -moz-box-shadow: 1px 1px 3px #cfcfcf;
+  -webkit-box-shadow: 1px 1px 3px #cfcfcf;
+  box-shadow: 1px 1px 3px #cfcfcf;
+}
+.recommendation-now-product .visited-item .other-visited-item .visited-item-list .item-list .relation-product .product-image,
+.recent-visit-product .visited-item .other-visited-item .visited-item-list .item-list .relation-product .product-image {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #fff;
+}
+.recommendation-now-product .visited-item .other-visited-item .visited-item-list .item-list .relation-product-price,
+.recent-visit-product .visited-item .other-visited-item .visited-item-list .item-list .relation-product-price {
+  color: #959899;
+  font-size: 11px;
+  line-height: 21px;
+}
+.recommendation-now-product .visited-item .other-visited-item .slide-direction_left,
+.recent-visit-product .visited-item .other-visited-item .slide-direction_left {
+  left: 10px;
+  background: url("http://image.gsshop.com/mobile/mc/images/common/img_smart_arrow.png") no-repeat 0 0;
+}
+.recommendation-now-product .visited-item .other-visited-item .slide-direction_right,
+.recent-visit-product .visited-item .other-visited-item .slide-direction_right {
+  right: 10px;
+  background: url("http://image.gsshop.com/mobile/mc/images/common/img_smart_arrow.png") no-repeat 100% 0;
+}
+.recommendation-now-product .visited-item .other-visited-item .slide-direction_left,
+.recommendation-now-product .visited-item .other-visited-item .slide-direction_right,
+.recent-visit-product .visited-item .other-visited-item .slide-direction_left,
+.recent-visit-product .visited-item .other-visited-item .slide-direction_right {
+  position: absolute;
+  top: 24px;
+  width: 20px;
+  height: 29px;
+  -moz-background-size: 50px auto;
+  -webkit-background-size: 50px auto;
+  background-size: 50px auto;
+  color: transparent;
+}
+.recommendation-now-product .recommendation-item {
+  text-align: center;
+}
+.recommendation-now-product .recommendation-item a {
+  margin-left: 0.35%;
+  display: inline-block;
+  width: 32%;
+  height: 125px;
+}
+.recommendation-now-product .recommendation-item .level-one-title {
+  padding: 9px 10px;
+  margin: 0;
+  border-top: 1px solid #d4d4d4;
+  border-bottom: 1px solid #bbb;
+  background: #f2f2f2;
+  color: #444646;
+  font-size: 14px;
+  text-shadow: 0 1px 1px white;
+  letter-spacing: -1px;
+  text-align: left;
+}
+.recommendation-now-product .recommendation-item .level-one-title strong {
+  font-weight: normal;
+}
+.recommendation-now-product .recommendation-item .order-item-information {
+  display: inline;
+}
+.recommendation-now-product .recommendation-item .item-information {
+  display: inline-block;
+  text-align: center;
+}
+.recommendation-now-product .recommendation-item .item-information .item-thumb-area {
+  display: block;
+  margin: 10px auto 0;
+  width: 92px;
+  height: 92px;
+  border: 1px solid #d1d1d1;
+}
+.recommendation-now-product .recommendation-item .item-information .item-thumb-area .product-image-area {
+  width: 100%;
+  height: 100%;
+}
+.recommendation-now-product .recommendation-item .item-information .item-thumb-area .product-image-area .product-image {
+  width: 100%;
+  height: 100%;
+}
+.recommendation-now-product .recommendation-item .item-information .item-data-list-area .product-name {
+  overflow: hidden;
+  height: 34px;
+  max-height: 34px;
+  margin: 0;
+}
+.recommendation-now-product .recommendation-item .item-information .item-data-list-area .product-name a {
+  color: #111;
+}
+.recommendation-now-product .recommendation-item .item-information .item-data-list-area .product-price {
+  margin-top: 0px;
+  color: #111;
+  font-weight: normal;
+  font-size: 12px;
+}
+.recommendation-now-product .recommendation-item .item-information .item-data-list-area .product-price strong {
+  display: inline-block;
+  color: #86cf00;
+  font-size: 18px;
+}
+@media all and (min-width: 640px) {
+  .recommendation-now-product .recommendation-item a {
+    display: inline-block;
+    margin-left: 0.15%;
+    width: 24.0%;
+    text-align: center;
+  }
+}
+
+/*세계로배송 - 레이어팝업*/
+.global-tootip-tit {color:#111;letter-spacing:-1px;padding-bottom:2px}
+.global-tip-cont {width:190px !important}
+.global-delivery-tip-info {color:#636363;overflow:hidden;letter-spacing:-1px}
+.global-delivery-tip-info li {padding-left:7px;padding-bottom:3px;line-height:1.4em;background:url("http://image.gsshop.com/ui/gsshop/product/images/dot_bl.png") no-repeat 0 7px;background-size:5px}
+.global-delivery-tip-info li strong {color:#00aebd}
+.global-delivery-tip-info li span {font-size:11px;color:#888;letter-spacing:0}
+.btn-global-shop-link {border-top:1px solid #e9e9e9;margin:5px -10px 0;text-align:center;padding-top:7px }
+.btn-global-shop-link a{color:#636363}
+.btn-global-shop-link a:after {display:inline-block;background:transparent url('http://image.gsshop.com/mobile/mc/images/goods/img_mgoods.png') no-repeat -47px -94px;background-size:140px auto;width:9px;height:13px;content:"";vertical-align:middle;margin-left:5px}
+.global-shop-link {display:inline-block;border:1px solid #cacaca;height:20px;line-height:20px;padding:0 5px;font-size:12px;margin-top:-2px}
+.tapUp +.buyingInfo{padding-top:52px}
+
+/* 식품상품 하단 안내문 추가 */
+figure.prd_description_notice{width:100%;text-align:center;}
+figure.prd_description_notice img{clear:both;width:100%;height:auto;}

@@ -35,4 +35,9 @@ public class ProductController extends BroadleafProductController {
         return super.handleRequest(request, response);
     }
 
+    @Override
+    public String getDefaultProductView() {
+        return "/ari/catalog/product";
+    }
+
 }
