@@ -54,44 +54,18 @@
     </div>
 
 
-    <!-- 베스트딜 시작 -->
+    <!-- 딜리스트 시작 -->
     <div id="dealList">
-
-        <div class="tvShopping_contents" th:each="product : ${products}">
-            <div class="tvShopping_area">
-                <div class="tvShopping_img">
-                    <a href="">
-                        <img style="max-height: 250px" th:if="${product.media['primary']}" th:src="@{${product.media['primary'].url} + '?browse'}" th:alt="${product.name}" />
-                    </a>
-                </div>
-            </div>
-
-            <a href="#">
-
-                <div class="line_bottom">
-                    <dl class="shopping_info" th:if="${#object instanceof T(org.broadleafcommerce.core.catalog.domain.ProductBundle)}">
-                        <dt th:text="${product.name}"></dt>
-                        <dd class="shopping_percent" blc:price="${product.salePrice}" th:if="${product.onSale}" th:classappend="${product.defaultSku.onSale}? 'sale'"></dd>
-                        <dd class="shopping_info_price" blc:price="${product.retailPrice}" th:classappend="${product.onSale}? 'has-sale'"></dd>
-                    </dl>
-                    <dl class="shopping_info" th:unless="${#object instanceof T(org.broadleafcommerce.core.catalog.domain.ProductBundle)}">
-                        <dt th:text="${product.name}"></dt>
-                        <dd class="shopping_percent" blc:price="${product.defaultSku.salePrice}" th:if="${product.defaultSku.onSale}" th:classappend="${product.defaultSku.onSale}? 'sale'"></dd>
-                        <dd class="shopping_info_price" blc:price="${product.defaultSku.retailPrice}" th:classappend="${product.defaultSku.onSale}? 'has-sale'"></dd>
-                    </dl>
-                </div>
-            </a>
-        </div>
-        <!-- //class::tvShopping_contents-->
+        <div th:include="/ari/layout/partials/productList"></div>
     </div>
-    <!-- 베스트딜 끝 -->
+    <!-- 딜리스트 끝 -->
 </section>
+
 <div class="loading_cont">
     <div id="moreDiv" class="moreDiv" style="display: none;">
         <span id="moreBtn" class="loading15" style="cursor:default"></span>
     </div>
 </div>
-
 
 <div class="page_top" style="display: block;">
     <img src="http://image.gsshop.com/ui/gsshop/shop/images/btn_top.png" alt="위로"/>
@@ -186,18 +160,26 @@
     <div id="copyright">© GS HOMESHOPPING</div>
 </footer>
 
+<script src="/js/ari/jquery-1.8.2.min.js"></script>
+<script src="//cdn.rawgit.com/fredwu/jquery-endless-scroll/2.0-rewrite/js/jquery.endless-scroll.js"></script>
+<script>
 
-<section>
+    $('#dealList').({
+        fireOnce: false,
+        insertAfter: "#dealList > div.tvShopping_contents:last",
+        data: function(i) {
+            console.log("test");
+            return $.ajax({
+                        url : location.href,
+                        async : false,
+                        data : {
+                            page : i
+                        }
+                    });
+        }
+    });
 
-
-    <!--  <script type="text/javascript" src="http://image.gsshop.com/ui/gsshop/script/lib/jquery-1.8.2.min.js?20141216111900"></script> -->
-
-    <noscript>&lt;img height="1" width="1" border="0" alt="" style="display:none"
-        src="https://www.facebook.com/tr?id=588919104536691&amp;amp;ev=NoScript" /&gt;</noscript>
-
-
-</section>
-
+</script>
 </body>
 
 </html>

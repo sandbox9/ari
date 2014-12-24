@@ -1,0 +1,24 @@
+
+<div class="tvShopping_area">
+    <div class="tvShopping_img">
+        <a th:href="@{*{url}}">
+            <img style="max-height: 250px" th:if="*{media['primary']}" th:src="@{*{media['primary'].url} + '?browse'}" th:alt="*{name}" />
+        </a>
+    </div>
+</div>
+
+<a th:href="@{*{url}}">
+
+    <div class="line_bottom">
+        <dl class="shopping_info" th:if="${#object instanceof T(org.broadleafcommerce.core.catalog.domain.ProductBundle)}">
+            <dt th:text="*{name}"></dt>
+            <dd class="shopping_percent" blc:price="*{salePrice}" th:if="*{onSale}" th:classappend="*{defaultSku.onSale}? 'sale'"></dd>
+            <dd class="shopping_info_price" blc:price="*{retailPrice}" th:classappend="*{onSale}? 'has-sale'"></dd>
+        </dl>
+        <dl class="shopping_info" th:unless="${#object instanceof T(org.broadleafcommerce.core.catalog.domain.ProductBundle)}">
+            <dt th:text="*{name}"></dt>
+            <dd class="shopping_percent" blc:price="*{defaultSku.salePrice}" th:if="*{defaultSku.onSale}" th:classappend="*{defaultSku.onSale}? 'sale'"></dd>
+            <dd class="shopping_info_price" blc:price="*{defaultSku.retailPrice}" th:classappend="*{defaultSku.onSale}? 'has-sale'"></dd>
+        </dl>
+    </div>
+</a>
