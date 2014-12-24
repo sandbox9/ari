@@ -192,11 +192,11 @@
                                 </dd>
                                 <dt class="total-delivery-amount">총 배송비</dt>
                                 <dd class="delivery-amount-information">
-                                	<em>0</em>원
+                                	<em blc:price="${cart.totalFulfillmentCharges}">0</em>원
                                 </dd>
                                 <dt class="order-total-amount">주문금액 합계</dt>
                                 <dd class="total-amount-information">
-                                	<strong blc:price="${cart.subTotal?.subtract(cart.orderAdjustmentsValue)}"></strong>원
+                                	<strong blc:price="${cart.subTotal}"></strong>원
                                 </dd>
                             </dl>
                             <footer class="bottom-link-buttons">
@@ -223,6 +223,7 @@
                 <!-- //일반상품 장바구니 끝-->
                 <!-- 현금결제 장바구니 시작-->
             </form>
+            
             <!-- 선택상품 주문 플로팅 호출 영역 시작 -->
             <aside class="layer-selection-product-order pannel-close" id="divToggle" value="0">
                 <h1 class="accessible-hide ">선택상품 주문 플로팅 레이어 호출 시작</h1>
@@ -241,10 +242,6 @@
         </section>
         <div id="push"></div>
     </div>
-
-
-
-
 
     <div class="page_top" style="display: none;"><img src="http://image.gsshop.com/ui/gsshop/shop/images/btn_top.png" alt="위로"/>
     </div>

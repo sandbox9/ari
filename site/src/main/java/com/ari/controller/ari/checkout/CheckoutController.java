@@ -1,5 +1,8 @@
 package com.ari.controller.ari.checkout;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -41,6 +44,16 @@ public class CheckoutController extends BroadleafCheckoutController {
     	
     	Customer customer = CustomerState.getCustomer();
     	model.addAttribute("customer", customer);
+    	
+    	List<String> phonePrefixList = new ArrayList<String>();
+    	phonePrefixList.add("010");
+    	phonePrefixList.add("011");
+    	phonePrefixList.add("016");
+    	phonePrefixList.add("017");
+    	phonePrefixList.add("018");
+    	phonePrefixList.add("019");
+    	
+    	model.addAttribute("phonePrefixList", phonePrefixList);
     	
     	return "ari/order/checkout";
     }
