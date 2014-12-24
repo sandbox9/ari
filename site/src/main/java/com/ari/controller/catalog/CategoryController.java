@@ -49,8 +49,11 @@ public class CategoryController extends BroadleafCategoryController {
     public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
         ModelAndView model = super.handleRequest(request, response);
 
+        Category category = (Category)model.getModel().get("category");
+
+
         if(request.getRequestURI().equals("/")){
-            Category category = (Category) model.getModelMap().get("category");
+            category = (Category) model.getModelMap().get("category");
             String url = category.getChildCategories().get(0).getUrl();
             //어케 하는지 몰겠어.
             RedirectView rv = new RedirectView( url );
@@ -67,6 +70,13 @@ public class CategoryController extends BroadleafCategoryController {
 //                String sortCondition = sortOption.getSortCondition();
 //                sortOption.setLink(addSortLink(sortOption));
 //            }
+        }
+
+        //메인화면 페이징 요청시 분기 처리
+        String categoryType = category.getCategoryAttributesMap().get("CategoryType").getValue();
+
+        if(categoryType.equals("main") && null != request.getParameter("page")){
+            model.setViewName("/ari/layout/partials/productList");
         }
 
         return model;
