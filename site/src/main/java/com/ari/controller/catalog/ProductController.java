@@ -16,6 +16,7 @@
 
 package com.ari.controller.catalog;
 
+import org.broadleafcommerce.common.template.TemplateType;
 import org.broadleafcommerce.core.web.controller.catalog.BroadleafProductController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.ModelAndView;
@@ -37,7 +38,7 @@ public class ProductController extends BroadleafProductController {
 
     @Override
     public String getDefaultProductView() {
-        return "/ari/catalog/product";
+        return "ari/catalog/product";
     }
 
 }
