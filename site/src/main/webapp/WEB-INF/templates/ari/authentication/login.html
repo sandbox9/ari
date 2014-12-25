@@ -82,7 +82,7 @@
     <div class="quick_link_area">
         <ul class="quick_link_con">
             <li class="quick_home">
-                <a href="/index.gs?mseq=398049">
+                <a th:href="@{/}">
                     <div><em></em><span>홈</span>
                     </div>
                 </a>
@@ -106,13 +106,13 @@
                 </a>
             </li>
             <li class="quick_ship">
-                <a href="/mygsshop/myOrderList.gs?mseq=398053">
+                <a th:href="@{/account/orders}">
                     <div><em></em><span>주문배송</span>
                     </div>
                 </a>
             </li>
             <li class="quick_shopping">
-                <a href="/mygsshop/myshopInfo.gs?mseq=398054">
+                <a th:href="@{/account/myshop}">
                     <div><em></em><span>마이쇼핑</span>
                     </div>
                 </a>
@@ -122,11 +122,11 @@
     <footer id="footer" role="contentinfo">
         <ul class="footer_menu">
             <li>
-                <div class="footer_sub"><a href="/member/logIn.gs?returnurl=">로그인</a>
+                <div class="footer_sub"><a th:href="@{/login}">로그인</a>
                 </div>
             </li>
             <li>
-                <div class="footer_sub"><a href="/mygsshop/myshopInfo.gs?gsid=MCfooter">마이쇼핑</a>
+                <div class="footer_sub"><a th:href="@{/account/myshop}">마이쇼핑</a>
                 </div>
             </li>
             <li>

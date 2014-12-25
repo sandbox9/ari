@@ -109,6 +109,11 @@
 			<groupId>org.broadleafcommerce</groupId>
 			<artifactId>broadleaf-paypal</artifactId>
 		</dependency>
-        
+
+		<dependency>
+			<groupId>itwise.broadleafcommerce</groupId>
+			<artifactId>blc-coupon</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
     </dependencies>
 </project>

@@ -74,38 +74,50 @@
 <div class="quick_link_area">
     <ul class="quick_link_con">
         <li class="quick_home on ">
-            <a href="/index.gs?mseq=398049">
-                <div><em></em><span>홈</span>
+            <a href="/">
+                <div>
+                	<em></em>
+                	<span>홈</span>
                 </div>
             </a>
         </li>
         <li class="quick_category">
-            <a href="/m/sect/category.gs?mseq=398050">
-                <div><em></em><span>카테고리</span>
+            <a>
+                <div>
+                	<em></em>
+                	<span>카테고리</span>
                 </div>
             </a>
         </li>
         <li class="quick_search">
-            <a href="/m/search/searchNewMain.gs?mseq=398051">
-                <div><em></em><span>검색</span>
+            <a>
+                <div>
+                	<em></em>
+                	<span>검색</span>
                 </div>
             </a>
         </li>
         <li class="quick_cart">
-            <a href="/mobile/cart/viewCart.gs?mseq=398052">
-                <div><em></em><span>스마트카트</span>
+            <a href="/cart/list">
+                <div>
+                	<em></em>
+                	<span>스마트카트</span>
                 </div>
             </a>
         </li>
         <li class="quick_ship">
-            <a href="/mygsshop/myOrderList.gs?mseq=398053">
-                <div><em></em><span>주문배송</span>
+            <a>
+                <div>
+                	<em></em>
+                	<span>주문배송</span>
                 </div>
             </a>
         </li>
         <li class="quick_shopping">
-            <a href="/mygsshop/myshopInfo.gs?mseq=398054">
-                <div><em></em><span>마이쇼핑</span>
+            <a href="/account/coupons">
+                <div>
+                	<em></em>
+                	<span>마이쇼핑</span>
                 </div>
             </a>
         </li>
@@ -121,19 +133,24 @@
 <footer id="footer" role="contentinfo">
     <ul class="footer_menu">
         <li>
-            <div class="footer_sub"><a href="#">로그아웃</a>
+            <div class="footer_sub">
+            	<a href="/login" th:if="${@blCustomerState.getCustomer().isAnonymous() == true}">로그인</a>
+            	<a href="/logout" th:unless="${@blCustomerState.getCustomer().isAnonymous()} == true">로그아웃</a>
             </div>
         </li>
         <li>
-            <div class="footer_sub"><a href="/mygsshop/myshopInfo.gs?gsid=MCfooter">마이쇼핑</a>
+            <div class="footer_sub">
+            	<a>마이쇼핑</a>
             </div>
         </li>
         <li>
-            <div class="footer_sub"><a href="/mygsshop/customerCenter.gs?gsid=MCfooter">고객센터</a>
+            <div class="footer_sub">
+            	<a>고객센터</a>
             </div>
         </li>
         <li>
-            <div class="footer_sub"><a href="/main/lastprd.gs?gsid=MCfooter">최근본상품</a>
+            <div class="footer_sub">
+            	<a>최근본상품</a>
             </div>
         </li>
     </ul>

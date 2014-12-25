@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+
+    <title>GS SHOP</title>
+
+    <link type="text/css" rel="stylesheet" href="/css/ari/common.css" charset="EUC-KR" />
+    <!-- commonOldCssList : /mobile/mc/css/member.css / commonNewCssList : /cust/css/style.css?12305 -->
+    <!--   <link type="text/css" rel="stylesheet" href="http://image.gsshop.com/mobile/mc/css/member.css"> -->
+    <link type="text/css" rel="stylesheet" href="/css/ari/custstyle.css" />
+
+</head>
+
+<body class="_mygsshop_myCouponList_gs">
+    <div id="container">
+
+        <header id="headline" class="sub_header_area">
+            <div id="div_staff_limit"></div>
+            <p class="category_back_btn"><a href="javascript:history.back();">뒤로가기</a>
+            </p>
+            <h1 class="sub_category_tit">할인쿠폰</h1><span class="sub_category_subtitle"></span>
+            <div id="div_orderchange_btn"></div>
+        </header>
+
+        <article id="myshopping" class="coupones">
+            <section class="tab_wrapper">
+                <ul class="tab2 tabMOBILE">
+                    <li><a href="/mygsshop/myCouponList.gs?tabCd=GENRL">리얼멤버십 쿠폰함 <span>( 0 )</span></a>
+                    </li>
+                    <li><a href="/mygsshop/myCouponList.gs?tabCd=MOBILE">상품 쿠폰함 <span>( 1 )</span></a>
+                    </li>
+                </ul>
+            </section>
+            <section class="cupon_list">
+                <!-- 쿠폰리스트 반복영역 -->
+                
+                
+                
+                <dl th:each="coupon : ${coupons}" th:object="${coupon}"><dt><p class="limit"><span>남은 기간 : 13시간</span><em><strike>(141209129)</strike></em></p><p class="tit" th:text="${coupon.name}"></p>
+                <p class="detail"><strike>5,000원 이상 상품 / 최대 210,000원 할인</strike></p><p class="line"></p><p></p></dt>
+                    <dd>
+                        <div class="coupone4">
+                            <a href="javascript:;">
+                                <p><span></span>
+                                
+                                <em class="num" th:if="${coupon.discountType.type == 'PERCENT_OFF'}" th:text="${#numbers.formatDecimal(coupon.value,0,2) + '% 할인'}"></em>
+                                <em class="num" th:if="${coupon.discountType.type == 'AMOUNT_OFF'}" th:text="${'$' + #numbers.formatDecimal(coupon.value,0,2) + ' 할인'}"></em>
+                                
+                                <span></span>
+                                </p>
+                                <p>GS SHOP</p>
+                            </a>
+                        </div>
+                    </dd>
+                </dl>
+
+            </section>
+            <p class="list_more"><a class="more hidden" data-pagecount="0" data-appendtarget="section.cupon_list > dl">10개 더보기</a>
+            </p>
+            <div id="cont_more">
+                <ul class="cont_more_nav">
+                    <li>
+                        <div>
+                            <a href="javascript:window.history.back();" class="btn_go_back"><img src="http://image.gsshop.com/mobile/mc/images/common/btn_goto_pre.png" alt="이전" />이전 </a>
+                        </div>
+                    </li>
+                    <li></li>
+                    <li>
+                        <div>
+                            <a href="javascript:window.scrollTo(0,0)" class="btn_go_top"><img src="http://image.gsshop.com/mobile/mc/images/common/btn_goto_top.png" alt="위로가기" />맨위로</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </article>
+        <div id="push"></div>
+    </div>
+
+
+
+
+
+    <div class="page_top" style="display: none;"><img src="http://image.gsshop.com/ui/gsshop/shop/images/btn_top.png" alt="위로" />
+    </div>
+    <div class="quick_link_area">
+        <ul class="quick_link_con">
+            <li class="quick_home">
+	            <a href="/">
+	                <div>
+	                	<em></em>
+	                	<span>홈</span>
+	                </div>
+	            </a>
+	        </li>
+	        <li class="quick_category">
+	            <a>
+	                <div>
+	                	<em></em>
+	                	<span>카테고리</span>
+	                </div>
+	            </a>
+	        </li>
+	        <li class="quick_search">
+	            <a>
+	                <div>
+	                	<em></em>
+	                	<span>검색</span>
+	                </div>
+	            </a>
+	        </li>
+	        <li class="quick_cart">
+	            <a href="/cart/list">
+	                <div>
+	                	<em></em>
+	                	<span>스마트카트</span>
+	                </div>
+	            </a>
+	        </li>
+	        <li class="quick_ship">
+	            <a>
+	                <div>
+	                	<em></em>
+	                	<span>주문배송</span>
+	                </div>
+	            </a>
+	        </li>
+	        <li class="quick_shopping on">
+	            <a href="/account/coupons">
+	                <div>
+	                	<em></em>
+	                	<span>마이쇼핑</span>
+	                </div>
+	            </a>
+	        </li>
+        </ul>
+    </div>
+    
+    <footer id="footer" role="contentinfo">
+        <ul class="footer_menu">
+            <li>
+	            <div class="footer_sub">
+	            	<a href="/login" th:if="${@blCustomerState.getCustomer().isAnonymous() == true}">로그인</a>
+	            	<a href="/logout" th:unless="${@blCustomerState.getCustomer().isAnonymous()} == true">로그아웃</a>
+	            </div>
+	        </li>
+            <li>
+                <div class="footer_sub">
+                	<a>마이쇼핑</a>
+                </div>
+            </li>
+            <li>
+                <div class="footer_sub">
+                	<a>고객센터</a>
+                </div>
+            </li>
+            <li>
+                <div class="footer_sub">
+                	<a>최근본상품</a>
+                </div>
+            </li>
+        </ul> <address><strong>(주)지에스홈쇼핑 대표이사 허태수</strong>서울시 영등포구 선유로 75 GS강서타워  호스팅제공자 (주)지에스홈쇼핑 사업자등록번호 117-81-13253 통신판매업신고 영등포구청 제 2002-00068호 <a href="#" target="_blank" class="footer_link">사업자정보확인</a> <a href="/mobile/etc/etc_loan.jsp" class="footer_link">기업은행 채무지급 보증안내</a><br />고객센터 1899-4455 <a href="mailto:gsshop@gsshop.com">gsshop@gsshop.com</a></address>
+        <div class="footer_sub_nav"><a href="/m/mygsshop/articleMain.gs">이용약관</a><a href="/m/mygsshop/appDownGuide.gs?gsid=MCfooter">앱다운로드</a><a href="/m/mygsshop/payGuideIphoneApp.gs?gsid=MCfooter">결제안내</a>
+        </div>
+        <div id="copyright">© GS HOMESHOPPING</div>
+    </footer>
+
+    <section>
+
+        <noscript>&lt;img height="1" width="1" border="0" alt="" style="display:none" src="https://www.facebook.com/tr?id=588919104536691&amp;amp;ev=NoScript" /&gt;</noscript>
+
+
+
+
+
+    </section>
+
+
+</body>
+
+</html>
