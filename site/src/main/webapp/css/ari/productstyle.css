@@ -5188,7 +5188,7 @@ button{background:none; border:none}
 .dropBtnCon{border-bottom:1px solid #acacac; height:21px; }
 .orderContainer{padding:10px 10px 0 10px; background:#fff; position:relative}
 
-.floating_btn{height:38px; padding:6px 8px; border-top:1px solid #a6a6a6; background:#fff}
+.floating_btn{height:38px; padding:6px 8px; background:#fff}
 .floating_btn label{background:#ee1f60; display:block; height:38px; color:#fff; text-align:center; line-height:32px}
 .floating_btn input[type="button"]{background:none; color:#fff; font-size:17px}
 .floating_btn p.shell_out{color:#ee1f60; text-align:center; font-size:17px; font-weight:bold; line-height:33px}

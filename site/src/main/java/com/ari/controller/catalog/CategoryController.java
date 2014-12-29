@@ -22,6 +22,7 @@ import com.ari.domain.catalog.SortOption;
 import org.apache.commons.lang3.StringUtils;
 import org.broadleafcommerce.common.web.BroadleafRequestContext;
 import org.broadleafcommerce.core.catalog.domain.Category;
+import org.broadleafcommerce.core.catalog.domain.CategoryAttribute;
 import org.broadleafcommerce.core.search.domain.ProductSearchCriteria;
 import org.broadleafcommerce.core.web.controller.catalog.BroadleafCategoryController;
 import org.broadleafcommerce.core.web.util.ProcessorUtils;
@@ -73,10 +74,13 @@ public class CategoryController extends BroadleafCategoryController {
         }
 
         //메인화면 페이징 요청시 분기 처리
-        String categoryType = category.getCategoryAttributesMap().get("CategoryType").getValue();
+        CategoryAttribute categoryType = category.getCategoryAttributesMap().get("CategoryType");
+        if(categoryType != null){
+            String categoryTypeValue = categoryType.getValue();
 
-        if(categoryType.equals("main") && null != request.getParameter("page")){
-            model.setViewName("/ari/layout/partials/productList");
+            if(categoryTypeValue.equals("main") && null != request.getParameter("page")){
+                model.setViewName("/ari/layout/partials/productList");
+            }
         }
 
         return model;
