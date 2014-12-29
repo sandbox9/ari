@@ -132,6 +132,8 @@
                                         </article>
 
                                         <article class="layer-option-quantity-change" th:id="'articleOpt' + ${itemIter.index}" style="display:none">
+                                        	<input type="hidden" th:id="'itemPrdId' + ${itemIter.index}" th:value="*{product.id}" />
+                                        	<input type="hidden" th:id="'itemId' + ${itemIter.index}" th:value="*{id}" />
                                             <h1 class="accessible-hide">옵션/수량 변경</h1>
                                             <ex:order_item_product_option_display orderItem="${item}">
                                             <ul class="select-box-list" th:unless="${#lists.isEmpty(orderItemproductOptionDisplayValues)}">
@@ -163,7 +165,7 @@
                                                 </p>
                                             </div>
                                             <footer class="footer-buttons-information">
-                                            	<a href="javascript:;" id="chooseChangeComplete" data-idx="4" class="function-option-quantity-change">변경</a>
+                                            	<a th:onclick="'saveQty(' + ${itemIter.index} + ')'" class="function-option-quantity-change">변경</a>
                                             </footer>
                                         </article>
                                         
@@ -188,7 +190,7 @@
                             <dl class="payment-amount-information">
                             	<dt class="total-product-amount">총 상품금액</dt>
                                 <dd class="product-amount-information">
-                                	<em blc:price="${cart.total}"></em>원
+                                	<em blc:price="${cart.total}">0</em>원
                                 </dd>
                                 <dt class="total-delivery-amount">총 배송비</dt>
                                 <dd class="delivery-amount-information">
@@ -196,7 +198,7 @@
                                 </dd>
                                 <dt class="order-total-amount">주문금액 합계</dt>
                                 <dd class="total-amount-information">
-                                	<strong blc:price="${cart.subTotal}"></strong>원
+                                	<strong blc:price="${cart.subTotal}">0</strong>원
                                 </dd>
                             </dl>
                             <footer class="bottom-link-buttons">
@@ -336,7 +338,6 @@
 
     </section>
 
-
 </body>
 <script th:inline="javascript">
 /*<![CDATA[*/
@@ -366,6 +367,25 @@ function selectAllItems() {
 		if(isChecked == false) $(this).attr("checked", true);
 		else $(this).removeAttr("checked");
 	});
+}
+
+function saveQty(index) {
+	var itemQty = $("#itemQty" + index).val();
+	var itemId = $("#itemId" + index).val();
+	var itemPrdId = $("#itemPrdId" + index).val();
+	
+	var data = {};
+	data.quantity = itemQty;
+	data.productId = itemPrdId;
+	data.orderItemId = itemId;
+	data.csrfToken = [[${@blExploitProtectionService.getCSRFToken()}]];
+	
+	$.ajax({
+		  type: "POST",
+		  url: "/cart/updateQuantity",
+		  data: data,
+		  success: function(result) { document.location.reload(); }
+		});
 }
 /*]]>*/
 </script>
