@@ -116,10 +116,11 @@
                                 <select th:name="${'itemAttributes[' + productOption.attributeName + ']'}">
                                     <option th:each="optionValue : *{allowedValues}" th:object="${optionValue}" th:text="*{attributeValue}"></option>
                                 </select>
+
                                 <!--<li th:each="optionValue : *{allowedValues}" blc:product_option_value="${optionValue}" th:object="${optionValue}" th:classappend="${productOption.type.type == 'COLOR'}? ${optionValue.attributeValue}" >-->
-                                    <!--<div>-->
-                                        <!--<a href="#" class="option-label" th:text="*{attributeValue}"  ></a>-->
-                                    <!--</div>-->
+                                <!--<div>-->
+                                <!--<a href="#" class="option-label" th:text="*{attributeValue}"  ></a>-->
+                                <!--</div>-->
                                 <!--</li>-->
                             </li>
                         </ul>
@@ -130,7 +131,7 @@
             <dt>
             </dt>
             <dd>
-                <div class="floating_btn">
+                <div class="floating_btn addToCart">
                     <label class="ext btn_price">
                         구매하기
                     </label>
@@ -1828,7 +1829,13 @@
         <div id="copyright">© GS HOMESHOPPING</div>
     </footer>
 
+    <blc:form method="POST" id="cartAddForm" th:action="@{/cart/add}">
+        <input type="hidden" name="productId" th:value="${product.id}" />
+        <input type="hidden" name="quantity" value="1" />
+    </blc:form>
+
     <script type="text/javascript" src="/js/ari/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="/js/BLC.js"></script>
     <script type="text/javascript" src="/js/ari/drag.js"></script>
     <script type="text/javascript" src="/js/ari/product.js"></script>
 </div>
