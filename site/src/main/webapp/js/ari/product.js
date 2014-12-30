@@ -599,6 +599,7 @@ $('body').on('click', '.addToCart', function () {
             } else {
                 //카트에 정상적으로 추가되었으면 카트페이지로 이동
                 location.href = "/cart/list";
+
                 //$productOptionsSpan.css('display', 'none');
                 //updateHeaderCartItemsCount(data.cartItemCount);
                 //
