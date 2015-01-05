@@ -133,13 +133,14 @@
 
                                         <article class="layer-option-quantity-change" th:id="'articleOpt' + ${itemIter.index}" style="display:none">
                                         	<input type="hidden" th:id="'itemPrdId' + ${itemIter.index}" th:value="*{product.id}" />
+                                        	<input type="hidden" th:id="'itemSkuId' + ${itemIter.index}" th:value="*{sku.id}" />
                                         	<input type="hidden" th:id="'itemId' + ${itemIter.index}" th:value="*{id}" />
                                             <h1 class="accessible-hide">옵션/수량 변경</h1>
                                             <ex:order_item_product_option_display orderItem="${item}">
                                             <ul class="select-box-list" th:unless="${#lists.isEmpty(orderItemproductOptionDisplayValues)}">
                                                 <li th:each="productOption : ${orderItemproductOptionDisplayValues}" th:object="${productOption}" class="select-box-list-line" id="color4" style="display:block">
                                                     <label>
-                                                        <select name="colorSelect" id="colorSelect4" class="select-box">
+                                                        <select th:name="'itemOptions' + ${itemIter.index}" th:attr="label=${itemIter.index}" class="select-box">
                                                             <option value="" th:text="${productOption.key}">색상 선택</option>
                                                             <option th:each="option : ${productOption.value}" th:text="${option}"></option>
                                                         </select>
@@ -179,7 +180,7 @@
                                             </p>
                                             <a href="javascript:;" class="link-immediate-order" id="checkOrdShipPrdGroup" data-bundldlvgrp="10159290023" data-basktgbn="INTG_BASKT" data-idx="4">바로주문</a>
                                         </footer>
-                                        <a href="javascript:;" class="function-item-individual-delete" id="deleteItem" data-basktgbn="INTG_BASKT" data-prdcd="14004710" data-basktitemid="395635488" data-idx="4">삭제</a>
+                                        <a th:href="'./remove?orderItemId=' + *{id} + '&amp;productid=' + *{product.id}" class="function-item-individual-delete">삭제</a>
                                     </section>
                                 </article>
                             </li>
@@ -373,10 +374,12 @@ function saveQty(index) {
 	var itemQty = $("#itemQty" + index).val();
 	var itemId = $("#itemId" + index).val();
 	var itemPrdId = $("#itemPrdId" + index).val();
+	var itemSkuId = $("#itemSkuId" + index).val();
 	
 	var data = {};
 	data.quantity = itemQty;
 	data.productId = itemPrdId;
+	data.skuId = itemSkuId;
 	data.orderItemId = itemId;
 	data.csrfToken = [[${@blExploitProtectionService.getCSRFToken()}]];
 	

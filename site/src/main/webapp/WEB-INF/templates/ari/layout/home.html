@@ -13,10 +13,10 @@
     <blc:categories resultVar="navCategories" parentCategory="Primary Nav" maxResults="5"/>
 
     <ul class="gnb">
-        <li th:each="navCategory : ${navCategories}" th:classappend="${navCategory.id} == ${category.defaultParentCategory.id}? 'on'" th:unless="${#strings.isEmpty(navCategory.url)}">
+        <li th:each="navCategory : ${navCategories}" th:unless="${#strings.isEmpty(navCategory.url)}">
             <a th:href="@{${navCategory.url}}">
-                <img class="onImg" th:src="@{${navCategory.categoryMedia['icon'].url}}" alt="Home"/>
-                <span th:text="${navCategory.name}">카테고리명</span>
+                <img th:src="@{${navCategory.categoryMedia['icon'].url}}" alt="Home"/>
+                <!-- <span th:text="${navCategory.name}">카테고리명</span> -->
             </a>
         </li>
     </ul>
@@ -49,7 +49,7 @@
     <blc:content contentType="Homepage Banner Ad"/>
     <div id="banner_area" th:if="${contentItem !=null and contentItem['targetUrl'] != null and contentItem['imageUrl'] != null}">
         <a th:href="@{${contentItem['targetUrl']}}">
-            <img th:src="@{${contentItem['imageUrl']}}"/>
+            <img th:src="@{${contentItem['imageUrl']}}" style="width:100%"/>
         </a>
     </div>
 
