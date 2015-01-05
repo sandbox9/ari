@@ -48,7 +48,8 @@ public class OrderItemProductOptionDisplyProcessor extends AbstractLocalVariable
 					ProductOptionValue optionValue = iterator.next();
 					
 					String value = optionValue.getAttributeValue();
-					String label = optionValue.getProductOption().getLabel();
+//					String label = optionValue.getProductOption().getLabel();
+					String label = optionValue.getProductOption().getAttributeName();
 					
 					List<String> values = productOptionDisplayValues.get(label);
 					if(values == null) {
