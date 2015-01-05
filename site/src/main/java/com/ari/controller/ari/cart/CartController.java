@@ -23,6 +23,7 @@ import org.broadleafcommerce.core.web.order.CartState;
 import org.broadleafcommerce.core.web.order.model.AddToCartItem;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -44,19 +45,17 @@ public class CartController extends BroadleafCartController {
     @RequestMapping(value = "/list")
     public String list(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
     	super.cart(request, response, model);
-    	
-    	
-//    	Order cart = CartState.getCart();
-//    	List<OrderItem> orderItems = cart.getOrderItems();
-//    	for (OrderItem orderItem : orderItems) {
-//			orderItem.getId();
-//			DiscreteOrderItem dOI = (DiscreteOrderItem)orderItem;
-//			dOI.getProduct().getId();
-//		}
-    	
-    	
         return "ari/cart/list";
     }
+    
+   @Override
+   @RequestMapping("/remove")
+   public String remove(HttpServletRequest request, HttpServletResponse response, Model model,
+      @ModelAttribute("addToCartItem") AddToCartItem addToCartItem) throws IOException, PricingException, RemoveFromCartException {
+      super.remove(request, response, model, addToCartItem);
+      
+      return "redirect:/cart/list";
+   }
     
     @RequestMapping(value = "/add", produces = "application/json")
     public @ResponseBody Map<String, Object> addJson(HttpServletRequest request, HttpServletResponse response, Model model,
@@ -99,7 +98,11 @@ public class CartController extends BroadleafCartController {
     public String updateQuantity(HttpServletRequest request, HttpServletResponse response, Model model, RedirectAttributes redirectAttributes,
           @ModelAttribute("addToCartItem") AddToCartItem addToCartItem) throws IOException, PricingException, UpdateCartException, RemoveFromCartException {
     	try {
-    		return super.updateQuantity(request, response, model, addToCartItem);
+    		super.updateQuantity(request, response, model, addToCartItem);
+    		
+    		updateSkuIdIfNecessary(request, response, model, addToCartItem);
+    		
+    		return "success";
     	} catch (UpdateCartException e) {
     		if (e.getCause() instanceof InventoryUnavailableException) {
     			// 	Since there was an exception, the order gets detached from the Hibernate session. This re-attaches it
@@ -116,4 +119,8 @@ public class CartController extends BroadleafCartController {
     		}
     	}
     }
+
+	private void updateSkuIdIfNecessary(HttpServletRequest request, HttpServletResponse response, Model model, AddToCartItem addToCartItem) {
+		Map<String, String> itemAttributes = addToCartItem.getItemAttributes();
+	}
 }
