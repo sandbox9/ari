@@ -52,4 +52,6 @@
         </property>
     </bean>
 
+
+	<bean p:order="1000" id="blOfferActivity" class="itwise.broadleafcommerce.coupon.OfferCouponActivity"/>
 </beans>

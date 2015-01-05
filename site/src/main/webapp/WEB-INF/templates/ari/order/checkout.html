@@ -12,6 +12,7 @@
     <link type="text/css" rel="stylesheet" href="/css/ari/order.css" />
     <link type="text/css" rel="stylesheet" href="/css/ari/override.css" />
     <link rel="stylesheet" type="text/css" href="/css/ari/style.css" />
+    <script type="text/javascript" src="./js/ari/jquery-1.8.2.min.js"></script>
 </head>
 
 <body>
@@ -110,40 +111,74 @@
                             
                             <dl class="discount-benefit-use-form"> 
                             	<dt class="information-term">
-                            		<input type="checkbox" class="checkbox-item" checked="checked"/>
+                            		<input type="checkbox" class="checkbox-item" id="useCoupon" checked="checked"/>
                             		<label for="cpn_chk">할인쿠폰<em>(<strong><span id="prdDblCpnQty">1</span></strong>)</em></label>
-                            		<a href="" class="function-query-use">
-                            			<span id="coupon_btn_nm">조회 및 사용</span>
-                            		</a>
+                            			<span id="coupon_btn_nm" class="function-query-use">조회 및 사용</span>
                             	</dt>
                                 <dd class="information-define">
                                     <input type="text" pattern="[0-9]*" value="10" class="discount-benefit-point-fixed-setting" title="할인쿠폰 적용 금액" readonly="readonly" />원
                                 </dd>
                             </dl>
+                            <script type="text/javascript">
+                            function coucponToggle(){
+                            	if($("#useCoupon").is(":checked")){
+	                            	$("#coupon").show();
+	                            	$("#coupon_btn_nm").text("닫기")
+                            	} else {
+	                            	$("#coupon").hide();
+	                            	$("#coupon_btn_nm").text("조회 및 사용")
+                            	}
+                            }
+                            $("#useCoupon").change(function(){
+                            	coucponToggle();
+                            });
+                            
+                           	$("#coupon_btn_nm").click(function(){
+                           		$("#useCoupon").attr("checked", !$("#useCoupon").attr("checked"));
+                           		coucponToggle();
+                           	});
+                            </script>
+
+                            <!-- 상품별 쿠폰목록 -->
                             <div class="layer-discount-coupon" id="coupon" style="display:none;">
                                 <dl class="coupon-information">
-                                	<dt class="exposure-product-name">[롯데백화점][아디다스] 에센셜 3선 트랙탑 x20512</dt>
+		                            <th:block th:each="entry, iterationStatus : ${coupons}" >
+                                	<dt class="exposure-product-name" th:text="${entry.key.name}"></dt>
                                     <dd class="cupon-selection">
                                         <label>
                                             <select id="127934546|0" name="selectGenrlCpn" class="select-box">
-                                                <option value="defaultOption">상품쿠폰 선택</option>
-                                                <option value="15131522|141209129">롯데레포츠_14%</option>
+						                        <option value="defaultOption">상품쿠폰 선택</option>
+						                        <option 
+						                            th:if="${entry.value != null}"
+						                            th:text="${entry.value.offer.name}"
+						                            th:value="${entry.value.offer.id}">쿠폰이름</option>
+						                        <option  th:if="${entry.value == null}" value="">사용가능 쿠폰 없음</option>
                                             </select>
                                         </label>
                                     </dd>
-                                    <dd class="cupon-selection" style="display: block;">
-                                        <label>
-                                            <select class="select-box" style="visibility: hidden;">
-                                                <option value="defaultOption">사용가능 쿠폰 없음</option>
-                                            </select>
-                                        </label>
-                                    </dd>
+                                    
+                                    </th:block>
                                 </dl>
+                                
                                 <p class="buttons-information">
                                 	<a id="btnCloseOrdDcCpn" href="#" class="function-discount-coupon-selection-cancel">취소</a>
                                 	<a id="btnUseOrdDcCpn" href="#" class="function-discount-coupon-selection-finish">쿠폰사용하기</a>
                                 </p>
                             </div>
+                            <script type="text/javascript">
+                                $("#btnCloseOrdDcCpn").click(function(){
+                                    $("selectGenrlCpn").each(function(){
+                                        $(this).val("defaultOption");
+                                    });
+                                });
+
+                                $("#btnUseOrdDcCpn").click(function(){
+                                    $("selectGenrlCpn").each(function(){
+
+                                    });
+                                });
+
+                            </script>
 
                             <dl class="discount-benefit-use-form"> 
                             	<dt class="information-term">

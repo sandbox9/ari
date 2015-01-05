@@ -32,7 +32,7 @@
                 <ul class="tab2 tabMOBILE">
                     <li><a href="/mygsshop/myCouponList.gs?tabCd=GENRL">리얼멤버십 쿠폰함 <span>( 0 )</span></a>
                     </li>
-                    <li><a href="/mygsshop/myCouponList.gs?tabCd=MOBILE">상품 쿠폰함 <span>( 1 )</span></a>
+                    <li><a href="#">상품 쿠폰함 <span th:text="${'( ' + #lists.size(coupons)}  + ' )'"></span></a>
                     </li>
                 </ul>
             </section>
@@ -41,15 +41,15 @@
                 
                 
                 
-                <dl th:each="coupon : ${coupons}" th:object="${coupon}"><dt><p class="limit"><span>남은 기간 : 13시간</span><em><strike>(141209129)</strike></em></p><p class="tit" th:text="${coupon.name}"></p>
-                <p class="detail"><strike>5,000원 이상 상품 / 최대 210,000원 할인</strike></p><p class="line"></p><p></p></dt>
+                <dl th:each="coupon : ${coupons}" th:object="${coupon}"><dt><p class="limit"><span>남은 기간 : 13시간</span><em><strike>(141209129)</strike></em></p><p class="tit" th:text="${coupon.couponName}"></p>
+                <p class="detail" th:text="${coupon.offer.name}"></p><p class="line"></p><p></p></dt>
                     <dd>
                         <div class="coupone4">
                             <a href="javascript:;">
                                 <p><span></span>
                                 
-                                <em class="num" th:if="${coupon.discountType.type == 'PERCENT_OFF'}" th:text="${#numbers.formatDecimal(coupon.value,0,2) + '% 할인'}"></em>
-                                <em class="num" th:if="${coupon.discountType.type == 'AMOUNT_OFF'}" th:text="${'$' + #numbers.formatDecimal(coupon.value,0,2) + ' 할인'}"></em>
+                                <em class="num" th:if="${coupon.offer.discountType.type == 'PERCENT_OFF'}" th:text="${#numbers.formatDecimal(coupon.offer.value,0,0) + ' % 할인'}"></em>
+                                <em class="num" th:if="${coupon.offer.discountType.type == 'AMOUNT_OFF'}" th:text="${#numbers.formatDecimal(coupon.offer.value,0,0) + ' 원 할인'}"></em>
                                 
                                 <span></span>
                                 </p>
